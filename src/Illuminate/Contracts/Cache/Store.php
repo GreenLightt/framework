@@ -5,7 +5,7 @@ namespace Illuminate\Contracts\Cache;
 interface Store
 {
     /**
-     * Retrieve an item from the cache by key.
+     * 根据键名，从缓存中找到键值
      *
      * @param  string|array  $key
      * @return mixed
@@ -13,9 +13,7 @@ interface Store
     public function get($key);
 
     /**
-     * Retrieve multiple items from the cache by key.
-     *
-     * Items not found in the cache will have a null value.
+     * 根据一堆键名，分别查找其对应的键值，如果找不到，则该键名对应的键值为 null
      *
      * @param  array  $keys
      * @return array
@@ -23,7 +21,7 @@ interface Store
     public function many(array $keys);
 
     /**
-     * Store an item in the cache for a given number of minutes.
+     * 存储给定键值对，并设置缓存时间
      *
      * @param  string  $key
      * @param  mixed   $value
@@ -33,7 +31,7 @@ interface Store
     public function put($key, $value, $minutes);
 
     /**
-     * Store multiple items in the cache for a given number of minutes.
+     * 存储一堆给定键值对，并设置缓存时间
      *
      * @param  array  $values
      * @param  float|int  $minutes
@@ -42,7 +40,7 @@ interface Store
     public function putMany(array $values, $minutes);
 
     /**
-     * Increment the value of an item in the cache.
+     * 指定键名的值，增加给定数目
      *
      * @param  string  $key
      * @param  mixed   $value
@@ -51,7 +49,7 @@ interface Store
     public function increment($key, $value = 1);
 
     /**
-     * Decrement the value of an item in the cache.
+     * 指定键名的值，减少给定数目
      *
      * @param  string  $key
      * @param  mixed   $value
@@ -60,7 +58,7 @@ interface Store
     public function decrement($key, $value = 1);
 
     /**
-     * Store an item in the cache indefinitely.
+     * 永久保存给定键值对，到缓存
      *
      * @param  string  $key
      * @param  mixed   $value
@@ -69,7 +67,7 @@ interface Store
     public function forever($key, $value);
 
     /**
-     * Remove an item from the cache.
+     * 根据键名，从缓存手动移除
      *
      * @param  string  $key
      * @return bool
@@ -77,14 +75,14 @@ interface Store
     public function forget($key);
 
     /**
-     * Remove all items from the cache.
+     * 从缓存中，移除所有键值对
      *
      * @return bool
      */
     public function flush();
 
     /**
-     * Get the cache key prefix.
+     * 获取键名的前缀
      *
      * @return string
      */

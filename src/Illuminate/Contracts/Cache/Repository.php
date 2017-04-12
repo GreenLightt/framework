@@ -7,7 +7,7 @@ use Closure;
 interface Repository
 {
     /**
-     * Determine if an item exists in the cache.
+     * 根据键名，判断是否存在键值对
      *
      * @param  string  $key
      * @return bool
@@ -15,7 +15,7 @@ interface Repository
     public function has($key);
 
     /**
-     * Retrieve an item from the cache by key.
+     * 根据键名，获取键值；如果不存在，返回默认值
      *
      * @param  string  $key
      * @param  mixed   $default
@@ -24,7 +24,7 @@ interface Repository
     public function get($key, $default = null);
 
     /**
-     * Retrieve an item from the cache and delete it.
+     * 根据键名，获取键值，并从缓存中移除键值对
      *
      * @param  string  $key
      * @param  mixed   $default
@@ -33,7 +33,7 @@ interface Repository
     public function pull($key, $default = null);
 
     /**
-     * Store an item in the cache.
+     * 存储键值对，并设置缓存时间
      *
      * @param  string  $key
      * @param  mixed   $value
@@ -43,7 +43,7 @@ interface Repository
     public function put($key, $value, $minutes);
 
     /**
-     * Store an item in the cache if the key does not exist.
+     * 如果键值对在缓存中不存在，则添加至缓存，并返回 true; 否则返回 false
      *
      * @param  string  $key
      * @param  mixed   $value
@@ -53,7 +53,7 @@ interface Repository
     public function add($key, $value, $minutes);
 
     /**
-     * Increment the value of an item in the cache.
+     * 根据键名，给对应的键值增加 指定数目
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -62,7 +62,7 @@ interface Repository
     public function increment($key, $value = 1);
 
     /**
-     * Decrement the value of an item in the cache.
+     * 根据键名，给对应的键值减少 指定数目
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -71,7 +71,7 @@ interface Repository
     public function decrement($key, $value = 1);
 
     /**
-     * Store an item in the cache indefinitely.
+     * 永久缓存键值对
      *
      * @param  string  $key
      * @param  mixed   $value
@@ -80,7 +80,8 @@ interface Repository
     public function forever($key, $value);
 
     /**
-     * Get an item from the cache, or store the default value.
+     * 根据键名，查找键值；
+     * 如果不存在，调用回调函数，将其结果作为键值存储并返回；
      *
      * @param  string  $key
      * @param  \DateTime|float|int  $minutes
@@ -90,7 +91,9 @@ interface Repository
     public function remember($key, $minutes, Closure $callback);
 
     /**
-     * Get an item from the cache, or store the default value forever.
+     * 根据键名，查找键值；
+     * 如果不存在，调用回调函数，将其结果作为键值永久存储并返回；
+     * 同 ‘rememberForever’
      *
      * @param  string   $key
      * @param  \Closure  $callback
@@ -99,7 +102,8 @@ interface Repository
     public function sear($key, Closure $callback);
 
     /**
-     * Get an item from the cache, or store the default value forever.
+     * 根据键名，查找键值；
+     * 如果不存在，调用回调函数，将其结果作为键值永久存储并返回；
      *
      * @param  string   $key
      * @param  \Closure  $callback
@@ -108,7 +112,7 @@ interface Repository
     public function rememberForever($key, Closure $callback);
 
     /**
-     * Remove an item from the cache.
+     * 根据键名，从缓存手动移除键值对
      *
      * @param  string $key
      * @return bool

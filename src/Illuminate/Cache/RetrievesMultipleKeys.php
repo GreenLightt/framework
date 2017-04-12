@@ -5,9 +5,7 @@ namespace Illuminate\Cache;
 trait RetrievesMultipleKeys
 {
     /**
-     * Retrieve multiple items from the cache by key.
-     *
-     * Items not found in the cache will have a null value.
+     * 根据一堆键名，分别查找其对应的键值，如果找不到，则该键名对应的键值为 null
      *
      * @param  array  $keys
      * @return array
@@ -24,7 +22,7 @@ trait RetrievesMultipleKeys
     }
 
     /**
-     * Store multiple items in the cache for a given number of minutes.
+     * 存储一堆给定键值对，并设置缓存时间
      *
      * @param  array  $values
      * @param  float|int  $minutes

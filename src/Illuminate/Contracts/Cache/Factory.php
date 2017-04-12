@@ -5,7 +5,7 @@ namespace Illuminate\Contracts\Cache;
 interface Factory
 {
     /**
-     * Get a cache store instance by name.
+     * 根据指定的缓存系统名，返回不同的缓存实例对象；比如‘file’， ‘redis’
      *
      * @param  string|null  $name
      * @return mixed
