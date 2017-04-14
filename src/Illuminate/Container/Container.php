@@ -13,7 +13,7 @@ use Illuminate\Contracts\Container\Container as ContainerContract;
 class Container implements ArrayAccess, ContainerContract
 {
     /**
-     * The current globally available container (if any).
+     * 服务容器实例
      *
      * @var static
      */
@@ -143,7 +143,7 @@ class Container implements ArrayAccess, ContainerContract
     }
 
     /**
-     * Determine if the given abstract type has been bound.
+     * 判断是否指定的抽象类已经被绑定到服务容器中
      *
      * @param  string  $abstract
      * @return bool
@@ -389,7 +389,7 @@ class Container implements ArrayAccess, ContainerContract
     }
 
     /**
-     * Assign a set of tags to a given binding.
+     * 在服务容器中，给指定的抽象类添加标签
      *
      * @param  array|string  $abstracts
      * @param  array|mixed   ...$tags
@@ -430,7 +430,7 @@ class Container implements ArrayAccess, ContainerContract
     }
 
     /**
-     * Alias a type to a different name.
+     * 在服务容器中，给指定的抽象类起别名
      *
      * @param  string  $abstract
      * @param  string  $alias

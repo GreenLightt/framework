@@ -24,14 +24,14 @@ use Illuminate\Contracts\Foundation\Application as ApplicationContract;
 class Application extends Container implements ApplicationContract, HttpKernelInterface
 {
     /**
-     * The Laravel framework version.
+     * Laravel 框架版本号
      *
      * @var string
      */
     const VERSION = '5.4.18';
 
     /**
-     * The base path for the Laravel installation.
+     * Laravel项目的根目录
      *
      * @var string
      */
@@ -122,7 +122,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     protected $environmentPath;
 
     /**
-     * The environment file to load during bootstrapping.
+     * 在应用加载时，需要的环境配置文件
      *
      * @var string
      */
@@ -136,7 +136,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     protected $namespace;
 
     /**
-     * Create a new Illuminate application instance.
+     * 创建一个新的应用容器
      *
      * @param  string|null  $basePath
      * @return void
@@ -155,7 +155,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the version number of the application.
+     * 获取Laravel框架版本号
      *
      * @return string
      */
@@ -165,7 +165,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Register the basic bindings into the container.
+     * 绑定基础的类到服务容器中
      *
      * @return void
      */
@@ -179,7 +179,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Register all of the base service providers.
+     * 注册基础的服务提供者
      *
      * @return void
      */
@@ -249,7 +249,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Determine if the application has been bootstrapped before.
+     * 判断系统是否已经启动加载完成
      *
      * @return bool
      */
@@ -259,7 +259,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Set the base path for the application.
+     * 设置应用的根目录
      *
      * @param  string  $basePath
      * @return $this
@@ -274,7 +274,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Bind all of the application paths in the container.
+     * 绑定所有系统的目录位置至服务容器
      *
      * @return void
      */
@@ -292,7 +292,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the path to the application "app" directory.
+     * 获取应用中，目录为 app 的位置
      *
      * @param string $path Optionally, a path to append to the app path
      * @return string
@@ -303,7 +303,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the base path of the Laravel installation.
+     * 获取系统的根目录
      *
      * @param string $path Optionally, a path to append to the base path
      * @return string
@@ -314,7 +314,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the path to the bootstrap directory.
+     * 获取应用中，目录为 bootstrap 的位置
      *
      * @param string $path Optionally, a path to append to the bootstrap path
      * @return string
@@ -325,7 +325,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the path to the application configuration files.
+     * 获取应用中，目录为 config 的位置
      *
      * @param string $path Optionally, a path to append to the config path
      * @return string
@@ -336,7 +336,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the path to the database directory.
+     * 获取应用中，目录为 database 的位置
      *
      * @param string $path Optionally, a path to append to the database path
      * @return string
@@ -347,7 +347,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Set the database directory.
+     * 设置应用中，目录为 database 的位置
      *
      * @param  string  $path
      * @return $this
@@ -362,7 +362,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the path to the language files.
+     * 获取应用中，目录为 language 的位置
      *
      * @return string
      */
@@ -372,7 +372,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the path to the public / web directory.
+     * 获取应用中，目录为 public 的位置
      *
      * @return string
      */
@@ -382,7 +382,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the path to the storage directory.
+     * 获取应用中，目录为 storage 的位置
      *
      * @return string
      */
@@ -392,7 +392,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Set the storage directory.
+     * 设置应用中，目录为 storage 的位置
      *
      * @param  string  $path
      * @return $this
@@ -407,7 +407,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the path to the resources directory.
+     * 获取应用中，目录为 resources 的位置
      *
      * @param  string  $path
      * @return string
@@ -418,7 +418,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the path to the environment file directory.
+     * 获取环境配置文件所在的目录
      *
      * @return string
      */
@@ -428,7 +428,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Set the directory for the environment file.
+     * 设置环境配置文件所在的目录
      *
      * @param  string  $path
      * @return $this
@@ -441,7 +441,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Set the environment file to be loaded during bootstrapping.
+     * 设置环境配置文件的文件名
      *
      * @param  string  $file
      * @return $this
@@ -454,7 +454,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the environment file the application is using.
+     * 获取正在使用的环境配置文件的文件名
      *
      * @return string
      */
@@ -464,7 +464,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the fully qualified path to the environment file.
+     * 获取环境配置文件的全路径及文件名
      *
      * @return string
      */
@@ -474,7 +474,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get or check the current application environment.
+     * 获取或判断当前的环境值
      *
      * @return string|bool
      */
@@ -496,7 +496,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Determine if application is in local environment.
+     * 判断环境值是否是 ’local‘
      *
      * @return bool
      */
@@ -519,7 +519,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Determine if we are running in the console.
+     * 判断是否是在控制台运行应用
      *
      * @return bool
      */
@@ -529,7 +529,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Determine if we are running unit tests.
+     * 判断系统是否处在测试环境
      *
      * @return bool
      */
@@ -587,7 +587,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the registered service provider instance if it exists.
+     * 获取指定的服务提供者， 不存在，返回 null
      *
      * @param  \Illuminate\Support\ServiceProvider|string  $provider
      * @return \Illuminate\Support\ServiceProvider|null
@@ -602,7 +602,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Resolve a service provider instance from the class name.
+     * 根据服务提供者的类名，返回新的服务提供者
      *
      * @param  string  $provider
      * @return \Illuminate\Support\ServiceProvider
