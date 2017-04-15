@@ -45,77 +45,77 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     protected $hasBeenBootstrapped = false;
 
     /**
-     * Indicates if the application has "booted".
+     * 标记是否应用已经启动
      *
      * @var bool
      */
     protected $booted = false;
 
     /**
-     * The array of booting callbacks.
+     * 启动监听器，即启动前需要执行的回调函数
      *
      * @var array
      */
     protected $bootingCallbacks = [];
 
     /**
-     * The array of booted callbacks.
+     * 启动后需要执行的回调函数
      *
      * @var array
      */
     protected $bootedCallbacks = [];
 
     /**
-     * The array of terminating callbacks.
+     * 应用终止时的回调函数
      *
      * @var array
      */
     protected $terminatingCallbacks = [];
 
     /**
-     * All of the registered service providers.
+     * 所有注册的服务提供者
      *
      * @var array
      */
     protected $serviceProviders = [];
 
     /**
-     * The names of the loaded service providers.
+     * 数组的键名，为加载的服务提供者的类名
      *
      * @var array
      */
     protected $loadedProviders = [];
 
     /**
-     * The deferred services and their providers.
+     * 延迟的服务及对应的服务提供者
      *
      * @var array
      */
     protected $deferredServices = [];
 
     /**
-     * A custom callback used to configure Monolog.
+     * 用户自定义的 monolog 配置，是一个回调函数
      *
      * @var callable|null
      */
     protected $monologConfigurator;
 
     /**
-     * The custom database path defined by the developer.
+     * 用户自定义的 database 目录
      *
      * @var string
      */
     protected $databasePath;
 
     /**
-     * The custom storage path defined by the developer.
+     * 用户自定义的 storage 目录
      *
      * @var string
      */
     protected $storagePath;
 
     /**
-     * The custom environment path defined by the developer.
+     * 用户自定义的环境配置文件所在目录
      *
      * @var string
      */
@@ -129,7 +129,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     protected $environmentFile = '.env';
 
     /**
-     * The application namespace.
+     * 应用的命名空间
      *
      * @var string
      */
@@ -550,7 +550,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Register a service provider with the application.
+     * 在应用中注册一个服务提供者
      *
      * @param  \Illuminate\Support\ServiceProvider|string  $provider
      * @param  array  $options
@@ -563,9 +563,6 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
             return $registered;
         }
 
-        // If the given "provider" is a string, we will resolve it, passing in the
-        // application instance automatically for the developer. This is simply
-        // a more convenient way of specifying your service provider classes.
         if (is_string($provider)) {
             $provider = $this->resolveProvider($provider);
         }
@@ -576,9 +573,6 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
 
         $this->markAsRegistered($provider);
 
-        // If the application has already booted, we will call this boot method on
-        // the provider class so it has an opportunity to do its boot logic and
-        // will be ready for any usage by this developer's application logic.
         if ($this->booted) {
             $this->bootProvider($provider);
         }
@@ -613,7 +607,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Mark the given provider as registered.
+     * 标记给定的服务提供者已经注册过
      *
      * @param  \Illuminate\Support\ServiceProvider  $provider
      * @return void
@@ -626,7 +620,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Load and boot all of the remaining deferred providers.
+     * 加载并启动剩余的延迟服务提供者
      *
      * @return void
      */
@@ -643,7 +637,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Load the provider for a deferred service.
+     * 加载指定的延迟服务提供者
      *
      * @param  string  $service
      * @return void
@@ -665,7 +659,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Register a deferred provider and service.
+     * 注册一个延迟服务提供者
      *
      * @param  string  $provider
      * @param  string  $service
@@ -690,7 +684,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Resolve the given type from the container.
+     * 解析服务容器中的抽象类，并返回对应的实例
      *
      * (Overriding Container::make)
      *
@@ -709,7 +703,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Determine if the given abstract type has been bound.
+     * 判断指定抽象类是否已经被注册至服务容器中
      *
      * (Overriding Container::bound)
      *
@@ -722,7 +716,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Determine if the application has booted.
+     * 判断应用是否已经启动
      *
      * @return bool
      */
@@ -732,7 +726,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Boot the application's service providers.
+     * 启动应用，同时启动所有非延迟的服务提供者
      *
      * @return void
      */
@@ -757,7 +751,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Boot the given service provider.
+     * 启动一个指定的服务提供者
      *
      * @param  \Illuminate\Support\ServiceProvider  $provider
      * @return mixed
@@ -770,7 +764,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Register a new boot listener.
+     * 注册一个新的 boot 监听器，即回调函数
      *
      * @param  mixed  $callback
      * @return void
@@ -781,7 +775,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Register a new "booted" listener.
+     * 注册一个新的 ‘booted’ 监听器
      *
      * @param  mixed  $callback
      * @return void
@@ -796,7 +790,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Call the booting callbacks for the application.
+     * 调用应用的回调函数
      *
      * @param  array  $callbacks
      * @return void
@@ -828,7 +822,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the path to the cached services.php file.
+     * 获取服务提供者缓存文件
      *
      * @return string
      */
@@ -838,7 +832,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Determine if the application configuration is cached.
+     * 判断是否存在配置缓存文件
      *
      * @return bool
      */
@@ -848,7 +842,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the path to the configuration cache file.
+     * 获取配置缓存文件
      *
      * @return string
      */
@@ -858,7 +852,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Determine if the application routes are cached.
+     * 判断是否存在路由缓存文件
      *
      * @return bool
      */
@@ -868,7 +862,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the path to the routes cache file.
+     * 获取路由缓存文件
      *
      * @return string
      */
@@ -907,7 +901,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Register a terminating callback with the application.
+     * 注册终止应用时要调用的函数
      *
      * @param  \Closure  $callback
      * @return $this
@@ -920,7 +914,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Terminate the application.
+     * 终止应用执行
      *
      * @return void
      */
@@ -932,7 +926,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the service providers that have been loaded.
+     * 获取已经加载的服务提供者
      *
      * @return array
      */
@@ -942,7 +936,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the application's deferred services.
+     * 获取应用中延迟加载的服务
      *
      * @return array
      */
@@ -952,7 +946,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Set the application's deferred services.
+     * 设置应用中延迟加载的服务
      *
      * @param  array  $services
      * @return void
@@ -963,7 +957,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Add an array of services to the application's deferred services.
+     * 添加一组服务至应用中的延迟服务数组中
      *
      * @param  array  $services
      * @return void
@@ -974,7 +968,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Determine if the given service is a deferred service.
+     * 判断指定的服务是否延迟
      *
      * @param  string  $service
      * @return bool
@@ -985,7 +979,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Configure the real-time facade namespace.
+     * 配置实时修改的门面命名空间
      *
      * @param  string  $namespace
      * @return void
@@ -996,7 +990,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Define a callback to be used to configure Monolog.
+     * 自定义 Monolog 配置
      *
      * @param  callable  $callback
      * @return $this
@@ -1009,7 +1003,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Determine if the application has a custom Monolog configurator.
+     * 判断应用中是否有自定义的 Monolog 配置
      *
      * @return bool
      */
@@ -1019,7 +1013,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the custom Monolog configurator for the application.
+     * 获取应用中自定义的 Monolog 配置
      *
      * @return callable
      */
@@ -1029,7 +1023,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the current application locale.
+     * 获取应用的本地化值
      *
      * @return string
      */
@@ -1039,7 +1033,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Set the current application locale.
+     * 设置应用的本地化值
      *
      * @param  string  $locale
      * @return void
@@ -1054,7 +1048,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Determine if application locale is the given locale.
+     * 判断是否应用的本地化值与指定值是否一致
      *
      * @param  string  $locale
      * @return bool
@@ -1065,7 +1059,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Register the core class aliases in the container.
+     * 在服务容器中，注册核心类别名
      *
      * @return void
      */
@@ -1116,7 +1110,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Flush the container of all bindings and resolved instances.
+     * 清空容器中，所有的实例
      *
      * @return void
      */
@@ -1128,7 +1122,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
 
     /**
-     * Get the application namespace.
+     * 获取应用的命名空间
      *
      * @return string
      *

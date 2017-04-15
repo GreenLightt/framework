@@ -1079,7 +1079,7 @@ class Container implements ArrayAccess, ContainerContract
     }
 
     /**
-     * Flush the container of all bindings and resolved instances.
+     * 清空服务容器中所有绑定及解析的实例
      *
      * @return void
      */
