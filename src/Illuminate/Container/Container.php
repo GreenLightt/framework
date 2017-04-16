@@ -41,21 +41,21 @@ class Container implements ArrayAccess, ContainerContract
     protected $methodBindings = [];
 
     /**
-     * The container's shared instances.
+     * 存放单例实例，键名为类名
      *
      * @var array
      */
     protected $instances = [];
 
     /**
-     * The registered type aliases.
+     * 别名数组，键名为别名，键值为抽象类名
      *
      * @var array
      */
     protected $aliases = [];
 
     /**
-     * The registered aliases keyed by the abstract name.
+     * 别名数组，键名为抽象类名，键值为别名（数组）
      *
      * @var array
      */
@@ -172,7 +172,7 @@ class Container implements ArrayAccess, ContainerContract
     }
 
     /**
-     * Determine if a given type is shared.
+     * 判断给定的类，是否是单例
      *
      * @param  string  $abstract
      * @return bool
@@ -185,7 +185,7 @@ class Container implements ArrayAccess, ContainerContract
     }
 
     /**
-     * Determine if a given string is an alias.
+     * 判断给定的字符串是否是别名
      *
      * @param  string  $name
      * @return bool
@@ -296,7 +296,7 @@ class Container implements ArrayAccess, ContainerContract
     }
 
     /**
-     * Register a binding if it hasn't already been registered.
+     * 如果服务容器未绑定过指定类，则进行绑定操作
      *
      * @param  string  $abstract
      * @param  \Closure|string|null  $concrete
@@ -311,7 +311,7 @@ class Container implements ArrayAccess, ContainerContract
     }
 
     /**
-     * Register a shared binding in the container.
+     * 在服务容器中，绑定单例的抽象类
      *
      * @param  string|array  $abstract
      * @param  \Closure|string|null  $concrete
@@ -1047,7 +1047,7 @@ class Container implements ArrayAccess, ContainerContract
     }
 
     /**
-     * Drop all of the stale instances and aliases.
+     * 移除与指定类相关的绑定
      *
      * @param  string  $abstract
      * @return void
