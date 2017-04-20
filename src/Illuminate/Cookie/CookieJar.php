@@ -38,7 +38,7 @@ class CookieJar implements JarContract
     protected $queued = [];
 
     /**
-     * Create a new cookie instance.
+     * 创建一个新的 cookie 实例
      *
      * @param  string  $name
      * @param  string  $value

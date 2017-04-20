@@ -194,7 +194,7 @@ class SessionManager extends Manager
     }
 
     /**
-     * Get the default session driver name.
+     * 获取默认的 session (存储)驱动
      *
      * @return string
      */
@@ -204,7 +204,7 @@ class SessionManager extends Manager
     }
 
     /**
-     * Set the default session driver name.
+     * 设置默认的 session 存储驱动
      *
      * @param  string  $name
      * @return void

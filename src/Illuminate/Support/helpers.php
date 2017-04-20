@@ -549,7 +549,7 @@ if (! function_exists('ends_with')) {
 
 if (! function_exists('head')) {
     /**
-     * Get the first element of an array. Useful for method chaining.
+     * 获取数组中的第一个元素值
      *
      * @param  array  $array
      * @return mixed

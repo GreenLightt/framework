@@ -8,7 +8,7 @@ use Illuminate\Session\Middleware\StartSession;
 class SessionServiceProvider extends ServiceProvider
 {
     /**
-     * Register the service provider.
+     * 服务提供者的注册服务
      *
      * @return void
      */
@@ -22,7 +22,7 @@ class SessionServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the session manager instance.
+     * 注册 session 管理者对象
      *
      * @return void
      */
@@ -34,7 +34,7 @@ class SessionServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the session driver instance.
+     * 注册 session 驱动实例
      *
      * @return void
      */

@@ -11,21 +11,21 @@ use Illuminate\Contracts\Session\Session;
 class Store implements Session
 {
     /**
-     * The session ID.
+     * session ID
      *
      * @var string
      */
     protected $id;
 
     /**
-     * The session name.
+     * session 名
      *
      * @var string
      */
     protected $name;
 
     /**
-     * The session attributes.
+     * session 属性
      *
      * @var array
      */

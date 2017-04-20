@@ -12,14 +12,14 @@ use Illuminate\Contracts\Encryption\Encrypter as EncrypterContract;
 class EncryptCookies
 {
     /**
-     * The encrypter instance.
+     * encrypter 实例
      *
      * @var \Illuminate\Contracts\Encryption\Encrypter
      */
     protected $encrypter;
 
     /**
-     * The names of the cookies that should not be encrypted.
+     * 定义不需要被加密的 cookie 名
      *
      * @var array
      */
@@ -37,7 +37,7 @@ class EncryptCookies
     }
 
     /**
-     * Disable encryption for the given cookie name(s).
+     * 指定的 cookieName 这个 cookie 对象不被加密
      *
      * @param  string|array  $cookieName
      * @return void
@@ -60,7 +60,7 @@ class EncryptCookies
     }
 
     /**
-     * Decrypt the cookies on the request.
+     * 解密 request 请求中的 cookie
      *
      * @param  \Symfony\Component\HttpFoundation\Request  $request
      * @return \Symfony\Component\HttpFoundation\Request
@@ -83,7 +83,7 @@ class EncryptCookies
     }
 
     /**
-     * Decrypt the given cookie and return the value.
+     * 解密给定的 cookie 对象并返回解密的结果
      *
      * @param  string|array  $cookie
      * @return string|array
@@ -96,7 +96,7 @@ class EncryptCookies
     }
 
     /**
-     * Decrypt an array based cookie.
+     * 解密 cookie 数组
      *
      * @param  array  $cookie
      * @return array
@@ -115,7 +115,7 @@ class EncryptCookies
     }
 
     /**
-     * Encrypt the cookies on an outgoing response.
+     * 给要返回的 response 中的 cookie 加密
      *
      * @param  \Symfony\Component\HttpFoundation\Response  $response
      * @return \Symfony\Component\HttpFoundation\Response
@@ -151,7 +151,7 @@ class EncryptCookies
     }
 
     /**
-     * Determine whether encryption has been disabled for the given cookie.
+     * 根据 cookie 名判断该 cookie 是否需要加密
      *
      * @param  string $name
      * @return bool
