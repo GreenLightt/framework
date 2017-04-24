@@ -12,8 +12,8 @@ class Filesystem
 {
     use Macroable;
 
-    /**
-     * Determine if a file or directory exists.
+    /*
+     * 判断文件或目录是否存在
      *
      * @param  string  $path
      * @return bool
@@ -23,8 +23,8 @@ class Filesystem
         return file_exists($path);
     }
 
-    /**
-     * Get the contents of a file.
+    /*
+     * 获取文件的内容
      *
      * @param  string  $path
      * @param  bool  $lock
@@ -41,8 +41,8 @@ class Filesystem
         throw new FileNotFoundException("File does not exist at path {$path}");
     }
 
-    /**
-     * Get contents of a file with shared access.
+    /*
+     * 获取共享文件的内容
      *
      * @param  string  $path
      * @return string
@@ -70,8 +70,8 @@ class Filesystem
         return $contents;
     }
 
-    /**
-     * Get the returned value of a file.
+    /*
+     * 获取一个文件的返回值
      *
      * @param  string  $path
      * @return mixed
@@ -87,8 +87,8 @@ class Filesystem
         throw new FileNotFoundException("File does not exist at path {$path}");
     }
 
-    /**
-     * Require the given file once.
+    /*
+     * 只引入一次指定文件
      *
      * @param  string  $file
      * @return mixed
@@ -98,8 +98,8 @@ class Filesystem
         require_once $file;
     }
 
-    /**
-     * Write the contents of a file.
+    /*
+     * 写入文件
      *
      * @param  string  $path
      * @param  string  $contents
@@ -111,8 +111,8 @@ class Filesystem
         return file_put_contents($path, $contents, $lock ? LOCK_EX : 0);
     }
 
-    /**
-     * Prepend to a file.
+    /*
+     * 添加内容到文件头部
      *
      * @param  string  $path
      * @param  string  $data
@@ -127,8 +127,8 @@ class Filesystem
         return $this->put($path, $data);
     }
 
-    /**
-     * Append to a file.
+    /*
+     * 添加内容至文件尾部
      *
      * @param  string  $path
      * @param  string  $data
@@ -139,8 +139,8 @@ class Filesystem
         return file_put_contents($path, $data, FILE_APPEND);
     }
 
-    /**
-     * Get or set UNIX mode of a file or directory.
+    /*
+     * 获取或设置文件或目录的权限
      *
      * @param  string  $path
      * @param  int  $mode
@@ -151,12 +151,12 @@ class Filesystem
         if ($mode) {
             return chmod($path, $mode);
         }
-
+        // 以八进制返回权限
         return substr(sprintf('%o', fileperms($path)), -4);
     }
 
-    /**
-     * Delete the file at a given path.
+    /*
+     * 删除指定路径的文件
      *
      * @param  string|array  $paths
      * @return bool
@@ -180,8 +180,8 @@ class Filesystem
         return $success;
     }
 
-    /**
-     * Move a file to a new location.
+    /*
+     * 移到文件至指定新路径
      *
      * @param  string  $path
      * @param  string  $target
@@ -192,8 +192,8 @@ class Filesystem
         return rename($path, $target);
     }
 
-    /**
-     * Copy a file to a new location.
+    /*
+     * 复制文件至新路径
      *
      * @param  string  $path
      * @param  string  $target
@@ -204,8 +204,8 @@ class Filesystem
         return copy($path, $target);
     }
 
-    /**
-     * Create a hard link to the target file or directory.
+    /*
+     * 为指定文件或目录创建硬链接
      *
      * @param  string  $target
      * @param  string  $link
@@ -222,8 +222,8 @@ class Filesystem
         exec("mklink /{$mode} \"{$link}\" \"{$target}\"");
     }
 
-    /**
-     * Extract the file name from a file path.
+    /*
+     * 根据文件路径获取不带后缀文件名
      *
      * @param  string  $path
      * @return string
@@ -233,8 +233,8 @@ class Filesystem
         return pathinfo($path, PATHINFO_FILENAME);
     }
 
-    /**
-     * Extract the trailing name component from a file path.
+    /*
+     * 根据文件路径获取带后缀的文件名
      *
      * @param  string  $path
      * @return string
@@ -244,8 +244,8 @@ class Filesystem
         return pathinfo($path, PATHINFO_BASENAME);
     }
 
-    /**
-     * Extract the parent directory from a file path.
+    /*
+     * 根据文件路径获取文件的目录路径
      *
      * @param  string  $path
      * @return string
@@ -255,8 +255,8 @@ class Filesystem
         return pathinfo($path, PATHINFO_DIRNAME);
     }
 
-    /**
-     * Extract the file extension from a file path.
+    /*
+     * 根据文件路径获取文件的后缀名
      *
      * @param  string  $path
      * @return string
@@ -266,8 +266,8 @@ class Filesystem
         return pathinfo($path, PATHINFO_EXTENSION);
     }
 
-    /**
-     * Get the file type of a given file.
+    /*
+     * 获取指定文件或目录的类型，比如 file, link, dir, char, fifo
      *
      * @param  string  $path
      * @return string
@@ -277,8 +277,8 @@ class Filesystem
         return filetype($path);
     }
 
-    /**
-     * Get the mime-type of a given file.
+    /*
+     * 获取文件的MIME类型
      *
      * @param  string  $path
      * @return string|false
@@ -288,8 +288,8 @@ class Filesystem
         return finfo_file(finfo_open(FILEINFO_MIME_TYPE), $path);
     }
 
-    /**
-     * Get the file size of a given file.
+    /*
+     * 获取指定文件的文件大小
      *
      * @param  string  $path
      * @return int
@@ -299,8 +299,8 @@ class Filesystem
         return filesize($path);
     }
 
-    /**
-     * Get the file's last modification time.
+    /*
+     * 获取文件的最后修改时间
      *
      * @param  string  $path
      * @return int
@@ -310,8 +310,8 @@ class Filesystem
         return filemtime($path);
     }
 
-    /**
-     * Determine if the given path is a directory.
+    /*
+     * 判断给定的文件是否是目录
      *
      * @param  string  $directory
      * @return bool
@@ -321,8 +321,8 @@ class Filesystem
         return is_dir($directory);
     }
 
-    /**
-     * Determine if the given path is readable.
+    /*
+     * 判断给定的路径（文件或目录）是否可读
      *
      * @param  string  $path
      * @return bool
@@ -332,8 +332,8 @@ class Filesystem
         return is_readable($path);
     }
 
-    /**
-     * Determine if the given path is writable.
+    /*
+     * 判断给定的路径（文件或目录）是否可写
      *
      * @param  string  $path
      * @return bool
@@ -343,8 +343,8 @@ class Filesystem
         return is_writable($path);
     }
 
-    /**
-     * Determine if the given path is a file.
+    /*
+     * 判断给定的路径（文件或目录）是否是文件
      *
      * @param  string  $file
      * @return bool
@@ -354,8 +354,8 @@ class Filesystem
         return is_file($file);
     }
 
-    /**
-     * Find path names matching a given pattern.
+    /*
+     * 返回匹配指定模式的文件名或目录
      *
      * @param  string  $pattern
      * @param  int     $flags
@@ -366,8 +366,8 @@ class Filesystem
         return glob($pattern, $flags);
     }
 
-    /**
-     * Get an array of all files in a directory.
+    /*
+     * 获取指定目录下的所有文件，并以数组返回
      *
      * @param  string  $directory
      * @return array

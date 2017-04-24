@@ -48,8 +48,8 @@ class FilesystemServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Register the filesystem manager.
+    /*
+     * 注册文件系统管理
      *
      * @return void
      */
@@ -60,8 +60,8 @@ class FilesystemServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Get the default file driver.
+    /*
+     * 获取默认的文件存储驱动
      *
      * @return string
      */
@@ -70,8 +70,8 @@ class FilesystemServiceProvider extends ServiceProvider
         return $this->app['config']['filesystems.default'];
     }
 
-    /**
-     * Get the default cloud based file driver.
+    /*
+     * 获取云文件存储驱动
      *
      * @return string
      */
