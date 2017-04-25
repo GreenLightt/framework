@@ -18,15 +18,15 @@ use Illuminate\Contracts\Filesystem\Factory as FactoryContract;
 
 class FilesystemManager implements FactoryContract
 {
-    /**
-     * The application instance.
+    /*
+     * 应用实例
      *
      * @var \Illuminate\Contracts\Foundation\Application
      */
     protected $app;
 
-    /**
-     * The array of resolved filesystem drivers.
+    /*
+     * 存放解析的文件驱动实例
      *
      * @var array
      */
@@ -39,8 +39,8 @@ class FilesystemManager implements FactoryContract
      */
     protected $customCreators = [];
 
-    /**
-     * Create a new filesystem manager instance.
+    /*
+     * 创建一个新的文件系统管理实例
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return void
@@ -50,8 +50,8 @@ class FilesystemManager implements FactoryContract
         $this->app = $app;
     }
 
-    /**
-     * Get a filesystem instance.
+    /*
+     * 获取一个文件系统实例
      *
      * @param  string  $name
      * @return \Illuminate\Contracts\Filesystem\Filesystem
@@ -61,8 +61,8 @@ class FilesystemManager implements FactoryContract
         return $this->disk($name);
     }
 
-    /**
-     * Get a filesystem instance.
+    /*
+     * 获取一个文件系统实例
      *
      * @param  string  $name
      * @return \Illuminate\Contracts\Filesystem\Filesystem
@@ -74,8 +74,8 @@ class FilesystemManager implements FactoryContract
         return $this->disks[$name] = $this->get($name);
     }
 
-    /**
-     * Get a default cloud filesystem instance.
+    /*
+     * 获取默认的云文件系统实例
      *
      * @return \Illuminate\Contracts\Filesystem\Filesystem
      */
@@ -271,8 +271,8 @@ class FilesystemManager implements FactoryContract
         return new FilesystemAdapter($filesystem);
     }
 
-    /**
-     * Set the given disk instance.
+    /*
+     * 设置文件系统实例
      *
      * @param  string  $name
      * @param  mixed  $disk
@@ -283,8 +283,8 @@ class FilesystemManager implements FactoryContract
         $this->disks[$name] = $disk;
     }
 
-    /**
-     * Get the filesystem connection configuration.
+    /*
+     * 获取文件系统连接配置
      *
      * @param  string  $name
      * @return array
@@ -294,8 +294,8 @@ class FilesystemManager implements FactoryContract
         return $this->app['config']["filesystems.disks.{$name}"];
     }
 
-    /**
-     * Get the default driver name.
+    /*
+     * 获取默认的文件系统名
      *
      * @return string
      */
@@ -304,8 +304,8 @@ class FilesystemManager implements FactoryContract
         return $this->app['config']['filesystems.default'];
     }
 
-    /**
-     * Get the default cloud driver name.
+    /*
+     * 获取默认云文件系统名
      *
      * @return string
      */

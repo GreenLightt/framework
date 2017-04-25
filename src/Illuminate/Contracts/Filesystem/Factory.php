@@ -4,8 +4,8 @@ namespace Illuminate\Contracts\Filesystem;
 
 interface Factory
 {
-    /**
-     * Get a filesystem implementation.
+    /*
+     * 获取一个文件系统实例
      *
      * @param  string  $name
      * @return \Illuminate\Contracts\Filesystem\Filesystem

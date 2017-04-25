@@ -388,8 +388,8 @@ class Filesystem
         });
     }
 
-    /**
-     * Get all of the files from the given directory (recursive).
+    /*
+     * 获取指定目录下的所有文件（递归）
      *
      * @param  string  $directory
      * @param  bool  $hidden
@@ -400,8 +400,8 @@ class Filesystem
         return iterator_to_array(Finder::create()->files()->ignoreDotFiles(! $hidden)->in($directory), false);
     }
 
-    /**
-     * Get all of the directories within a given directory.
+    /*
+     * 获取指定目录下的文件夹（直接非递归）
      *
      * @param  string  $directory
      * @return array
@@ -417,8 +417,8 @@ class Filesystem
         return $directories;
     }
 
-    /**
-     * Create a directory.
+    /*
+     * 创建目录
      *
      * @param  string  $path
      * @param  int     $mode
@@ -435,8 +435,8 @@ class Filesystem
         return mkdir($path, $mode, $recursive);
     }
 
-    /**
-     * Move a directory.
+    /*
+     * 移动目录
      *
      * @param  string  $from
      * @param  string  $to
@@ -454,8 +454,8 @@ class Filesystem
         return @rename($from, $to) === true;
     }
 
-    /**
-     * Copy a directory from one location to another.
+    /*
+     * 复制目录
      *
      * @param  string  $directory
      * @param  string  $destination
@@ -506,8 +506,8 @@ class Filesystem
         return true;
     }
 
-    /**
-     * Recursively delete a directory.
+    /*
+     * 递归删除指定目录
      *
      * The directory itself may be optionally preserved.
      *
@@ -546,8 +546,8 @@ class Filesystem
         return true;
     }
 
-    /**
-     * Empty the specified directory of all files and folders.
+    /*
+     * 清空指定目录
      *
      * @param  string  $directory
      * @return bool
