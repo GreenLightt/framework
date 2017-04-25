@@ -8,15 +8,15 @@ use Illuminate\Contracts\Config\Repository as ConfigContract;
 
 class Repository implements ArrayAccess, ConfigContract
 {
-    /**
-     * All of the configuration items.
+    /*
+     * 所有的配置项
      *
      * @var array
      */
     protected $items = [];
 
-    /**
-     * Create a new configuration repository.
+    /*
+     * 创建一个新的配置仓库
      *
      * @param  array  $items
      * @return void
@@ -26,8 +26,8 @@ class Repository implements ArrayAccess, ConfigContract
         $this->items = $items;
     }
 
-    /**
-     * Determine if the given configuration value exists.
+    /*
+     * 判断指定的配置项是否存在
      *
      * @param  string  $key
      * @return bool
@@ -37,8 +37,8 @@ class Repository implements ArrayAccess, ConfigContract
         return Arr::has($this->items, $key);
     }
 
-    /**
-     * Get the specified configuration value.
+    /*
+     * 根据键名，获取指定的配置项值
      *
      * @param  string  $key
      * @param  mixed   $default
@@ -49,8 +49,8 @@ class Repository implements ArrayAccess, ConfigContract
         return Arr::get($this->items, $key, $default);
     }
 
-    /**
-     * Set a given configuration value.
+    /*
+     * 设置配置项值
      *
      * @param  array|string  $key
      * @param  mixed   $value
@@ -65,8 +65,8 @@ class Repository implements ArrayAccess, ConfigContract
         }
     }
 
-    /**
-     * Prepend a value onto an array configuration value.
+    /*
+     * 将值插入到指定键名的配置项值的头部
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -81,8 +81,8 @@ class Repository implements ArrayAccess, ConfigContract
         $this->set($key, $array);
     }
 
-    /**
-     * Push a value onto an array configuration value.
+    /*
+     * 新增键值对进指定键名的配置项中
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -97,8 +97,8 @@ class Repository implements ArrayAccess, ConfigContract
         $this->set($key, $array);
     }
 
-    /**
-     * Get all of the configuration items for the application.
+    /*
+     * 获取所有配置项
      *
      * @return array
      */
@@ -107,8 +107,8 @@ class Repository implements ArrayAccess, ConfigContract
         return $this->items;
     }
 
-    /**
-     * Determine if the given configuration option exists.
+    /*
+     * 判断指定的配置项是否存在
      *
      * @param  string  $key
      * @return bool
@@ -118,8 +118,8 @@ class Repository implements ArrayAccess, ConfigContract
         return $this->has($key);
     }
 
-    /**
-     * Get a configuration option.
+    /*
+     * 根据键名，获取指定的配置项值
      *
      * @param  string  $key
      * @return mixed
@@ -129,8 +129,8 @@ class Repository implements ArrayAccess, ConfigContract
         return $this->get($key);
     }
 
-    /**
-     * Set a configuration option.
+    /*
+     * 设置配置项值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -141,8 +141,8 @@ class Repository implements ArrayAccess, ConfigContract
         $this->set($key, $value);
     }
 
-    /**
-     * Unset a configuration option.
+    /*
+     * 设置配置项值为 null
      *
      * @param  string  $key
      * @return void

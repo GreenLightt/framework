@@ -4,8 +4,8 @@ namespace Illuminate\Contracts\Support;
 
 interface Jsonable
 {
-    /**
-     * Convert the object to its JSON representation.
+    /*
+     * 将对象转成Json格式
      *
      * @param  int  $options
      * @return string

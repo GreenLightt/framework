@@ -4,8 +4,8 @@ namespace Illuminate\Contracts\Support;
 
 interface Arrayable
 {
-    /**
-     * Get the instance as an array.
+    /*
+     * 将实例转为数组
      *
      * @return array
      */

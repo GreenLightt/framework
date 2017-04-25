@@ -9,8 +9,8 @@ class Arr
 {
     use Macroable;
 
-    /**
-     * Determine whether the given value is array accessible.
+    /*
+     * 判断是否指定对象，是否可以以数组形式访问
      *
      * @param  mixed  $value
      * @return bool
@@ -20,8 +20,8 @@ class Arr
         return is_array($value) || $value instanceof ArrayAccess;
     }
 
-    /**
-     * Add an element to an array using "dot" notation if it doesn't exist.
+    /*
+     * 如果不存在，则向数组添加键值对；(可内置键)
      *
      * @param  array   $array
      * @param  string  $key
@@ -37,8 +37,8 @@ class Arr
         return $array;
     }
 
-    /**
-     * Collapse an array of arrays into a single array.
+    /*
+     * 多维数组收缩成一维数组
      *
      * @param  array  $array
      * @return array
@@ -60,8 +60,8 @@ class Arr
         return $results;
     }
 
-    /**
-     * Divide an array into two arrays. One with keys and the other with values.
+    /*
+     * 将数组划分为键名数组和键值数组
      *
      * @param  array  $array
      * @return array
@@ -93,8 +93,8 @@ class Arr
         return $results;
     }
 
-    /**
-     * Get all of the given array except for a specified array of items.
+    /*
+     * 获取所有数组元素除了指定键值对
      *
      * @param  array  $array
      * @param  array|string  $keys
@@ -107,8 +107,8 @@ class Arr
         return $array;
     }
 
-    /**
-     * Determine if the given key exists in the provided array.
+    /*
+     * 判断指定键是否存在
      *
      * @param  \ArrayAccess|array  $array
      * @param  string|int  $key
@@ -235,8 +235,8 @@ class Arr
         }
     }
 
-    /**
-     * Get an item from an array using "dot" notation.
+    /*
+     * 根据指定键名，从数组中获取键值，可以用点作为内置键的分隔符
      *
      * @param  \ArrayAccess|array  $array
      * @param  string  $key
@@ -268,8 +268,8 @@ class Arr
         return $array;
     }
 
-    /**
-     * Check if an item or items exist in an array using "dot" notation.
+    /*
+     * 检查数组中是否存在指定键，可以用点作为内置键的分隔符
      *
      * @param  \ArrayAccess|array  $array
      * @param  string|array  $keys
@@ -421,8 +421,8 @@ class Arr
         return $value;
     }
 
-    /**
-     * Set an array item to a given value using "dot" notation.
+    /*
+     * 设置键值对，可以用点作为内置键的分隔符
      *
      * If no key is given to the method, the entire array will be replaced.
      *
@@ -470,8 +470,8 @@ class Arr
         return $array;
     }
 
-    /**
-     * Sort the array using the given callback or "dot" notation.
+    /*
+     * 根据指定回调函数进行数组排序
      *
      * @param  array  $array
      * @param  callable|string  $callback

@@ -4,8 +4,8 @@ namespace Illuminate\Contracts\Support;
 
 interface Htmlable
 {
-    /**
-     * Get content as a string of HTML.
+    /*
+     * 内容转为 HTML 格式
      *
      * @return string
      */
