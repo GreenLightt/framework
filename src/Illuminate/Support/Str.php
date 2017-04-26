@@ -29,8 +29,8 @@ class Str
      */
     protected static $studlyCache = [];
 
-    /**
-     * Transliterate a UTF-8 value to ASCII.
+    /*
+     * utf-8字符转 ascii
      *
      * @param  string  $value
      * @return string
@@ -38,14 +38,15 @@ class Str
     public static function ascii($value)
     {
         foreach (static::charsArray() as $key => $val) {
+            // 将 $value 字符串中的 $val 替换为 $key
             $value = str_replace($val, $key, $value);
         }
 
         return preg_replace('/[^\x20-\x7E]/u', '', $value);
     }
 
-    /**
-     * Convert a value to camel case.
+    /*
+     * 将值转为小驼峰格式
      *
      * @param  string  $value
      * @return string
@@ -59,8 +60,8 @@ class Str
         return static::$camelCache[$value] = lcfirst(static::studly($value));
     }
 
-    /**
-     * Determine if a given string contains a given substring.
+    /*
+     * 判断字符串是否包含指定的子字符串
      *
      * @param  string  $haystack
      * @param  string|array  $needles
@@ -77,8 +78,8 @@ class Str
         return false;
     }
 
-    /**
-     * Determine if a given string ends with a given substring.
+    /*
+     * 判断是否字符串是以指定的子字符串结尾
      *
      * @param  string  $haystack
      * @param  string|array  $needles
@@ -322,8 +323,8 @@ class Str
         return $subject;
     }
 
-    /**
-     * Convert the given string to upper-case.
+    /*
+     * 字符串全部大写
      *
      * @param  string  $value
      * @return string
@@ -333,8 +334,8 @@ class Str
         return mb_strtoupper($value, 'UTF-8');
     }
 
-    /**
-     * Convert the given string to title case.
+    /*
+     * 字符串首字母大写
      *
      * @param  string  $value
      * @return string
@@ -404,8 +405,8 @@ class Str
         return static::$snakeCache[$key][$delimiter] = $value;
     }
 
-    /**
-     * Determine if a given string starts with a given substring.
+    /*
+     * 判断字符串是否以指定的子字符串为头部
      *
      * @param  string  $haystack
      * @param  string|array  $needles
@@ -422,8 +423,8 @@ class Str
         return false;
     }
 
-    /**
-     * Convert a value to studly caps case.
+    /*
+     * 将值转为 studly caps格式
      *
      * @param  string  $value
      * @return string
@@ -436,13 +437,14 @@ class Str
             return static::$studlyCache[$key];
         }
 
+        // ucwords 把每个单词的首字符转换为大写
         $value = ucwords(str_replace(['-', '_'], ' ', $value));
 
         return static::$studlyCache[$key] = str_replace(' ', '', $value);
     }
 
-    /**
-     * Returns the portion of string specified by the start and length parameters.
+    /*
+     * 返回部分字符串
      *
      * @param  string  $string
      * @param  int  $start
@@ -454,8 +456,8 @@ class Str
         return mb_substr($string, $start, $length, 'UTF-8');
     }
 
-    /**
-     * Make a string's first character uppercase.
+    /*
+     * 一段话的第一个字符大写
      *
      * @param  string  $string
      * @return string
@@ -465,8 +467,8 @@ class Str
         return static::upper(static::substr($string, 0, 1)).static::substr($string, 1);
     }
 
-    /**
-     * Returns the replacements for the ascii method.
+    /*
+     * 返回 ascii 方法需要的替换数组
      *
      * Note: Adapted from Stringy\Stringy.
      *
