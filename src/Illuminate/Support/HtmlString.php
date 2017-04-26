@@ -13,8 +13,8 @@ class HtmlString implements Htmlable
      */
     protected $html;
 
-    /**
-     * Create a new HTML string instance.
+    /*
+     * 创建一个 HTMLString 实例
      *
      * @param  string  $html
      * @return void
@@ -24,8 +24,8 @@ class HtmlString implements Htmlable
         $this->html = $html;
     }
 
-    /**
-     * Get the HTML string.
+    /*
+     * 获取 Html 内容
      *
      * @return string
      */
@@ -34,8 +34,8 @@ class HtmlString implements Htmlable
         return $this->html;
     }
 
-    /**
-     * Get the HTML string.
+    /*
+     * 获取 Html 内容
      *
      * @return string
      */

@@ -7,8 +7,8 @@ use Symfony\Component\VarDumper\Dumper\CliDumper;
 
 class Dumper
 {
-    /**
-     * Dump a value with elegance.
+    /*
+     * 优雅地输出数据
      *
      * @param  mixed  $value
      * @return void
