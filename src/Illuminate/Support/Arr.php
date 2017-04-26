@@ -71,8 +71,8 @@ class Arr
         return [array_keys($array), array_values($array)];
     }
 
-    /**
-     * Flatten a multi-dimensional associative array with dots.
+    /*
+     * 用 ‘.’ 号将多维数组转一维数组
      *
      * @param  array   $array
      * @param  string  $prepend
@@ -123,8 +123,8 @@ class Arr
         return array_key_exists($key, $array);
     }
 
-    /**
-     * Return the first element in an array passing a given truth test.
+    /*
+     * 返回，通过回调函数的第一个元素
      *
      * @param  array  $array
      * @param  callable|null  $callback
@@ -152,8 +152,8 @@ class Arr
         return value($default);
     }
 
-    /**
-     * Return the last element in an array passing a given truth test.
+    /*
+     * 返回，通过回调函数的最后一个元素
      *
      * @param  array  $array
      * @param  callable|null  $callback
@@ -169,8 +169,8 @@ class Arr
         return static::first(array_reverse($array, true), $callback, $default);
     }
 
-    /**
-     * Flatten a multi-dimensional array into a single level.
+    /*
+     * 多维数组转一维数组
      *
      * @param  array  $array
      * @param  int  $depth
@@ -191,8 +191,8 @@ class Arr
         }, []);
     }
 
-    /**
-     * Remove one or many array items from a given array using "dot" notation.
+    /*
+     * 从数组中移除元素，（可内置键）
      *
      * @param  array  $array
      * @param  array|string  $keys
@@ -310,8 +310,8 @@ class Arr
         return true;
     }
 
-    /**
-     * Determines if an array is associative.
+    /*
+     * 判断数组是否是关联数组
      *
      * An array is "associative" if it doesn't have sequential numerical keys beginning with zero.
      *
@@ -325,8 +325,8 @@ class Arr
         return array_keys($keys) !== $keys;
     }
 
-    /**
-     * Get a subset of the items from the given array.
+    /*
+     * 获取指定的键值对
      *
      * @param  array  $array
      * @param  array|string  $keys
@@ -337,8 +337,8 @@ class Arr
         return array_intersect_key($array, array_flip((array) $keys));
     }
 
-    /**
-     * Pluck an array of values from an array.
+    /*
+     * Pluck 数组
      *
      * @param  array  $array
      * @param  string|array  $value
@@ -369,8 +369,8 @@ class Arr
         return $results;
     }
 
-    /**
-     * Explode the "value" and "key" arguments passed to "pluck".
+    /*
+     * 解析 pluck 方法的参数
      *
      * @param  string|array  $value
      * @param  string|array|null  $key
@@ -385,8 +385,8 @@ class Arr
         return [$value, $key];
     }
 
-    /**
-     * Push an item onto the beginning of an array.
+    /*
+     * 将元素添加在数组的头部
      *
      * @param  array  $array
      * @param  mixed  $value
@@ -404,8 +404,8 @@ class Arr
         return $array;
     }
 
-    /**
-     * Get a value from the array, and remove it.
+    /*
+     * 根据键名获取键值并移除键值对
      *
      * @param  array   $array
      * @param  string  $key
@@ -457,8 +457,8 @@ class Arr
         return $array;
     }
 
-    /**
-     * Shuffle the given array and return the result.
+    /*
+     * 数组中的元素按随机顺序重新排序
      *
      * @param  array  $array
      * @return array
@@ -482,8 +482,8 @@ class Arr
         return Collection::make($array)->sortBy($callback)->all();
     }
 
-    /**
-     * Recursively sort an array by keys and values.
+    /*
+     * 递归排序
      *
      * @param  array  $array
      * @return array
@@ -505,8 +505,8 @@ class Arr
         return $array;
     }
 
-    /**
-     * Filter the array using the given callback.
+    /*
+     * 指定回调函数，过滤数组元素
      *
      * @param  array  $array
      * @param  callable  $callback
@@ -517,8 +517,8 @@ class Arr
         return array_filter($array, $callback, ARRAY_FILTER_USE_BOTH);
     }
 
-    /**
-     * If the given value is not an array, wrap it in one.
+    /*
+     * 如果给定的值不是数组，将它包裹为数组
      *
      * @param  mixed  $value
      * @return array

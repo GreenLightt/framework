@@ -7,15 +7,15 @@ use BadMethodCallException;
 
 trait Macroable
 {
-    /**
-     * The registered string macros.
+    /*
+     * 数组存储注册的宏
      *
      * @var array
      */
     protected static $macros = [];
 
-    /**
-     * Register a custom macro.
+    /*
+     * 注册一个自定义宏
      *
      * @param  string    $name
      * @param  callable  $macro
@@ -26,8 +26,8 @@ trait Macroable
         static::$macros[$name] = $macro;
     }
 
-    /**
-     * Checks if macro is registered.
+    /*
+     * 检查指定宏是否存在
      *
      * @param  string  $name
      * @return bool
@@ -37,8 +37,8 @@ trait Macroable
         return isset(static::$macros[$name]);
     }
 
-    /**
-     * Dynamically handle calls to the class.
+    /*
+     * 当调用的静态方法不存在或权限不足时，会自动调用 __callStatic 方法
      *
      * @param  string  $method
      * @param  array   $parameters
@@ -59,8 +59,8 @@ trait Macroable
         return call_user_func_array(static::$macros[$method], $parameters);
     }
 
-    /**
-     * Dynamically handle calls to the class.
+    /*
+     * 当要调用的方法不存在或权限不足时，会自动调用 __call 方法
      *
      * @param  string  $method
      * @param  array   $parameters
@@ -75,6 +75,8 @@ trait Macroable
         }
 
         if (static::$macros[$method] instanceof Closure) {
+            // Closure 的 bindTo 方法中，第一个参数为绑定匿名函数的对象,
+            // 第二个参数为作用域, 'static' 保持当前状态
             return call_user_func_array(static::$macros[$method]->bindTo($this, static::class), $parameters);
         }
 
