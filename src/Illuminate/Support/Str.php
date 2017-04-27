@@ -96,8 +96,8 @@ class Str
         return false;
     }
 
-    /**
-     * Cap a string with a single instance of a given value.
+    /*
+     * 加一个给定字符串到句子结尾;多余一个的给定字符串则移除
      *
      * @param  string  $value
      * @param  string  $cap
@@ -110,8 +110,8 @@ class Str
         return preg_replace('/(?:'.$quoted.')+$/u', '', $value).$cap;
     }
 
-    /**
-     * Determine if a given string matches a given pattern.
+    /*
+     * 判断给定字符串是否匹配 pattern
      *
      * @param  string  $pattern
      * @param  string  $value
@@ -133,8 +133,8 @@ class Str
         return (bool) preg_match('#^'.$pattern.'\z#u', $value);
     }
 
-    /**
-     * Convert a string to kebab case.
+    /*
+     * 字符转 kebab 格式， 同 snake 格式（不过kebab的分隔符为 ‘-’）
      *
      * @param  string  $value
      * @return string
@@ -144,8 +144,8 @@ class Str
         return static::snake($value, '-');
     }
 
-    /**
-     * Return the length of the given string.
+    /*
+     * 返回指定字符串的长度
      *
      * @param  string  $value
      * @return int
@@ -155,8 +155,8 @@ class Str
         return mb_strlen($value);
     }
 
-    /**
-     * Limit the number of characters in a string.
+    /*
+     * 限制字串的字符数量
      *
      * @param  string  $value
      * @param  int     $limit
@@ -172,8 +172,8 @@ class Str
         return rtrim(mb_strimwidth($value, 0, $limit, '', 'UTF-8')).$end;
     }
 
-    /**
-     * Convert the given string to lower-case.
+    /*
+     * 字符小写化
      *
      * @param  string  $value
      * @return string
@@ -183,8 +183,8 @@ class Str
         return mb_strtolower($value, 'UTF-8');
     }
 
-    /**
-     * Limit the number of words in a string.
+    /*
+     * 限制字串的字符数量
      *
      * @param  string  $value
      * @param  int     $words
@@ -202,8 +202,8 @@ class Str
         return rtrim($matches[0]).$end;
     }
 
-    /**
-     * Parse a Class@method style callback into class and method.
+    /*
+     * 将 Class@method 字符串解析为 [Class, method]
      *
      * @param  string  $callback
      * @param  string|null  $default
@@ -214,8 +214,8 @@ class Str
         return static::contains($callback, '@') ? explode('@', $callback, 2) : [$callback, $default];
     }
 
-    /**
-     * Get the plural form of an English word.
+    /*
+     * 获取英文单词的复数形式
      *
      * @param  string  $value
      * @param  int     $count
@@ -226,8 +226,8 @@ class Str
         return Pluralizer::plural($value, $count);
     }
 
-    /**
-     * Generate a more truly "random" alpha-numeric string.
+    /*
+     * 随机生成 alpha-numberic 字符串
      *
      * @param  int  $length
      * @return string
@@ -247,8 +247,8 @@ class Str
         return $string;
     }
 
-    /**
-     * Generate a "random" alpha-numeric string.
+    /*
+     * 随机生成 alpha-numberic 字符串
      *
      * Should not be considered sufficient for cryptography, etc.
      *
@@ -268,8 +268,8 @@ class Str
         return substr(str_shuffle(str_repeat($pool, $length)), 0, $length);
     }
 
-    /**
-     * Replace a given value in the string sequentially with an array.
+    /*
+     * 将指定要替换的字符串 $search 依次替换为 数组中的字符串
      *
      * @param  string  $search
      * @param  array   $replace
@@ -285,8 +285,8 @@ class Str
         return $subject;
     }
 
-    /**
-     * Replace the first occurrence of a given value in the string.
+    /*
+     * 替换第一个出现的匹配字符串
      *
      * @param  string  $search
      * @param  string  $replace
@@ -304,8 +304,8 @@ class Str
         return $subject;
     }
 
-    /**
-     * Replace the last occurrence of a given value in the string.
+    /*
+     * 替换最后一次出现的匹配字符串
      *
      * @param  string  $search
      * @param  string  $replace
@@ -345,8 +345,8 @@ class Str
         return mb_convert_case($value, MB_CASE_TITLE, 'UTF-8');
     }
 
-    /**
-     * Get the singular form of an English word.
+    /*
+     * 获取英文单词的单数形式
      *
      * @param  string  $value
      * @return string
@@ -356,8 +356,8 @@ class Str
         return Pluralizer::singular($value);
     }
 
-    /**
-     * Generate a URL friendly "slug" from a given string.
+    /*
+     * 从给定字串产生一个对网址友善的 slug
      *
      * @param  string  $title
      * @param  string  $separator
@@ -372,17 +372,17 @@ class Str
 
         $title = preg_replace('!['.preg_quote($flip).']+!u', $separator, $title);
 
-        // Remove all characters that are not the separator, letters, numbers, or whitespace.
+        // 移除所有非分隔符、字母、数字或空格的字符
         $title = preg_replace('![^'.preg_quote($separator).'\pL\pN\s]+!u', '', mb_strtolower($title));
 
-        // Replace all separator characters and whitespace by a single separator
+        // 替换所有分隔符和空格为指定的分隔符
         $title = preg_replace('!['.preg_quote($separator).'\s]+!u', $separator, $title);
 
         return trim($title, $separator);
     }
 
-    /**
-     * Convert a string to snake case.
+    /*
+     * 字符转 snake 格式
      *
      * @param  string  $value
      * @param  string  $delimiter
@@ -396,6 +396,7 @@ class Str
             return static::$snakeCache[$key][$delimiter];
         }
 
+        // ctype_lower做小写字符检测，如果全是小写，则为 true
         if (! ctype_lower($value)) {
             $value = preg_replace('/\s+/u', '', $value);
 
