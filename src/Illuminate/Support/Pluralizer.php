@@ -6,8 +6,8 @@ use Doctrine\Common\Inflector\Inflector;
 
 class Pluralizer
 {
-    /**
-     * Uncountable word forms.
+    /*
+     * 不可数的英文单词
      *
      * @var array
      */
@@ -49,8 +49,8 @@ class Pluralizer
         'wheat',
     ];
 
-    /**
-     * Get the plural form of an English word.
+    /*
+     * 获取英文单词的复数形式
      *
      * @param  string  $value
      * @param  int     $count
@@ -67,8 +67,8 @@ class Pluralizer
         return static::matchCase($plural, $value);
     }
 
-    /**
-     * Get the singular form of an English word.
+    /*
+     * 获取英文单词的单数形式
      *
      * @param  string  $value
      * @return string
@@ -80,8 +80,8 @@ class Pluralizer
         return static::matchCase($singular, $value);
     }
 
-    /**
-     * Determine if the given value is uncountable.
+    /*
+     * 判断指定字符是否是不可数的英文单词
      *
      * @param  string  $value
      * @return bool
