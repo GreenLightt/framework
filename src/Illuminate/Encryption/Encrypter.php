@@ -9,22 +9,22 @@ use Illuminate\Contracts\Encryption\Encrypter as EncrypterContract;
 
 class Encrypter implements EncrypterContract
 {
-    /**
-     * The encryption key.
+    /*
+     * 加密的密钥
      *
      * @var string
      */
     protected $key;
 
-    /**
-     * The algorithm used for encryption.
+    /*
+     * 用于加密的算法格式
      *
      * @var string
      */
     protected $cipher;
 
-    /**
-     * Create a new encrypter instance.
+    /*
+     * 创建一个加密器实例
      *
      * @param  string  $key
      * @param  string  $cipher
@@ -44,8 +44,8 @@ class Encrypter implements EncrypterContract
         }
     }
 
-    /**
-     * Determine if the given key and cipher combination is valid.
+    /*
+     * 判断给定的算法与密钥组合是否有效
      *
      * @param  string  $key
      * @param  string  $cipher
@@ -59,8 +59,8 @@ class Encrypter implements EncrypterContract
                ($cipher === 'AES-256-CBC' && $length === 32);
     }
 
-    /**
-     * Encrypt the given value.
+    /*
+     * 加密给定的对象
      *
      * @param  mixed  $value
      * @param  bool  $serialize
@@ -70,6 +70,7 @@ class Encrypter implements EncrypterContract
      */
     public function encrypt($value, $serialize = true)
     {
+        // random_bytes是PHP7的方法，但在 vendor/paragonie/random_compat 作了兼容
         $iv = random_bytes(16);
 
         // First we will encrypt the value using OpenSSL. After this is encrypted we
@@ -98,8 +99,8 @@ class Encrypter implements EncrypterContract
         return base64_encode($json);
     }
 
-    /**
-     * Encrypt a string without serialization.
+    /*
+     * 加密字符串，不需要再序列化
      *
      * @param  string  $value
      * @return string
@@ -109,8 +110,8 @@ class Encrypter implements EncrypterContract
         return $this->encrypt($value, false);
     }
 
-    /**
-     * Decrypt the given value.
+    /*
+     * 解密指定的值
      *
      * @param  mixed  $payload
      * @param  bool  $unserialize
@@ -138,8 +139,8 @@ class Encrypter implements EncrypterContract
         return $unserialize ? unserialize($decrypted) : $decrypted;
     }
 
-    /**
-     * Decrypt the given string without unserialization.
+    /*
+     * 解密指定的字符串，不需要序列化
      *
      * @param  string  $payload
      * @return string
@@ -149,8 +150,8 @@ class Encrypter implements EncrypterContract
         return $this->decrypt($payload, false);
     }
 
-    /**
-     * Create a MAC for the given value.
+    /*
+     * 根据指定的值创建哈希信息验证码 (hmac)
      *
      * @param  string  $iv
      * @param  mixed  $value
@@ -161,8 +162,8 @@ class Encrypter implements EncrypterContract
         return hash_hmac('sha256', $iv.$value, $this->key);
     }
 
-    /**
-     * Get the JSON array from the given payload.
+    /*
+     * 从加密的字符串得到 Json数组('iv', 'value', 'mac')
      *
      * @param  string  $payload
      * @return array
@@ -187,8 +188,8 @@ class Encrypter implements EncrypterContract
         return $payload;
     }
 
-    /**
-     * Verify that the encryption payload is valid.
+    /*
+     * 验证从加密的字符串得到的Json数组是否有效
      *
      * @param  mixed  $payload
      * @return bool
@@ -200,8 +201,8 @@ class Encrypter implements EncrypterContract
         );
     }
 
-    /**
-     * Determine if the MAC for the given payload is valid.
+    /*
+     * 通过计算计算哈希信息验证码判断给定的 payload 是否有效
      *
      * @param  array  $payload
      * @return bool
@@ -215,8 +216,8 @@ class Encrypter implements EncrypterContract
         );
     }
 
-    /**
-     * Calculate the hash of the given payload.
+    /*
+     * 根据给定的 payload 计算哈希信息验证码
      *
      * @param  array  $payload
      * @param  string  $bytes
@@ -229,8 +230,8 @@ class Encrypter implements EncrypterContract
         );
     }
 
-    /**
-     * Get the encryption key.
+    /*
+     * 获取加密密钥
      *
      * @return string
      */
