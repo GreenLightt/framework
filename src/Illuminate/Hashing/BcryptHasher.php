@@ -7,15 +7,15 @@ use Illuminate\Contracts\Hashing\Hasher as HasherContract;
 
 class BcryptHasher implements HasherContract
 {
-    /**
-     * Default crypt cost factor.
+    /*
+     * 指明算法递归的层数
      *
      * @var int
      */
     protected $rounds = 10;
 
-    /**
-     * Hash the given value.
+    /*
+     * hash加密指定的值
      *
      * @param  string  $value
      * @param  array   $options
@@ -36,8 +36,8 @@ class BcryptHasher implements HasherContract
         return $hash;
     }
 
-    /**
-     * Check the given plain value against a hash.
+    /*
+     * 检查指定的值和哈希值是否匹配
      *
      * @param  string  $value
      * @param  string  $hashedValue
@@ -53,8 +53,8 @@ class BcryptHasher implements HasherContract
         return password_verify($value, $hashedValue);
     }
 
-    /**
-     * Check if the given hash has been hashed using the given options.
+    /*
+     * 判断一个 hash 值是否使用特定算法及选项创建的
      *
      * @param  string  $hashedValue
      * @param  array   $options
@@ -67,8 +67,8 @@ class BcryptHasher implements HasherContract
         ]);
     }
 
-    /**
-     * Set the default password work factor.
+    /*
+     * 设置算法递归的层数
      *
      * @param  int  $rounds
      * @return $this
@@ -80,8 +80,8 @@ class BcryptHasher implements HasherContract
         return $this;
     }
 
-    /**
-     * Extract the cost value from the options array.
+    /*
+     * 从参数 options 数组中抽取 rounds 值
      *
      * @param  array  $options
      * @return int

@@ -6,15 +6,15 @@ use Illuminate\Support\ServiceProvider;
 
 class HashServiceProvider extends ServiceProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
+    /*
+     * 表明该服务提供者延迟加载
      *
      * @var bool
      */
     protected $defer = true;
 
-    /**
-     * Register the service provider.
+    /*
+     * 注册服务提供者
      *
      * @return void
      */
@@ -25,8 +25,8 @@ class HashServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Get the services provided by the provider.
+    /*
+     * 配合$defer变量，返回需要延迟加载的服务名称
      *
      * @return array
      */
