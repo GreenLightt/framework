@@ -7,8 +7,8 @@ use Illuminate\Support\ServiceProvider;
 
 class LogServiceProvider extends ServiceProvider
 {
-    /**
-     * Register the service provider.
+    /*
+     * 注册服务提供者
      *
      * @return void
      */
@@ -19,8 +19,8 @@ class LogServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Create the logger.
+    /*
+     * 创建 log 日志器
      *
      * @return \Illuminate\Log\Writer
      */
@@ -39,8 +39,8 @@ class LogServiceProvider extends ServiceProvider
         return $log;
     }
 
-    /**
-     * Get the name of the log "channel".
+    /*
+     * 获取Log日志的频道名称
      *
      * @return string
      */
@@ -49,8 +49,8 @@ class LogServiceProvider extends ServiceProvider
         return $this->app->bound('env') ? $this->app->environment() : 'production';
     }
 
-    /**
-     * Configure the Monolog handlers for the application.
+    /*
+     * 配置日志的处理方式
      *
      * @param  \Illuminate\Log\Writer  $log
      * @return void
@@ -60,8 +60,8 @@ class LogServiceProvider extends ServiceProvider
         $this->{'configure'.ucfirst($this->handler()).'Handler'}($log);
     }
 
-    /**
-     * Configure the Monolog handlers for the application.
+    /*
+     * 配置日志单一处理方式
      *
      * @param  \Illuminate\Log\Writer  $log
      * @return void
@@ -74,8 +74,8 @@ class LogServiceProvider extends ServiceProvider
         );
     }
 
-    /**
-     * Configure the Monolog handlers for the application.
+    /*
+     * 配置每日生成的日志处理方式
      *
      * @param  \Illuminate\Log\Writer  $log
      * @return void
@@ -88,8 +88,8 @@ class LogServiceProvider extends ServiceProvider
         );
     }
 
-    /**
-     * Configure the Monolog handlers for the application.
+    /*
+     * 配置：将日志记录到 syslog 中
      *
      * @param  \Illuminate\Log\Writer  $log
      * @return void
@@ -99,8 +99,8 @@ class LogServiceProvider extends ServiceProvider
         $log->useSyslog('laravel', $this->logLevel());
     }
 
-    /**
-     * Configure the Monolog handlers for the application.
+    /*
+     * 配置：将日志记录到 error_log 中
      *
      * @param  \Illuminate\Log\Writer  $log
      * @return void
@@ -110,8 +110,8 @@ class LogServiceProvider extends ServiceProvider
         $log->useErrorLog($this->logLevel());
     }
 
-    /**
-     * Get the default log handler.
+    /*
+     * 获取默认的日志处理方式
      *
      * @return string
      */
@@ -124,8 +124,8 @@ class LogServiceProvider extends ServiceProvider
         return 'single';
     }
 
-    /**
-     * Get the log level for the application.
+    /*
+     * 获取日志的错误等级
      *
      * @return string
      */
@@ -138,8 +138,8 @@ class LogServiceProvider extends ServiceProvider
         return 'debug';
     }
 
-    /**
-     * Get the maximum number of log files for the application.
+    /*
+     * 获取应用中能保持连接的最大文件数
      *
      * @return int
      */
