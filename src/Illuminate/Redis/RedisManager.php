@@ -8,29 +8,29 @@ use Illuminate\Contracts\Redis\Factory;
 
 class RedisManager implements Factory
 {
-    /**
-     * The name of the default driver.
+    /*
+     * 默认 redis 驱动的名称
      *
      * @var string
      */
     protected $driver;
 
-    /**
-     * The Redis server configurations.
+    /*
+     * redis 配置
      *
      * @var array
      */
     protected $config;
 
-    /**
-     * The Redis connections.
+    /*
+     * redis 连接对象
      *
      * @var mixed
      */
     protected $connections;
 
-    /**
-     * Create a new Redis manager instance.
+    /*
+     * 创建 redis 管理实例
      *
      * @param  string  $driver
      * @param  array  $config
@@ -41,8 +41,8 @@ class RedisManager implements Factory
         $this->config = $config;
     }
 
-    /**
-     * Get a Redis connection by name.
+    /*
+     * 根据名称获取连接对象
      *
      * @param  string|null  $name
      * @return \Illuminate\Redis\Connections\Connection
@@ -58,8 +58,8 @@ class RedisManager implements Factory
         return $this->connections[$name] = $this->resolve($name);
     }
 
-    /**
-     * Resolve the given connection by name.
+    /*
+     * 解析连接对象
      *
      * @param  string  $name
      * @return \Illuminate\Redis\Connections\Connection
@@ -83,8 +83,8 @@ class RedisManager implements Factory
         );
     }
 
-    /**
-     * Resolve the given cluster connection by name.
+    /*
+     * 解析集群中的连接对象
      *
      * @param  string  $name
      * @return \Illuminate\Redis\Connections\Connection
@@ -98,8 +98,8 @@ class RedisManager implements Factory
         );
     }
 
-    /**
-     * Get the connector instance for the current driver.
+    /*
+     * 获取 Redis 客户端对象
      *
      * @return \Illuminate\Redis\Connectors\PhpRedisConnector|\Illuminate\Redis\Connectors\PredisConnector
      */

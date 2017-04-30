@@ -7,8 +7,8 @@ use Illuminate\Support\ServiceProvider;
 
 class RedisServiceProvider extends ServiceProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
+    /*
+     * 该服务提供者延迟加载
      *
      * @var bool
      */
