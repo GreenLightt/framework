@@ -20,8 +20,8 @@ use Illuminate\Contracts\Logging\Log as LogContract;
 
 class Writer implements LogContract, PsrLoggerInterface
 {
-    /**
-     * The Monolog logger instance.
+    /*
+     * monolog 实例
      *
      * @var \Monolog\Logger
      */
@@ -34,8 +34,8 @@ class Writer implements LogContract, PsrLoggerInterface
      */
     protected $dispatcher;
 
-    /**
-     * The Log levels.
+    /*
+     * 日志等级
      *
      * @var array
      */
@@ -50,8 +50,8 @@ class Writer implements LogContract, PsrLoggerInterface
         'emergency' => MonologLogger::EMERGENCY,
     ];
 
-    /**
-     * Create a new log writer instance.
+    /*
+     * 创建一个日志写入器实例
      *
      * @param  \Monolog\Logger  $monolog
      * @param  \Illuminate\Contracts\Events\Dispatcher  $dispatcher
@@ -66,8 +66,8 @@ class Writer implements LogContract, PsrLoggerInterface
         }
     }
 
-    /**
-     * Log an emergency message to the logs.
+    /*
+     * 记录 emergency 日志
      *
      * @param  string  $message
      * @param  array  $context
@@ -78,8 +78,8 @@ class Writer implements LogContract, PsrLoggerInterface
         $this->writeLog(__FUNCTION__, $message, $context);
     }
 
-    /**
-     * Log an alert message to the logs.
+    /*
+     * 记录 alert 日志
      *
      * @param  string  $message
      * @param  array  $context
@@ -90,8 +90,8 @@ class Writer implements LogContract, PsrLoggerInterface
         $this->writeLog(__FUNCTION__, $message, $context);
     }
 
-    /**
-     * Log a critical message to the logs.
+    /*
+     * 记录 critical 日志
      *
      * @param  string  $message
      * @param  array  $context
@@ -102,8 +102,8 @@ class Writer implements LogContract, PsrLoggerInterface
         $this->writeLog(__FUNCTION__, $message, $context);
     }
 
-    /**
-     * Log an error message to the logs.
+    /*
+     * 记录 error 日志
      *
      * @param  string  $message
      * @param  array  $context
@@ -114,8 +114,8 @@ class Writer implements LogContract, PsrLoggerInterface
         $this->writeLog(__FUNCTION__, $message, $context);
     }
 
-    /**
-     * Log a warning message to the logs.
+    /*
+     * 记录 warning 日志
      *
      * @param  string  $message
      * @param  array  $context
@@ -126,8 +126,8 @@ class Writer implements LogContract, PsrLoggerInterface
         $this->writeLog(__FUNCTION__, $message, $context);
     }
 
-    /**
-     * Log a notice to the logs.
+    /*
+     * 记录 notice 日志
      *
      * @param  string  $message
      * @param  array  $context
@@ -138,8 +138,8 @@ class Writer implements LogContract, PsrLoggerInterface
         $this->writeLog(__FUNCTION__, $message, $context);
     }
 
-    /**
-     * Log an informational message to the logs.
+    /*
+     * 记录 info 日志
      *
      * @param  string  $message
      * @param  array  $context
@@ -150,8 +150,8 @@ class Writer implements LogContract, PsrLoggerInterface
         $this->writeLog(__FUNCTION__, $message, $context);
     }
 
-    /**
-     * Log a debug message to the logs.
+    /*
+     * 记录 debug 日志
      *
      * @param  string  $message
      * @param  array  $context
@@ -162,8 +162,8 @@ class Writer implements LogContract, PsrLoggerInterface
         $this->writeLog(__FUNCTION__, $message, $context);
     }
 
-    /**
-     * Log a message to the logs.
+    /*
+     * 记录 log 日志
      *
      * @param  string  $level
      * @param  string  $message
@@ -175,8 +175,8 @@ class Writer implements LogContract, PsrLoggerInterface
         $this->writeLog($level, $message, $context);
     }
 
-    /**
-     * Dynamically pass log calls into the writer.
+    /*
+     * 记录 指定等级 日志
      *
      * @param  string  $level
      * @param  string  $message
@@ -188,8 +188,8 @@ class Writer implements LogContract, PsrLoggerInterface
         $this->writeLog($level, $message, $context);
     }
 
-    /**
-     * Write a message to Monolog.
+    /*
+     * 用 monolog 记录消息
      *
      * @param  string  $level
      * @param  string  $message
@@ -263,8 +263,8 @@ class Writer implements LogContract, PsrLoggerInterface
         $handler->setFormatter($this->getDefaultFormatter());
     }
 
-    /**
-     * Register a new callback handler for when a log event is triggered.
+    /*
+     * 为日志创建一个新的监听器
      *
      * @param  \Closure  $callback
      * @return void
@@ -280,8 +280,8 @@ class Writer implements LogContract, PsrLoggerInterface
         $this->dispatcher->listen(MessageLogged::class, $callback);
     }
 
-    /**
-     * Fires a log event.
+    /*
+     * 触发 日志 事件
      *
      * @param  string  $level
      * @param  string  $message
@@ -298,8 +298,8 @@ class Writer implements LogContract, PsrLoggerInterface
         }
     }
 
-    /**
-     * Format the parameters for the logger.
+    /*
+     * 格式化 消息
      *
      * @param  mixed  $message
      * @return mixed
@@ -317,8 +317,8 @@ class Writer implements LogContract, PsrLoggerInterface
         return $message;
     }
 
-    /**
-     * Parse the string level into a Monolog constant.
+    /*
+     * 解析 level 字符串
      *
      * @param  string  $level
      * @return int
@@ -334,8 +334,8 @@ class Writer implements LogContract, PsrLoggerInterface
         throw new InvalidArgumentException('Invalid log level.');
     }
 
-    /**
-     * Get the underlying Monolog instance.
+    /*
+     * 获取 monolog 实例
      *
      * @return \Monolog\Logger
      */
@@ -344,8 +344,8 @@ class Writer implements LogContract, PsrLoggerInterface
         return $this->monolog;
     }
 
-    /**
-     * Get a default Monolog formatter instance.
+    /*
+     * 获取默认的 monolog 日志格式器 实例
      *
      * @return \Monolog\Formatter\LineFormatter
      */
@@ -354,8 +354,8 @@ class Writer implements LogContract, PsrLoggerInterface
         return new LineFormatter(null, null, true, true);
     }
 
-    /**
-     * Get the event dispatcher instance.
+    /*
+     * 获取事件 dispatcher 实例
      *
      * @return \Illuminate\Contracts\Events\Dispatcher
      */
@@ -364,8 +364,8 @@ class Writer implements LogContract, PsrLoggerInterface
         return $this->dispatcher;
     }
 
-    /**
-     * Set the event dispatcher instance.
+    /*
+     * 设置事件 dispatcher 实例
      *
      * @param  \Illuminate\Contracts\Events\Dispatcher  $dispatcher
      * @return void
