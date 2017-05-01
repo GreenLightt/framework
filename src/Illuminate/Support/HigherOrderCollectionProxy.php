@@ -2,6 +2,9 @@
 
 namespace Illuminate\Support;
 
+/*
+ * 用于高阶信息传递
+ */
 class HigherOrderCollectionProxy
 {
     /**
