@@ -47,8 +47,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
      */
     protected $routeResolver;
 
-    /**
-     * Create a new Illuminate HTTP request from server variables.
+    /*
+     * 创建一个新的 Illuminate Http request 对象
      *
      * @return static
      */
@@ -59,8 +59,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return static::createFromBase(SymfonyRequest::createFromGlobals());
     }
 
-    /**
-     * Return the Request instance.
+    /*
+     * 获取 request 实例
      *
      * @return $this
      */
@@ -69,8 +69,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return $this;
     }
 
-    /**
-     * Get the request method.
+    /*
+     * 获取请求的 method 字段
      *
      * @return string
      */
@@ -79,8 +79,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return $this->getMethod();
     }
 
-    /**
-     * Get the root URL for the application.
+    /*
+     * 获取 Url 的根部分
      *
      * @return string
      */
@@ -89,8 +89,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return rtrim($this->getSchemeAndHttpHost().$this->getBaseUrl(), '/');
     }
 
-    /**
-     * Get the URL (no query string) for the request.
+    /*
+     * 获取请求的 Url，不带查询
      *
      * @return string
      */
@@ -99,8 +99,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return rtrim(preg_replace('/\?.*/', '', $this->getUri()), '/');
     }
 
-    /**
-     * Get the full URL for the request.
+    /*
+     * 获取 request 中的完整 Url
      *
      * @return string
      */
@@ -128,8 +128,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
             : $this->fullUrl().$question.http_build_query($query);
     }
 
-    /**
-     * Get the current path info for the request.
+    /*
+     * 获取url的路径，比如 user/logout.
      *
      * @return string
      */
@@ -140,8 +140,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return $pattern == '' ? '/' : $pattern;
     }
 
-    /**
-     * Get the current encoded path info for the request.
+    /*
+     * 获取解码后的 Url 路径
      *
      * @return string
      */
@@ -150,8 +150,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return rawurldecode($this->path());
     }
 
-    /**
-     * Get a segment from the URI (1 based index).
+    /*
+     * 根据数组索引获取 Url 路径分段值
      *
      * @param  int  $index
      * @param  string|null  $default
@@ -162,8 +162,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return Arr::get($this->segments(), $index - 1, $default);
     }
 
-    /**
-     * Get all of the segments for the request path.
+    /*
+     * 获取 Url 路径的分段, 比如路径为 user/logout, 则返回 ['user', 'logout']
      *
      * @return array
      */
@@ -176,8 +176,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         }));
     }
 
-    /**
-     * Determine if the current request URI matches a pattern.
+    /*
+     * 判断当前的请求 Url 匹配指定的 pattern 值
      *
      * @return bool
      */
@@ -210,8 +210,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return false;
     }
 
-    /**
-     * Determine if the request is the result of an AJAX call.
+    /*
+     * 判断是否是 Ajax 请求
      *
      * @return bool
      */
@@ -220,8 +220,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return $this->isXmlHttpRequest();
     }
 
-    /**
-     * Determine if the request is the result of an PJAX call.
+    /*
+     * 判断是否是 Pjax 请求
      *
      * @return bool
      */
@@ -230,8 +230,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return $this->headers->get('X-PJAX') == true;
     }
 
-    /**
-     * Determine if the request is over HTTPS.
+    /*
+     * 判断请求是否是基于 HTTPS
      *
      * @return bool
      */
@@ -240,8 +240,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return $this->isSecure();
     }
 
-    /**
-     * Returns the client IP address.
+    /*
+     * 返回客户端的 IP 地址
      *
      * @return string
      */
@@ -250,8 +250,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return $this->getClientIp();
     }
 
-    /**
-     * Returns the client IP addresses.
+    /*
+     * 返回客户端的IP地址（数组）
      *
      * @return array
      */
@@ -260,8 +260,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return $this->getClientIps();
     }
 
-    /**
-     * Merge new input into the current request's input array.
+    /*
+     * request 请求中添加 请求参数 数据
      *
      * @param  array  $input
      * @return void
@@ -271,8 +271,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         $this->getInputSource()->add($input);
     }
 
-    /**
-     * Replace the input for the current request.
+    /*
+     * 当前 request 请求, 替换请求参数数据
      *
      * @param  array  $input
      * @return void
@@ -282,8 +282,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         $this->getInputSource()->replace($input);
     }
 
-    /**
-     * Get the JSON payload for the request.
+    /*
+     * 从请求中的 Json 载体数据中获取指定参数
      *
      * @param  string  $key
      * @param  mixed   $default
@@ -302,8 +302,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return data_get($this->json->all(), $key, $default);
     }
 
-    /**
-     * Get the input source for the request.
+    /*
+     * 获取参数的来源
      *
      * @return \Symfony\Component\HttpFoundation\ParameterBag
      */
@@ -375,8 +375,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return $files;
     }
 
-    /**
-     * Get the session associated with the request.
+    /*
+     * 获取与当前 request 请求相对应的 session 对象
      *
      * @return \Illuminate\Session\Store
      *
@@ -402,8 +402,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         $this->session = $session;
     }
 
-    /**
-     * Get the user making the request.
+    /*
+     * 获取发起请求的用户
      *
      * @param  string|null  $guard
      * @return mixed
@@ -413,8 +413,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return call_user_func($this->getUserResolver(), $guard);
     }
 
-    /**
-     * Get the route handling the request.
+    /*
+     * 获取处理请求的 route 对象或 route 对象上的参数值
      *
      * @param  string|null  $param
      *
@@ -462,8 +462,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return $this;
     }
 
-    /**
-     * Get the user resolver callback.
+    /*
+     * 获取用户解析器
      *
      * @return \Closure
      */
@@ -474,8 +474,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         };
     }
 
-    /**
-     * Set the user resolver callback.
+    /*
+     * 设置用户解析器
      *
      * @param  \Closure  $callback
      * @return $this
@@ -487,8 +487,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return $this;
     }
 
-    /**
-     * Get the route resolver callback.
+    /*
+     * 获取路由解析器
      *
      * @return \Closure
      */
@@ -499,8 +499,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         };
     }
 
-    /**
-     * Set the route resolver callback.
+    /*
+     * 设置路由解析器
      *
      * @param  \Closure  $callback
      * @return $this
