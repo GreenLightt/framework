@@ -41,6 +41,7 @@ class FileFactory
     protected function generateImage($width, $height)
     {
         return tap(tmpfile(), function ($temp) use ($width, $height) {
+            // 打开输出控制缓冲
             ob_start();
 
             imagepng(imagecreatetruecolor($width, $height));
