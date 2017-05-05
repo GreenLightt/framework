@@ -12,8 +12,8 @@ class Response extends BaseResponse
 {
     use ResponseTrait;
 
-    /**
-     * Set the content on the response.
+    /*
+     * 设置 response 中的内容
      *
      * @param  mixed  $content
      * @return $this
@@ -41,8 +41,8 @@ class Response extends BaseResponse
         return parent::setContent($content);
     }
 
-    /**
-     * Determine if the given content should be turned into JSON.
+    /*
+     * 判断是否给定的内容可以被转化为 JSON 格式
      *
      * @param  mixed  $content
      * @return bool
@@ -55,8 +55,8 @@ class Response extends BaseResponse
                is_array($content);
     }
 
-    /**
-     * Morph the given content into JSON.
+    /*
+     * 指定的内容转为 JSON
      *
      * @param  mixed   $content
      * @return string

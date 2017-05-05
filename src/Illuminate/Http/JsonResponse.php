@@ -12,8 +12,8 @@ class JsonResponse extends BaseJsonResponse
 {
     use ResponseTrait;
 
-    /**
-     * Constructor.
+    /*
+     * 构造函数
      *
      * @param  mixed  $data
      * @param  int    $status
@@ -27,8 +27,8 @@ class JsonResponse extends BaseJsonResponse
         parent::__construct($data, $status, $headers);
     }
 
-    /**
-     * Sets the JSONP callback.
+    /*
+     * 设置 Jsonp 回调函数
      *
      * @param  string|null  $callback
      * @return $this

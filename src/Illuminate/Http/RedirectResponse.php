@@ -18,22 +18,22 @@ class RedirectResponse extends BaseRedirectResponse
         Macroable::__call as macroCall;
     }
 
-    /**
-     * The request instance.
+    /*
+     * request 实例
      *
      * @var \Illuminate\Http\Request
      */
     protected $request;
 
-    /**
-     * The session store implementation.
+    /*
+     * session 实例
      *
      * @var \Illuminate\Session\Store
      */
     protected $session;
 
-    /**
-     * Flash a piece of data to the session.
+    /*
+     * 闪存信息到 session 中
      *
      * @param  string|array  $key
      * @param  mixed  $value
@@ -50,8 +50,8 @@ class RedirectResponse extends BaseRedirectResponse
         return $this;
     }
 
-    /**
-     * Add multiple cookies to the response.
+    /*
+     * response 中添加多个 cookies
      *
      * @param  array  $cookies
      * @return $this
@@ -101,8 +101,8 @@ class RedirectResponse extends BaseRedirectResponse
         return $input;
     }
 
-    /**
-     * Flash an array of input to the session.
+    /*
+     * 闪存除了指定 Input 数据
      *
      * @return $this
      */
@@ -111,8 +111,9 @@ class RedirectResponse extends BaseRedirectResponse
         return $this->withInput($this->request->only(func_get_args()));
     }
 
-    /**
+    /*
      * Flash an array of input to the session.
+     * 闪存除了指定数据外的所有 Input 数据
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -164,8 +165,8 @@ class RedirectResponse extends BaseRedirectResponse
         //
     }
 
-    /**
-     * Get the request instance.
+    /*
+     * 获取 request 实例
      *
      * @return \Illuminate\Http\Request|null
      */
@@ -174,8 +175,8 @@ class RedirectResponse extends BaseRedirectResponse
         return $this->request;
     }
 
-    /**
-     * Set the request instance.
+    /*
+     * 设置 request 实例
      *
      * @param  \Illuminate\Http\Request  $request
      * @return void
@@ -185,8 +186,8 @@ class RedirectResponse extends BaseRedirectResponse
         $this->request = $request;
     }
 
-    /**
-     * Get the session store implementation.
+    /*
+     * 获取 session 实例
      *
      * @return \Illuminate\Session\Store|null
      */
@@ -195,8 +196,8 @@ class RedirectResponse extends BaseRedirectResponse
         return $this->session;
     }
 
-    /**
-     * Set the session store implementation.
+    /*
+     * 设置 session 实例
      *
      * @param  \Illuminate\Session\Store  $session
      * @return void
