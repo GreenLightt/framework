@@ -9,8 +9,8 @@ use Illuminate\Http\UploadedFile;
 
 trait InteractsWithInput
 {
-    /**
-     * Retrieve a server variable from the request.
+    /*
+     * 从 request 请求中 server 变量中搜索 指定 Key
      *
      * @param  string  $key
      * @param  string|array|null  $default
@@ -21,8 +21,8 @@ trait InteractsWithInput
         return $this->retrieveItem('server', $key, $default);
     }
 
-    /**
-     * Determine if a header is set on the request.
+    /*
+     * 判断 request 头部是否存在指定键
      *
      * @param  string  $key
      * @return bool
@@ -32,8 +32,8 @@ trait InteractsWithInput
         return ! is_null($this->header($key));
     }
 
-    /**
-     * Retrieve a header from the request.
+    /*
+     * 从 request 请求中 headers 变量中搜索 指定 Key
      *
      * @param  string  $key
      * @param  string|array|null  $default
@@ -44,8 +44,8 @@ trait InteractsWithInput
         return $this->retrieveItem('headers', $key, $default);
     }
 
-    /**
-     * Get the bearer token from the request headers.
+    /*
+     * 从 request 头部中获取 bearer token
      *
      * @return string|null
      */
@@ -58,8 +58,8 @@ trait InteractsWithInput
         }
     }
 
-    /**
-     * Determine if the request contains a given input item key.
+    /*
+     * 判断 request 请求参数是否包含指定的元素
      *
      * @param  string|array  $key
      * @return bool
@@ -79,8 +79,8 @@ trait InteractsWithInput
         return true;
     }
 
-    /**
-     * Determine if the request contains a non-empty value for an input item.
+    /*
+     * 判断 request 请求参数指定元素的值是否是非空字符串
      *
      * @param  string|array  $key
      * @return bool
@@ -98,8 +98,8 @@ trait InteractsWithInput
         return true;
     }
 
-    /**
-     * Determine if the given input key is an empty string for "has".
+    /*
+     * 判断 request 请求参数指定元素的值是空字符串
      *
      * @param  string  $key
      * @return bool
@@ -111,8 +111,8 @@ trait InteractsWithInput
         return ! is_bool($value) && ! is_array($value) && trim((string) $value) === '';
     }
 
-    /**
-     * Get all of the input and files for the request.
+    /*
+     * 获取 request 中所有请求参数，包括文件
      *
      * @return array
      */
@@ -121,8 +121,8 @@ trait InteractsWithInput
         return array_replace_recursive($this->input(), $this->allFiles());
     }
 
-    /**
-     * Retrieve an input item from the request.
+    /*
+     * 从 request 请求参数中获取元素
      *
      * @param  string  $key
      * @param  string|array|null  $default
@@ -135,8 +135,8 @@ trait InteractsWithInput
         );
     }
 
-    /**
-     * Get a subset containing the provided keys with values from the input data.
+    /*
+     * 获取指定的 request 请求参数
      *
      * @param  array|mixed  $keys
      * @return array
@@ -156,8 +156,8 @@ trait InteractsWithInput
         return $results;
     }
 
-    /**
-     * Get all of the input except for a specified array of items.
+    /*
+     * 获取除了指定的参数外的其他请求参数
      *
      * @param  array|mixed  $keys
      * @return array
@@ -184,8 +184,8 @@ trait InteractsWithInput
         return array_filter($this->only(is_array($keys) ? $keys : func_get_args()));
     }
 
-    /**
-     * Retrieve a query string item from the request.
+    /*
+     * 从 query 请求参数检索指定参数
      *
      * @param  string  $key
      * @param  string|array|null  $default
@@ -196,8 +196,8 @@ trait InteractsWithInput
         return $this->retrieveItem('query', $key, $default);
     }
 
-    /**
-     * Determine if a cookie is set on the request.
+    /*
+     * 判断 request 请求中是否存在指定 cookie
      *
      * @param  string  $key
      * @return bool
@@ -207,8 +207,8 @@ trait InteractsWithInput
         return ! is_null($this->cookie($key));
     }
 
-    /**
-     * Retrieve a cookie from the request.
+    /*
+     * 从 request 请求中检索指定 cookie 值
      *
      * @param  string  $key
      * @param  string|array|null  $default
@@ -219,8 +219,8 @@ trait InteractsWithInput
         return $this->retrieveItem('cookies', $key, $default);
     }
 
-    /**
-     * Get an array of all of the files on the request.
+    /*
+     * 获取 request 请求参数中所有文件型数据
      *
      * @return array
      */
@@ -252,8 +252,8 @@ trait InteractsWithInput
         }, $files);
     }
 
-    /**
-     * Determine if the uploaded data contains a file.
+    /*
+     * 判断上传文件中是否包含指定文件
      *
      * @param  string  $key
      * @return bool
@@ -273,8 +273,8 @@ trait InteractsWithInput
         return false;
     }
 
-    /**
-     * Check that the given file is a valid file instance.
+    /*
+     * 判断指定的文件是否是有效的文件实例
      *
      * @param  mixed  $file
      * @return bool
@@ -284,8 +284,8 @@ trait InteractsWithInput
         return $file instanceof SplFileInfo && $file->getPath() != '';
     }
 
-    /**
-     * Retrieve a file from the request.
+    /*
+     * 从 request 中检索文件
      *
      * @param  string  $key
      * @param  mixed  $default
@@ -296,8 +296,8 @@ trait InteractsWithInput
         return data_get($this->allFiles(), $key, $default);
     }
 
-    /**
-     * Retrieve a parameter item from a given source.
+    /*
+     * 从指定的 source 处检索指定参数
      *
      * @param  string  $source
      * @param  string  $key
