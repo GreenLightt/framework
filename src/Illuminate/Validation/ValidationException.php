@@ -6,8 +6,8 @@ use Exception;
 
 class ValidationException extends Exception
 {
-    /**
-     * The validator instance.
+    /*
+     * validator 实例
      *
      * @var \Illuminate\Contracts\Validation\Validator
      */

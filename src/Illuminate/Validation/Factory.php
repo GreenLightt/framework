@@ -73,8 +73,8 @@ class Factory implements FactoryContract
      */
     protected $resolver;
 
-    /**
-     * Create a new Validator factory instance.
+    /*
+     * 构造函数
      *
      * @param  \Illuminate\Contracts\Translation\Translator $translator
      * @param  \Illuminate\Contracts\Container\Container  $container
@@ -86,8 +86,8 @@ class Factory implements FactoryContract
         $this->translator = $translator;
     }
 
-    /**
-     * Create a new Validator instance.
+    /*
+     * 创建一个 验证器 实例
      *
      * @param  array  $data
      * @param  array  $rules

@@ -6,15 +6,15 @@ use Illuminate\Console\Application as Artisan;
 
 abstract class ServiceProvider
 {
-    /**
-     * The application instance.
+    /*
+     * 应用实例
      *
      * @var \Illuminate\Foundation\Application
      */
     protected $app;
 
-    /**
-     * Indicates if loading of the provider is deferred.
+    /*
+     * 表明是否延迟
      *
      * @var bool
      */
@@ -34,8 +34,8 @@ abstract class ServiceProvider
      */
     protected static $publishGroups = [];
 
-    /**
-     * Create a new service provider instance.
+    /*
+     * 构造函数
      *
      * @param  \Illuminate\Foundation\Application  $app
      * @return void
@@ -45,8 +45,8 @@ abstract class ServiceProvider
         $this->app = $app;
     }
 
-    /**
-     * Merge the given configuration with the existing configuration.
+    /*
+     * 合并配置项到指定的配置项
      *
      * @param  string  $path
      * @param  string  $key
@@ -72,8 +72,8 @@ abstract class ServiceProvider
         }
     }
 
-    /**
-     * Register a view file namespace.
+    /*
+     * 注册 view 文件命名空间
      *
      * @param  string  $path
      * @param  string  $namespace
@@ -88,8 +88,8 @@ abstract class ServiceProvider
         $this->app['view']->addNamespace($namespace, $path);
     }
 
-    /**
-     * Register a translation file namespace.
+    /*
+     * 注册语言文件命名空间
      *
      * @param  string  $path
      * @param  string  $namespace
@@ -218,8 +218,8 @@ abstract class ServiceProvider
         return [];
     }
 
-    /**
-     * Register the package's custom Artisan commands.
+    /*
+     * 注册自定义 Artisan 命令
      *
      * @param  array|mixed  $commands
      * @return void
@@ -233,8 +233,8 @@ abstract class ServiceProvider
         });
     }
 
-    /**
-     * Get the services provided by the provider.
+    /*
+     * 如果延迟加载，则服务提供者在加载时应该加载哪些服务
      *
      * @return array
      */
@@ -243,8 +243,8 @@ abstract class ServiceProvider
         return [];
     }
 
-    /**
-     * Get the events that trigger this service provider to register.
+    /*
+     * 获取服务提供者注册时触发的事件
      *
      * @return array
      */
@@ -253,8 +253,8 @@ abstract class ServiceProvider
         return [];
     }
 
-    /**
-     * Determine if the provider is deferred.
+    /*
+     * 判断服务提供者是否延迟
      *
      * @return bool
      */
