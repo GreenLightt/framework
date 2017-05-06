@@ -17,6 +17,7 @@ class FrameGuard
     {
         $response = $next($request);
 
+        // Iframe 框架调用，只允许本网站的框架内加载
         $response->headers->set('X-Frame-Options', 'SAMEORIGIN', false);
 
         return $response;
