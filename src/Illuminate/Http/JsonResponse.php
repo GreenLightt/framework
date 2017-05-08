@@ -38,10 +38,10 @@ class JsonResponse extends BaseJsonResponse
         return $this->setCallback($callback);
     }
 
-    /**
-     * Get the json_decoded data from the response.
+    /*
+     * 从 response 中 json_decoded 数据
      *
-     * @param  bool  $assoc
+     * @param  bool  $assoc false 返回 object 对象, true 返回 array 对象
      * @param  int  $depth
      * @return mixed
      */

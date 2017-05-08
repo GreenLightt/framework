@@ -118,8 +118,8 @@ trait InteractsWithContentTypes
         }
     }
 
-    /**
-     * Determines whether a request accepts JSON.
+    /*
+     * 判断 request 的 accept 是否支持 json 
      *
      * @return bool
      */
@@ -128,8 +128,8 @@ trait InteractsWithContentTypes
         return $this->accepts('application/json');
     }
 
-    /**
-     * Determines whether a request accepts HTML.
+    /*
+     * 判断 request 的 accept 是否支持 html
      *
      * @return bool
      */
@@ -138,8 +138,8 @@ trait InteractsWithContentTypes
         return $this->accepts('text/html');
     }
 
-    /**
-     * Get the data format expected in the response.
+    /*
+     * 获取希望的 response 返回内容的类型
      *
      * @param  string  $default
      * @return string

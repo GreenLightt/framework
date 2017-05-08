@@ -4,8 +4,8 @@ namespace Illuminate\Http\Concerns;
 
 trait InteractsWithFlashData
 {
-    /**
-     * Retrieve an old input item.
+    /*
+     * 检索旧的请求参数
      *
      * @param  string  $key
      * @param  string|array|null  $default
@@ -16,8 +16,8 @@ trait InteractsWithFlashData
         return $this->session()->getOldInput($key, $default);
     }
 
-    /**
-     * Flash the input for the current request to the session.
+    /*
+     * 闪存所有当前请求参数至 session
      *
      * @return void
      */
@@ -26,8 +26,8 @@ trait InteractsWithFlashData
         $this->session()->flashInput($this->input());
     }
 
-    /**
-     * Flash only some of the input to the session.
+    /*
+     * 闪存指定请求参数至 session
      *
      * @param  array|mixed  $keys
      * @return void
@@ -39,8 +39,8 @@ trait InteractsWithFlashData
         );
     }
 
-    /**
-     * Flash only some of the input to the session.
+    /*
+     * 闪存除指定参数外的 request 请求参数至 session
      *
      * @param  array|mixed  $keys
      * @return void
@@ -52,8 +52,8 @@ trait InteractsWithFlashData
         );
     }
 
-    /**
-     * Flush all of the old input from the session.
+    /*
+     * 清空所有闪存信息
      *
      * @return void
      */

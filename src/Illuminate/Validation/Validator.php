@@ -169,8 +169,8 @@ class Validator implements ValidatorContract
         'Before', 'After', 'BeforeOrEqual', 'AfterOrEqual',
     ];
 
-    /**
-     * Create a new Validator instance.
+    /*
+     * 构造函数
      *
      * @param  \Illuminate\Contracts\Translation\Translator  $translator
      * @param  array  $data
@@ -219,8 +219,8 @@ class Validator implements ValidatorContract
         return $newData;
     }
 
-    /**
-     * Add an after validation callback.
+    /*
+     * 添加验证后的回调函数
      *
      * @param  callable|string  $callback
      * @return $this
