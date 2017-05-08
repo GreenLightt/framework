@@ -38,7 +38,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         }
     }
 
-    /**
+    /*
      * Get the keys present in the message bag.
      *
      * @return array
@@ -245,7 +245,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
             })->all();
     }
 
-    /**
+    /*
      * Get the appropriate format based on the given format.
      *
      * @param  string  $format
@@ -256,7 +256,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return $format ?: $this->format;
     }
 
-    /**
+    /*
      * Get the raw messages in the container.
      *
      * @return array
@@ -266,7 +266,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return $this->messages;
     }
 
-    /**
+    /*
      * Get the raw messages in the container.
      *
      * @return array
@@ -276,7 +276,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return $this->messages();
     }
 
-    /**
+    /*
      * Get the messages for the instance.
      *
      * @return \Illuminate\Support\MessageBag
@@ -286,7 +286,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return $this;
     }
 
-    /**
+    /*
      * Get the default message format.
      *
      * @return string
@@ -296,7 +296,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return $this->format;
     }
 
-    /**
+    /*
      * Set the default message format.
      *
      * @param  string  $format
@@ -309,7 +309,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return $this;
     }
 
-    /**
+    /*
      * Determine if the message bag has any messages.
      *
      * @return bool
@@ -319,7 +319,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return ! $this->any();
     }
 
-    /**
+    /*
      * Determine if the message bag has any messages.
      *
      * @return bool
@@ -329,7 +329,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return $this->count() > 0;
     }
 
-    /**
+    /*
      * Get the number of messages in the container.
      *
      * @return int
@@ -339,7 +339,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return count($this->messages, COUNT_RECURSIVE) - count($this->messages);
     }
 
-    /**
+    /*
      * Get the instance as an array.
      *
      * @return array
@@ -349,7 +349,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return $this->getMessages();
     }
 
-    /**
+    /*
      * Convert the object into something JSON serializable.
      *
      * @return array
@@ -359,7 +359,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return $this->toArray();
     }
 
-    /**
+    /*
      * Convert the object to its JSON representation.
      *
      * @param  int  $options
@@ -370,7 +370,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return json_encode($this->jsonSerialize(), $options);
     }
 
-    /**
+    /*
      * Convert the message bag to its string representation.
      *
      * @return string
