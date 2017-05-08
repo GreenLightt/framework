@@ -23,8 +23,8 @@ class ValidationRuleParser
      */
     public $implicitAttributes = [];
 
-    /**
-     * Create a new validation rule parser.
+    /*
+     * 创建一个验证规则解析器
      *
      * @param  array  $data
      * @return void
@@ -176,8 +176,8 @@ class ValidationRuleParser
         return $results;
     }
 
-    /**
-     * Extract the rule name and parameters from a rule.
+    /*
+     * 从规则中抽取规则名和参数
      *
      * @param  array|string  $rules
      * @return array

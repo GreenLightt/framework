@@ -191,7 +191,7 @@ class Validator implements ValidatorContract
         $this->setRules($rules);
     }
 
-    /**
+    /*
      * Parse the data array, converting dots to ->.
      *
      * @param  array  $data
@@ -268,8 +268,8 @@ class Validator implements ValidatorContract
         return $this->messages->isEmpty();
     }
 
-    /**
-     * Determine if the data fails the validation rules.
+    /*
+     * 判断是否数据未通过验证
      *
      * @return bool
      */
