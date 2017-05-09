@@ -25,7 +25,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
      */
     protected $format = ':message';
 
-    /**
+    /*
      * Create a new message bag instance.
      *
      * @param  array  $messages
@@ -48,7 +48,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return array_keys($this->messages);
     }
 
-    /**
+    /*
      * Add a message to the bag.
      *
      * @param  string  $key
@@ -64,7 +64,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return $this;
     }
 
-    /**
+    /*
      * Determine if a key and message combination already exists.
      *
      * @param  string  $key
@@ -78,7 +78,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return ! isset($messages[$key]) || ! in_array($message, $messages[$key]);
     }
 
-    /**
+    /*
      * Merge a new array of messages into the bag.
      *
      * @param  \Illuminate\Contracts\Support\MessageProvider|array  $messages
@@ -95,7 +95,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return $this;
     }
 
-    /**
+    /*
      * Determine if messages exist for all of the given keys.
      *
      * @param  array|string  $key
@@ -118,7 +118,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return true;
     }
 
-    /**
+    /*
      * Determine if messages exist for any of the given keys.
      *
      * @param  array  $keys
@@ -135,7 +135,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return false;
     }
 
-    /**
+    /*
      * Get the first message from the bag for a given key.
      *
      * @param  string  $key
@@ -151,7 +151,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return is_array($firstMessage) ? Arr::first($firstMessage) : $firstMessage;
     }
 
-    /**
+    /*
      * Get all of the messages from the bag for a given key.
      *
      * @param  string  $key
@@ -176,7 +176,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return [];
     }
 
-    /**
+    /*
      * Get the messages for a wildcard key.
      *
      * @param  string  $key
@@ -196,7 +196,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
                 })->all();
     }
 
-    /**
+    /*
      * Get all of the messages for every key in the bag.
      *
      * @param  string  $format
@@ -215,7 +215,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return $all;
     }
 
-    /**
+    /*
      * Get all of the unique messages for every key in the bag.
      *
      * @param  string  $format
@@ -226,7 +226,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
         return array_unique($this->all($format));
     }
 
-    /**
+    /*
      * Format an array of messages.
      *
      * @param  array   $messages

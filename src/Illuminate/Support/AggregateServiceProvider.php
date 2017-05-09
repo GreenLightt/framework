@@ -2,6 +2,9 @@
 
 namespace Illuminate\Support;
 
+/*
+ * Aggregate: 聚集，集合
+ */
 class AggregateServiceProvider extends ServiceProvider
 {
     /**
@@ -18,7 +21,7 @@ class AggregateServiceProvider extends ServiceProvider
      */
     protected $instances = [];
 
-    /**
+    /*
      * Register the service provider.
      *
      * @return void
@@ -32,7 +35,7 @@ class AggregateServiceProvider extends ServiceProvider
         }
     }
 
-    /**
+    /*
      * Get the services provided by the provider.
      *
      * @return array

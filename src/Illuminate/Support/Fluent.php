@@ -16,7 +16,7 @@ class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
      */
     protected $attributes = [];
 
-    /**
+    /*
      * Create a new fluent container instance.
      *
      * @param  array|object    $attributes
@@ -29,7 +29,7 @@ class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
         }
     }
 
-    /**
+    /*
      * Get an attribute from the container.
      *
      * @param  string  $key
@@ -45,7 +45,7 @@ class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
         return value($default);
     }
 
-    /**
+    /*
      * Get the attributes from the container.
      *
      * @return array
@@ -55,7 +55,7 @@ class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
         return $this->attributes;
     }
 
-    /**
+    /*
      * Convert the Fluent instance to an array.
      *
      * @return array
@@ -65,7 +65,7 @@ class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
         return $this->attributes;
     }
 
-    /**
+    /*
      * Convert the object into something JSON serializable.
      *
      * @return array
@@ -75,7 +75,7 @@ class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
         return $this->toArray();
     }
 
-    /**
+    /*
      * Convert the Fluent instance to JSON.
      *
      * @param  int  $options
@@ -86,7 +86,7 @@ class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
         return json_encode($this->jsonSerialize(), $options);
     }
 
-    /**
+    /*
      * Determine if the given offset exists.
      *
      * @param  string  $offset
@@ -97,7 +97,7 @@ class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
         return isset($this->{$offset});
     }
 
-    /**
+    /*
      * Get the value for a given offset.
      *
      * @param  string  $offset
@@ -108,7 +108,7 @@ class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
         return $this->{$offset};
     }
 
-    /**
+    /*
      * Set the value at the given offset.
      *
      * @param  string  $offset
@@ -120,7 +120,7 @@ class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
         $this->{$offset} = $value;
     }
 
-    /**
+    /*
      * Unset the value at the given offset.
      *
      * @param  string  $offset
@@ -131,7 +131,7 @@ class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
         unset($this->{$offset});
     }
 
-    /**
+    /*
      * Handle dynamic calls to the container to set attributes.
      *
      * @param  string  $method
@@ -145,7 +145,7 @@ class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
         return $this;
     }
 
-    /**
+    /*
      * Dynamically retrieve the value of an attribute.
      *
      * @param  string  $key
@@ -156,7 +156,7 @@ class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
         return $this->get($key);
     }
 
-    /**
+    /*
      * Dynamically set the value of an attribute.
      *
      * @param  string  $key
@@ -168,7 +168,7 @@ class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
         $this->attributes[$key] = $value;
     }
 
-    /**
+    /*
      * Dynamically check if an attribute is set.
      *
      * @param  string  $key
@@ -179,7 +179,7 @@ class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
         return isset($this->attributes[$key]);
     }
 
-    /**
+    /*
      * Dynamically unset an attribute.
      *
      * @param  string  $key

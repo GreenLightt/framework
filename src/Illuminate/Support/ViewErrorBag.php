@@ -14,7 +14,7 @@ class ViewErrorBag implements Countable
      */
     protected $bags = [];
 
-    /**
+    /*
      * Checks if a named MessageBag exists in the bags.
      *
      * @param  string  $key
@@ -25,7 +25,7 @@ class ViewErrorBag implements Countable
         return isset($this->bags[$key]);
     }
 
-    /**
+    /*
      * Get a MessageBag instance from the bags.
      *
      * @param  string  $key
@@ -36,7 +36,7 @@ class ViewErrorBag implements Countable
         return Arr::get($this->bags, $key) ?: new MessageBag;
     }
 
-    /**
+    /*
      * Get all the bags.
      *
      * @return array
@@ -46,7 +46,7 @@ class ViewErrorBag implements Countable
         return $this->bags;
     }
 
-    /**
+    /*
      * Add a new MessageBag instance to the bags.
      *
      * @param  string  $key
@@ -60,7 +60,7 @@ class ViewErrorBag implements Countable
         return $this;
     }
 
-    /**
+    /*
      * Determine if the default message bag has any messages.
      *
      * @return bool
@@ -70,7 +70,7 @@ class ViewErrorBag implements Countable
         return $this->count() > 0;
     }
 
-    /**
+    /*
      * Get the number of messages in the default bag.
      *
      * @return int
@@ -80,7 +80,7 @@ class ViewErrorBag implements Countable
         return $this->getBag('default')->count();
     }
 
-    /**
+    /*
      * Dynamically call methods on the default bag.
      *
      * @param  string  $method
@@ -92,7 +92,7 @@ class ViewErrorBag implements Countable
         return $this->getBag('default')->$method(...$parameters);
     }
 
-    /**
+    /*
      * Dynamically access a view error bag.
      *
      * @param  string  $key
@@ -103,7 +103,7 @@ class ViewErrorBag implements Countable
         return $this->getBag($key);
     }
 
-    /**
+    /*
      * Dynamically set a view error bag.
      *
      * @param  string  $key

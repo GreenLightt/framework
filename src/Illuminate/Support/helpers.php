@@ -7,7 +7,7 @@ use Illuminate\Support\Debug\Dumper;
 use Illuminate\Contracts\Support\Htmlable;
 
 if (! function_exists('append_config')) {
-    /**
+    /*
      * Assign high numeric IDs to a config item to force appending.
      *
      * @param  array  $array
@@ -30,8 +30,8 @@ if (! function_exists('append_config')) {
 }
 
 if (! function_exists('array_add')) {
-    /**
-     * Add an element to an array using "dot" notation if it doesn't exist.
+    /*
+     * 如果不存在，则向数组添加键值对；(可内置键)
      *
      * @param  array   $array
      * @param  string  $key
@@ -45,8 +45,8 @@ if (! function_exists('array_add')) {
 }
 
 if (! function_exists('array_collapse')) {
-    /**
-     * Collapse an array of arrays into a single array.
+    /*
+     * 多维数组收缩成一维数组
      *
      * @param  array  $array
      * @return array
@@ -58,8 +58,8 @@ if (! function_exists('array_collapse')) {
 }
 
 if (! function_exists('array_divide')) {
-    /**
-     * Divide an array into two arrays. One with keys and the other with values.
+    /*
+     * 将数组划分为键名数组和键值数组
      *
      * @param  array  $array
      * @return array
@@ -71,8 +71,8 @@ if (! function_exists('array_divide')) {
 }
 
 if (! function_exists('array_dot')) {
-    /**
-     * Flatten a multi-dimensional associative array with dots.
+    /*
+     * 用 ‘.’ 号将多维数组转一维数组
      *
      * @param  array   $array
      * @param  string  $prepend
@@ -85,8 +85,8 @@ if (! function_exists('array_dot')) {
 }
 
 if (! function_exists('array_except')) {
-    /**
-     * Get all of the given array except for a specified array of items.
+    /*
+     * 获取所有数组元素除了指定键值对
      *
      * @param  array  $array
      * @param  array|string  $keys
@@ -99,8 +99,8 @@ if (! function_exists('array_except')) {
 }
 
 if (! function_exists('array_first')) {
-    /**
-     * Return the first element in an array passing a given truth test.
+    /*
+     * 返回，通过回调函数的第一个元素
      *
      * @param  array  $array
      * @param  callable|null  $callback
@@ -114,8 +114,8 @@ if (! function_exists('array_first')) {
 }
 
 if (! function_exists('array_flatten')) {
-    /**
-     * Flatten a multi-dimensional array into a single level.
+    /*
+     * 多维数组转一维数组
      *
      * @param  array  $array
      * @param  int  $depth
@@ -128,8 +128,8 @@ if (! function_exists('array_flatten')) {
 }
 
 if (! function_exists('array_forget')) {
-    /**
-     * Remove one or many array items from a given array using "dot" notation.
+    /*
+     * 从数组中移除元素，（可内置键）
      *
      * @param  array  $array
      * @param  array|string  $keys
@@ -142,8 +142,8 @@ if (! function_exists('array_forget')) {
 }
 
 if (! function_exists('array_get')) {
-    /**
-     * Get an item from an array using "dot" notation.
+    /*
+     * 根据指定键名，从数组中获取键值，可以用点作为内置键的分隔符
      *
      * @param  \ArrayAccess|array  $array
      * @param  string  $key
@@ -157,8 +157,8 @@ if (! function_exists('array_get')) {
 }
 
 if (! function_exists('array_has')) {
-    /**
-     * Check if an item or items exist in an array using "dot" notation.
+    /*
+     * 检查数组中是否存在指定键，可以用点作为内置键的分隔符
      *
      * @param  \ArrayAccess|array  $array
      * @param  string|array  $keys
@@ -171,8 +171,8 @@ if (! function_exists('array_has')) {
 }
 
 if (! function_exists('array_last')) {
-    /**
-     * Return the last element in an array passing a given truth test.
+    /*
+     * 返回，通过回调函数的最后一个元素
      *
      * @param  array  $array
      * @param  callable|null  $callback
@@ -186,8 +186,8 @@ if (! function_exists('array_last')) {
 }
 
 if (! function_exists('array_only')) {
-    /**
-     * Get a subset of the items from the given array.
+    /*
+     * 获取指定的键值对
      *
      * @param  array  $array
      * @param  array|string  $keys
@@ -200,8 +200,8 @@ if (! function_exists('array_only')) {
 }
 
 if (! function_exists('array_pluck')) {
-    /**
-     * Pluck an array of values from an array.
+    /*
+     * Pluck 数组
      *
      * @param  array   $array
      * @param  string|array  $value
@@ -215,8 +215,8 @@ if (! function_exists('array_pluck')) {
 }
 
 if (! function_exists('array_prepend')) {
-    /**
-     * Push an item onto the beginning of an array.
+    /*
+     * 将元素添加在数组的头部
      *
      * @param  array  $array
      * @param  mixed  $value
@@ -230,8 +230,8 @@ if (! function_exists('array_prepend')) {
 }
 
 if (! function_exists('array_pull')) {
-    /**
-     * Get a value from the array, and remove it.
+    /*
+     * 根据键名获取键值并移除键值对
      *
      * @param  array   $array
      * @param  string  $key
@@ -245,8 +245,8 @@ if (! function_exists('array_pull')) {
 }
 
 if (! function_exists('array_set')) {
-    /**
-     * Set an array item to a given value using "dot" notation.
+    /*
+     * 设置键值对，可以用点作为内置键的分隔符
      *
      * If no key is given to the method, the entire array will be replaced.
      *
@@ -262,8 +262,8 @@ if (! function_exists('array_set')) {
 }
 
 if (! function_exists('array_sort')) {
-    /**
-     * Sort the array using the given callback.
+    /*
+     * 根据指定回调函数进行数组排序
      *
      * @param  array  $array
      * @param  callable  $callback
@@ -276,8 +276,8 @@ if (! function_exists('array_sort')) {
 }
 
 if (! function_exists('array_sort_recursive')) {
-    /**
-     * Recursively sort an array by keys and values.
+    /*
+     * 递归排序
      *
      * @param  array  $array
      * @return array
@@ -289,8 +289,8 @@ if (! function_exists('array_sort_recursive')) {
 }
 
 if (! function_exists('array_where')) {
-    /**
-     * Filter the array using the given callback.
+    /*
+     * 指定回调函数，过滤数组元素
      *
      * @param  array  $array
      * @param  callable  $callback
@@ -303,8 +303,8 @@ if (! function_exists('array_where')) {
 }
 
 if (! function_exists('array_wrap')) {
-    /**
-     * If the given value is not an array, wrap it in one.
+    /*
+     * 如果给定的值不是数组，将它包裹为数组
      *
      * @param  mixed  $value
      * @return array
@@ -316,8 +316,8 @@ if (! function_exists('array_wrap')) {
 }
 
 if (! function_exists('camel_case')) {
-    /**
-     * Convert a value to camel case.
+    /*
+     * 将值转为小驼峰格式
      *
      * @param  string  $value
      * @return string
@@ -329,7 +329,7 @@ if (! function_exists('camel_case')) {
 }
 
 if (! function_exists('class_basename')) {
-    /**
+    /*
      * Get the class "basename" of the given object / class.
      *
      * @param  string|object  $class
@@ -344,7 +344,7 @@ if (! function_exists('class_basename')) {
 }
 
 if (! function_exists('class_uses_recursive')) {
-    /**
+    /*
      * Returns all traits used by a class, its subclasses and trait of their traits.
      *
      * @param  object|string  $class
@@ -367,7 +367,7 @@ if (! function_exists('class_uses_recursive')) {
 }
 
 if (! function_exists('collect')) {
-    /**
+    /*
      * Create a collection from the given value.
      *
      * @param  mixed  $value
@@ -380,7 +380,7 @@ if (! function_exists('collect')) {
 }
 
 if (! function_exists('data_fill')) {
-    /**
+    /*
      * Fill in data where it's missing.
      *
      * @param  mixed   $target
@@ -395,7 +395,7 @@ if (! function_exists('data_fill')) {
 }
 
 if (! function_exists('data_get')) {
-    /**
+    /*
      * Get an item from an array or object using "dot" notation.
      *
      * @param  mixed   $target
@@ -438,7 +438,7 @@ if (! function_exists('data_get')) {
 }
 
 if (! function_exists('data_set')) {
-    /**
+    /*
      * Set an item on an array or object using dot notation.
      *
      * @param  mixed  $target
@@ -500,7 +500,7 @@ if (! function_exists('data_set')) {
 }
 
 if (! function_exists('dd')) {
-    /**
+    /*
      * Dump the passed variables and end the script.
      *
      * @param  mixed
@@ -534,8 +534,8 @@ if (! function_exists('e')) {
 }
 
 if (! function_exists('ends_with')) {
-    /**
-     * Determine if a given string ends with a given substring.
+    /*
+     * 判断是否字符串是以指定的子字符串结尾
      *
      * @param  string  $haystack
      * @param  string|array  $needles
@@ -548,8 +548,8 @@ if (! function_exists('ends_with')) {
 }
 
 if (! function_exists('head')) {
-    /**
-     * 获取数组中的第一个元素值
+    /*
+     * 通过移动指针，获取数组中的第一个元素值
      *
      * @param  array  $array
      * @return mixed
@@ -561,8 +561,8 @@ if (! function_exists('head')) {
 }
 
 if (! function_exists('kebab_case')) {
-    /**
-     * Convert a string to kebab case.
+    /*
+     * 字符转 kebab 格式， 同 snake 格式（不过kebab的分隔符为 ‘-’）
      *
      * @param  string  $value
      * @return string
@@ -574,7 +574,7 @@ if (! function_exists('kebab_case')) {
 }
 
 if (! function_exists('last')) {
-    /**
+    /*
      * Get the last element from an array.
      *
      * @param  array  $array
@@ -587,7 +587,7 @@ if (! function_exists('last')) {
 }
 
 if (! function_exists('object_get')) {
-    /**
+    /*
      * Get an item from an object using "dot" notation.
      *
      * @param  object  $object
@@ -614,7 +614,7 @@ if (! function_exists('object_get')) {
 }
 
 if (! function_exists('preg_replace_array')) {
-    /**
+    /*
      * Replace a given pattern with each value in the array in sequentially.
      *
      * @param  string  $pattern
@@ -633,7 +633,7 @@ if (! function_exists('preg_replace_array')) {
 }
 
 if (! function_exists('retry')) {
-    /**
+    /*
      * Retry an operation a given number of times.
      *
      * @param  int  $times
@@ -667,8 +667,8 @@ if (! function_exists('retry')) {
 }
 
 if (! function_exists('snake_case')) {
-    /**
-     * Convert a string to snake case.
+    /*
+     * 字符转 snake 格式
      *
      * @param  string  $value
      * @param  string  $delimiter
@@ -681,8 +681,8 @@ if (! function_exists('snake_case')) {
 }
 
 if (! function_exists('starts_with')) {
-    /**
-     * Determine if a given string starts with a given substring.
+    /*
+     * 判断字符串是否以指定的子字符串为头部
      *
      * @param  string  $haystack
      * @param  string|array  $needles
@@ -695,8 +695,8 @@ if (! function_exists('starts_with')) {
 }
 
 if (! function_exists('str_contains')) {
-    /**
-     * Determine if a given string contains a given substring.
+    /*
+     * 判断字符串是否包含指定的子字符串
      *
      * @param  string  $haystack
      * @param  string|array  $needles
@@ -709,8 +709,8 @@ if (! function_exists('str_contains')) {
 }
 
 if (! function_exists('str_finish')) {
-    /**
-     * Cap a string with a single instance of a given value.
+    /*
+     * 加一个给定字符串到句子结尾;多余一个的给定字符串则移除
      *
      * @param  string  $value
      * @param  string  $cap
@@ -723,8 +723,8 @@ if (! function_exists('str_finish')) {
 }
 
 if (! function_exists('str_is')) {
-    /**
-     * Determine if a given string matches a given pattern.
+    /*
+     * 判断给定字符串是否匹配 pattern
      *
      * @param  string  $pattern
      * @param  string  $value
@@ -737,8 +737,8 @@ if (! function_exists('str_is')) {
 }
 
 if (! function_exists('str_limit')) {
-    /**
-     * Limit the number of characters in a string.
+    /*
+     * 限制字串的字符数量
      *
      * @param  string  $value
      * @param  int     $limit
@@ -752,8 +752,8 @@ if (! function_exists('str_limit')) {
 }
 
 if (! function_exists('str_plural')) {
-    /**
-     * Get the plural form of an English word.
+    /*
+     * 获取英文单词的复数形式
      *
      * @param  string  $value
      * @param  int     $count
@@ -766,8 +766,8 @@ if (! function_exists('str_plural')) {
 }
 
 if (! function_exists('str_random')) {
-    /**
-     * Generate a more truly "random" alpha-numeric string.
+    /*
+     * 随机生成 alpha-numberic 字符串
      *
      * @param  int  $length
      * @return string
@@ -781,8 +781,8 @@ if (! function_exists('str_random')) {
 }
 
 if (! function_exists('str_replace_array')) {
-    /**
-     * Replace a given value in the string sequentially with an array.
+    /*
+     * 将指定要替换的字符串 $search 依次替换为 数组中的字符串
      *
      * @param  string  $search
      * @param  array   $replace
@@ -796,8 +796,8 @@ if (! function_exists('str_replace_array')) {
 }
 
 if (! function_exists('str_replace_first')) {
-    /**
-     * Replace the first occurrence of a given value in the string.
+    /*
+     * 替换第一个出现的匹配字符串
      *
      * @param  string  $search
      * @param  string  $replace
@@ -811,8 +811,8 @@ if (! function_exists('str_replace_first')) {
 }
 
 if (! function_exists('str_replace_last')) {
-    /**
-     * Replace the last occurrence of a given value in the string.
+    /*
+     * 替换最后一次出现的匹配字符串
      *
      * @param  string  $search
      * @param  string  $replace
@@ -826,7 +826,7 @@ if (! function_exists('str_replace_last')) {
 }
 
 if (! function_exists('str_singular')) {
-    /**
+    /*
      * Get the singular form of an English word.
      *
      * @param  string  $value
@@ -839,8 +839,8 @@ if (! function_exists('str_singular')) {
 }
 
 if (! function_exists('str_slug')) {
-    /**
-     * Generate a URL friendly "slug" from a given string.
+    /*
+     * 从给定字串产生一个对网址友善的 slug
      *
      * @param  string  $title
      * @param  string  $separator
@@ -853,8 +853,8 @@ if (! function_exists('str_slug')) {
 }
 
 if (! function_exists('studly_case')) {
-    /**
-     * Convert a value to studly caps case.
+    /*
+     * 将值转为 studly caps格式
      *
      * @param  string  $value
      * @return string
@@ -866,7 +866,7 @@ if (! function_exists('studly_case')) {
 }
 
 if (! function_exists('tap')) {
-    /**
+    /*
      * Call the given Closure with the given value then return the value.
      *
      * @param  mixed  $value
@@ -882,8 +882,8 @@ if (! function_exists('tap')) {
 }
 
 if (! function_exists('title_case')) {
-    /**
-     * Convert a value to title case.
+    /*
+     * 字符串首字母大写
      *
      * @param  string  $value
      * @return string
@@ -895,8 +895,8 @@ if (! function_exists('title_case')) {
 }
 
 if (! function_exists('trait_uses_recursive')) {
-    /**
-     * Returns all traits used by a trait and its traits.
+    /*
+     * 返回所有被引用的 trait
      *
      * @param  string  $trait
      * @return array
@@ -914,7 +914,7 @@ if (! function_exists('trait_uses_recursive')) {
 }
 
 if (! function_exists('value')) {
-    /**
+    /*
      * Return the default value of the given value.
      *
      * @param  mixed  $value
@@ -927,8 +927,9 @@ if (! function_exists('value')) {
 }
 
 if (! function_exists('windows_os')) {
-    /**
+    /*
      * Determine whether the current environment is Windows based.
+     * 判断当前的服务器环境是否是基于 windows
      *
      * @return bool
      */
@@ -939,8 +940,8 @@ if (! function_exists('windows_os')) {
 }
 
 if (! function_exists('with')) {
-    /**
-     * Return the given object. Useful for chaining.
+    /*
+     * 返回指定的 object, 用于链式操作
      *
      * @param  mixed  $object
      * @return mixed
