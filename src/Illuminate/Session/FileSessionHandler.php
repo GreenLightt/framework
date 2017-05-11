@@ -9,28 +9,28 @@ use Illuminate\Filesystem\Filesystem;
 
 class FileSessionHandler implements SessionHandlerInterface
 {
-    /**
+    /*
      * The filesystem instance.
      *
      * @var \Illuminate\Filesystem\Filesystem
      */
     protected $files;
 
-    /**
+    /*
      * The path where sessions should be stored.
      *
      * @var string
      */
     protected $path;
 
-    /**
+    /*
      * The number of minutes the session should be valid.
      *
      * @var int
      */
     protected $minutes;
 
-    /**
+    /*
      * Create a new file driven handler instance.
      *
      * @param  \Illuminate\Filesystem\Filesystem  $files

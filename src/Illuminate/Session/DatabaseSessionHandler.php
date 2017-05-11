@@ -80,7 +80,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
         return true;
     }
 
-    /**
+    /*
      * {@inheritdoc}
      */
     public function read($sessionId)
@@ -100,7 +100,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
         }
     }
 
-    /**
+    /*
      * Determine if the session is expired.
      *
      * @param  \stdClass  $session
@@ -112,7 +112,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
             $session->last_activity < Carbon::now()->subMinutes($this->minutes)->getTimestamp();
     }
 
-    /**
+    /*
      * {@inheritdoc}
      */
     public function write($sessionId, $data)
@@ -132,7 +132,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
         return $this->exists = true;
     }
 
-    /**
+    /*
      * Perform an insert operation on the session ID.
      *
      * @param  string  $sessionId
@@ -148,7 +148,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
         }
     }
 
-    /**
+    /*
      * Perform an update operation on the session ID.
      *
      * @param  string  $sessionId
@@ -160,7 +160,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
         return $this->getQuery()->where('id', $sessionId)->update($payload);
     }
 
-    /**
+    /*
      * Get the default payload for the session.
      *
      * @param  string  $data
@@ -183,7 +183,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
         });
     }
 
-    /**
+    /*
      * Add the user information to the session payload.
      *
      * @param  array  $payload
@@ -198,7 +198,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
         return $this;
     }
 
-    /**
+    /*
      * Get the currently authenticated user's ID.
      *
      * @return mixed
@@ -208,7 +208,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
         return $this->container->make(Guard::class)->id();
     }
 
-    /**
+    /*
      * Add the request information to the session payload.
      *
      * @param  array  $payload
@@ -226,7 +226,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
         return $this;
     }
 
-    /**
+    /*
      * Get the IP address for the current request.
      *
      * @return string
@@ -236,7 +236,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
         return $this->container->make('request')->ip();
     }
 
-    /**
+    /*
      * Get the user agent for the current request.
      *
      * @return string
@@ -246,7 +246,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
         return substr((string) $this->container->make('request')->header('User-Agent'), 0, 500);
     }
 
-    /**
+    /*
      * {@inheritdoc}
      */
     public function destroy($sessionId)
@@ -256,7 +256,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
         return true;
     }
 
-    /**
+    /*
      * {@inheritdoc}
      */
     public function gc($lifetime)
@@ -264,7 +264,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
         $this->getQuery()->where('last_activity', '<=', Carbon::now()->getTimestamp() - $lifetime)->delete();
     }
 
-    /**
+    /*
      * Get a fresh query builder instance for the table.
      *
      * @return \Illuminate\Database\Query\Builder
@@ -274,7 +274,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
         return $this->connection->table($this->table);
     }
 
-    /**
+    /*
      * Set the existence state for the session.
      *
      * @param  bool  $value
