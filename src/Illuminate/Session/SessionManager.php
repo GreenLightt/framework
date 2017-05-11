@@ -7,8 +7,8 @@ use Symfony\Component\HttpFoundation\Session\Storage\Handler\NullSessionHandler;
 
 class SessionManager extends Manager
 {
-    /**
-     * Call a custom driver creator.
+    /*
+     * 创建基于自定义驱动的 session
      *
      * @param  string  $driver
      * @return mixed
@@ -18,8 +18,8 @@ class SessionManager extends Manager
         return $this->buildSession(parent::callCustomCreator($driver));
     }
 
-    /**
-     * Create an instance of the "array" session driver.
+    /*
+     * 创建基于数组驱动的 session
      *
      * @return \Illuminate\Session\Store
      */
@@ -28,8 +28,8 @@ class SessionManager extends Manager
         return $this->buildSession(new NullSessionHandler);
     }
 
-    /**
-     * Create an instance of the "cookie" session driver.
+    /*
+     * 创建基于 cookie 驱动的 session
      *
      * @return \Illuminate\Session\Store
      */
@@ -40,8 +40,8 @@ class SessionManager extends Manager
         ));
     }
 
-    /**
-     * Create an instance of the file session driver.
+    /*
+     * 创建基于文件驱动的 session
      *
      * @return \Illuminate\Session\Store
      */
@@ -50,8 +50,8 @@ class SessionManager extends Manager
         return $this->createNativeDriver();
     }
 
-    /**
-     * Create an instance of the file session driver.
+    /*
+     * 创建基于默认文件驱动的 session
      *
      * @return \Illuminate\Session\Store
      */
@@ -64,8 +64,8 @@ class SessionManager extends Manager
         ));
     }
 
-    /**
-     * Create an instance of the database session driver.
+    /*
+     * 创建基于数据库驱动的 session
      *
      * @return \Illuminate\Session\Store
      */
@@ -80,8 +80,8 @@ class SessionManager extends Manager
         ));
     }
 
-    /**
-     * Get the database connection for the database driver.
+    /*
+     * 获取数据库连接的连接对象
      *
      * @return \Illuminate\Database\Connection
      */
@@ -92,8 +92,8 @@ class SessionManager extends Manager
         return $this->app['db']->connection($connection);
     }
 
-    /**
-     * Create an instance of the APC session driver.
+    /*
+     * 创建基于 Apc Cache 驱动的 session
      *
      * @return \Illuminate\Session\Store
      */
@@ -102,8 +102,8 @@ class SessionManager extends Manager
         return $this->createCacheBased('apc');
     }
 
-    /**
-     * Create an instance of the Memcached session driver.
+    /*
+     * 创建基于 Memcached Cache 驱动的 session
      *
      * @return \Illuminate\Session\Store
      */
@@ -112,8 +112,8 @@ class SessionManager extends Manager
         return $this->createCacheBased('memcached');
     }
 
-    /**
-     * Create an instance of the Redis session driver.
+    /*
+     * 创建基于 Redis Cache 驱动的 session
      *
      * @return \Illuminate\Session\Store
      */
@@ -128,8 +128,8 @@ class SessionManager extends Manager
         return $this->buildSession($handler);
     }
 
-    /**
-     * Create an instance of a cache driven driver.
+    /*
+     * 创建基于 Cache 驱动的 session
      *
      * @param  string  $driver
      * @return \Illuminate\Session\Store
@@ -139,8 +139,8 @@ class SessionManager extends Manager
         return $this->buildSession($this->createCacheHandler($driver));
     }
 
-    /**
-     * Create the cache based session handler instance.
+    /*
+     * 创建 cache handler
      *
      * @param  string  $driver
      * @return \Illuminate\Session\CacheBasedSessionHandler
@@ -155,8 +155,8 @@ class SessionManager extends Manager
         );
     }
 
-    /**
-     * Build the session instance.
+    /*
+     * 创建 session 实例
      *
      * @param  \SessionHandlerInterface  $handler
      * @return \Illuminate\Session\Store
@@ -170,8 +170,8 @@ class SessionManager extends Manager
         }
     }
 
-    /**
-     * Build the encrypted session instance.
+    /*
+     * 创建支持加密的 session 实例
      *
      * @param  \SessionHandlerInterface  $handler
      * @return \Illuminate\Session\EncryptedStore
@@ -183,8 +183,8 @@ class SessionManager extends Manager
         );
     }
 
-    /**
-     * Get the session configuration.
+    /*
+     * 获取 session 配置项
      *
      * @return array
      */
@@ -193,7 +193,7 @@ class SessionManager extends Manager
         return $this->app['config']['session'];
     }
 
-    /**
+    /*
      * 获取默认的 session (存储)驱动
      *
      * @return string
@@ -203,7 +203,7 @@ class SessionManager extends Manager
         return $this->app['config']['session.driver'];
     }
 
-    /**
+    /*
      * 设置默认的 session 存储驱动
      *
      * @param  string  $name

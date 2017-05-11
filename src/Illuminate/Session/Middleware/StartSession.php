@@ -75,8 +75,8 @@ class StartSession
         return $response;
     }
 
-    /**
-     * Perform any final actions for the request lifecycle.
+    /*
+     * 在 response 返回后，后台执行一些操作
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Symfony\Component\HttpFoundation\Response  $response
@@ -89,7 +89,7 @@ class StartSession
         }
     }
 
-    /**
+    /*
      * Start the session for the given request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -104,7 +104,7 @@ class StartSession
         });
     }
 
-    /**
+    /*
      * Get the session implementation from the manager.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -117,7 +117,7 @@ class StartSession
         });
     }
 
-    /**
+    /*
      * Remove the garbage from the session if necessary.
      *
      * @param  \Illuminate\Contracts\Session\Session  $session
@@ -135,7 +135,7 @@ class StartSession
         }
     }
 
-    /**
+    /*
      * Determine if the configuration odds hit the lottery.
      *
      * @param  array  $config
@@ -146,7 +146,7 @@ class StartSession
         return random_int(1, $config['lottery'][1]) <= $config['lottery'][0];
     }
 
-    /**
+    /*
      * Store the current URL for the request if necessary.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -160,8 +160,8 @@ class StartSession
         }
     }
 
-    /**
-     * Add the session cookie to the application response.
+    /*
+     * 向 response 中的 cookie 添加 session 信息
      *
      * @param  \Symfony\Component\HttpFoundation\Response  $response
      * @param  \Illuminate\Contracts\Session\Session  $session
@@ -182,8 +182,8 @@ class StartSession
         }
     }
 
-    /**
-     * Get the session lifetime in seconds.
+    /*
+     * 获取 cookie 的过期时间 (单位为秒)
      *
      * @return int
      */
@@ -192,8 +192,8 @@ class StartSession
         return Arr::get($this->manager->getSessionConfig(), 'lifetime') * 60;
     }
 
-    /**
-     * Get the cookie lifetime in seconds.
+    /*
+     * 获取 cookie 的过期时间 (单位为分钟)
      *
      * @return \DateTimeInterface
      */
@@ -204,8 +204,8 @@ class StartSession
         return $config['expire_on_close'] ? 0 : Carbon::now()->addMinutes($config['lifetime']);
     }
 
-    /**
-     * Determine if a session driver has been configured.
+    /*
+     * 判断 session 驱动是否已经被配置
      *
      * @return bool
      */
@@ -214,8 +214,8 @@ class StartSession
         return ! is_null(Arr::get($this->manager->getSessionConfig(), 'driver'));
     }
 
-    /**
-     * Determine if the configured session driver is persistent.
+    /*
+     * 判断配置的 session 驱动是否是持久化
      *
      * @param  array|null  $config
      * @return bool
@@ -227,8 +227,8 @@ class StartSession
         return ! in_array($config['driver'], [null, 'array']);
     }
 
-    /**
-     * Determine if the session is using cookie sessions.
+    /*
+     * 判断 session 驱动是否采用 cookie
      *
      * @return bool
      */
