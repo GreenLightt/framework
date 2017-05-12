@@ -10,43 +10,43 @@ use Illuminate\Contracts\Session\Session;
 
 class Store implements Session
 {
-    /**
+    /*
      * session ID
      *
      * @var string
      */
     protected $id;
 
-    /**
+    /*
      * session 名
      *
      * @var string
      */
     protected $name;
 
-    /**
+    /*
      * session 属性
      *
      * @var array
      */
     protected $attributes = [];
 
-    /**
-     * The session handler implementation.
+    /*
+     * session 驱动实现
      *
      * @var \SessionHandlerInterface
      */
     protected $handler;
 
-    /**
+    /*
      * Session store started status.
      *
      * @var bool
      */
     protected $started = false;
 
-    /**
-     * Create a new session instance.
+    /*
+     * 创建一个 session 实例
      *
      * @param  string $name
      * @param  \SessionHandlerInterface $handler
@@ -76,8 +76,8 @@ class Store implements Session
         return $this->started = true;
     }
 
-    /**
-     * Load the session data from the handler.
+    /*
+     * 从驱动加载 session 数据
      *
      * @return void
      */
@@ -86,8 +86,9 @@ class Store implements Session
         $this->attributes = array_merge($this->attributes, $this->readFromHandler());
     }
 
-    /**
-     * Read the session data from the handler.
+    /*
+     * 从驱动读取 session 数据
+     *
      *
      * @return array
      */
@@ -104,7 +105,7 @@ class Store implements Session
         return [];
     }
 
-    /**
+    /*
      * Prepare the raw string data from the session for unserialization.
      *
      * @param  string  $data
@@ -131,7 +132,7 @@ class Store implements Session
         $this->started = false;
     }
 
-    /**
+    /*
      * Prepare the serialized session data for storage.
      *
      * @param  string  $data
@@ -142,7 +143,7 @@ class Store implements Session
         return $data;
     }
 
-    /**
+    /*
      * Age the flash data for the session.
      *
      * @return void
@@ -156,7 +157,7 @@ class Store implements Session
         $this->put('_flash.new', []);
     }
 
-    /**
+    /*
      * Get all of the session data.
      *
      * @return array
@@ -166,7 +167,7 @@ class Store implements Session
         return $this->attributes;
     }
 
-    /**
+    /*
      * Checks if a key exists.
      *
      * @param  string|array  $key
@@ -179,7 +180,7 @@ class Store implements Session
         });
     }
 
-    /**
+    /*
      * Checks if a key is present and not null.
      *
      * @param  string|array  $key
@@ -192,7 +193,7 @@ class Store implements Session
         });
     }
 
-    /**
+    /*
      * Get an item from the session.
      *
      * @param  string  $key
@@ -204,7 +205,7 @@ class Store implements Session
         return Arr::get($this->attributes, $key, $default);
     }
 
-    /**
+    /*
      * Get the value of a given key and then forget it.
      *
      * @param  string  $key
@@ -216,7 +217,7 @@ class Store implements Session
         return Arr::pull($this->attributes, $key, $default);
     }
 
-    /**
+    /*
      * Determine if the session contains old input.
      *
      * @param  string  $key
@@ -229,7 +230,7 @@ class Store implements Session
         return is_null($key) ? count($old) > 0 : ! is_null($old);
     }
 
-    /**
+    /*
      * Get the requested item from the flashed input array.
      *
      * @param  string  $key
@@ -241,7 +242,7 @@ class Store implements Session
         return Arr::get($this->get('_old_input', []), $key, $default);
     }
 
-    /**
+    /*
      * Replace the given session attributes entirely.
      *
      * @param  array  $attributes
@@ -252,8 +253,8 @@ class Store implements Session
         $this->put($attributes);
     }
 
-    /**
-     * Put a key / value pair or array of key / value pairs in the session.
+    /*
+     * session 添加 键值对
      *
      * @param  string|array  $key
      * @param  mixed       $value
@@ -270,8 +271,8 @@ class Store implements Session
         }
     }
 
-    /**
-     * Get an item from the session, or store the default value.
+    /*
+     * 从 session 获取指定参数，如不存在，则存储默认值
      *
      * @param  string  $key
      * @param  \Closure  $callback
@@ -288,8 +289,8 @@ class Store implements Session
         });
     }
 
-    /**
-     * Push a value onto a session array.
+    /*
+     * session 指定键值数组新增 $value 元素
      *
      * @param  string  $key
      * @param  mixed   $value
@@ -304,8 +305,8 @@ class Store implements Session
         $this->put($key, $array);
     }
 
-    /**
-     * Increment the value of an item in the session.
+    /*
+     * session 中的指定键值 加 指定数目
      *
      * @param  string  $key
      * @param  int  $amount
@@ -318,8 +319,8 @@ class Store implements Session
         return $value;
     }
 
-    /**
-     * Decrement the value of an item in the session.
+    /*
+     * session 中的指定键值 减 指定数目
      *
      * @param  string  $key
      * @param  int  $amount
@@ -330,8 +331,8 @@ class Store implements Session
         return $this->increment($key, $amount * -1);
     }
 
-    /**
-     * Flash a key / value pair to the session.
+    /*
+     * 闪存键值对到 session
      *
      * @param  string  $key
      * @param  mixed   $value
@@ -346,8 +347,8 @@ class Store implements Session
         $this->removeFromOldFlashData([$key]);
     }
 
-    /**
-     * Flash a key / value pair to the session for immediate use.
+    /*
+     * 闪存数据，本次请求使用
      *
      * @param  string $key
      * @param  mixed $value
@@ -360,8 +361,8 @@ class Store implements Session
         $this->push('_flash.old', $key);
     }
 
-    /**
-     * Reflash all of the session flash data.
+    /*
+     * 把所有本次需要删除的数据全部刷到'_flash.new'中，等待下一次请求使用，然后再删除
      *
      * @return void
      */
@@ -372,7 +373,7 @@ class Store implements Session
         $this->put('_flash.old', []);
     }
 
-    /**
+    /*
      * Reflash a subset of the current flash data.
      *
      * @param  array|mixed  $keys
@@ -385,8 +386,8 @@ class Store implements Session
         $this->removeFromOldFlashData($keys);
     }
 
-    /**
-     * Merge new flash keys into the new flash array.
+    /*
+     * 闪存数据中新增键值对
      *
      * @param  array  $keys
      * @return void
@@ -398,8 +399,8 @@ class Store implements Session
         $this->put('_flash.new', $values);
     }
 
-    /**
-     * Remove the given keys from the old flash data.
+    /*
+     * 从旧的闪存数据中移除指定键值
      *
      * @param  array  $keys
      * @return void
@@ -409,8 +410,8 @@ class Store implements Session
         $this->put('_flash.old', array_diff($this->get('_flash.old', []), $keys));
     }
 
-    /**
-     * Flash an input array to the session.
+    /*
+     * 闪存 input 数组数据 至 session
      *
      * @param  array  $value
      * @return void
@@ -420,8 +421,8 @@ class Store implements Session
         $this->flash('_old_input', $value);
     }
 
-    /**
-     * Remove an item from the session, returning its value.
+    /*
+     * 从 session 移除指定参数，并返回参数值
      *
      * @param  string  $key
      * @return mixed
@@ -431,8 +432,8 @@ class Store implements Session
         return Arr::pull($this->attributes, $key);
     }
 
-    /**
-     * Remove one or many items from the session.
+    /*
+     * 从 session 删除指定参数
      *
      * @param  string|array  $keys
      * @return void
@@ -442,8 +443,8 @@ class Store implements Session
         Arr::forget($this->attributes, $keys);
     }
 
-    /**
-     * Remove all of the items from the session.
+    /*
+     * 清空 session 中的数据
      *
      * @return void
      */
@@ -452,8 +453,8 @@ class Store implements Session
         $this->attributes = [];
     }
 
-    /**
-     * Flush the session data and regenerate the ID.
+    /*
+     * 清空 session 中的数据，并重新生成新的 sessionId
      *
      * @return bool
      */
@@ -464,8 +465,8 @@ class Store implements Session
         return $this->migrate(true);
     }
 
-    /**
-     * Generate a new session identifier.
+    /*
+     * 生成一个新的 session 标识符
      *
      * @param  bool  $destroy
      * @return bool
@@ -475,8 +476,8 @@ class Store implements Session
         return $this->migrate($destroy);
     }
 
-    /**
-     * Generate a new session ID for the session.
+    /*
+     * 为当前 session 重新生成 sessionId
      *
      * @param  bool  $destroy
      * @return bool
@@ -494,8 +495,8 @@ class Store implements Session
         return true;
     }
 
-    /**
-     * Determine if the session has been started.
+    /*
+     * 判断 session 是否 start
      *
      * @return bool
      */
@@ -504,8 +505,8 @@ class Store implements Session
         return $this->started;
     }
 
-    /**
-     * Get the name of the session.
+    /*
+     * 获取 session name
      *
      * @return string
      */
@@ -514,8 +515,8 @@ class Store implements Session
         return $this->name;
     }
 
-    /**
-     * Set the name of the session.
+    /*
+     * 设置 session name
      *
      * @param  string  $name
      * @return void
@@ -525,8 +526,8 @@ class Store implements Session
         $this->name = $name;
     }
 
-    /**
-     * Get the current session ID.
+    /*
+     * 获取 sessionId
      *
      * @return string
      */
@@ -535,8 +536,8 @@ class Store implements Session
         return $this->id;
     }
 
-    /**
-     * Set the session ID.
+    /*
+     * 设置 sessionId
      *
      * @param  string  $id
      * @return void
@@ -546,8 +547,8 @@ class Store implements Session
         $this->id = $this->isValidId($id) ? $id : $this->generateSessionId();
     }
 
-    /**
-     * Determine if this is a valid session ID.
+    /*
+     * 判断 sessionId 是否有效
      *
      * @param  string  $id
      * @return bool
@@ -557,8 +558,8 @@ class Store implements Session
         return is_string($id) && ctype_alnum($id) && strlen($id) === 40;
     }
 
-    /**
-     * Get a new, random session ID.
+    /*
+     * 生成 sessionId
      *
      * @return string
      */
@@ -567,8 +568,8 @@ class Store implements Session
         return Str::random(40);
     }
 
-    /**
-     * Set the existence of the session on the handler if applicable.
+    /*
+     * 如果需要的话，设置session的存在状态
      *
      * @param  bool  $value
      * @return void
@@ -580,8 +581,8 @@ class Store implements Session
         }
     }
 
-    /**
-     * Get the CSRF token value.
+    /*
+     * 获取 CSRF token
      *
      * @return string
      */
@@ -590,8 +591,8 @@ class Store implements Session
         return $this->get('_token');
     }
 
-    /**
-     * Regenerate the CSRF token value.
+    /*
+     * 生成 CSRF token
      *
      * @return void
      */
@@ -600,8 +601,8 @@ class Store implements Session
         $this->put('_token', Str::random(40));
     }
 
-    /**
-     * Get the previous URL from the session.
+    /*
+     * 获取前一个 url
      *
      * @return string|null
      */
@@ -610,8 +611,8 @@ class Store implements Session
         return $this->get('_previous.url');
     }
 
-    /**
-     * Set the "previous" URL in the session.
+    /*
+     * 设置前一个 url
      *
      * @param  string  $url
      * @return void
@@ -621,8 +622,8 @@ class Store implements Session
         $this->put('_previous.url', $url);
     }
 
-    /**
-     * Get the underlying session handler implementation.
+    /*
+     * 获取 session 驱动
      *
      * @return \SessionHandlerInterface
      */
@@ -631,8 +632,8 @@ class Store implements Session
         return $this->handler;
     }
 
-    /**
-     * Determine if the session handler needs a request.
+    /*
+     * 判断 session 驱动是否需要 request 参数
      *
      * @return bool
      */
@@ -641,8 +642,8 @@ class Store implements Session
         return $this->handler instanceof CookieSessionHandler;
     }
 
-    /**
-     * Set the request on the handler instance.
+    /*
+     * 向 session 驱动实例添加 request 参数
      *
      * @param  \Illuminate\Http\Request  $request
      * @return void
