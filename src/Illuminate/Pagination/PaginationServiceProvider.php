@@ -6,13 +6,14 @@ use Illuminate\Support\ServiceProvider;
 
 class PaginationServiceProvider extends ServiceProvider
 {
-    /**
+    /*
      * Bootstrap any application services.
      *
      * @return void
      */
     public function boot()
     {
+        // 注册包视图
         $this->loadViewsFrom(__DIR__.'/resources/views', 'pagination');
 
         if ($this->app->runningInConsole()) {
@@ -22,7 +23,7 @@ class PaginationServiceProvider extends ServiceProvider
         }
     }
 
-    /**
+    /*
      * Register the service provider.
      *
      * @return void

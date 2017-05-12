@@ -14,21 +14,21 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator as LengthAwarePaginator
 
 class LengthAwarePaginator extends AbstractPaginator implements Arrayable, ArrayAccess, Countable, IteratorAggregate, JsonSerializable, Jsonable, LengthAwarePaginatorContract
 {
-    /**
+    /*
      * The total number of items before slicing.
      *
      * @var int
      */
     protected $total;
 
-    /**
+    /*
      * The last available page.
      *
      * @var int
      */
     protected $lastPage;
 
-    /**
+    /*
      * Create a new paginator instance.
      *
      * @param  mixed  $items
@@ -52,7 +52,7 @@ class LengthAwarePaginator extends AbstractPaginator implements Arrayable, Array
         $this->items = $items instanceof Collection ? $items : Collection::make($items);
     }
 
-    /**
+    /*
      * Get the current page for the request.
      *
      * @param  int  $currentPage
@@ -66,7 +66,7 @@ class LengthAwarePaginator extends AbstractPaginator implements Arrayable, Array
         return $this->isValidPageNumber($currentPage) ? (int) $currentPage : 1;
     }
 
-    /**
+    /*
      * Render the paginator using the given view.
      *
      * @param  string  $view
@@ -111,7 +111,7 @@ class LengthAwarePaginator extends AbstractPaginator implements Arrayable, Array
         ]);
     }
 
-    /**
+    /*
      * Get the total number of items being paginated.
      *
      * @return int
@@ -121,7 +121,7 @@ class LengthAwarePaginator extends AbstractPaginator implements Arrayable, Array
         return $this->total;
     }
 
-    /**
+    /*
      * Determine if there are more items in the data source.
      *
      * @return bool
@@ -131,7 +131,7 @@ class LengthAwarePaginator extends AbstractPaginator implements Arrayable, Array
         return $this->currentPage() < $this->lastPage();
     }
 
-    /**
+    /*
      * Get the URL for the next page.
      *
      * @return string|null
@@ -143,7 +143,7 @@ class LengthAwarePaginator extends AbstractPaginator implements Arrayable, Array
         }
     }
 
-    /**
+    /*
      * Get the last page.
      *
      * @return int
@@ -153,7 +153,7 @@ class LengthAwarePaginator extends AbstractPaginator implements Arrayable, Array
         return $this->lastPage;
     }
 
-    /**
+    /*
      * Get the instance as an array.
      *
      * @return array
@@ -173,7 +173,7 @@ class LengthAwarePaginator extends AbstractPaginator implements Arrayable, Array
         ];
     }
 
-    /**
+    /*
      * Convert the object into something JSON serializable.
      *
      * @return array
@@ -183,7 +183,7 @@ class LengthAwarePaginator extends AbstractPaginator implements Arrayable, Array
         return $this->toArray();
     }
 
-    /**
+    /*
      * Convert the object to its JSON representation.
      *
      * @param  int  $options

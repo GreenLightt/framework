@@ -43,7 +43,7 @@ class Paginator extends AbstractPaginator implements Arrayable, ArrayAccess, Cou
         $this->setItems($items);
     }
 
-    /**
+    /*
      * Get the current page for the request.
      *
      * @param  int  $currentPage
@@ -71,7 +71,7 @@ class Paginator extends AbstractPaginator implements Arrayable, ArrayAccess, Cou
         $this->items = $this->items->slice(0, $this->perPage);
     }
 
-    /**
+    /*
      * Get the URL for the next page.
      *
      * @return string|null
@@ -83,7 +83,7 @@ class Paginator extends AbstractPaginator implements Arrayable, ArrayAccess, Cou
         }
     }
 
-    /**
+    /*
      * Render the paginator using the given view.
      *
      * @param  string|null  $view
@@ -95,7 +95,7 @@ class Paginator extends AbstractPaginator implements Arrayable, ArrayAccess, Cou
         return $this->render($view, $data);
     }
 
-    /**
+    /*
      * Render the paginator using the given view.
      *
      * @param  string|null  $view
@@ -111,7 +111,7 @@ class Paginator extends AbstractPaginator implements Arrayable, ArrayAccess, Cou
         );
     }
 
-    /**
+    /*
      * Manually indicate that the paginator does have more pages.
      *
      * @param  bool  $value
@@ -124,7 +124,7 @@ class Paginator extends AbstractPaginator implements Arrayable, ArrayAccess, Cou
         return $this;
     }
 
-    /**
+    /*
      * Determine if there are more items in the data source.
      *
      * @return bool
@@ -134,7 +134,7 @@ class Paginator extends AbstractPaginator implements Arrayable, ArrayAccess, Cou
         return $this->hasMore;
     }
 
-    /**
+    /*
      * Get the instance as an array.
      *
      * @return array
@@ -152,7 +152,7 @@ class Paginator extends AbstractPaginator implements Arrayable, ArrayAccess, Cou
         ];
     }
 
-    /**
+    /*
      * Convert the object into something JSON serializable.
      *
      * @return array
@@ -162,7 +162,7 @@ class Paginator extends AbstractPaginator implements Arrayable, ArrayAccess, Cou
         return $this->toArray();
     }
 
-    /**
+    /*
      * Convert the object to its JSON representation.
      *
      * @param  int  $options
