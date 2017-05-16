@@ -8,21 +8,21 @@ use Illuminate\Contracts\Pipeline\Hub as HubContract;
 
 class Hub implements HubContract
 {
-    /**
+    /*
      * The container implementation.
      *
      * @var \Illuminate\Contracts\Container\Container|null
      */
     protected $container;
 
-    /**
+    /*
      * All of the available pipelines.
      *
      * @var array
      */
     protected $pipelines = [];
 
-    /**
+    /*
      * Create a new Hub instance.
      *
      * @param  \Illuminate\Contracts\Container\Container|null  $container
@@ -33,7 +33,7 @@ class Hub implements HubContract
         $this->container = $container;
     }
 
-    /**
+    /*
      * Define the default named pipeline.
      *
      * @param  \Closure  $callback
@@ -44,7 +44,7 @@ class Hub implements HubContract
         return $this->pipeline('default', $callback);
     }
 
-    /**
+    /*
      * Define a new named pipeline.
      *
      * @param  string  $name
@@ -56,7 +56,7 @@ class Hub implements HubContract
         $this->pipelines[$name] = $callback;
     }
 
-    /**
+    /*
      * Send an object through one of the available pipelines.
      *
      * @param  mixed  $object

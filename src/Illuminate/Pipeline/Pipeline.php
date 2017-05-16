@@ -9,35 +9,35 @@ use Illuminate\Contracts\Pipeline\Pipeline as PipelineContract;
 
 class Pipeline implements PipelineContract
 {
-    /**
+    /*
      * The container implementation.
      *
      * @var \Illuminate\Contracts\Container\Container
      */
     protected $container;
 
-    /**
+    /*
      * The object being passed through the pipeline.
      *
      * @var mixed
      */
     protected $passable;
 
-    /**
-     * The array of class pipes.
+    /*
+     * 中间件
      *
      * @var array
      */
     protected $pipes = [];
 
-    /**
+    /*
      * The method to call on each pipe.
      *
      * @var string
      */
     protected $method = 'handle';
 
-    /**
+    /*
      * Create a new class instance.
      *
      * @param  \Illuminate\Contracts\Container\Container|null  $container
@@ -48,8 +48,8 @@ class Pipeline implements PipelineContract
         $this->container = $container;
     }
 
-    /**
-     * Set the object being sent through the pipeline.
+    /*
+     * 设置要摆上流水线的对象，比如 $request
      *
      * @param  mixed  $passable
      * @return $this
@@ -61,8 +61,8 @@ class Pipeline implements PipelineContract
         return $this;
     }
 
-    /**
-     * Set the array of pipes.
+    /*
+     * 设置流水线需要经过的“车间”， 即“中间件”
      *
      * @param  array|mixed  $pipes
      * @return $this
@@ -74,8 +74,8 @@ class Pipeline implements PipelineContract
         return $this;
     }
 
-    /**
-     * Set the method to call on the pipes.
+    /*
+     * 设置经过中间件时要调用的方法
      *
      * @param  string  $method
      * @return $this
@@ -87,7 +87,7 @@ class Pipeline implements PipelineContract
         return $this;
     }
 
-    /**
+    /*
      * Run the pipeline with a final destination callback.
      *
      * @param  \Closure  $destination
@@ -102,7 +102,7 @@ class Pipeline implements PipelineContract
         return $pipeline($this->passable);
     }
 
-    /**
+    /*
      * Get the final piece of the Closure onion.
      *
      * @param  \Closure  $destination
@@ -115,7 +115,7 @@ class Pipeline implements PipelineContract
         };
     }
 
-    /**
+    /*
      * Get a Closure that represents a slice of the application onion.
      *
      * @return \Closure
@@ -150,7 +150,7 @@ class Pipeline implements PipelineContract
         };
     }
 
-    /**
+    /*
      * Parse full pipe string to get name and parameters.
      *
      * @param  string $pipe
@@ -167,7 +167,7 @@ class Pipeline implements PipelineContract
         return [$name, $parameters];
     }
 
-    /**
+    /*
      * Get the container instance.
      *
      * @return \Illuminate\Contracts\Container\Container

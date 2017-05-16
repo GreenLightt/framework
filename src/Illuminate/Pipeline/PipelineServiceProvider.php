@@ -7,14 +7,14 @@ use Illuminate\Contracts\Pipeline\Hub as PipelineHubContract;
 
 class PipelineServiceProvider extends ServiceProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
+    /*
+     * 表明该服务提供者是否是延迟加载
      *
      * @var bool
      */
     protected $defer = true;
 
-    /**
+    /*
      * Register the service provider.
      *
      * @return void
@@ -26,7 +26,7 @@ class PipelineServiceProvider extends ServiceProvider
         );
     }
 
-    /**
+    /*
      * Get the services provided by the provider.
      *
      * @return array
