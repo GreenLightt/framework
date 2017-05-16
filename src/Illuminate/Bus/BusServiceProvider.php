@@ -9,14 +9,14 @@ use Illuminate\Contracts\Bus\QueueingDispatcher as QueueingDispatcherContract;
 
 class BusServiceProvider extends ServiceProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
+    /*
+     * 表明该服务提供者是否是延迟加载
      *
      * @var bool
      */
     protected $defer = true;
 
-    /**
+    /*
      * Register the service provider.
      *
      * @return void
@@ -38,7 +38,7 @@ class BusServiceProvider extends ServiceProvider
         );
     }
 
-    /**
+    /*
      * Get the services provided by the provider.
      *
      * @return array

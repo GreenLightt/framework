@@ -12,42 +12,42 @@ use Illuminate\Contracts\Bus\QueueingDispatcher;
 
 class Dispatcher implements QueueingDispatcher
 {
-    /**
-     * The container implementation.
+    /*
+     * 服务容器实例，即 $this->app
      *
      * @var \Illuminate\Contracts\Container\Container
      */
     protected $container;
 
-    /**
+    /*
      * The pipeline instance for the bus.
      *
      * @var \Illuminate\Pipeline\Pipeline
      */
     protected $pipeline;
 
-    /**
+    /*
      * The pipes to send commands through before dispatching.
      *
      * @var array
      */
     protected $pipes = [];
 
-    /**
+    /*
      * The command to handler mapping for non-self-handling events.
      *
      * @var array
      */
     protected $handlers = [];
 
-    /**
-     * The queue resolver callback.
+    /*
+     * 队列服务解析
      *
      * @var \Closure|null
      */
     protected $queueResolver;
 
-    /**
+    /*
      * Create a new command dispatcher instance.
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
@@ -61,7 +61,7 @@ class Dispatcher implements QueueingDispatcher
         $this->pipeline = new Pipeline($container);
     }
 
-    /**
+    /*
      * Dispatch a command to its appropriate handler.
      *
      * @param  mixed  $command
@@ -76,7 +76,7 @@ class Dispatcher implements QueueingDispatcher
         }
     }
 
-    /**
+    /*
      * Dispatch a command to its appropriate handler in the current process.
      *
      * @param  mixed  $command
@@ -98,7 +98,7 @@ class Dispatcher implements QueueingDispatcher
         return $this->pipeline->send($command)->through($this->pipes)->then($callback);
     }
 
-    /**
+    /*
      * Determine if the given command has a handler.
      *
      * @param  mixed  $command
@@ -109,7 +109,7 @@ class Dispatcher implements QueueingDispatcher
         return array_key_exists(get_class($command), $this->handlers);
     }
 
-    /**
+    /*
      * Retrieve the handler for a command.
      *
      * @param  mixed  $command
@@ -124,8 +124,8 @@ class Dispatcher implements QueueingDispatcher
         return false;
     }
 
-    /**
-     * Determine if the given command should be queued.
+    /*
+     * 判断指定任务是否需要队列
      *
      * @param  mixed  $command
      * @return bool
@@ -135,8 +135,8 @@ class Dispatcher implements QueueingDispatcher
         return $command instanceof ShouldQueue;
     }
 
-    /**
-     * Dispatch a command to its appropriate handler behind a queue.
+    /*
+     * 任务分发到队列中
      *
      * @param  mixed  $command
      * @return mixed
@@ -147,21 +147,25 @@ class Dispatcher implements QueueingDispatcher
     {
         $connection = isset($command->connection) ? $command->connection : null;
 
+        // laravel里内置了多种队列驱动,这里则解析出来
         $queue = call_user_func($this->queueResolver, $connection);
 
+        // 队列服务解析不成功则抛出异常
         if (! $queue instanceof Queue) {
             throw new RuntimeException('Queue resolver did not return a Queue implementation.');
         }
 
         if (method_exists($command, 'queue')) {
+            // 在任务类中可自定义 queue 方法进入队列
             return $command->queue($queue, $command);
         } else {
+            // 系统提供的一种进入队列方式
             return $this->pushCommandToQueue($queue, $command);
         }
     }
 
-    /**
-     * Push the command onto the given queue instance.
+    /*
+     * 将任务 push 入队列
      *
      * @param  \Illuminate\Contracts\Queue\Queue  $queue
      * @param  mixed  $command
@@ -169,14 +173,17 @@ class Dispatcher implements QueueingDispatcher
      */
     protected function pushCommandToQueue($queue, $command)
     {
+        // 为任务设置了延迟, 且设置队列名称
         if (isset($command->queue, $command->delay)) {
             return $queue->laterOn($command->queue, $command->delay, $command);
         }
 
+        // 设置队列名称
         if (isset($command->queue)) {
             return $queue->pushOn($command->queue, $command);
         }
 
+        // 设置延迟
         if (isset($command->delay)) {
             return $queue->later($command->delay, $command);
         }
@@ -184,7 +191,7 @@ class Dispatcher implements QueueingDispatcher
         return $queue->push($command);
     }
 
-    /**
+    /*
      * Set the pipes through which commands should be piped before dispatching.
      *
      * @param  array  $pipes
@@ -197,7 +204,7 @@ class Dispatcher implements QueueingDispatcher
         return $this;
     }
 
-    /**
+    /*
      * Map a command to a handler.
      *
      * @param  array  $map

@@ -25,8 +25,8 @@ trait Queueable
      */
     public $delay;
 
-    /**
-     * Set the desired connection for the job.
+    /*
+     * 为任务设置队列驱动
      *
      * @param  string|null  $connection
      * @return $this
@@ -38,8 +38,8 @@ trait Queueable
         return $this;
     }
 
-    /**
-     * Set the desired queue for the job.
+    /*
+     * 为任务设置队列名称
      *
      * @param  string|null  $queue
      * @return $this
@@ -51,8 +51,8 @@ trait Queueable
         return $this;
     }
 
-    /**
-     * Set the desired delay for the job.
+    /*
+     * 为任务设置延迟时间
      *
      * @param  \DateTime|int|null  $delay
      * @return $this
