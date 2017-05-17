@@ -9,35 +9,35 @@ use Illuminate\Contracts\Cookie\QueueingFactory as JarContract;
 
 class CookieJar implements JarContract
 {
-    /**
-     * The default path (if specified).
+    /*
+     * 能访问该 cookie 的路径
      *
      * @var string
      */
     protected $path = '/';
 
-    /**
-     * The default domain (if specified).
+    /*
+     * 能访问该 cookie 的服务器域
      *
      * @var string
      */
     protected $domain;
 
-    /**
-     * The default secure setting (defaults to false).
+    /*
+     * true 表示使用 https 协议; false 表示使用 http 协议
      *
      * @var bool
      */
     protected $secure = false;
 
-    /**
+    /*
      * All of the cookies queued for sending.
      *
      * @var array
      */
     protected $queued = [];
 
-    /**
+    /*
      * 创建一个新的 cookie 实例
      *
      * @param  string  $name
@@ -58,7 +58,7 @@ class CookieJar implements JarContract
         return new Cookie($name, $value, $time, $path, $domain, $secure, $httpOnly);
     }
 
-    /**
+    /*
      * Create a cookie that lasts "forever" (five years).
      *
      * @param  string  $name
@@ -74,7 +74,7 @@ class CookieJar implements JarContract
         return $this->make($name, $value, 2628000, $path, $domain, $secure, $httpOnly);
     }
 
-    /**
+    /*
      * Expire the given cookie.
      *
      * @param  string  $name
@@ -87,7 +87,7 @@ class CookieJar implements JarContract
         return $this->make($name, null, -2628000, $path, $domain);
     }
 
-    /**
+    /*
      * Determine if a cookie has been queued.
      *
      * @param  string  $key
@@ -98,7 +98,7 @@ class CookieJar implements JarContract
         return ! is_null($this->queued($key));
     }
 
-    /**
+    /*
      * Get a queued cookie instance.
      *
      * @param  string  $key
@@ -110,7 +110,7 @@ class CookieJar implements JarContract
         return Arr::get($this->queued, $key, $default);
     }
 
-    /**
+    /*
      * Queue a cookie to send with the next response.
      *
      * @param  array  $parameters
@@ -127,7 +127,7 @@ class CookieJar implements JarContract
         $this->queued[$cookie->getName()] = $cookie;
     }
 
-    /**
+    /*
      * Remove a cookie from the queue.
      *
      * @param  string  $name
@@ -138,7 +138,7 @@ class CookieJar implements JarContract
         unset($this->queued[$name]);
     }
 
-    /**
+    /*
      * Get the path and domain, or the default values.
      *
      * @param  string  $path
@@ -151,7 +151,7 @@ class CookieJar implements JarContract
         return [$path ?: $this->path, $domain ?: $this->domain, $secure ?: $this->secure];
     }
 
-    /**
+    /*
      * Set the default path and domain for the jar.
      *
      * @param  string  $path
@@ -166,7 +166,7 @@ class CookieJar implements JarContract
         return $this;
     }
 
-    /**
+    /*
      * Get the cookies which have been queued for the next request.
      *
      * @return array

@@ -11,21 +11,21 @@ use Illuminate\Contracts\Encryption\Encrypter as EncrypterContract;
 
 class EncryptCookies
 {
-    /**
+    /*
      * encrypter 实例
      *
      * @var \Illuminate\Contracts\Encryption\Encrypter
      */
     protected $encrypter;
 
-    /**
+    /*
      * 定义不需要被加密的 cookie 名
      *
      * @var array
      */
     protected $except = [];
 
-    /**
+    /*
      * Create a new CookieGuard instance.
      *
      * @param  \Illuminate\Contracts\Encryption\Encrypter  $encrypter
@@ -36,7 +36,7 @@ class EncryptCookies
         $this->encrypter = $encrypter;
     }
 
-    /**
+    /*
      * 指定的 cookieName 这个 cookie 对象不被加密
      *
      * @param  string|array  $cookieName
@@ -47,7 +47,7 @@ class EncryptCookies
         $this->except = array_merge($this->except, (array) $cookieName);
     }
 
-    /**
+    /*
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -59,7 +59,7 @@ class EncryptCookies
         return $this->encrypt($next($this->decrypt($request)));
     }
 
-    /**
+    /*
      * 解密 request 请求中的 cookie
      *
      * @param  \Symfony\Component\HttpFoundation\Request  $request
@@ -82,7 +82,7 @@ class EncryptCookies
         return $request;
     }
 
-    /**
+    /*
      * 解密给定的 cookie 对象并返回解密的结果
      *
      * @param  string|array  $cookie
@@ -95,7 +95,7 @@ class EncryptCookies
                         : $this->encrypter->decrypt($cookie);
     }
 
-    /**
+    /*
      * 解密 cookie 数组
      *
      * @param  array  $cookie
@@ -114,7 +114,7 @@ class EncryptCookies
         return $decrypted;
     }
 
-    /**
+    /*
      * 给要返回的 response 中的 cookie 加密
      *
      * @param  \Symfony\Component\HttpFoundation\Response  $response
@@ -135,7 +135,7 @@ class EncryptCookies
         return $response;
     }
 
-    /**
+    /*
      * Duplicate a cookie with a new value.
      *
      * @param  \Symfony\Component\HttpFoundation\Cookie  $c
@@ -150,7 +150,7 @@ class EncryptCookies
         );
     }
 
-    /**
+    /*
      * 根据 cookie 名判断该 cookie 是否需要加密
      *
      * @param  string $name

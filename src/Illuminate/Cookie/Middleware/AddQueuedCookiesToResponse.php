@@ -7,14 +7,14 @@ use Illuminate\Contracts\Cookie\QueueingFactory as CookieJar;
 
 class AddQueuedCookiesToResponse
 {
-    /**
+    /*
      * The cookie jar instance.
      *
      * @var \Illuminate\Contracts\Cookie\QueueingFactory
      */
     protected $cookies;
 
-    /**
+    /*
      * Create a new CookieQueue instance.
      *
      * @param  \Illuminate\Contracts\Cookie\QueueingFactory  $cookies
@@ -25,7 +25,7 @@ class AddQueuedCookiesToResponse
         $this->cookies = $cookies;
     }
 
-    /**
+    /*
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
