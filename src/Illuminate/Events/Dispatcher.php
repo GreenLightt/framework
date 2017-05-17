@@ -14,36 +14,36 @@ use Illuminate\Contracts\Container\Container as ContainerContract;
 
 class Dispatcher implements DispatcherContract
 {
-    /**
-     * The IoC container instance.
+    /*
+     * Ioc 容器实例
      *
      * @var \Illuminate\Contracts\Container\Container
      */
     protected $container;
 
-    /**
-     * The registered event listeners.
+    /*
+     * 注册的监听器
      *
      * @var array
      */
     protected $listeners = [];
 
-    /**
-     * The wildcard listeners.
+    /*
+     * 通配符监听器
      *
      * @var array
      */
     protected $wildcards = [];
 
-    /**
-     * The queue resolver instance.
+    /*
+     * 队列服务解析器
      *
      * @var callable
      */
     protected $queueResolver;
 
-    /**
-     * Create a new event dispatcher instance.
+    /*
+     * 创建一个新的事件调度实例
      *
      * @param  \Illuminate\Contracts\Container\Container|null  $container
      * @return void
@@ -83,8 +83,8 @@ class Dispatcher implements DispatcherContract
         $this->wildcards[$event][] = $this->makeListener($listener, true);
     }
 
-    /**
-     * Determine if a given event has listeners.
+    /*
+     * 判断指定事件是否有监听器
      *
      * @param  string  $eventName
      * @return bool
@@ -373,8 +373,8 @@ class Dispatcher implements DispatcherContract
         }
     }
 
-    /**
-     * Parse the class listener into class and method.
+    /*
+     * 将 Class@method 字符串解析为 [Class, method]
      *
      * @param  string  $listener
      * @return array
@@ -384,8 +384,8 @@ class Dispatcher implements DispatcherContract
         return Str::parseCallback($listener, 'handle');
     }
 
-    /**
-     * Determine if the event handler class should be queued.
+    /*
+     * 判断事件类是否实现 ShouldQueue 接口
      *
      * @param  string  $class
      * @return bool
@@ -524,8 +524,9 @@ class Dispatcher implements DispatcherContract
         }
     }
 
-    /**
+    /*
      * Get the queue implementation from the resolver.
+     * 获取队列服务解析器
      *
      * @return \Illuminate\Contracts\Queue\Queue
      */
@@ -534,8 +535,8 @@ class Dispatcher implements DispatcherContract
         return call_user_func($this->queueResolver);
     }
 
-    /**
-     * Set the queue resolver implementation.
+    /*
+     * 设置队列服务解析器
      *
      * @param  callable  $resolver
      * @return $this
