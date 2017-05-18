@@ -8,14 +8,14 @@ use Illuminate\Contracts\Container\Container;
 
 class CallQueuedHandler
 {
-    /**
-     * The container instance.
+    /*
+     * Ioc容器实例
      *
      * @var \Illuminate\Contracts\Container\Container
      */
     protected $container;
 
-    /**
+    /*
      * Create a new job instance.
      *
      * @param  \Illuminate\Contracts\Container\Container  $container

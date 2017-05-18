@@ -53,7 +53,7 @@ class Dispatcher implements DispatcherContract
         $this->container = $container ?: new Container;
     }
 
-    /**
+    /*
      * Register an event listener with the dispatcher.
      *
      * @param  string|array  $events
@@ -71,7 +71,7 @@ class Dispatcher implements DispatcherContract
         }
     }
 
-    /**
+    /*
      * Setup a wildcard listener callback.
      *
      * @param  string  $event
@@ -94,7 +94,7 @@ class Dispatcher implements DispatcherContract
         return isset($this->listeners[$eventName]) || isset($this->wildcards[$eventName]);
     }
 
-    /**
+    /*
      * Register an event and payload to be fired later.
      *
      * @param  string  $event
@@ -108,7 +108,7 @@ class Dispatcher implements DispatcherContract
         });
     }
 
-    /**
+    /*
      * Flush a set of pushed events.
      *
      * @param  string  $event
@@ -119,7 +119,7 @@ class Dispatcher implements DispatcherContract
         $this->dispatch($event.'_pushed');
     }
 
-    /**
+    /*
      * Register an event subscriber with the dispatcher.
      *
      * @param  object|string  $subscriber
@@ -132,7 +132,7 @@ class Dispatcher implements DispatcherContract
         $subscriber->subscribe($this);
     }
 
-    /**
+    /*
      * Resolve the subscriber instance.
      *
      * @param  object|string  $subscriber
@@ -147,7 +147,7 @@ class Dispatcher implements DispatcherContract
         return $subscriber;
     }
 
-    /**
+    /*
      * Fire an event until the first non-null response is returned.
      *
      * @param  string|object  $event
@@ -159,7 +159,7 @@ class Dispatcher implements DispatcherContract
         return $this->dispatch($event, $payload, true);
     }
 
-    /**
+    /*
      * Fire an event and call the listeners.
      *
      * @param  string|object  $event
@@ -172,7 +172,7 @@ class Dispatcher implements DispatcherContract
         return $this->dispatch($event, $payload, $halt);
     }
 
-    /**
+    /*
      * Fire an event and call the listeners.
      *
      * @param  string|object  $event
@@ -218,7 +218,7 @@ class Dispatcher implements DispatcherContract
         return $halt ? null : $responses;
     }
 
-    /**
+    /*
      * Parse the given event and payload and prepare them for dispatching.
      *
      * @param  mixed  $event
@@ -234,7 +234,7 @@ class Dispatcher implements DispatcherContract
         return [$event, array_wrap($payload)];
     }
 
-    /**
+    /*
      * Determine if the payload has a broadcastable event.
      *
      * @param  array  $payload
@@ -245,7 +245,7 @@ class Dispatcher implements DispatcherContract
         return isset($payload[0]) && $payload[0] instanceof ShouldBroadcast;
     }
 
-    /**
+    /*
      * Broadcast the given event class.
      *
      * @param  \Illuminate\Contracts\Broadcasting\ShouldBroadcast  $event
@@ -256,7 +256,7 @@ class Dispatcher implements DispatcherContract
         $this->container->make(BroadcastFactory::class)->queue($event);
     }
 
-    /**
+    /*
      * Get all of the listeners for a given event name.
      *
      * @param  string  $eventName
@@ -275,7 +275,7 @@ class Dispatcher implements DispatcherContract
                     : $listeners;
     }
 
-    /**
+    /*
      * Get the wildcard listeners for the event.
      *
      * @param  string  $eventName
@@ -294,7 +294,7 @@ class Dispatcher implements DispatcherContract
         return $wildcards;
     }
 
-    /**
+    /*
      * Add the listeners for the event's interfaces to the given array.
      *
      * @param  string  $eventName
@@ -314,7 +314,7 @@ class Dispatcher implements DispatcherContract
         return $listeners;
     }
 
-    /**
+    /*
      * Register an event listener with the dispatcher.
      *
      * @param  string|\Closure  $listener
@@ -336,7 +336,7 @@ class Dispatcher implements DispatcherContract
         };
     }
 
-    /**
+    /*
      * Create a class based listener using the IoC container.
      *
      * @param  string  $listener
@@ -356,7 +356,7 @@ class Dispatcher implements DispatcherContract
         };
     }
 
-    /**
+    /*
      * Create the class based event callable.
      *
      * @param  string  $listener
@@ -401,7 +401,7 @@ class Dispatcher implements DispatcherContract
         }
     }
 
-    /**
+    /*
      * Create a callable for putting an event handler on the queue.
      *
      * @param  string  $class
@@ -423,7 +423,7 @@ class Dispatcher implements DispatcherContract
         };
     }
 
-    /**
+    /*
      * Call the queue method on the handler class.
      *
      * @param  string  $class
@@ -495,7 +495,7 @@ class Dispatcher implements DispatcherContract
         });
     }
 
-    /**
+    /*
      * Remove a set of listeners from the dispatcher.
      *
      * @param  string  $event
@@ -510,7 +510,7 @@ class Dispatcher implements DispatcherContract
         }
     }
 
-    /**
+    /*
      * Forget all of the pushed listeners.
      *
      * @return void
