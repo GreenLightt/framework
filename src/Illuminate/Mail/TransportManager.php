@@ -19,7 +19,7 @@ use Swift_SendmailTransport as SendmailTransport;
 
 class TransportManager extends Manager
 {
-    /**
+    /*
      * Create an instance of the SMTP Swift Transport driver.
      *
      * @return \Swift_SmtpTransport
@@ -101,7 +101,7 @@ class TransportManager extends Manager
         return $config;
     }
 
-    /**
+    /*
      * Create an instance of the Mail Swift Transport driver.
      *
      * @return \Swift_MailTransport
@@ -154,7 +154,7 @@ class TransportManager extends Manager
         );
     }
 
-    /**
+    /*
      * Create an instance of the Log Swift Transport driver.
      *
      * @return \Illuminate\Mail\Transport\LogTransport
@@ -164,7 +164,7 @@ class TransportManager extends Manager
         return new LogTransport($this->app->make(LoggerInterface::class));
     }
 
-    /**
+    /*
      * Create an instance of the Array Swift Transport Driver.
      *
      * @return \Illuminate\Mail\Transport\ArrayTransport
@@ -187,7 +187,7 @@ class TransportManager extends Manager
         ));
     }
 
-    /**
+    /*
      * Get the default mail driver name.
      *
      * @return string
@@ -197,7 +197,7 @@ class TransportManager extends Manager
         return $this->app['config']['mail.driver'];
     }
 
-    /**
+    /*
      * Set the default mail driver name.
      *
      * @param  string  $name

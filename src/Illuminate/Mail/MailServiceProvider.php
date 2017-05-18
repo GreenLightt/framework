@@ -9,15 +9,15 @@ use Illuminate\Support\ServiceProvider;
 
 class MailServiceProvider extends ServiceProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
+    /*
+     * 该提供提供者延迟加载
      *
      * @var bool
      */
     protected $defer = true;
 
-    /**
-     * Register the service provider.
+    /*
+     * 注册服务提供者
      *
      * @return void
      */
@@ -79,7 +79,7 @@ class MailServiceProvider extends ServiceProvider
         }
     }
 
-    /**
+    /*
      * Register the Swift Mailer instance.
      *
      * @return void
@@ -96,7 +96,7 @@ class MailServiceProvider extends ServiceProvider
         });
     }
 
-    /**
+    /*
      * Register the Swift Transport instance.
      *
      * @return void

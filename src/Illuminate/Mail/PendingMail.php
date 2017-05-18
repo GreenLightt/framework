@@ -6,35 +6,35 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 class PendingMail
 {
-    /**
+    /*
      * The mailer instance.
      *
      * @var array
      */
     protected $mailer;
 
-    /**
-     * The "to" recipients of the message.
+    /*
+     * 发送目标
      *
      * @var array
      */
     protected $to = [];
 
-    /**
-     * The "cc" recipients of the message.
+    /*
+     * 抄送
      *
      * @var array
      */
     protected $cc = [];
 
-    /**
-     * The "bcc" recipients of the message.
+    /*
+     * 暗抄送
      *
      * @var array
      */
     protected $bcc = [];
 
-    /**
+    /*
      * Create a new mailable mailer instance.
      *
      * @param  Mailer  $mailer
@@ -45,8 +45,8 @@ class PendingMail
         $this->mailer = $mailer;
     }
 
-    /**
-     * Set the recipients of the message.
+    /*
+     * 设置邮件的接收人
      *
      * @param  mixed  $users
      * @return $this
@@ -58,8 +58,8 @@ class PendingMail
         return $this;
     }
 
-    /**
-     * Set the recipients of the message.
+    /*
+     * 设置邮件的抄送人
      *
      * @param  mixed  $users
      * @return $this
@@ -71,8 +71,8 @@ class PendingMail
         return $this;
     }
 
-    /**
-     * Set the recipients of the message.
+    /*
+     * 设置邮件的暗抄送
      *
      * @param  mixed  $users
      * @return $this
@@ -84,7 +84,7 @@ class PendingMail
         return $this;
     }
 
-    /**
+    /*
      * Send a new mailable message instance.
      *
      * @param  Mailable  $mailable
@@ -99,8 +99,8 @@ class PendingMail
         return $this->mailer->send($this->fill($mailable));
     }
 
-    /**
-     * Send a mailable message immediately.
+    /*
+     * 立即发送邮件
      *
      * @param  Mailable  $mailable
      * @return mixed
@@ -110,7 +110,7 @@ class PendingMail
         return $this->mailer->send($this->fill($mailable));
     }
 
-    /**
+    /*
      * Push the given mailable onto the queue.
      *
      * @param  Mailable  $mailable
@@ -127,7 +127,7 @@ class PendingMail
         return $this->mailer->queue($mailable);
     }
 
-    /**
+    /*
      * Deliver the queued message after the given delay.
      *
      * @param  \DateTime|int  $delay
@@ -139,7 +139,7 @@ class PendingMail
         return $this->mailer->later($delay, $this->fill($mailable));
     }
 
-    /**
+    /*
      * Populate the mailable with the addresses.
      *
      * @param  Mailable  $mailable

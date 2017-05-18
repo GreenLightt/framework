@@ -85,8 +85,8 @@ abstract class Transport implements Swift_Transport
         }
     }
 
-    /**
-     * Get the number of recipients.
+    /*
+     * 获取收件人的数目
      *
      * @param  \Swift_Mime_Message  $message
      * @return int
