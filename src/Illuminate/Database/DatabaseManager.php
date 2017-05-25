@@ -10,8 +10,8 @@ use Illuminate\Database\Connectors\ConnectionFactory;
 
 class DatabaseManager implements ConnectionResolverInterface
 {
-    /**
-     * The application instance.
+    /*
+     * 应用实例
      *
      * @var \Illuminate\Foundation\Application
      */
@@ -38,8 +38,8 @@ class DatabaseManager implements ConnectionResolverInterface
      */
     protected $extensions = [];
 
-    /**
-     * Create a new database manager instance.
+    /*
+     * 创建一个数据库管理实例
      *
      * @param  \Illuminate\Foundation\Application  $app
      * @param  \Illuminate\Database\Connectors\ConnectionFactory  $factory
@@ -51,8 +51,8 @@ class DatabaseManager implements ConnectionResolverInterface
         $this->factory = $factory;
     }
 
-    /**
-     * Get a database connection instance.
+    /*
+     * 获取数据库连接实例
      *
      * @param  string  $name
      * @return \Illuminate\Database\Connection
@@ -75,8 +75,8 @@ class DatabaseManager implements ConnectionResolverInterface
         return $this->connections[$name];
     }
 
-    /**
-     * Parse the connection into an array of the name and read / write type.
+    /*
+     * 解析连接名及类型(write 或 read)
      *
      * @param  string  $name
      * @return array
@@ -89,8 +89,8 @@ class DatabaseManager implements ConnectionResolverInterface
                             ? explode('::', $name, 2) : [$name, null];
     }
 
-    /**
-     * Make the database connection instance.
+    /*
+     * 创建数据库连接实例对象
      *
      * @param  string  $name
      * @return \Illuminate\Database\Connection
@@ -116,8 +116,8 @@ class DatabaseManager implements ConnectionResolverInterface
         return $this->factory->make($config, $name);
     }
 
-    /**
-     * Get the configuration for a connection.
+    /*
+     * 根据连接名获取相应的配置
      *
      * @param  string  $name
      * @return array
@@ -246,8 +246,8 @@ class DatabaseManager implements ConnectionResolverInterface
                                 ->setReadPdo($fresh->getReadPdo());
     }
 
-    /**
-     * Get the default connection name.
+    /*
+     * 获取默认的数据库连接名
      *
      * @return string
      */
@@ -302,8 +302,8 @@ class DatabaseManager implements ConnectionResolverInterface
         $this->extensions[$name] = $resolver;
     }
 
-    /**
-     * Return all of the created connections.
+    /*
+     * 返回所有创建的连接对象
      *
      * @return array
      */

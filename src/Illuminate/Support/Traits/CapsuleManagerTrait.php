@@ -21,8 +21,8 @@ trait CapsuleManagerTrait
      */
     protected $container;
 
-    /**
-     * Setup the IoC container instance.
+    /*
+     * 设置 Ioc 容器实例
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
      * @return void
@@ -36,8 +36,8 @@ trait CapsuleManagerTrait
         }
     }
 
-    /**
-     * Make this capsule instance available globally.
+    /*
+     * 设置 当前小容器实例 全局静态可访问
      *
      * @return void
      */
@@ -46,8 +46,8 @@ trait CapsuleManagerTrait
         static::$instance = $this;
     }
 
-    /**
-     * Get the IoC container instance.
+    /*
+     * 获取 Ioc 容器实例
      *
      * @return \Illuminate\Contracts\Container\Container
      */
@@ -56,8 +56,8 @@ trait CapsuleManagerTrait
         return $this->container;
     }
 
-    /**
-     * Set the IoC container instance.
+    /*
+     * 设置IoC 容器实例
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
      * @return void

@@ -871,8 +871,8 @@ class Connection implements ConnectionInterface
         return $this->doctrineConnection;
     }
 
-    /**
-     * Get the current PDO connection.
+    /*
+     * 获取当前 PDO 连接
      *
      * @return \PDO
      */

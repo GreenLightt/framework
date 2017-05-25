@@ -15,15 +15,15 @@ use Illuminate\Contracts\Debug\ExceptionHandler;
 
 class ConnectionFactory
 {
-    /**
-     * The IoC container instance.
+    /*
+     * Ioc 容器实例
      *
      * @var \Illuminate\Contracts\Container\Container
      */
     protected $container;
 
-    /**
-     * Create a new connection factory instance.
+    /*
+     * 创建一个连接数据库 工厂
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
      * @return void
@@ -33,8 +33,8 @@ class ConnectionFactory
         $this->container = $container;
     }
 
-    /**
-     * Establish a PDO connection based on the configuration.
+    /*
+     * 根据配置创建 PDO 连接
      *
      * @param  array   $config
      * @param  string  $name
@@ -51,8 +51,8 @@ class ConnectionFactory
         return $this->createSingleConnection($config);
     }
 
-    /**
-     * Parse and prepare the database configuration.
+    /*
+     * 对数据库的配置进行预填补
      *
      * @param  array   $config
      * @param  string  $name
@@ -63,7 +63,7 @@ class ConnectionFactory
         return Arr::add(Arr::add($config, 'prefix', ''), 'name', $name);
     }
 
-    /**
+    /*
      * Create a single database connection instance.
      *
      * @param  array  $config
@@ -78,7 +78,7 @@ class ConnectionFactory
         );
     }
 
-    /**
+    /*
      * Create a single database connection instance.
      *
      * @param  array  $config
@@ -91,7 +91,7 @@ class ConnectionFactory
         return $connection->setReadPdo($this->createReadPdo($config));
     }
 
-    /**
+    /*
      * Create a new PDO instance for reading.
      *
      * @param  array  $config
@@ -102,8 +102,8 @@ class ConnectionFactory
         return $this->createPdoResolver($this->getReadConfig($config));
     }
 
-    /**
-     * Get the read configuration for a read / write connection.
+    /*
+     * 获取 read 型配置
      *
      * @param  array  $config
      * @return array
@@ -115,8 +115,8 @@ class ConnectionFactory
         );
     }
 
-    /**
-     * Get the read configuration for a read / write connection.
+    /*
+     * 获取 write 型配置
      *
      * @param  array  $config
      * @return array
@@ -128,8 +128,8 @@ class ConnectionFactory
         );
     }
 
-    /**
-     * Get a read / write level configuration.
+    /*
+     * 获取 read / write 独有的配置
      *
      * @param  array   $config
      * @param  string  $type
@@ -142,8 +142,8 @@ class ConnectionFactory
                         : $config[$type];
     }
 
-    /**
-     * Merge a configuration for a read / write connection.
+    /*
+     * 合并 read / write 型配置
      *
      * @param  array  $config
      * @param  array  $merge
@@ -154,7 +154,7 @@ class ConnectionFactory
         return Arr::except(array_merge($config, $merge), ['read', 'write']);
     }
 
-    /**
+    /*
      * Create a new Closure that resolves to a PDO instance.
      *
      * @param  array  $config
@@ -167,7 +167,7 @@ class ConnectionFactory
                             : $this->createPdoResolverWithoutHosts($config);
     }
 
-    /**
+    /*
      * Create a new Closure that resolves to a PDO instance with a specific host or an array of hosts.
      *
      * @param  array  $config
@@ -192,8 +192,8 @@ class ConnectionFactory
         };
     }
 
-    /**
-     * Parse the hosts configuration item into an array.
+    /*
+     * 解析配置项中的 host 参数
      *
      * @param  array  $config
      * @return array
@@ -209,7 +209,7 @@ class ConnectionFactory
         return $hosts;
     }
 
-    /**
+    /*
      * Create a new Closure that resolves to a PDO instance where there is no configured host.
      *
      * @param  array  $config
@@ -222,7 +222,7 @@ class ConnectionFactory
         };
     }
 
-    /**
+    /*
      * Create a connector instance based on the configuration.
      *
      * @param  array  $config
@@ -254,7 +254,7 @@ class ConnectionFactory
         throw new InvalidArgumentException("Unsupported driver [{$config['driver']}]");
     }
 
-    /**
+    /*
      * Create a new connection instance.
      *
      * @param  string   $driver

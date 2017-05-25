@@ -12,20 +12,34 @@ class Connector
 {
     use DetectsLostConnections;
 
-    /**
-     * The default PDO connection options.
+    /*
+     * 默认的 PDO 连接选项
      *
      * @var array
      */
     protected $options = [
+        // PDO::ATTR_CASE：强制列名为指定的大小写
+        //     PDO::CASE_LOWER：强制列名小写
+        //     PDO::CASE_NATURAL：保留数据库驱动返回的列名
+        //     PDO::CASE_UPPER：强制列名大写
         PDO::ATTR_CASE => PDO::CASE_NATURAL,
+        // PDO::ATTR_ERRMODE：错误报告
+        //     PDO::ERRMODE_SILENT： 仅设置错误代码
+        //     PDO::ERRMODE_WARNING: 引发 E_WARNING 错误
+        //     PDO::ERRMODE_EXCEPTION: 抛出 exceptions 异常
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        // PDO::ATTR_ORACLE_NULLS （在所有驱动中都可用，不仅限于Oracle）： 转换 NULL 和空字符串
+        //     PDO::NULL_NATURAL: 不转换
+        //     PDO::NULL_EMPTY_STRING： 将空字符串转换成 NULL
+        //     PDO::NULL_TO_STRING: 将 NULL 转换成空字符串
         PDO::ATTR_ORACLE_NULLS => PDO::NULL_NATURAL,
+        // PDO::ATTR_STRINGIFY_FETCHES: 提取的时候将数值转换为字符串
         PDO::ATTR_STRINGIFY_FETCHES => false,
+        // PDO::ATTR_EMULATE_PREPARES 启用或禁用预处理语句的模拟
         PDO::ATTR_EMULATE_PREPARES => false,
     ];
 
-    /**
+    /*
      * Create a new PDO connection.
      *
      * @param  string  $dsn
@@ -50,7 +64,7 @@ class Connector
         }
     }
 
-    /**
+    /*
      * Create a new PDO connection instance.
      *
      * @param  string  $dsn
@@ -68,8 +82,8 @@ class Connector
         return new PDO($dsn, $username, $password, $options);
     }
 
-    /**
-     * Determine if the connection is persistent.
+    /*
+     * 判断连接是否是持久的
      *
      * @param  array  $options
      * @return bool
@@ -80,7 +94,7 @@ class Connector
                $options[PDO::ATTR_PERSISTENT];
     }
 
-    /**
+    /*
      * Handle an exception that occurred during connect execution.
      *
      * @param  \Exception  $e
@@ -101,8 +115,8 @@ class Connector
         throw $e;
     }
 
-    /**
-     * Get the PDO options based on the configuration.
+    /*
+     * 获取配置项与默认 PDO 连接配置项的并集
      *
      * @param  array  $config
      * @return array
@@ -114,8 +128,8 @@ class Connector
         return array_diff_key($this->options, $options) + $options;
     }
 
-    /**
-     * Get the default PDO connection options.
+    /*
+     * 获取默认的 PDO 连接参数
      *
      * @return array
      */
@@ -124,8 +138,8 @@ class Connector
         return $this->options;
     }
 
-    /**
-     * Set the default PDO connection options.
+    /*
+     * 设置默认的 PDO 连接参数
      *
      * @param  array  $options
      * @return void

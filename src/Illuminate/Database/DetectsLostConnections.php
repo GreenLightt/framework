@@ -7,8 +7,8 @@ use Illuminate\Support\Str;
 
 trait DetectsLostConnections
 {
-    /**
-     * Determine if the given exception was caused by a lost connection.
+    /*
+     * 判断指定异常是否由失去连接引起
      *
      * @param  \Exception  $e
      * @return bool

@@ -7,8 +7,8 @@ use Illuminate\Support\Str;
 
 trait DetectsDeadlocks
 {
-    /**
-     * Determine if the given exception was caused by a deadlock.
+    /*
+     * 判断给定的异常是否由死锁引起
      *
      * @param  \Exception  $e
      * @return bool

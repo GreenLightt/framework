@@ -21,8 +21,8 @@ class Manager
      */
     protected $manager;
 
-    /**
-     * Create a new database capsule manager.
+    /*
+     * 创建一个针对数据库管理的小容器
      *
      * @param  \Illuminate\Container\Container|null  $container
      * @return void
@@ -39,8 +39,8 @@ class Manager
         $this->setupManager();
     }
 
-    /**
-     * Setup the default database configuration options.
+    /*
+     * 设置默认数据库配置项
      *
      * @return void
      */
@@ -51,8 +51,8 @@ class Manager
         $this->container['config']['database.default'] = 'default';
     }
 
-    /**
-     * Build the database manager instance.
+    /*
+     * 创建 database manager 实例
      *
      * @return void
      */
@@ -63,8 +63,8 @@ class Manager
         $this->manager = new DatabaseManager($this->container, $factory);
     }
 
-    /**
-     * Get a connection instance from the global manager.
+    /*
+     * 获取数据库连接实例
      *
      * @param  string  $connection
      * @return \Illuminate\Database\Connection
@@ -97,8 +97,8 @@ class Manager
         return static::$instance->connection($connection)->getSchemaBuilder();
     }
 
-    /**
-     * Get a registered connection instance.
+    /*
+     * 获取一个数据库连接实例
      *
      * @param  string  $name
      * @return \Illuminate\Database\Connection
@@ -108,8 +108,8 @@ class Manager
         return $this->manager->connection($name);
     }
 
-    /**
-     * Register a connection with the manager.
+    /*
+     * 注册一个数据库连接配置
      *
      * @param  array   $config
      * @param  string  $name
