@@ -141,8 +141,8 @@ class Manager
         }
     }
 
-    /**
-     * Set the fetch mode for the database connections.
+    /*
+     * 为数据库连接设置 fetch 模式 
      *
      * @param  int  $fetchMode
      * @return $this
@@ -154,8 +154,8 @@ class Manager
         return $this;
     }
 
-    /**
-     * Get the database manager instance.
+    /*
+     * 获取 database manager 实例
      *
      * @return \Illuminate\Database\DatabaseManager
      */

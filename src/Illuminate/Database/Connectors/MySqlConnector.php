@@ -6,8 +6,8 @@ use PDO;
 
 class MySqlConnector extends Connector implements ConnectorInterface
 {
-    /**
-     * Establish a database connection.
+    /*
+     * 建立数据库连接
      *
      * @param  array  $config
      * @return \PDO
@@ -39,8 +39,8 @@ class MySqlConnector extends Connector implements ConnectorInterface
         return $connection;
     }
 
-    /**
-     * Set the connection character set and collation.
+    /*
+     * 设置连接的编码及较对规则
      *
      * @param  \PDO  $connection
      * @param  array  $config
@@ -57,8 +57,8 @@ class MySqlConnector extends Connector implements ConnectorInterface
         )->execute();
     }
 
-    /**
-     * Get the collation for the configuration.
+    /*
+     * 获取配置项中的 较对规则
      *
      * @param  array  $config
      * @return string
@@ -68,8 +68,8 @@ class MySqlConnector extends Connector implements ConnectorInterface
         return ! is_null($config['collation']) ? " collate '{$config['collation']}'" : '';
     }
 
-    /**
-     * Set the timezone on the connection.
+    /*
+     * 设置连接的时区
      *
      * @param  \PDO  $connection
      * @param  array  $config
@@ -82,8 +82,8 @@ class MySqlConnector extends Connector implements ConnectorInterface
         }
     }
 
-    /**
-     * Create a DSN string from a configuration.
+    /*
+     * 根据配置项获取数据来源
      *
      * Chooses socket or host/port based on the 'unix_socket' config value.
      *
@@ -97,8 +97,8 @@ class MySqlConnector extends Connector implements ConnectorInterface
                             : $this->getHostDsn($config);
     }
 
-    /**
-     * Determine if the given configuration array has a UNIX socket value.
+    /*
+     * 判断指定的配置项是否有 UNIX socket 值
      *
      * @param  array  $config
      * @return bool
@@ -108,8 +108,8 @@ class MySqlConnector extends Connector implements ConnectorInterface
         return isset($config['unix_socket']) && ! empty($config['unix_socket']);
     }
 
-    /**
-     * Get the DSN string for a socket configuration.
+    /*
+     * 根据 socket 配置项获取 mysql data source name（数据来源名称）;
      *
      * @param  array  $config
      * @return string
@@ -119,8 +119,8 @@ class MySqlConnector extends Connector implements ConnectorInterface
         return "mysql:unix_socket={$config['unix_socket']};dbname={$config['database']}";
     }
 
-    /**
-     * Get the DSN string for a host / port configuration.
+    /*
+     * 根据 host/port 配置项获取 mysql data source name（数据来源名称）;
      *
      * @param  array  $config
      * @return string
@@ -134,7 +134,7 @@ class MySqlConnector extends Connector implements ConnectorInterface
                     : "mysql:host={$host};dbname={$database}";
     }
 
-    /**
+    /*
      * Set the modes for the connection.
      *
      * @param  \PDO  $connection
@@ -154,7 +154,7 @@ class MySqlConnector extends Connector implements ConnectorInterface
         }
     }
 
-    /**
+    /*
      * Set the custom modes on the connection.
      *
      * @param  \PDO  $connection
@@ -168,7 +168,7 @@ class MySqlConnector extends Connector implements ConnectorInterface
         $connection->prepare("set session sql_mode='{$modes}'")->execute();
     }
 
-    /**
+    /*
      * Get the query to enable strict mode.
      *
      * @return string

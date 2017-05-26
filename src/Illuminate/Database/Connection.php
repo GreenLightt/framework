@@ -24,14 +24,14 @@ class Connection implements ConnectionInterface
         DetectsLostConnections,
         Concerns\ManagesTransactions;
 
-    /**
+    /*
      * The active PDO connection.
      *
      * @var PDO
      */
     protected $pdo;
 
-    /**
+    /*
      * The active PDO connection used for reads.
      *
      * @var PDO
