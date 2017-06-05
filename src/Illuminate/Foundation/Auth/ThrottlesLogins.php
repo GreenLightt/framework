@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Lang;
 
 trait ThrottlesLogins
 {
-    /**
-     * Determine if the user has too many failed login attempts.
+    /*
+     * 判断是否用户失败登录频率超过门槛值
      *
      * @param  \Illuminate\Http\Request  $request
      * @return bool
@@ -23,8 +23,8 @@ trait ThrottlesLogins
         );
     }
 
-    /**
-     * Increment the login attempts for the user.
+    /*
+     * 指定用户的登录次数加 1
      *
      * @param  \Illuminate\Http\Request  $request
      * @return void
@@ -34,7 +34,7 @@ trait ThrottlesLogins
         $this->limiter()->hit($this->throttleKey($request));
     }
 
-    /**
+    /*
      * Redirect the user after determining they are locked out.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -59,8 +59,8 @@ trait ThrottlesLogins
             ->withErrors($errors);
     }
 
-    /**
-     * Clear the login locks for the given user credentials.
+    /*
+     * 清除指定用户的尝试次数
      *
      * @param  \Illuminate\Http\Request  $request
      * @return void
@@ -70,8 +70,8 @@ trait ThrottlesLogins
         $this->limiter()->clear($this->throttleKey($request));
     }
 
-    /**
-     * Fire an event when a lockout occurs.
+    /*
+     * 触发 lockout 事件
      *
      * @param  \Illuminate\Http\Request  $request
      * @return void
@@ -81,8 +81,8 @@ trait ThrottlesLogins
         event(new Lockout($request));
     }
 
-    /**
-     * Get the throttle key for the given request.
+    /*
+     * 根据 request 请求获取 要判断次数的 key
      *
      * @param  \Illuminate\Http\Request  $request
      * @return string
@@ -92,8 +92,8 @@ trait ThrottlesLogins
         return Str::lower($request->input($this->username())).'|'.$request->ip();
     }
 
-    /**
-     * Get the rate limiter instance.
+    /*
+     * 获取 RateLimiter 实例
      *
      * @return \Illuminate\Cache\RateLimiter
      */

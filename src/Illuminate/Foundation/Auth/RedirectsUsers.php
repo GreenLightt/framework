@@ -4,8 +4,8 @@ namespace Illuminate\Foundation\Auth;
 
 trait RedirectsUsers
 {
-    /**
-     * Get the post register / login redirect path.
+    /*
+     * 获取 注册 或 登录 后的跳转地址
      *
      * @return string
      */

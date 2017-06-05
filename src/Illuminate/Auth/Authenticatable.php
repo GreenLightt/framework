@@ -4,15 +4,15 @@ namespace Illuminate\Auth;
 
 trait Authenticatable
 {
-    /**
+    /*
      * The column name of the "remember me" token.
      *
      * @var string
      */
     protected $rememberTokenName = 'remember_token';
 
-    /**
-     * Get the name of the unique identifier for the user.
+    /*
+     * 获取主键字段名
      *
      * @return string
      */
@@ -21,8 +21,8 @@ trait Authenticatable
         return $this->getKeyName();
     }
 
-    /**
-     * Get the unique identifier for the user.
+    /*
+     * 获取主键字段值
      *
      * @return mixed
      */
@@ -31,8 +31,8 @@ trait Authenticatable
         return $this->getKey();
     }
 
-    /**
-     * Get the password for the user.
+    /*
+     * 获取用户密码
      *
      * @return string
      */
@@ -41,7 +41,7 @@ trait Authenticatable
         return $this->password;
     }
 
-    /**
+    /*
      * Get the token value for the "remember me" session.
      *
      * @return string
@@ -53,7 +53,7 @@ trait Authenticatable
         }
     }
 
-    /**
+    /*
      * Set the token value for the "remember me" session.
      *
      * @param  string  $value
@@ -66,7 +66,7 @@ trait Authenticatable
         }
     }
 
-    /**
+    /*
      * Get the column name for the "remember me" token.
      *
      * @return string

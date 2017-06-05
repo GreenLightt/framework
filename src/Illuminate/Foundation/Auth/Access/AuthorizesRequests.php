@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\Access\Gate;
 
 trait AuthorizesRequests
 {
-    /**
+    /*
      * Authorize a given action for the current user.
      *
      * @param  mixed  $ability
@@ -22,7 +22,7 @@ trait AuthorizesRequests
         return app(Gate::class)->authorize($ability, $arguments);
     }
 
-    /**
+    /*
      * Authorize a given action for a user.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable|mixed  $user
@@ -39,8 +39,8 @@ trait AuthorizesRequests
         return app(Gate::class)->forUser($user)->authorize($ability, $arguments);
     }
 
-    /**
-     * Guesses the ability's name if it wasn't provided.
+    /*
+     * 解析 $ability, 和 $arguments
      *
      * @param  mixed  $ability
      * @param  mixed|array  $arguments
@@ -57,7 +57,7 @@ trait AuthorizesRequests
         return [$this->normalizeGuessedAbilityName($method), $ability];
     }
 
-    /**
+    /*
      * Normalize the ability name that has been guessed from the method name.
      *
      * @param  string  $ability
@@ -70,7 +70,7 @@ trait AuthorizesRequests
         return isset($map[$ability]) ? $map[$ability] : $ability;
     }
 
-    /**
+    /*
      * Authorize a resource action based on the incoming request.
      *
      * @param  string  $model
@@ -96,7 +96,7 @@ trait AuthorizesRequests
         }
     }
 
-    /**
+    /*
      * Get the map of resource methods to ability names.
      *
      * @return array

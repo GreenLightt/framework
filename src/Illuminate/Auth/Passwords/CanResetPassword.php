@@ -6,8 +6,8 @@ use Illuminate\Auth\Notifications\ResetPassword as ResetPasswordNotification;
 
 trait CanResetPassword
 {
-    /**
-     * Get the e-mail address where password reset links are sent.
+    /*
+     * 获取密码重置时需要发送的邮件字段
      *
      * @return string
      */
@@ -16,8 +16,8 @@ trait CanResetPassword
         return $this->email;
     }
 
-    /**
-     * Send the password reset notification.
+    /*
+     * 发送密码重置通知
      *
      * @param  string  $token
      * @return void

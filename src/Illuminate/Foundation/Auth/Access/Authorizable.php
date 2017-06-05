@@ -6,8 +6,8 @@ use Illuminate\Contracts\Auth\Access\Gate;
 
 trait Authorizable
 {
-    /**
-     * Determine if the entity has a given ability.
+    /*
+     * 判断用户是否有权限
      *
      * @param  string  $ability
      * @param  array|mixed  $arguments
@@ -18,7 +18,7 @@ trait Authorizable
         return app(Gate::class)->forUser($this)->check($ability, $arguments);
     }
 
-    /**
+    /*
      * Determine if the entity does not have a given ability.
      *
      * @param  string  $ability
@@ -30,7 +30,7 @@ trait Authorizable
         return ! $this->can($ability, $arguments);
     }
 
-    /**
+    /*
      * Determine if the entity does not have a given ability.
      *
      * @param  string  $ability
