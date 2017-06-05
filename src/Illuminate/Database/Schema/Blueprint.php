@@ -394,8 +394,8 @@ class Blueprint
         return $this->indexCommand('foreign', $columns, $name);
     }
 
-    /**
-     * Create a new auto-incrementing integer (4-byte) column on the table.
+    /*
+     * 表中创建 自动递增 无符号的 integer (4-byte) 类型列
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -449,8 +449,8 @@ class Blueprint
         return $this->unsignedBigInteger($column, true);
     }
 
-    /**
-     * Create a new char column on the table.
+    /*
+     * 创建 char 类型的列
      *
      * @param  string  $column
      * @param  int  $length
@@ -463,8 +463,8 @@ class Blueprint
         return $this->addColumn('char', $column, compact('length'));
     }
 
-    /**
-     * Create a new string column on the table.
+    /*
+     * 表中创建 varhcar 类型的列
      *
      * @param  string  $column
      * @param  int  $length
@@ -477,8 +477,8 @@ class Blueprint
         return $this->addColumn('string', $column, compact('length'));
     }
 
-    /**
-     * Create a new text column on the table.
+    /*
+     * 表中创建 text 类型的列
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -488,8 +488,8 @@ class Blueprint
         return $this->addColumn('text', $column);
     }
 
-    /**
-     * Create a new medium text column on the table.
+    /*
+     * 表中创建 mediumtext 类型的列
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -499,8 +499,8 @@ class Blueprint
         return $this->addColumn('mediumText', $column);
     }
 
-    /**
-     * Create a new long text column on the table.
+    /*
+     * 表中创建 longtext 类型的列
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -510,8 +510,8 @@ class Blueprint
         return $this->addColumn('longText', $column);
     }
 
-    /**
-     * Create a new integer (4-byte) column on the table.
+    /*
+     * 创建 integer (4-byte) 类型的列，长度为 10
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -523,8 +523,8 @@ class Blueprint
         return $this->addColumn('integer', $column, compact('autoIncrement', 'unsigned'));
     }
 
-    /**
-     * Create a new tiny integer (1-byte) column on the table.
+    /*
+     * 创建 tiny integer (1-byte) 类型的列，长度为 3
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -536,8 +536,8 @@ class Blueprint
         return $this->addColumn('tinyInteger', $column, compact('autoIncrement', 'unsigned'));
     }
 
-    /**
-     * Create a new small integer (2-byte) column on the table.
+    /*
+     * 创建 small integer (2-byte) 类型的列，长度为 5
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -549,8 +549,8 @@ class Blueprint
         return $this->addColumn('smallInteger', $column, compact('autoIncrement', 'unsigned'));
     }
 
-    /**
-     * Create a new medium integer (3-byte) column on the table.
+    /*
+     * 创建 medium integer (3-byte) 类型的列，长度为 8
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -562,8 +562,8 @@ class Blueprint
         return $this->addColumn('mediumInteger', $column, compact('autoIncrement', 'unsigned'));
     }
 
-    /**
-     * Create a new big integer (8-byte) column on the table.
+    /*
+     * 创建 big integer (8-byte) 类型的列，长度为 20
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -575,8 +575,8 @@ class Blueprint
         return $this->addColumn('bigInteger', $column, compact('autoIncrement', 'unsigned'));
     }
 
-    /**
-     * Create a new unsigned integer (4-byte) column on the table.
+    /*
+     * 创建无符号的 integer (4-byte) 类型的列，长度为 10
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -587,8 +587,8 @@ class Blueprint
         return $this->integer($column, $autoIncrement, true);
     }
 
-    /**
-     * Create a new unsigned tiny integer (1-byte) column on the table.
+    /*
+     * 创建无符号的 tiny integer (1-byte) 类型的列，长度为 3
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -599,8 +599,8 @@ class Blueprint
         return $this->tinyInteger($column, $autoIncrement, true);
     }
 
-    /**
-     * Create a new unsigned small integer (2-byte) column on the table.
+    /*
+     * 创建无符号的 small integer (2-byte) 类型的列，长度为 5
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -611,8 +611,8 @@ class Blueprint
         return $this->smallInteger($column, $autoIncrement, true);
     }
 
-    /**
-     * Create a new unsigned medium integer (3-byte) column on the table.
+    /*
+     * 创建无符号的 medium integer (3-byte) 类型的列，长度为 8
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -623,8 +623,8 @@ class Blueprint
         return $this->mediumInteger($column, $autoIncrement, true);
     }
 
-    /**
-     * Create a new unsigned big integer (8-byte) column on the table.
+    /*
+     * 创建无符号的 big integer (8-byte) 类型的列，长度为 20
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -635,8 +635,8 @@ class Blueprint
         return $this->bigInteger($column, $autoIncrement, true);
     }
 
-    /**
-     * Create a new float column on the table.
+    /*
+     * 创建 double 类型的列，默认长度为 8，小数点为 2
      *
      * @param  string  $column
      * @param  int     $total
@@ -648,8 +648,8 @@ class Blueprint
         return $this->addColumn('float', $column, compact('total', 'places'));
     }
 
-    /**
-     * Create a new double column on the table.
+    /*
+     * 创建 double 类型的列，默认长度为 0，小数点为 0
      *
      * @param  string   $column
      * @param  int|null    $total
@@ -661,8 +661,8 @@ class Blueprint
         return $this->addColumn('double', $column, compact('total', 'places'));
     }
 
-    /**
-     * Create a new decimal column on the table.
+    /*
+     * 创建 decimal 类型的列，默认长度为 8，小数点为 2
      *
      * @param  string  $column
      * @param  int     $total
@@ -674,8 +674,8 @@ class Blueprint
         return $this->addColumn('decimal', $column, compact('total', 'places'));
     }
 
-    /**
-     * Create a new boolean column on the table.
+    /*
+     * 创建 tinyint 类型的列，长度为 1
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -685,8 +685,8 @@ class Blueprint
         return $this->addColumn('boolean', $column);
     }
 
-    /**
-     * Create a new enum column on the table.
+    /*
+     * 创建 enum 类型的列
      *
      * @param  string  $column
      * @param  array   $allowed
@@ -719,8 +719,8 @@ class Blueprint
         return $this->addColumn('jsonb', $column);
     }
 
-    /**
-     * Create a new date column on the table.
+    /*
+     * 创建 date 类型的列
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -730,8 +730,8 @@ class Blueprint
         return $this->addColumn('date', $column);
     }
 
-    /**
-     * Create a new date-time column on the table.
+    /*
+     * 创建 datetime 类型的列
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -741,8 +741,8 @@ class Blueprint
         return $this->addColumn('dateTime', $column);
     }
 
-    /**
-     * Create a new date-time column (with time zone) on the table.
+    /*
+     * 创建 datetime 类型的列，值会包含时区信息
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -752,8 +752,8 @@ class Blueprint
         return $this->addColumn('dateTimeTz', $column);
     }
 
-    /**
-     * Create a new time column on the table.
+    /*
+     * 创建 time 类型的列
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -763,8 +763,8 @@ class Blueprint
         return $this->addColumn('time', $column);
     }
 
-    /**
-     * Create a new time column (with time zone) on the table.
+    /*
+     * 创建 time 类型的列，值会包含时区信息
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -774,8 +774,8 @@ class Blueprint
         return $this->addColumn('timeTz', $column);
     }
 
-    /**
-     * Create a new timestamp column on the table.
+    /*
+     * 表中创建 timestamp 类型的列
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -785,8 +785,8 @@ class Blueprint
         return $this->addColumn('timestamp', $column);
     }
 
-    /**
-     * Create a new timestamp (with time zone) column on the table.
+    /*
+     * 创建 timestamp 类型的列，值会包含时区信息
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -796,8 +796,8 @@ class Blueprint
         return $this->addColumn('timestampTz', $column);
     }
 
-    /**
-     * Add nullable creation and update timestamps to the table.
+    /*
+     * 添加可为空的 创建时间 和 更新时间 列，类型为 timestamp
      *
      * @return void
      */
@@ -808,10 +808,8 @@ class Blueprint
         $this->timestamp('updated_at')->nullable();
     }
 
-    /**
-     * Add nullable creation and update timestamps to the table.
-     *
-     * Alias for self::timestamps().
+    /*
+     * timestamps 方法的别名
      *
      * @return void
      */
@@ -820,8 +818,8 @@ class Blueprint
         $this->timestamps();
     }
 
-    /**
-     * Add creation and update timestampTz columns to the table.
+    /*
+     * 添加可为空的 创建时间 和 更新时间 列，类型为 timestamp, 值会包含时区信息
      *
      * @return void
      */
@@ -832,8 +830,8 @@ class Blueprint
         $this->timestampTz('updated_at')->nullable();
     }
 
-    /**
-     * Add a "deleted at" timestamp for the table.
+    /*
+     * 添加可为空的 deleted_at 列，类型为 timestamp
      *
      * @return \Illuminate\Support\Fluent
      */
@@ -842,8 +840,8 @@ class Blueprint
         return $this->timestamp('deleted_at')->nullable();
     }
 
-    /**
-     * Add a "deleted at" timestampTz for the table.
+    /*
+     * 添加可为空的 deleted_at 列，类型为 timestamp, 值会包含时区信息
      *
      * @return \Illuminate\Support\Fluent
      */
@@ -852,8 +850,8 @@ class Blueprint
         return $this->timestampTz('deleted_at')->nullable();
     }
 
-    /**
-     * Create a new binary column on the table.
+    /*
+     * 创建 blob 类型的列
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -863,8 +861,8 @@ class Blueprint
         return $this->addColumn('binary', $column);
     }
 
-    /**
-     * Create a new uuid column on the table.
+    /*
+     * 创建 char 类型的列， 长度为 36
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -874,8 +872,8 @@ class Blueprint
         return $this->addColumn('uuid', $column);
     }
 
-    /**
-     * Create a new IP address column on the table.
+    /*
+     * 创建 varhcar 类型的列，长度为 45
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -885,8 +883,8 @@ class Blueprint
         return $this->addColumn('ipAddress', $column);
     }
 
-    /**
-     * Create a new MAC address column on the table.
+    /*
+     * 创建 varhcar 类型的列，长度为 17
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -928,8 +926,8 @@ class Blueprint
         $this->index(["{$name}_id", "{$name}_type"], $indexName);
     }
 
-    /**
-     * Adds the `remember_token` column to the table.
+    /*
+     * 添加名为 remember_token 的字段列，类型为 varchar，长度为 100，可为空
      *
      * @return \Illuminate\Support\Fluent
      */
