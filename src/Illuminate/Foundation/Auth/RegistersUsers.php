@@ -10,8 +10,8 @@ trait RegistersUsers
 {
     use RedirectsUsers;
 
-    /**
-     * Show the application registration form.
+    /*
+     * 呈现用户注册页面
      *
      * @return \Illuminate\Http\Response
      */
@@ -20,8 +20,8 @@ trait RegistersUsers
         return view('auth.register');
     }
 
-    /**
-     * Handle a registration request for the application.
+    /*
+     * 处理 注册 请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -38,8 +38,8 @@ trait RegistersUsers
                         ?: redirect($this->redirectPath());
     }
 
-    /**
-     * Get the guard to be used during registration.
+    /*
+     * 获取 guard 对象
      *
      * @return \Illuminate\Contracts\Auth\StatefulGuard
      */
@@ -48,8 +48,8 @@ trait RegistersUsers
         return Auth::guard();
     }
 
-    /**
-     * The user has been registered.
+    /*
+     * 用户被注册后的后续操作，可以用户继承后自定义
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  mixed  $user

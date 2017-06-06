@@ -11,8 +11,8 @@ trait ResetsPasswords
 {
     use RedirectsUsers;
 
-    /**
-     * Display the password reset view for the given token.
+    /*
+     * 显示重置密码页面
      *
      * If no token is present, display the link request form.
      *
@@ -27,8 +27,8 @@ trait ResetsPasswords
         );
     }
 
-    /**
-     * Reset the given user's password.
+    /*
+     * 处理 重置密码请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
@@ -54,7 +54,7 @@ trait ResetsPasswords
                     : $this->sendResetFailedResponse($request, $response);
     }
 
-    /**
+    /*
      * Get the password reset validation rules.
      *
      * @return array
@@ -68,7 +68,7 @@ trait ResetsPasswords
         ];
     }
 
-    /**
+    /*
      * Get the password reset validation error messages.
      *
      * @return array
@@ -78,7 +78,7 @@ trait ResetsPasswords
         return [];
     }
 
-    /**
+    /*
      * Get the password reset credentials from the request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -91,8 +91,8 @@ trait ResetsPasswords
         );
     }
 
-    /**
-     * Reset the given user's password.
+    /*
+     * 持久化重置用户密码
      *
      * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
      * @param  string  $password
@@ -108,8 +108,8 @@ trait ResetsPasswords
         $this->guard()->login($user);
     }
 
-    /**
-     * Get the response for a successful password reset.
+    /*
+     * 成功重置密码  返回
      *
      * @param  string  $response
      * @return \Illuminate\Http\RedirectResponse
@@ -120,8 +120,8 @@ trait ResetsPasswords
                             ->with('status', trans($response));
     }
 
-    /**
-     * Get the response for a failed password reset.
+    /*
+     * 失败重置密码 返回
      *
      * @param  \Illuminate\Http\Request
      * @param  string  $response
@@ -134,8 +134,8 @@ trait ResetsPasswords
                     ->withErrors(['email' => trans($response)]);
     }
 
-    /**
-     * Get the broker to be used during password reset.
+    /*
+     * 获取 PasswordBroker 对象
      *
      * @return \Illuminate\Contracts\Auth\PasswordBroker
      */
@@ -144,8 +144,8 @@ trait ResetsPasswords
         return Password::broker();
     }
 
-    /**
-     * Get the guard to be used during password reset.
+    /*
+     * 获取 guard 对象
      *
      * @return \Illuminate\Contracts\Auth\StatefulGuard
      */

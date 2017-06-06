@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Password;
 
 trait SendsPasswordResetEmails
 {
-    /**
-     * Display the form to request a password reset link.
+    /*
+     * 呈现 忘记密码 页面
      *
      * @return \Illuminate\Http\Response
      */
@@ -17,8 +17,8 @@ trait SendsPasswordResetEmails
         return view('auth.passwords.email');
     }
 
-    /**
-     * Send a reset link to the given user.
+    /*
+     * 处理 发送重置密码 请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
@@ -39,7 +39,7 @@ trait SendsPasswordResetEmails
                     : $this->sendResetLinkFailedResponse($request, $response);
     }
 
-    /**
+    /*
      * Get the response for a successful password reset link.
      *
      * @param  string  $response
@@ -47,10 +47,11 @@ trait SendsPasswordResetEmails
      */
     protected function sendResetLinkResponse($response)
     {
+        // $respnse 的值是 password.sent
         return back()->with('status', trans($response));
     }
 
-    /**
+    /*
      * Get the response for a failed password reset link.
      *
      * @param  \Illuminate\Http\Request
@@ -59,13 +60,14 @@ trait SendsPasswordResetEmails
      */
     protected function sendResetLinkFailedResponse(Request $request, $response)
     {
+        // $respnse 的值是 password.user
         return back()->withErrors(
             ['email' => trans($response)]
         );
     }
 
-    /**
-     * Get the broker to be used during password reset.
+    /*
+     * 获取 PasswordBroker 对象
      *
      * @return \Illuminate\Contracts\Auth\PasswordBroker
      */

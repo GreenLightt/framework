@@ -9,8 +9,8 @@ trait AuthenticatesUsers
 {
     use RedirectsUsers, ThrottlesLogins;
 
-    /**
-     * Show the application's login form.
+    /*
+     * 呈现登录页面
      *
      * @return \Illuminate\Http\Response
      */
@@ -19,8 +19,8 @@ trait AuthenticatesUsers
         return view('auth.login');
     }
 
-    /**
-     * Handle a login request to the application.
+    /*
+     * 处理 登录 请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
@@ -50,8 +50,8 @@ trait AuthenticatesUsers
         return $this->sendFailedLoginResponse($request);
     }
 
-    /**
-     * Validate the user login request.
+    /*
+     * 验证用户登录请求数据
      *
      * @param  \Illuminate\Http\Request  $request
      * @return void
@@ -64,8 +64,8 @@ trait AuthenticatesUsers
         ]);
     }
 
-    /**
-     * Attempt to log the user into the application.
+    /*
+     * 认证用户
      *
      * @param  \Illuminate\Http\Request  $request
      * @return bool
@@ -77,7 +77,7 @@ trait AuthenticatesUsers
         );
     }
 
-    /**
+    /*
      * Get the needed authorization credentials from the request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -88,8 +88,8 @@ trait AuthenticatesUsers
         return $request->only($this->username(), 'password');
     }
 
-    /**
-     * Send the response after the user was authenticated.
+    /*
+     * 用户成功认证后，发送 response
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -104,8 +104,8 @@ trait AuthenticatesUsers
                 ?: redirect()->intended($this->redirectPath());
     }
 
-    /**
-     * The user has been authenticated.
+    /*
+     * 用户自定义，成功登录后自定义操作
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  mixed  $user
@@ -116,8 +116,8 @@ trait AuthenticatesUsers
         //
     }
 
-    /**
-     * Get the failed login response instance.
+    /*
+     * 登录失败，返回
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
@@ -135,8 +135,8 @@ trait AuthenticatesUsers
             ->withErrors($errors);
     }
 
-    /**
-     * Get the login username to be used by the controller.
+    /*
+     * 获取登录时的用户名字段, 默认是 `email`, 可以自定义为 username
      *
      * @return string
      */
@@ -145,8 +145,8 @@ trait AuthenticatesUsers
         return 'email';
     }
 
-    /**
-     * Log the user out of the application.
+    /*
+     * 用户注销
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -162,8 +162,8 @@ trait AuthenticatesUsers
         return redirect('/');
     }
 
-    /**
-     * Get the guard to be used during authentication.
+    /*
+     * 获取 guard 实例
      *
      * @return \Illuminate\Contracts\Auth\StatefulGuard
      */
