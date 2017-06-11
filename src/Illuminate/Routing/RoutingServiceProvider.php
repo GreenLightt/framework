@@ -32,8 +32,8 @@ class RoutingServiceProvider extends ServiceProvider
         $this->registerResponseFactory();
     }
 
-    /**
-     * Register the router instance.
+    /*
+     * 注册路由实例
      *
      * @return void
      */

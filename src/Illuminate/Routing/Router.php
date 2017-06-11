@@ -22,22 +22,22 @@ class Router implements RegistrarContract, BindingRegistrar
         __call as macroCall;
     }
 
-    /**
-     * The event dispatcher instance.
+    /*
+     * 事件分发器 实例
      *
      * @var \Illuminate\Contracts\Events\Dispatcher
      */
     protected $events;
 
-    /**
-     * The IoC container instance.
+    /*
+     * Ioc 容器实例
      *
      * @var \Illuminate\Container\Container
      */
     protected $container;
 
-    /**
-     * The route collection instance.
+    /*
+     * route collection实例
      *
      * @var \Illuminate\Routing\RouteCollection
      */
@@ -108,8 +108,8 @@ class Router implements RegistrarContract, BindingRegistrar
      */
     public static $verbs = ['GET', 'HEAD', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'];
 
-    /**
-     * Create a new Router instance.
+    /*
+     * 创建一个新的 Router 实例
      *
      * @param  \Illuminate\Contracts\Events\Dispatcher  $events
      * @param  \Illuminate\Container\Container  $container
@@ -122,8 +122,8 @@ class Router implements RegistrarContract, BindingRegistrar
         $this->container = $container ?: new Container;
     }
 
-    /**
-     * Register a new GET route with the router.
+    /*
+     * 在 router 上注册一个 get 路由
      *
      * @param  string  $uri
      * @param  \Closure|array|string|null  $action
@@ -134,8 +134,8 @@ class Router implements RegistrarContract, BindingRegistrar
         return $this->addRoute(['GET', 'HEAD'], $uri, $action);
     }
 
-    /**
-     * Register a new POST route with the router.
+    /*
+     * 在 router 上注册一个 post 路由
      *
      * @param  string  $uri
      * @param  \Closure|array|string|null  $action
@@ -146,8 +146,8 @@ class Router implements RegistrarContract, BindingRegistrar
         return $this->addRoute('POST', $uri, $action);
     }
 
-    /**
-     * Register a new PUT route with the router.
+    /*
+     * 在 router 上注册一个 put 路由
      *
      * @param  string  $uri
      * @param  \Closure|array|string|null  $action
@@ -158,8 +158,8 @@ class Router implements RegistrarContract, BindingRegistrar
         return $this->addRoute('PUT', $uri, $action);
     }
 
-    /**
-     * Register a new PATCH route with the router.
+    /*
+     * 在 router 上注册一个 patch 路由
      *
      * @param  string  $uri
      * @param  \Closure|array|string|null  $action
@@ -170,8 +170,8 @@ class Router implements RegistrarContract, BindingRegistrar
         return $this->addRoute('PATCH', $uri, $action);
     }
 
-    /**
-     * Register a new DELETE route with the router.
+    /*
+     * 在 router 上注册一个 delete 路由
      *
      * @param  string  $uri
      * @param  \Closure|array|string|null  $action
@@ -182,8 +182,8 @@ class Router implements RegistrarContract, BindingRegistrar
         return $this->addRoute('DELETE', $uri, $action);
     }
 
-    /**
-     * Register a new OPTIONS route with the router.
+    /*
+     * 在 router 上注册一个 options 路由
      *
      * @param  string  $uri
      * @param  \Closure|array|string|null  $action
@@ -194,8 +194,8 @@ class Router implements RegistrarContract, BindingRegistrar
         return $this->addRoute('OPTIONS', $uri, $action);
     }
 
-    /**
-     * Register a new route responding to all verbs.
+    /*
+     * 在 router 上注册一个支持各种动作的路由
      *
      * @param  string  $uri
      * @param  \Closure|array|string|null  $action
@@ -208,8 +208,8 @@ class Router implements RegistrarContract, BindingRegistrar
         return $this->addRoute($verbs, $uri, $action);
     }
 
-    /**
-     * Register a new route with the given verbs.
+    /*
+     * 在 router 上注册支持指定动作的路由
      *
      * @param  array|string  $methods
      * @param  string  $uri
