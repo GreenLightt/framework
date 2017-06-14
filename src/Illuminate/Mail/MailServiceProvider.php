@@ -30,8 +30,8 @@ class MailServiceProvider extends ServiceProvider
         $this->registerMarkdownRenderer();
     }
 
-    /**
-     * Register the Illuminate mailer instance.
+    /*
+     * 注册框架实现的 mailer 实例
      *
      * @return void
      */
@@ -62,8 +62,8 @@ class MailServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Set a global address on the mailer by type.
+    /*
+     * 根据类型设置通用 address, 比如发件人地址、收件人地址
      *
      * @param  \Illuminate\Mail\Mailer  $mailer
      * @param  array  $config
@@ -108,7 +108,7 @@ class MailServiceProvider extends ServiceProvider
         });
     }
 
-    /**
+    /*
      * Register the Markdown renderer instance.
      *
      * @return void
@@ -131,7 +131,7 @@ class MailServiceProvider extends ServiceProvider
         });
     }
 
-    /**
+    /*
      * Get the services provided by the provider.
      *
      * @return array

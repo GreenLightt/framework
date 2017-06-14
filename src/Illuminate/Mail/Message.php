@@ -7,8 +7,8 @@ use Swift_Attachment;
 
 class Message
 {
-    /**
-     * The Swift Message instance.
+    /*
+     * swift message 实例
      *
      * @var \Swift_Message
      */
@@ -21,7 +21,7 @@ class Message
      */
     protected $embeddedFiles = [];
 
-    /**
+    /*
      * Create a new message instance.
      *
      * @param  \Swift_Message  $swift
@@ -32,7 +32,7 @@ class Message
         $this->swift = $swift;
     }
 
-    /**
+    /*
      * Add a "from" address to the message.
      *
      * @param  string|array  $address
@@ -46,7 +46,7 @@ class Message
         return $this;
     }
 
-    /**
+    /*
      * Set the "sender" of the message.
      *
      * @param  string|array  $address
@@ -60,7 +60,7 @@ class Message
         return $this;
     }
 
-    /**
+    /*
      * Set the "return path" of the message.
      *
      * @param  string  $address
@@ -73,7 +73,7 @@ class Message
         return $this;
     }
 
-    /**
+    /*
      * Add a recipient to the message.
      *
      * @param  string|array  $address
@@ -92,8 +92,8 @@ class Message
         return $this->addAddresses($address, $name, 'To');
     }
 
-    /**
-     * Add a carbon copy to the message.
+    /*
+     * 添加抄送到邮件
      *
      * @param  string|array  $address
      * @param  string|null  $name
@@ -111,8 +111,8 @@ class Message
         return $this->addAddresses($address, $name, 'Cc');
     }
 
-    /**
-     * Add a blind carbon copy to the message.
+    /*
+     * 添加暗抄送到邮件
      *
      * @param  string|array  $address
      * @param  string|null  $name
@@ -130,7 +130,7 @@ class Message
         return $this->addAddresses($address, $name, 'Bcc');
     }
 
-    /**
+    /*
      * Add a reply to address to the message.
      *
      * @param  string|array  $address
@@ -142,7 +142,7 @@ class Message
         return $this->addAddresses($address, $name, 'ReplyTo');
     }
 
-    /**
+    /*
      * Add a recipient to the message.
      *
      * @param  string|array  $address
@@ -161,8 +161,8 @@ class Message
         return $this;
     }
 
-    /**
-     * Set the subject of the message.
+    /*
+     * 添加邮件主题
      *
      * @param  string  $subject
      * @return $this
@@ -174,8 +174,8 @@ class Message
         return $this;
     }
 
-    /**
-     * Set the message priority level.
+    /*
+     * 设置邮件优先级
      *
      * @param  int  $level
      * @return $this
@@ -187,7 +187,7 @@ class Message
         return $this;
     }
 
-    /**
+    /*
      * Attach a file to the message.
      *
      * @param  string  $file
@@ -201,8 +201,8 @@ class Message
         return $this->prepAttachment($attachment, $options);
     }
 
-    /**
-     * Create a Swift Attachment instance.
+    /*
+     * 创建 swift attachment 附件实例
      *
      * @param  string  $file
      * @return \Swift_Attachment
@@ -212,7 +212,7 @@ class Message
         return Swift_Attachment::fromPath($file);
     }
 
-    /**
+    /*
      * Attach in-memory data as an attachment.
      *
      * @param  string  $data
@@ -227,7 +227,7 @@ class Message
         return $this->prepAttachment($attachment, $options);
     }
 
-    /**
+    /*
      * Create a Swift Attachment instance from data.
      *
      * @param  string  $data
@@ -271,8 +271,8 @@ class Message
         return $this->swift->embed($image);
     }
 
-    /**
-     * Prepare and attach the given attachment.
+    /*
+     * 预处理及关联附件
      *
      * @param  \Swift_Attachment  $attachment
      * @param  array  $options
@@ -299,8 +299,8 @@ class Message
         return $this;
     }
 
-    /**
-     * Get the underlying Swift Message instance.
+    /*
+     * 获取 swift message 实例
      *
      * @return \Swift_Message
      */
@@ -309,7 +309,7 @@ class Message
         return $this->swift;
     }
 
-    /**
+    /*
      * Dynamically pass missing methods to the Swift instance.
      *
      * @param  string  $method

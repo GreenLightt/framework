@@ -19,42 +19,42 @@ class Mailer implements MailerContract, MailQueueContract
 {
     use Macroable;
 
-    /**
-     * The view factory instance.
+    /*
+     * view 视图工厂实例
      *
      * @var \Illuminate\Contracts\View\Factory
      */
     protected $views;
 
-    /**
-     * The Swift Mailer instance.
+    /*
+     * swift mailer 实例
      *
      * @var \Swift_Mailer
      */
     protected $swift;
 
-    /**
-     * The event dispatcher instance.
+    /*
+     * 事件分发器实例
      *
      * @var \Illuminate\Contracts\Events\Dispatcher|null
      */
     protected $events;
 
-    /**
+    /*
      * The global from address and name.
      *
      * @var array
      */
     protected $from;
 
-    /**
+    /*
      * The global reply-to address and name.
      *
      * @var array
      */
     protected $replyTo;
 
-    /**
+    /*
      * The global to address and name.
      *
      * @var array
@@ -75,7 +75,7 @@ class Mailer implements MailerContract, MailQueueContract
      */
     protected $failedRecipients = [];
 
-    /**
+    /*
      * Create a new Mailer instance.
      *
      * @param  \Illuminate\Contracts\View\Factory  $views
@@ -90,7 +90,7 @@ class Mailer implements MailerContract, MailQueueContract
         $this->events = $events;
     }
 
-    /**
+    /*
      * Set the global from address and name.
      *
      * @param  string  $address
@@ -102,7 +102,7 @@ class Mailer implements MailerContract, MailQueueContract
         $this->from = compact('address', 'name');
     }
 
-    /**
+    /*
      * Set the global reply-to address and name.
      *
      * @param  string  $address
@@ -114,7 +114,7 @@ class Mailer implements MailerContract, MailQueueContract
         $this->replyTo = compact('address', 'name');
     }
 
-    /**
+    /*
      * Set the global to address and name.
      *
      * @param  string  $address
@@ -126,7 +126,7 @@ class Mailer implements MailerContract, MailQueueContract
         $this->to = compact('address', 'name');
     }
 
-    /**
+    /*
      * Begin the process of mailing a mailable class instance.
      *
      * @param  mixed  $users
@@ -137,7 +137,7 @@ class Mailer implements MailerContract, MailQueueContract
         return (new PendingMail($this))->to($users);
     }
 
-    /**
+    /*
      * Begin the process of mailing a mailable class instance.
      *
      * @param  mixed  $users
@@ -148,8 +148,8 @@ class Mailer implements MailerContract, MailQueueContract
         return (new PendingMail($this))->bcc($users);
     }
 
-    /**
-     * Send a new message when only a raw text part.
+    /*
+     * 发送只有简单文本内容信息
      *
      * @param  string  $text
      * @param  mixed  $callback
@@ -160,7 +160,7 @@ class Mailer implements MailerContract, MailQueueContract
         return $this->send(['raw' => $text], [], $callback);
     }
 
-    /**
+    /*
      * Send a new message when only a plain part.
      *
      * @param  string  $view
@@ -173,7 +173,7 @@ class Mailer implements MailerContract, MailQueueContract
         return $this->send(['text' => $view], $data, $callback);
     }
 
-    /**
+    /*
      * Send a new message using a view.
      *
      * @param  string|array  $view
@@ -213,8 +213,8 @@ class Mailer implements MailerContract, MailQueueContract
         $this->dispatchSentEvent($message);
     }
 
-    /**
-     * Send the given mailable.
+    /*
+     * 发送指定的 mailable
      *
      * @param  MailableContract  $mailable
      * @return mixed
@@ -225,7 +225,7 @@ class Mailer implements MailerContract, MailQueueContract
                 ? $mailable->queue($this->queue) : $mailable->send($this);
     }
 
-    /**
+    /*
      * Parse the given view name or array.
      *
      * @param  string|array  $view
@@ -260,8 +260,8 @@ class Mailer implements MailerContract, MailQueueContract
         throw new InvalidArgumentException('Invalid view.');
     }
 
-    /**
-     * Add the content to a given message.
+    /*
+     * 指定 message 添加内容
      *
      * @param  \Illuminate\Mail\Message  $message
      * @param  string  $view
@@ -289,8 +289,8 @@ class Mailer implements MailerContract, MailQueueContract
         }
     }
 
-    /**
-     * Render the given view.
+    /*
+     * 渲染指定 view 视图内容
      *
      * @param  string  $view
      * @param  array  $data
@@ -303,7 +303,7 @@ class Mailer implements MailerContract, MailQueueContract
                         : $this->views->make($view, $data)->render();
     }
 
-    /**
+    /*
      * Set the global "to" address on the given message.
      *
      * @param  \Illuminate\Mail\Message  $message
@@ -398,7 +398,7 @@ class Mailer implements MailerContract, MailQueueContract
         return $this->later($delay, $view, $data, $callback, $queue);
     }
 
-    /**
+    /*
      * Create a new message instance.
      *
      * @return \Illuminate\Mail\Message
@@ -424,8 +424,8 @@ class Mailer implements MailerContract, MailQueueContract
         return $message;
     }
 
-    /**
-     * Send a Swift Message instance.
+    /*
+     * 发送 swift message 实例
      *
      * @param  \Swift_Message  $message
      * @return void
@@ -443,8 +443,8 @@ class Mailer implements MailerContract, MailQueueContract
         }
     }
 
-    /**
-     * Determines if the message can be sent.
+    /*
+     * 判断 message 是否可以被发送
      *
      * @param  \Swift_Message  $message
      * @return bool
@@ -460,8 +460,8 @@ class Mailer implements MailerContract, MailQueueContract
         ) !== false;
     }
 
-    /**
-     * Dispatch the message sent event.
+    /*
+     * 触发邮件已发送事件
      *
      * @param  \Illuminate\Mail\Message  $message
      * @return void
@@ -475,7 +475,7 @@ class Mailer implements MailerContract, MailQueueContract
         }
     }
 
-    /**
+    /*
      * Force the transport to re-connect.
      *
      * This will prevent errors in daemon queue situations.
@@ -487,8 +487,8 @@ class Mailer implements MailerContract, MailQueueContract
         $this->getSwiftMailer()->getTransport()->stop();
     }
 
-    /**
-     * Get the view factory instance.
+    /*
+     * 获取视图实例
      *
      * @return \Illuminate\Contracts\View\Factory
      */
@@ -497,8 +497,8 @@ class Mailer implements MailerContract, MailQueueContract
         return $this->views;
     }
 
-    /**
-     * Get the Swift Mailer instance.
+    /*
+     * 获取 swift mailer 实例
      *
      * @return \Swift_Mailer
      */
@@ -507,8 +507,8 @@ class Mailer implements MailerContract, MailQueueContract
         return $this->swift;
     }
 
-    /**
-     * Get the array of failed recipients.
+    /*
+     * 获取发送邮件失败的接收者
      *
      * @return array
      */
@@ -517,8 +517,8 @@ class Mailer implements MailerContract, MailQueueContract
         return $this->failedRecipients;
     }
 
-    /**
-     * Set the Swift Mailer instance.
+    /*
+     * 设置 swift mailer 实例
      *
      * @param  \Swift_Mailer  $swift
      * @return void
@@ -528,7 +528,7 @@ class Mailer implements MailerContract, MailQueueContract
         $this->swift = $swift;
     }
 
-    /**
+    /*
      * Set the queue manager instance.
      *
      * @param  \Illuminate\Contracts\Queue\Factory  $queue

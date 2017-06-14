@@ -174,8 +174,8 @@ class TransportManager extends Manager
         return new ArrayTransport;
     }
 
-    /**
-     * Get a fresh Guzzle HTTP client instance.
+    /*
+     * 获取一个新的 guzzle http 实例
      *
      * @param  array  $config
      * @return \GuzzleHttp\Client
@@ -188,7 +188,7 @@ class TransportManager extends Manager
     }
 
     /*
-     * Get the default mail driver name.
+     * 获取默认的邮件驱动名
      *
      * @return string
      */
@@ -198,7 +198,7 @@ class TransportManager extends Manager
     }
 
     /*
-     * Set the default mail driver name.
+     * 设置默认的邮件驱动名
      *
      * @param  string  $name
      * @return void
