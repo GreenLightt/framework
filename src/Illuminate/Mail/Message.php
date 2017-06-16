@@ -188,7 +188,7 @@ class Message
     }
 
     /*
-     * Attach a file to the message.
+     * 邮件添加附件文件
      *
      * @param  string  $file
      * @param  array  $options
@@ -239,7 +239,7 @@ class Message
         return Swift_Attachment::newInstance($data, $name);
     }
 
-    /**
+    /*
      * Embed a file in the message and get the CID.
      *
      * @param  string  $file
@@ -256,7 +256,7 @@ class Message
         );
     }
 
-    /**
+    /*
      * Embed in-memory data in the message and get the CID.
      *
      * @param  string  $data
