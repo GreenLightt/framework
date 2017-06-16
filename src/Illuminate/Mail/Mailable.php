@@ -14,91 +14,91 @@ use Illuminate\Contracts\Mail\Mailable as MailableContract;
 
 class Mailable implements MailableContract
 {
-    /**
+    /*
      * The person the message is from.
      *
      * @var array
      */
     public $from = [];
 
-    /**
+    /*
      * The "to" recipients of the message.
      *
      * @var array
      */
     public $to = [];
 
-    /**
+    /*
      * The "cc" recipients of the message.
      *
      * @var array
      */
     public $cc = [];
 
-    /**
+    /*
      * The "bcc" recipients of the message.
      *
      * @var array
      */
     public $bcc = [];
 
-    /**
+    /*
      * The "reply to" recipients of the message.
      *
      * @var array
      */
     public $replyTo = [];
 
-    /**
-     * The subject of the message.
+    /*
+     * 邮件的标题
      *
      * @var string
      */
     public $subject;
 
-    /**
+    /*
      * The Markdown template for the message (if applicable).
      *
      * @var string
      */
     protected $markdown;
 
-    /**
+    /*
      * The view to use for the message.
      *
      * @var string
      */
     public $view;
 
-    /**
+    /*
      * The plain text view to use for the message.
      *
      * @var string
      */
     public $textView;
 
-    /**
+    /*
      * The view data for the message.
      *
      * @var array
      */
     public $viewData = [];
 
-    /**
+    /*
      * The attachments for the message.
      *
      * @var array
      */
     public $attachments = [];
 
-    /**
+    /*
      * The raw attachments for the message.
      *
      * @var array
      */
     public $rawAttachments = [];
 
-    /**
+    /*
      * The callbacks for the message.
      *
      * @var array
@@ -214,8 +214,8 @@ class Mailable implements MailableContract
         return $data;
     }
 
-    /**
-     * Add the sender to the message.
+    /*
+     * 向邮件添加发送人
      *
      * @param  \Illuminate\Mail\Message  $message
      * @return $this
@@ -229,8 +229,8 @@ class Mailable implements MailableContract
         return $this;
     }
 
-    /**
-     * Add all of the recipients to the message.
+    /*
+     * 向邮件添加接收人
      *
      * @param  \Illuminate\Mail\Message  $message
      * @return $this
@@ -246,8 +246,8 @@ class Mailable implements MailableContract
         return $this;
     }
 
-    /**
-     * Set the subject for the message.
+    /*
+     * 设置邮件的标题
      *
      * @param  \Illuminate\Mail\Message  $message
      * @return $this
@@ -263,8 +263,8 @@ class Mailable implements MailableContract
         return $this;
     }
 
-    /**
-     * Add all of the attachments to the message.
+    /*
+     * 邮件添加附件
      *
      * @param  \Illuminate\Mail\Message  $message
      * @return $this
@@ -284,8 +284,8 @@ class Mailable implements MailableContract
         return $this;
     }
 
-    /**
-     * Run the callbacks for the message.
+    /*
+     * 对 swift_message 执行回调
      *
      * @param  \Illuminate\Mail\Message  $message
      * @return $this
@@ -299,8 +299,8 @@ class Mailable implements MailableContract
         return $this;
     }
 
-    /**
-     * Set the priority of this message.
+    /*
+     * 设置消息的优先级
      *
      * The value is an integer where 1 is the highest priority and 5 is the lowest.
      *
@@ -316,8 +316,8 @@ class Mailable implements MailableContract
         return $this;
     }
 
-    /**
-     * Set the sender of the message.
+    /*
+     * 设置邮件的发送者
      *
      * @param  object|array|string  $address
      * @param  string|null  $name
@@ -328,8 +328,8 @@ class Mailable implements MailableContract
         return $this->setAddress($address, $name, 'from');
     }
 
-    /**
-     * Determine if the given recipient is set on the mailable.
+    /*
+     * 判断是否指定发送人在发送人名单中
      *
      * @param  object|array|string  $address
      * @param  string|null  $name
@@ -340,8 +340,8 @@ class Mailable implements MailableContract
         return $this->hasRecipient($address, $name, 'from');
     }
 
-    /**
-     * Set the recipients of the message.
+    /*
+     * 设置邮件的接收者
      *
      * @param  object|array|string  $address
      * @param  string|null  $name
@@ -352,8 +352,8 @@ class Mailable implements MailableContract
         return $this->setAddress($address, $name, 'to');
     }
 
-    /**
-     * Determine if the given recipient is set on the mailable.
+    /*
+     * 判断是否指定接收者在接收人名单中
      *
      * @param  object|array|string  $address
      * @param  string|null  $name
@@ -364,8 +364,8 @@ class Mailable implements MailableContract
         return $this->hasRecipient($address, $name, 'to');
     }
 
-    /**
-     * Set the recipients of the message.
+    /*
+     * 设置邮件的抄送者
      *
      * @param  object|array|string  $address
      * @param  string|null  $name
@@ -376,8 +376,8 @@ class Mailable implements MailableContract
         return $this->setAddress($address, $name, 'cc');
     }
 
-    /**
-     * Determine if the given recipient is set on the mailable.
+    /*
+     * 判断是否指定接收者在抄送名单中
      *
      * @param  object|array|string  $address
      * @param  string|null  $name
@@ -388,8 +388,8 @@ class Mailable implements MailableContract
         return $this->hasRecipient($address, $name, 'cc');
     }
 
-    /**
-     * Set the recipients of the message.
+    /*
+     * 设置邮件的暗抄送者
      *
      * @param  object|array|string  $address
      * @param  string|null  $name
@@ -400,8 +400,8 @@ class Mailable implements MailableContract
         return $this->setAddress($address, $name, 'bcc');
     }
 
-    /**
-     * Determine if the given recipient is set on the mailable.
+    /*
+     * 判断是否指定接收者在暗抄送名单中
      *
      * @param  object|array|string  $address
      * @param  string|null  $name
@@ -412,8 +412,8 @@ class Mailable implements MailableContract
         return $this->hasRecipient($address, $name, 'bcc');
     }
 
-    /**
-     * Set the "reply to" address of the message.
+    /*
+     * 设置邮件的回复者
      *
      * @param  object|array|string  $address
      * @param  string|null  $name
@@ -424,8 +424,8 @@ class Mailable implements MailableContract
         return $this->setAddress($address, $name, 'replyTo');
     }
 
-    /**
-     * Set the recipients of the message.
+    /*
+     * 设置消息的接收者
      *
      * All recipients are stored internally as [['name' => ?, 'address' => ?]]
      *
@@ -448,8 +448,8 @@ class Mailable implements MailableContract
         return $this;
     }
 
-    /**
-     * Convert the given recipient arguments to an array.
+    /*
+     * 将参数转为 array 格式
      *
      * @param  object|array|string  $address
      * @param  string|null  $name
@@ -464,8 +464,8 @@ class Mailable implements MailableContract
         return $address;
     }
 
-    /**
-     * Convert the given recipient into an object.
+    /*
+     * 转换指定的 recipient 为 object 对象
      *
      * @param  mixed  $recipient
      * @return object
@@ -481,8 +481,8 @@ class Mailable implements MailableContract
         return $recipient;
     }
 
-    /**
-     * Determine if the given recipient is set on the mailable.
+    /*
+     * 判断指定接收人是否在指定类型的名单中
      *
      * @param  object|array|string  $address
      * @param  string|null  $name
@@ -509,8 +509,8 @@ class Mailable implements MailableContract
         });
     }
 
-    /**
-     * Set the subject of the message.
+    /*
+     * 设置邮件的主题
      *
      * @param  string  $subject
      * @return $this
@@ -522,8 +522,8 @@ class Mailable implements MailableContract
         return $this;
     }
 
-    /**
-     * Set the Markdown template for the message.
+    /*
+     * 设置消息内容，markdown模板
      *
      * @param  string  $view
      * @param  array  $data
@@ -537,8 +537,8 @@ class Mailable implements MailableContract
         return $this;
     }
 
-    /**
-     * Set the view and view data for the message.
+    /*
+     * 设置消息内容，视图模板
      *
      * @param  string  $view
      * @param  array  $data
@@ -552,8 +552,8 @@ class Mailable implements MailableContract
         return $this;
     }
 
-    /**
-     * Set the plain text view for the message.
+    /*
+     * 设置消息内容，纯文本
      *
      * @param  string  $textView
      * @param  array  $data
@@ -567,8 +567,8 @@ class Mailable implements MailableContract
         return $this;
     }
 
-    /**
-     * Set the view data for the message.
+    /*
+     * 绑定消息内容需要的数据
      *
      * @param  string|array  $key
      * @param  mixed   $value
@@ -585,7 +585,7 @@ class Mailable implements MailableContract
         return $this;
     }
 
-    /**
+    /*
      * Attach a file to the message.
      *
      * @param  string  $file
@@ -599,7 +599,7 @@ class Mailable implements MailableContract
         return $this;
     }
 
-    /**
+    /*
      * Attach in-memory data as an attachment.
      *
      * @param  string  $data
@@ -614,8 +614,9 @@ class Mailable implements MailableContract
         return $this;
     }
 
-    /**
-     * Register a callback to be called with the Swift message instance.
+    /*
+     * 注册回调函数实例，回调函数的参数是 swift_message 实例，
+     * 发送邮件之前会执行回调函数
      *
      * @param  callable  $callback
      * @return $this
@@ -627,7 +628,7 @@ class Mailable implements MailableContract
         return $this;
     }
 
-    /**
+    /*
      * Dynamically bind parameters to the message.
      *
      * @param  string  $method
