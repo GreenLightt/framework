@@ -16,7 +16,7 @@ abstract class Transport implements Swift_Transport
      */
     public $plugins = [];
 
-    /**
+    /*
      * {@inheritdoc}
      */
     public function isStarted()
@@ -24,7 +24,7 @@ abstract class Transport implements Swift_Transport
         return true;
     }
 
-    /**
+    /*
      * {@inheritdoc}
      */
     public function start()
@@ -32,7 +32,7 @@ abstract class Transport implements Swift_Transport
         return true;
     }
 
-    /**
+    /*
      * {@inheritdoc}
      */
     public function stop()
@@ -40,8 +40,8 @@ abstract class Transport implements Swift_Transport
         return true;
     }
 
-    /**
-     * Register a plug-in with the transport.
+    /*
+     * 注册插件
      *
      * @param  \Swift_Events_EventListener  $plugin
      * @return void
@@ -51,8 +51,8 @@ abstract class Transport implements Swift_Transport
         array_push($this->plugins, $plugin);
     }
 
-    /**
-     * Iterate through registered plugins and execute plugins' methods.
+    /*
+     * 迭代执行 plugins 中的方法 'beforeSendPerformed'
      *
      * @param  \Swift_Mime_Message  $message
      * @return void
@@ -68,8 +68,8 @@ abstract class Transport implements Swift_Transport
         }
     }
 
-    /**
-     * Iterate through registered plugins and execute plugins' methods.
+    /*
+     * 迭代执行 plugins 中的方法 'sendPerformed'
      *
      * @param  \Swift_Mime_Message  $message
      * @return void

@@ -10,14 +10,14 @@ use TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
 
 class Markdown
 {
-    /**
-     * The view factory implementation.
+    /*
+     * view factory 实例
      *
      * @var \Illuminate\View\Factory
      */
     protected $view;
 
-    /**
+    /*
      * The current theme being used when generating emails.
      *
      * @var string
@@ -31,7 +31,7 @@ class Markdown
      */
     protected $componentPaths = [];
 
-    /**
+    /*
      * Create a new Markdown renderer instance.
      *
      * @param  \Illuminate\View\Factory  $view
@@ -45,7 +45,7 @@ class Markdown
         $this->loadComponentsFrom(Arr::get($options, 'paths', []));
     }
 
-    /**
+    /*
      * Render the Markdown template into HTML.
      *
      * @param  string  $view
@@ -66,7 +66,7 @@ class Markdown
         ));
     }
 
-    /**
+    /*
      * Render the Markdown template into HTML.
      *
      * @param  string  $view
@@ -82,8 +82,8 @@ class Markdown
         )->make($view, $data)->render()));
     }
 
-    /**
-     * Parse the given Markdown text into HTML.
+    /*
+     * 将 Markdown 文件转为 Html
      *
      * @param  string  $text
      * @return string
@@ -95,7 +95,7 @@ class Markdown
         return new HtmlString($parsedown->text($text));
     }
 
-    /**
+    /*
      * Get the HTML component paths.
      *
      * @return array
@@ -107,7 +107,7 @@ class Markdown
         }, $this->componentPaths());
     }
 
-    /**
+    /*
      * Get the Markdown component paths.
      *
      * @return array
@@ -119,7 +119,7 @@ class Markdown
         }, $this->componentPaths());
     }
 
-    /**
+    /*
      * Get the component paths.
      *
      * @return array
@@ -131,7 +131,7 @@ class Markdown
         ]));
     }
 
-    /**
+    /*
      * Register new mail component paths.
      *
      * @param  array  $paths

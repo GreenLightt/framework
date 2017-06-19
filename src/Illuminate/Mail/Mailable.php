@@ -105,8 +105,8 @@ class Mailable implements MailableContract
      */
     public $callbacks = [];
 
-    /**
-     * Send the message using the given mailer.
+    /*
+     * 发送邮件
      *
      * @param  \Illuminate\Contracts\Mail\Mailer  $mailer
      * @return void
@@ -124,8 +124,8 @@ class Mailable implements MailableContract
         });
     }
 
-    /**
-     * Queue the message for sending.
+    /*
+     * 将邮件放到队列发送
      *
      * @param  \Illuminate\Contracts\Queue\Factory  $queue
      * @return mixed
@@ -141,8 +141,8 @@ class Mailable implements MailableContract
         );
     }
 
-    /**
-     * Deliver the queued message after the given delay.
+    /*
+     * 将邮件放到队列延迟发送
      *
      * @param  \DateTime|int  $delay
      * @param  Queue  $queue
@@ -159,8 +159,8 @@ class Mailable implements MailableContract
         );
     }
 
-    /**
-     * Build the view for the message.
+    /*
+     * 构建邮件消息的视图
      *
      * @return array|string
      */
@@ -179,8 +179,8 @@ class Mailable implements MailableContract
         return $this->view;
     }
 
-    /**
-     * Build the Markdown view for the message.
+    /*
+     * 构建邮件消息的 Markdown 视图
      *
      * @return array
      */
@@ -196,8 +196,8 @@ class Mailable implements MailableContract
         ];
     }
 
-    /**
-     * Build the view data for the message.
+    /*
+     * 构建邮件需要的 data 数据
      *
      * @return array
      */
