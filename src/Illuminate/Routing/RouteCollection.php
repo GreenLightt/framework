@@ -13,36 +13,36 @@ use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 class RouteCollection implements Countable, IteratorAggregate
 {
-    /**
-     * An array of the routes keyed by method.
+    /*
+     * 键名为 method ， 二维数组键名为 url 的路由数组
      *
      * @var array
      */
     protected $routes = [];
 
-    /**
-     * An flattened array of all of the routes.
+    /*
+     * 键名为 method.url 的路由数组
      *
      * @var array
      */
     protected $allRoutes = [];
 
-    /**
-     * A look-up table of routes by their names.
+    /*
+     * 键值为 as 名, 的路由数组
      *
      * @var array
      */
     protected $nameList = [];
 
-    /**
-     * A look-up table of routes by controller action.
+    /*
+     * 键值为 controller aciton 的路由数组
      *
      * @var array
      */
     protected $actionList = [];
 
-    /**
-     * Add a Route instance to the collection.
+    /*
+     * 添加 Route 实例进 collection 中
      *
      * @param  \Illuminate\Routing\Route  $route
      * @return \Illuminate\Routing\Route
@@ -56,8 +56,8 @@ class RouteCollection implements Countable, IteratorAggregate
         return $route;
     }
 
-    /**
-     * Add the given route to the arrays of routes.
+    /*
+     * 将指定的路由添加进 routes 和 allRoutes 数组
      *
      * @param  \Illuminate\Routing\Route  $route
      * @return void
@@ -73,8 +73,8 @@ class RouteCollection implements Countable, IteratorAggregate
         $this->allRoutes[$method.$domainAndUri] = $route;
     }
 
-    /**
-     * Add the route to any look-up tables if necessary.
+    /*
+     * 添加路由实例进 nameList 和 actionList 数组中
      *
      * @param  \Illuminate\Routing\Route  $route
      * @return void
@@ -98,8 +98,8 @@ class RouteCollection implements Countable, IteratorAggregate
         }
     }
 
-    /**
-     * Add a route to the controller action dictionary.
+    /*
+     * 添加 Route 实例入 actionList 数组中
      *
      * @param  array  $action
      * @param  \Illuminate\Routing\Route  $route
@@ -110,10 +110,10 @@ class RouteCollection implements Countable, IteratorAggregate
         $this->actionList[trim($action['controller'], '\\')] = $route;
     }
 
-    /**
-     * Refresh the name look-up table.
+    /*
+     * 刷新 nameList 数组
      *
-     * This is done in case any names are fluently defined or if routes are overwritten.
+     * 此动作的目的是在于 路由的 as 名 被频繁重定义
      *
      * @return void
      */
