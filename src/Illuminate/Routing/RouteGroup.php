@@ -6,7 +6,7 @@ use Illuminate\Support\Arr;
 
 class RouteGroup
 {
-    /**
+    /*
      * Merge route groups into a new array.
      *
      * @param  array  $new
@@ -30,7 +30,7 @@ class RouteGroup
         ), $new);
     }
 
-    /**
+    /*
      * Format the namespace for the new group attributes.
      *
      * @param  array  $new
@@ -48,7 +48,7 @@ class RouteGroup
         return isset($old['namespace']) ? $old['namespace'] : null;
     }
 
-    /**
+    /*
      * Format the prefix for the new group attributes.
      *
      * @param  array  $new
@@ -62,7 +62,7 @@ class RouteGroup
         return isset($new['prefix']) ? trim($old, '/').'/'.trim($new['prefix'], '/') : $old;
     }
 
-    /**
+    /*
      * Format the "wheres" for the new group attributes.
      *
      * @param  array  $new
@@ -77,7 +77,7 @@ class RouteGroup
         );
     }
 
-    /**
+    /*
      * Format the "as" clause of the new group attributes.
      *
      * @param  array  $new
