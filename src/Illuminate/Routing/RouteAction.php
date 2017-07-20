@@ -9,8 +9,8 @@ use UnexpectedValueException;
 
 class RouteAction
 {
-    /**
-     * Parse the given action into an array.
+    /*
+     * 解析给定的数组为标准数组
      *
      * @param  string  $uri
      * @param  mixed  $action
@@ -46,8 +46,8 @@ class RouteAction
         return $action;
     }
 
-    /**
-     * Get an action for a route that has no action.
+    /*
+     * 为没有 action 的路由封装一层
      *
      * @param  string  $uri
      * @return array
@@ -59,8 +59,8 @@ class RouteAction
         }];
     }
 
-    /**
-     * Find the callable in an action array.
+    /*
+     * 找到 action 数组中的 callable 对象
      *
      * @param  array  $action
      * @return callable
@@ -72,7 +72,7 @@ class RouteAction
         });
     }
 
-    /**
+    /*
      * Make an action for an invokable controller.
      *
      * @param  string $action

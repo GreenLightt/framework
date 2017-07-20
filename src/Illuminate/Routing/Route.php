@@ -19,29 +19,29 @@ class Route
 {
     use RouteDependencyResolverTrait;
 
-    /**
-     * The URI pattern the route responds to.
+    /*
+     * 路由的 uri
      *
      * @var string
      */
     public $uri;
 
-    /**
-     * The HTTP methods the route responds to.
+    /*
+     * 路由的 HTTP 动作
      *
      * @var array
      */
     public $methods;
 
-    /**
-     * The route action array.
+    /*
+     * 路由的 action 数组，包含 middleware，uses，namespace，prefix，where 这些键
      *
      * @var array
      */
     public $action;
 
-    /**
-     * The controller instance.
+    /*
+     * crontroller 实例
      *
      * @var mixed
      */
@@ -54,8 +54,8 @@ class Route
      */
     public $defaults = [];
 
-    /**
-     * The regular expression requirements.
+    /*
+     * 路由上的变量约束
      *
      * @var array
      */
@@ -110,8 +110,8 @@ class Route
      */
     public static $validators;
 
-    /**
-     * Create a new Route instance.
+    /*
+     * 创建 Route 实例
      *
      * @param  array|string  $methods
      * @param  string  $uri
@@ -133,8 +133,8 @@ class Route
         }
     }
 
-    /**
-     * Parse the route action into a standard array.
+    /*
+     * 解析 $action 为标准的数组
      *
      * @param  callable|array|null  $action
      * @return array
@@ -166,8 +166,8 @@ class Route
         }
     }
 
-    /**
-     * Checks whether the route's action is a controller.
+    /*
+     * 判断 action 是否是字符串
      *
      * @return bool
      */
@@ -543,8 +543,8 @@ class Route
         return isset($this->action['prefix']) ? $this->action['prefix'] : null;
     }
 
-    /**
-     * Add a prefix to the route URI.
+    /*
+     * 将 prefix 添加到路由的 uri 前
      *
      * @param  string  $prefix
      * @return $this

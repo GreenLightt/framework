@@ -128,10 +128,10 @@ class RouteCollection implements Countable, IteratorAggregate
         }
     }
 
-    /**
-     * Refresh the action look-up table.
+    /*
+     * 刷新 actionList 数组
      *
-     * This is done in case any actions are overwritten with new controllers.
+     * 此动作的目的是在于 路由的 action 被频繁重定义
      *
      * @return void
      */
@@ -146,8 +146,8 @@ class RouteCollection implements Countable, IteratorAggregate
         }
     }
 
-    /**
-     * Find the first route matching a given request.
+    /*
+     * 找到指定 request 的第一个匹配路由
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Routing\Route
@@ -179,8 +179,8 @@ class RouteCollection implements Countable, IteratorAggregate
         throw new NotFoundHttpException;
     }
 
-    /**
-     * Determine if a route in the array matches the request.
+    /*
+     * 从 $routes 数组中找到第一个匹配 request请求的 Route对象
      *
      * @param  array  $routes
      * @param  \Illuminate\http\Request  $request
@@ -194,8 +194,8 @@ class RouteCollection implements Countable, IteratorAggregate
         });
     }
 
-    /**
-     * Determine if any routes match on another HTTP verb.
+    /*
+     * 判断请求是否匹配其他 HTTP 动作的路由
      *
      * @param  \Illuminate\Http\Request  $request
      * @return array
@@ -218,7 +218,7 @@ class RouteCollection implements Countable, IteratorAggregate
         return $others;
     }
 
-    /**
+    /*
      * Get a route (if necessary) that responds when other available methods are present.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -238,8 +238,8 @@ class RouteCollection implements Countable, IteratorAggregate
         $this->methodNotAllowed($methods);
     }
 
-    /**
-     * Throw a method not allowed HTTP exception.
+    /*
+     * 抛出方法不被允许的 HTTP 异常
      *
      * @param  array  $others
      * @return void
@@ -251,8 +251,8 @@ class RouteCollection implements Countable, IteratorAggregate
         throw new MethodNotAllowedHttpException($others);
     }
 
-    /**
-     * Get routes from the collection by method.
+    /*
+     * 根据请求动作，从 routes 数组返回 url => Route对象的数组
      *
      * @param  string|null  $method
      * @return array
@@ -262,8 +262,8 @@ class RouteCollection implements Countable, IteratorAggregate
         return is_null($method) ? $this->getRoutes() : Arr::get($this->routes, $method, []);
     }
 
-    /**
-     * Determine if the route collection contains a given named route.
+    /*
+     * 判断是否存在指定 as 名的路由
      *
      * @param  string  $name
      * @return bool
@@ -273,8 +273,8 @@ class RouteCollection implements Countable, IteratorAggregate
         return ! is_null($this->getByName($name));
     }
 
-    /**
-     * Get a route instance by its name.
+    /*
+     * 根据 as 名获取路由
      *
      * @param  string  $name
      * @return \Illuminate\Routing\Route|null
@@ -284,8 +284,8 @@ class RouteCollection implements Countable, IteratorAggregate
         return isset($this->nameList[$name]) ? $this->nameList[$name] : null;
     }
 
-    /**
-     * Get a route instance by its controller action.
+    /*
+     * 根据 action 名获取路由
      *
      * @param  string  $action
      * @return \Illuminate\Routing\Route|null
@@ -295,8 +295,8 @@ class RouteCollection implements Countable, IteratorAggregate
         return isset($this->actionList[$action]) ? $this->actionList[$action] : null;
     }
 
-    /**
-     * Get all of the routes in the collection.
+    /*
+     * 返回所有 Route 对象
      *
      * @return array
      */
@@ -305,8 +305,8 @@ class RouteCollection implements Countable, IteratorAggregate
         return array_values($this->allRoutes);
     }
 
-    /**
-     * Get all of the routes keyed by their HTTP verb / method.
+    /*
+     * 获取 routes 数组
      *
      * @return array
      */
@@ -315,8 +315,8 @@ class RouteCollection implements Countable, IteratorAggregate
         return $this->routes;
     }
 
-    /**
-     * Get an iterator for the items.
+    /*
+     * 获取所有路由的迭代器对象
      *
      * @return \ArrayIterator
      */
@@ -325,8 +325,8 @@ class RouteCollection implements Countable, IteratorAggregate
         return new ArrayIterator($this->getRoutes());
     }
 
-    /**
-     * Count the number of items in the collection.
+    /*
+     * 获取集合中所有路由的数目
      *
      * @return int
      */
