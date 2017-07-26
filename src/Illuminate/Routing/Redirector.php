@@ -7,21 +7,21 @@ use Illuminate\Session\Store as SessionStore;
 
 class Redirector
 {
-    /**
+    /*
      * The URL generator instance.
      *
      * @var \Illuminate\Routing\UrlGenerator
      */
     protected $generator;
 
-    /**
+    /*
      * The session store instance.
      *
      * @var \Illuminate\Session\Store
      */
     protected $session;
 
-    /**
+    /*
      * Create a new Redirector instance.
      *
      * @param  \Illuminate\Routing\UrlGenerator  $generator
@@ -32,7 +32,7 @@ class Redirector
         $this->generator = $generator;
     }
 
-    /**
+    /*
      * Create a new redirect response to the "home" route.
      *
      * @param  int  $status
@@ -43,7 +43,7 @@ class Redirector
         return $this->to($this->generator->route('home'), $status);
     }
 
-    /**
+    /*
      * Create a new redirect response to the previous location.
      *
      * @param  int    $status
@@ -56,7 +56,7 @@ class Redirector
         return $this->createRedirect($this->generator->previous($fallback), $status, $headers);
     }
 
-    /**
+    /*
      * Create a new redirect response to the current URI.
      *
      * @param  int    $status
@@ -68,7 +68,7 @@ class Redirector
         return $this->to($this->generator->getRequest()->path(), $status, $headers);
     }
 
-    /**
+    /*
      * Create a new redirect response, while putting the current URL in the session.
      *
      * @param  string  $path
@@ -84,7 +84,7 @@ class Redirector
         return $this->to($path, $status, $headers, $secure);
     }
 
-    /**
+    /*
      * Create a new redirect response to the previously intended location.
      *
      * @param  string  $default
@@ -100,7 +100,7 @@ class Redirector
         return $this->to($path, $status, $headers, $secure);
     }
 
-    /**
+    /*
      * Create a new redirect response to the given path.
      *
      * @param  string  $path
@@ -114,7 +114,7 @@ class Redirector
         return $this->createRedirect($this->generator->to($path, [], $secure), $status, $headers);
     }
 
-    /**
+    /*
      * Create a new redirect response to an external URL (no validation).
      *
      * @param  string  $path
@@ -127,7 +127,7 @@ class Redirector
         return $this->createRedirect($path, $status, $headers);
     }
 
-    /**
+    /*
      * Create a new redirect response to the given HTTPS path.
      *
      * @param  string  $path
@@ -140,7 +140,7 @@ class Redirector
         return $this->to($path, $status, $headers, true);
     }
 
-    /**
+    /*
      * Create a new redirect response to a named route.
      *
      * @param  string  $route
@@ -154,7 +154,7 @@ class Redirector
         return $this->to($this->generator->route($route, $parameters), $status, $headers);
     }
 
-    /**
+    /*
      * Create a new redirect response to a controller action.
      *
      * @param  string  $action
@@ -168,7 +168,7 @@ class Redirector
         return $this->to($this->generator->action($action, $parameters), $status, $headers);
     }
 
-    /**
+    /*
      * Create a new redirect response.
      *
      * @param  string  $path
@@ -187,7 +187,7 @@ class Redirector
         });
     }
 
-    /**
+    /*
      * Get the URL generator instance.
      *
      * @return \Illuminate\Routing\UrlGenerator
@@ -197,7 +197,7 @@ class Redirector
         return $this->generator;
     }
 
-    /**
+    /*
      * Set the active session store.
      *
      * @param  \Illuminate\Session\Store  $session

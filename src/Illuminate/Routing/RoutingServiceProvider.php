@@ -12,7 +12,7 @@ use Illuminate\Contracts\Routing\ResponseFactory as ResponseFactoryContract;
 
 class RoutingServiceProvider extends ServiceProvider
 {
-    /**
+    /*
      * Register the service provider.
      *
      * @return void
@@ -44,8 +44,8 @@ class RoutingServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Register the URL generator service.
+    /*
+     * 注册 url generator
      *
      * @return void
      */
@@ -80,7 +80,7 @@ class RoutingServiceProvider extends ServiceProvider
         });
     }
 
-    /**
+    /*
      * Get the URL generator request rebinder.
      *
      * @return \Closure
@@ -92,7 +92,7 @@ class RoutingServiceProvider extends ServiceProvider
         };
     }
 
-    /**
+    /*
      * Register the Redirector service.
      *
      * @return void
@@ -113,7 +113,7 @@ class RoutingServiceProvider extends ServiceProvider
         });
     }
 
-    /**
+    /*
      * Register a binding for the PSR-7 request implementation.
      *
      * @return void
@@ -125,7 +125,7 @@ class RoutingServiceProvider extends ServiceProvider
         });
     }
 
-    /**
+    /*
      * Register a binding for the PSR-7 response implementation.
      *
      * @return void
@@ -137,7 +137,7 @@ class RoutingServiceProvider extends ServiceProvider
         });
     }
 
-    /**
+    /*
      * Register the response factory implementation.
      *
      * @return void

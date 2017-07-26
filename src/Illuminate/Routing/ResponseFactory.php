@@ -15,21 +15,21 @@ class ResponseFactory implements FactoryContract
 {
     use Macroable;
 
-    /**
+    /*
      * The view factory instance.
      *
      * @var \Illuminate\Contracts\View\Factory
      */
     protected $view;
 
-    /**
+    /*
      * The redirector instance.
      *
      * @var \Illuminate\Routing\Redirector
      */
     protected $redirector;
 
-    /**
+    /*
      * Create a new response factory instance.
      *
      * @param  \Illuminate\Contracts\View\Factory  $view
@@ -42,7 +42,7 @@ class ResponseFactory implements FactoryContract
         $this->redirector = $redirector;
     }
 
-    /**
+    /*
      * Return a new response from the application.
      *
      * @param  string  $content
@@ -55,7 +55,7 @@ class ResponseFactory implements FactoryContract
         return new Response($content, $status, $headers);
     }
 
-    /**
+    /*
      * Return a new view response from the application.
      *
      * @param  string  $view
@@ -69,7 +69,7 @@ class ResponseFactory implements FactoryContract
         return $this->make($this->view->make($view, $data), $status, $headers);
     }
 
-    /**
+    /*
      * Return a new JSON response from the application.
      *
      * @param  mixed  $data
@@ -83,7 +83,7 @@ class ResponseFactory implements FactoryContract
         return new JsonResponse($data, $status, $headers, $options);
     }
 
-    /**
+    /*
      * Return a new JSONP response from the application.
      *
      * @param  string  $callback
@@ -98,7 +98,7 @@ class ResponseFactory implements FactoryContract
         return $this->json($data, $status, $headers, $options)->setCallback($callback);
     }
 
-    /**
+    /*
      * Return a new streamed response from the application.
      *
      * @param  \Closure  $callback
@@ -111,7 +111,7 @@ class ResponseFactory implements FactoryContract
         return new StreamedResponse($callback, $status, $headers);
     }
 
-    /**
+    /*
      * Create a new file download response.
      *
      * @param  \SplFileInfo|string  $file
@@ -131,7 +131,7 @@ class ResponseFactory implements FactoryContract
         return $response;
     }
 
-    /**
+    /*
      * Return the raw contents of a binary file.
      *
      * @param  \SplFileInfo|string  $file
@@ -143,7 +143,7 @@ class ResponseFactory implements FactoryContract
         return new BinaryFileResponse($file, 200, $headers);
     }
 
-    /**
+    /*
      * Create a new redirect response to the given path.
      *
      * @param  string  $path
@@ -157,7 +157,7 @@ class ResponseFactory implements FactoryContract
         return $this->redirector->to($path, $status, $headers, $secure);
     }
 
-    /**
+    /*
      * Create a new redirect response to a named route.
      *
      * @param  string  $route
@@ -171,7 +171,7 @@ class ResponseFactory implements FactoryContract
         return $this->redirector->route($route, $parameters, $status, $headers);
     }
 
-    /**
+    /*
      * Create a new redirect response to a controller action.
      *
      * @param  string  $action
@@ -185,7 +185,7 @@ class ResponseFactory implements FactoryContract
         return $this->redirector->action($action, $parameters, $status, $headers);
     }
 
-    /**
+    /*
      * Create a new redirect response, while putting the current URL in the session.
      *
      * @param  string  $path
@@ -199,7 +199,7 @@ class ResponseFactory implements FactoryContract
         return $this->redirector->guest($path, $status, $headers, $secure);
     }
 
-    /**
+    /*
      * Create a new redirect response to the previously intended location.
      *
      * @param  string  $default
