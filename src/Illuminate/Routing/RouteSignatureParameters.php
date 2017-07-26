@@ -8,8 +8,8 @@ use Illuminate\Support\Str;
 
 class RouteSignatureParameters
 {
-    /**
-     * Extract the route action's signature parameters.
+    /*
+     * 从 action 方法获取参数
      *
      * @param  array  $action
      * @param  string  $subClass
@@ -26,7 +26,7 @@ class RouteSignatureParameters
         });
     }
 
-    /**
+    /*
      * Get the parameters for the given class / method by string.
      *
      * @param  string  $uses

@@ -6,7 +6,7 @@ use Closure;
 
 class MiddlewareNameResolver
 {
-    /**
+    /*
      * Resolve the middleware name to a class name(s) preserving passed parameters.
      *
      * @param  string  $name
@@ -43,7 +43,7 @@ class MiddlewareNameResolver
         }
     }
 
-    /**
+    /*
      * Parse the middleware group and format it for usage.
      *
      * @param  string  $name

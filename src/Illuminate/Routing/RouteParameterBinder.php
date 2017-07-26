@@ -6,14 +6,14 @@ use Illuminate\Support\Arr;
 
 class RouteParameterBinder
 {
-    /**
-     * The route instance.
+    /*
+     * 路由实例
      *
      * @var \Illuminate\Routing\Route
      */
     protected $route;
 
-    /**
+    /*
      * Create a new Route parameter binder instance.
      *
      * @param  \Illuminate\Routing\Route  $route
@@ -24,7 +24,7 @@ class RouteParameterBinder
         $this->route = $route;
     }
 
-    /**
+    /*
      * Get the parameters for the route.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -49,7 +49,7 @@ class RouteParameterBinder
         return $this->replaceDefaults($parameters);
     }
 
-    /**
+    /*
      * Get the parameter matches for the path portion of the URI.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -62,7 +62,7 @@ class RouteParameterBinder
         return $this->matchToKeys(array_slice($matches, 1));
     }
 
-    /**
+    /*
      * Extract the parameter list from the host part of the request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -76,7 +76,7 @@ class RouteParameterBinder
         return array_merge($this->matchToKeys(array_slice($matches, 1)), $parameters);
     }
 
-    /**
+    /*
      * Combine a set of parameter matches with the route's keys.
      *
      * @param  array  $matches
@@ -95,7 +95,7 @@ class RouteParameterBinder
         });
     }
 
-    /**
+    /*
      * Replace null parameters with their defaults.
      *
      * @param  array  $parameters

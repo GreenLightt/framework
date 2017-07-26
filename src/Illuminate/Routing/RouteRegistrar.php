@@ -8,8 +8,8 @@ use InvalidArgumentException;
 
 class RouteRegistrar
 {
-    /**
-     * The router instance.
+    /*
+     * router 实例
      *
      * @var \Illuminate\Routing\Router
      */
@@ -49,7 +49,7 @@ class RouteRegistrar
         'name' => 'as',
     ];
 
-    /**
+    /*
      * Create a new route registrar instance.
      *
      * @param  \Illuminate\Routing\Router  $router
@@ -60,8 +60,8 @@ class RouteRegistrar
         $this->router = $router;
     }
 
-    /**
-     * Set the value for a given attribute.
+    /*
+     * 设置指定 attribute 的值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -80,7 +80,7 @@ class RouteRegistrar
         return $this;
     }
 
-    /**
+    /*
      * Route a resource to a controller.
      *
      * @param  string  $name
@@ -93,7 +93,7 @@ class RouteRegistrar
         $this->router->resource($name, $controller, $this->attributes + $options);
     }
 
-    /**
+    /*
      * Create a route group with shared attributes.
      *
      * @param  \Closure  $callback
@@ -104,7 +104,7 @@ class RouteRegistrar
         $this->router->group($this->attributes, $callback);
     }
 
-    /**
+    /*
      * Register a new route with the given verbs.
      *
      * @param  array|string  $methods
@@ -117,7 +117,7 @@ class RouteRegistrar
         return $this->router->match($methods, $uri, $this->compileAction($action));
     }
 
-    /**
+    /*
      * Register a new route with the router.
      *
      * @param  string  $method
@@ -134,7 +134,7 @@ class RouteRegistrar
         return $this->router->{$method}($uri, $this->compileAction($action));
     }
 
-    /**
+    /*
      * Compile the action into an array including the attributes.
      *
      * @param  \Closure|array|string|null  $action
@@ -153,7 +153,7 @@ class RouteRegistrar
         return array_merge($this->attributes, $action);
     }
 
-    /**
+    /*
      * Dynamically handle calls into the route registrar.
      *
      * @param  string  $method

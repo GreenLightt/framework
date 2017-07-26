@@ -45,8 +45,8 @@ class RouteBinding
         };
     }
 
-    /**
-     * Create a Route model binding for a model.
+    /*
+     * 创建路由模型解析方法
      *
      * @param  \Illuminate\Container\Container  $container
      * @param  string  $class
