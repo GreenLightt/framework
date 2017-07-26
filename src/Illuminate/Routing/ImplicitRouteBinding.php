@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class ImplicitRouteBinding
 {
-    /**
+    /*
+     * 解析路由模型绑定
      * Resolve the implicit route bindings for the given route.
      *
      * @param  \Illuminate\Container\Container  $container
@@ -36,8 +37,8 @@ class ImplicitRouteBinding
         }
     }
 
-    /**
-     * Return the parameter name if it exists in the given parameters.
+    /*
+     * 从参数组中，找到参数在数据中对应的真实键名
      *
      * @param  string  $name
      * @param  array  $parameters

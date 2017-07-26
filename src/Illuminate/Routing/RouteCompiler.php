@@ -6,15 +6,15 @@ use Symfony\Component\Routing\Route as SymfonyRoute;
 
 class RouteCompiler
 {
-    /**
-     * The route instance.
+    /*
+     * 路由实例
      *
      * @var \Illuminate\Routing\Route
      */
     protected $route;
 
-    /**
-     * Create a new Route compiler instance.
+    /*
+     * 创建一个路由编译实例
      *
      * @param  \Illuminate\Routing\Route  $route
      * @return void
@@ -24,8 +24,8 @@ class RouteCompiler
         $this->route = $route;
     }
 
-    /**
-     * Compile the route.
+    /*
+     * 编译路由
      *
      * @return \Symfony\Component\Routing\CompiledRoute
      */
@@ -40,8 +40,8 @@ class RouteCompiler
         )->compile();
     }
 
-    /**
-     * Get the optional parameters for the route.
+    /*
+     * 获取路由上的缺省参数
      *
      * @return array
      */

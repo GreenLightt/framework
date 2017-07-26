@@ -6,8 +6,8 @@ use Illuminate\Support\Collection;
 
 class SortedMiddleware extends Collection
 {
-    /**
-     * Create a new Sorted Middleware container.
+    /*
+     * 创建一个 中间件排序容器
      *
      * @param  array  $priorityMap
      * @param  array|Collection  $middlewares
@@ -22,8 +22,8 @@ class SortedMiddleware extends Collection
         $this->items = $this->sortMiddleware($priorityMap, $middlewares);
     }
 
-    /**
-     * Sort the middlewares by the given priority map.
+    /*
+     * 根据指定的优先级 map 对中间件进行排序
      *
      * Each call to this method makes one discrete middleware movement if necessary.
      *
@@ -68,8 +68,8 @@ class SortedMiddleware extends Collection
         return array_values(array_unique($middlewares, SORT_REGULAR));
     }
 
-    /**
-     * Splice a middleware into a new position and remove the old entry.
+    /*
+     * 将数据中 (index 为 from) 元素移到 （index 为 to）元素
      *
      * @param  array  $middlewares
      * @param  int  $from

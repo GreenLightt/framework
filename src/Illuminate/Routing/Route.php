@@ -146,7 +146,7 @@ class Route
         return RouteAction::parse($this->uri, $action);
     }
 
-    /**
+    /*
      * Run the route action and return the response.
      *
      * @return mixed
@@ -176,8 +176,8 @@ class Route
         return is_string($this->action['uses']);
     }
 
-    /**
-     * Run the route action and return the response.
+    /*
+     * 运行 route 上的回调方法
      *
      * @return mixed
      */
@@ -190,8 +190,8 @@ class Route
         )));
     }
 
-    /**
-     * Run the route action and return the response.
+    /*
+     * 运行 route 上的 controller action方法
      *
      * @return mixed
      *
@@ -204,8 +204,8 @@ class Route
         );
     }
 
-    /**
-     * Get the controller instance for the route.
+    /*
+     * 获取 ‘controller@method’ 中的 controller 实例
      *
      * @return mixed
      */
@@ -220,8 +220,8 @@ class Route
         return $this->controller;
     }
 
-    /**
-     * Get the controller method used for the route.
+    /*
+     * 获取 ‘controller@method’ 的 method 值
      *
      * @return string
      */
@@ -230,8 +230,8 @@ class Route
         return $this->parseControllerCallback()[1];
     }
 
-    /**
-     * Parse the controller.
+    /*
+     * 解析 action 为 ‘controller@method’；
      *
      * @return array
      */
@@ -240,8 +240,8 @@ class Route
         return Str::parseCallback($this->action['uses']);
     }
 
-    /**
-     * Determine if the route matches given request.
+    /*
+     * 判断是否路由匹配指定的 request 请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  bool  $includingMethod
@@ -264,8 +264,8 @@ class Route
         return true;
     }
 
-    /**
-     * Compile the route into a Symfony CompiledRoute instance.
+    /*
+     * 编译路由为 Symfony CompiledRoute 实例
      *
      * @return void
      */
@@ -278,8 +278,8 @@ class Route
         return $this->compiled;
     }
 
-    /**
-     * Bind the route to a given request for execution.
+    /*
+     * 将当前请求绑定到路由上
      *
      * @param  \Illuminate\Http\Request  $request
      * @return $this
@@ -294,8 +294,8 @@ class Route
         return $this;
     }
 
-    /**
-     * Determine if the route has parameters.
+    /*
+     * 判断路由是否有参数
      *
      * @return bool
      */
@@ -304,8 +304,8 @@ class Route
         return isset($this->parameters);
     }
 
-    /**
-     * Determine a given parameter exists from the route.
+    /*
+     * 判断路由上的参数是否有指定参数名
      *
      * @param  string $name
      * @return bool
@@ -319,8 +319,8 @@ class Route
         return false;
     }
 
-    /**
-     * Get a given parameter from the route.
+    /*
+     * 获取路由上的参数中的指定参数名
      *
      * @param  string  $name
      * @param  mixed   $default
@@ -331,8 +331,8 @@ class Route
         return Arr::get($this->parameters(), $name, $default);
     }
 
-    /**
-     * Set a parameter to the given value.
+    /*
+     * 设置 参数值
      *
      * @param  string  $name
      * @param  mixed   $value
@@ -345,8 +345,8 @@ class Route
         $this->parameters[$name] = $value;
     }
 
-    /**
-     * Unset a parameter on the route if it is set.
+    /*
+     * unset 参数
      *
      * @param  string  $name
      * @return void
@@ -358,8 +358,8 @@ class Route
         unset($this->parameters[$name]);
     }
 
-    /**
-     * Get the key / value list of parameters for the route.
+    /*
+     * 获取路由 callable 方法上的参数
      *
      * @return array
      *
@@ -374,8 +374,8 @@ class Route
         throw new LogicException('Route is not bound.');
     }
 
-    /**
-     * Get the key / value list of parameters without null values.
+    /*
+     * 获取路由 callable 方法上的非空参数
      *
      * @return array
      */
@@ -386,8 +386,8 @@ class Route
         });
     }
 
-    /**
-     * Get all of the parameter names for the route.
+    /*
+     * 从路由获得所有参数名
      *
      * @return array
      */
@@ -400,8 +400,8 @@ class Route
         return $this->parameterNames = $this->compileParameterNames();
     }
 
-    /**
-     * Get the parameter names for the route.
+    /*
+     * 从路由获得所有参数名
      *
      * @return array
      */

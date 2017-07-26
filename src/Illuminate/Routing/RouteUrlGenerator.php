@@ -22,8 +22,8 @@ class RouteUrlGenerator
      */
     protected $request;
 
-    /**
-     * The named parameter defaults.
+    /*
+     * 默认的变量值
      *
      * @var array
      */
@@ -51,8 +51,8 @@ class RouteUrlGenerator
         '%25' => '%',
     ];
 
-    /**
-     * Create a new Route URL generator.
+    /*
+     * 创建 Route Url generator 实例
      *
      * @param  \Illuminate\Routing\UrlGenerator  $url
      * @param  \Illuminate\Http\Request  $request
@@ -64,7 +64,7 @@ class RouteUrlGenerator
         $this->request = $request;
     }
 
-    /**
+    /*
      * Generate a URL for the given route.
      *
      * @param  \Illuminate\Routing\Route  $route
@@ -102,8 +102,8 @@ class RouteUrlGenerator
         return $uri;
     }
 
-    /**
-     * Get the formatted domain for a given route.
+    /*
+     * 获取格式化的 domain
      *
      * @param  \Illuminate\Routing\Route  $route
      * @param  array  $parameters
@@ -114,7 +114,8 @@ class RouteUrlGenerator
         return $route->domain() ? $this->formatDomain($route, $parameters) : null;
     }
 
-    /**
+    /*
+     * 格式化 domain 和 端口号
      * Format the domain and port for the route and request.
      *
      * @param  \Illuminate\Routing\Route  $route
@@ -128,8 +129,8 @@ class RouteUrlGenerator
         );
     }
 
-    /**
-     * Get the scheme for the given route.
+    /*
+     * 获取指定路由的 scheme
      *
      * @param  \Illuminate\Routing\Route  $route
      * @return string
@@ -145,8 +146,8 @@ class RouteUrlGenerator
         }
     }
 
-    /**
-     * Add the port to the domain if necessary.
+    /*
+     * domain 添加端口号
      *
      * @param  string  $domain
      * @return string
@@ -161,8 +162,8 @@ class RouteUrlGenerator
                     ? $domain : $domain.':'.$port;
     }
 
-    /**
-     * Replace the parameters on the root path.
+    /*
+     * 替换 root 路径中的变量
      *
      * @param  \Illuminate\Routing\Route  $route
      * @param  string  $domain
@@ -178,8 +179,8 @@ class RouteUrlGenerator
         );
     }
 
-    /**
-     * Replace all of the wildcard parameters for a route path.
+    /*
+     * 替换所有路径中的通配符变量
      *
      * @param  string  $path
      * @param  array  $parameters
@@ -198,8 +199,8 @@ class RouteUrlGenerator
         return trim(preg_replace('/\{.*?\?\}/', '', $path), '/');
     }
 
-    /**
-     * Replace all of the named parameters in the path.
+    /*
+     * 替换所有路径上的变量
      *
      * @param  string  $path
      * @param  array  $parameters
@@ -218,7 +219,7 @@ class RouteUrlGenerator
         }, $path);
     }
 
-    /**
+    /*
      * Add a query string to the URI.
      *
      * @param  string  $uri
@@ -239,8 +240,8 @@ class RouteUrlGenerator
         return is_null($fragment) ? $uri : $uri."#{$fragment}";
     }
 
-    /**
-     * Get the query string for a given route.
+    /*
+     * 获取 query 查询字符串
      *
      * @param  array  $parameters
      * @return string
@@ -270,7 +271,7 @@ class RouteUrlGenerator
         return '?'.trim($query, '&');
     }
 
-    /**
+    /*
      * Get the string parameters from a given list.
      *
      * @param  array  $parameters
@@ -281,7 +282,7 @@ class RouteUrlGenerator
         return array_filter($parameters, 'is_string', ARRAY_FILTER_USE_KEY);
     }
 
-    /**
+    /*
      * Get the numeric parameters from a given list.
      *
      * @param  array  $parameters
@@ -292,8 +293,8 @@ class RouteUrlGenerator
         return array_filter($parameters, 'is_numeric', ARRAY_FILTER_USE_KEY);
     }
 
-    /**
-     * Set the default named parameters used by the URL generator.
+    /*
+     * 设置默认的变量值
      *
      * @param  array  $defaults
      * @return void
