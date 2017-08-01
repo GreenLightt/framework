@@ -11,7 +11,7 @@ class NamespacedItemResolver
      */
     protected $parsed = [];
 
-    /**
+    /*
      * Parse a key into namespace, group, and item.
      *
      * @param  string  $key
@@ -43,7 +43,7 @@ class NamespacedItemResolver
         return $this->parsed[$key] = $parsed;
     }
 
-    /**
+    /*
      * Parse an array of basic segments.
      *
      * @param  array  $segments
@@ -70,7 +70,7 @@ class NamespacedItemResolver
         }
     }
 
-    /**
+    /*
      * Parse an array of namespaced segments.
      *
      * @param  string  $key
@@ -92,7 +92,7 @@ class NamespacedItemResolver
         return array_merge([$namespace], $groupAndItem);
     }
 
-    /**
+    /*
      * Set the parsed value of a key.
      *
      * @param  string  $key

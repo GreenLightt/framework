@@ -17,8 +17,8 @@ use Symfony\Component\Debug\Exception\FatalThrowableError;
  */
 class Pipeline extends BasePipeline
 {
-    /**
-     * Get the final piece of the Closure onion.
+    /*
+     * 所有中间件执行完成后的回调函数
      *
      * @param  \Closure  $destination
      * @return \Closure
@@ -36,7 +36,7 @@ class Pipeline extends BasePipeline
         };
     }
 
-    /**
+    /*
      * Get a Closure that represents a slice of the application onion.
      *
      * @return \Closure
@@ -60,7 +60,7 @@ class Pipeline extends BasePipeline
         };
     }
 
-    /**
+    /*
      * Handle the given exception.
      *
      * @param  mixed  $passable

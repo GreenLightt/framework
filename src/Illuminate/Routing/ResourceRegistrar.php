@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 class ResourceRegistrar
 {
-    /**
+    /*
      * The router instance.
      *
      * @var \Illuminate\Routing\Router
@@ -20,28 +20,28 @@ class ResourceRegistrar
      */
     protected $resourceDefaults = ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy'];
 
-    /**
+    /*
      * The parameters set for this resource instance.
      *
      * @var array|string
      */
     protected $parameters;
 
-    /**
+    /*
      * The global parameter mapping.
      *
      * @var array
      */
     protected static $parameterMap = [];
 
-    /**
+    /*
      * Singular global parameters.
      *
      * @var bool
      */
     protected static $singularParameters = true;
 
-    /**
+    /*
      * The verbs used in the resource URIs.
      *
      * @var array
@@ -51,7 +51,7 @@ class ResourceRegistrar
         'edit' => 'edit',
     ];
 
-    /**
+    /*
      * Create a new resource registrar instance.
      *
      * @param  \Illuminate\Routing\Router  $router
@@ -62,7 +62,7 @@ class ResourceRegistrar
         $this->router = $router;
     }
 
-    /**
+    /*
      * Route a resource to a controller.
      *
      * @param  string  $name
@@ -97,7 +97,7 @@ class ResourceRegistrar
         }
     }
 
-    /**
+    /*
      * Build a set of prefixed resource routes.
      *
      * @param  string  $name
@@ -119,7 +119,7 @@ class ResourceRegistrar
         return $this->router->group(compact('prefix'), $callback);
     }
 
-    /**
+    /*
      * Extract the resource and prefix from a resource name.
      *
      * @param  string  $name
@@ -137,7 +137,7 @@ class ResourceRegistrar
         return [end($segments), $prefix];
     }
 
-    /**
+    /*
      * Get the applicable resource methods.
      *
      * @param  array  $defaults
@@ -155,7 +155,7 @@ class ResourceRegistrar
         return $defaults;
     }
 
-    /**
+    /*
      * Add the index method for a resourceful route.
      *
      * @param  string  $name
@@ -173,7 +173,7 @@ class ResourceRegistrar
         return $this->router->get($uri, $action);
     }
 
-    /**
+    /*
      * Add the create method for a resourceful route.
      *
      * @param  string  $name
@@ -191,7 +191,7 @@ class ResourceRegistrar
         return $this->router->get($uri, $action);
     }
 
-    /**
+    /*
      * Add the store method for a resourceful route.
      *
      * @param  string  $name
@@ -209,7 +209,7 @@ class ResourceRegistrar
         return $this->router->post($uri, $action);
     }
 
-    /**
+    /*
      * Add the show method for a resourceful route.
      *
      * @param  string  $name
@@ -227,7 +227,7 @@ class ResourceRegistrar
         return $this->router->get($uri, $action);
     }
 
-    /**
+    /*
      * Add the edit method for a resourceful route.
      *
      * @param  string  $name
@@ -245,7 +245,7 @@ class ResourceRegistrar
         return $this->router->get($uri, $action);
     }
 
-    /**
+    /*
      * Add the update method for a resourceful route.
      *
      * @param  string  $name
@@ -263,7 +263,7 @@ class ResourceRegistrar
         return $this->router->match(['PUT', 'PATCH'], $uri, $action);
     }
 
-    /**
+    /*
      * Add the destroy method for a resourceful route.
      *
      * @param  string  $name
@@ -281,7 +281,7 @@ class ResourceRegistrar
         return $this->router->delete($uri, $action);
     }
 
-    /**
+    /*
      * Get the base resource URI for a given resource.
      *
      * @param  string  $resource
@@ -303,7 +303,7 @@ class ResourceRegistrar
         return str_replace('/{'.$this->getResourceWildcard(end($segments)).'}', '', $uri);
     }
 
-    /**
+    /*
      * Get the URI for a nested resource segment array.
      *
      * @param  array   $segments
@@ -319,7 +319,7 @@ class ResourceRegistrar
         }, $segments));
     }
 
-    /**
+    /*
      * Format a resource parameter for usage.
      *
      * @param  string  $value
@@ -338,7 +338,7 @@ class ResourceRegistrar
         return str_replace('-', '_', $value);
     }
 
-    /**
+    /*
      * Get the action array for a resource route.
      *
      * @param  string  $resource
@@ -360,7 +360,7 @@ class ResourceRegistrar
         return $action;
     }
 
-    /**
+    /*
      * Get the name for a given resource.
      *
      * @param  string  $resource
@@ -391,7 +391,7 @@ class ResourceRegistrar
         return trim(sprintf('%s%s.%s', $prefix, $name, $method), '.');
     }
 
-    /**
+    /*
      * Set or unset the unmapped global parameters to singular.
      *
      * @param  bool  $singular
@@ -402,7 +402,7 @@ class ResourceRegistrar
         static::$singularParameters = (bool) $singular;
     }
 
-    /**
+    /*
      * Get the global parameter map.
      *
      * @return array
@@ -412,7 +412,7 @@ class ResourceRegistrar
         return static::$parameterMap;
     }
 
-    /**
+    /*
      * Set the global parameter mapping.
      *
      * @param  array $parameters
@@ -423,7 +423,7 @@ class ResourceRegistrar
         static::$parameterMap = $parameters;
     }
 
-    /**
+    /*
      * Get or set the action verbs used in the resource URIs.
      *
      * @param  array  $verbs

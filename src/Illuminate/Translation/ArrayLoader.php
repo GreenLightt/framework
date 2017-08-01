@@ -11,7 +11,7 @@ class ArrayLoader implements LoaderInterface
      */
     protected $messages = [];
 
-    /**
+    /*
      * Load the messages for the given locale.
      *
      * @param  string  $locale
@@ -30,7 +30,7 @@ class ArrayLoader implements LoaderInterface
         return [];
     }
 
-    /**
+    /*
      * Add a new namespace to the loader.
      *
      * @param  string  $namespace
@@ -42,7 +42,7 @@ class ArrayLoader implements LoaderInterface
         //
     }
 
-    /**
+    /*
      * Add messages to the loader.
      *
      * @param  string  $locale
@@ -60,7 +60,7 @@ class ArrayLoader implements LoaderInterface
         return $this;
     }
 
-    /**
+    /*
      * Get an array of all the registered namespaces.
      *
      * @return array

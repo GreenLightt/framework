@@ -9,7 +9,7 @@ use ReflectionFunctionAbstract;
 
 trait RouteDependencyResolverTrait
 {
-    /**
+    /*
      * Resolve the object method's type-hinted dependencies.
      *
      * @param  array  $parameters

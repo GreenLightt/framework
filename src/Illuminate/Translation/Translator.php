@@ -21,15 +21,15 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
      */
     protected $loader;
 
-    /**
-     * The default locale being used by the translator.
+    /*
+     * 默认本地化语言
      *
      * @var string
      */
     protected $locale;
 
-    /**
-     * The fallback locale used by the translator.
+    /*
+     * 如果默认本地化语言不存在，使用此备用选项
      *
      * @var string
      */
@@ -49,7 +49,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
      */
     protected $selector;
 
-    /**
+    /*
      * Create a new translator instance.
      *
      * @param  \Illuminate\Translation\LoaderInterface  $loader
@@ -62,7 +62,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         $this->locale = $locale;
     }
 
-    /**
+    /*
      * Determine if a translation exists for a given locale.
      *
      * @param  string  $key
@@ -74,7 +74,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         return $this->has($key, $locale, false);
     }
 
-    /**
+    /*
      * Determine if a translation exists.
      *
      * @param  string  $key
@@ -87,8 +87,8 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         return $this->get($key, [], $locale, $fallback) !== $key;
     }
 
-    /**
-     * Get the translation for a given key.
+    /*
+     * 获取指定的翻译内容
      *
      * @param  string  $key
      * @param  array   $replace
@@ -100,7 +100,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         return $this->get($key, $replace, $locale);
     }
 
-    /**
+    /*
      * Get the translation for the given key.
      *
      * @param  string  $key
@@ -137,7 +137,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         return $key;
     }
 
-    /**
+    /*
      * Get the translation for a given key from the JSON translation files.
      *
      * @param  string  $key
@@ -171,7 +171,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         return $this->makeReplacements($line ?: $key, $replace);
     }
 
-    /**
+    /*
      * Get a translation according to an integer value.
      *
      * @param  string  $key
@@ -214,7 +214,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         );
     }
 
-    /**
+    /*
      * Get the proper locale for a choice operation.
      *
      * @param  string|null  $locale
@@ -225,7 +225,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         return $locale ?: $this->locale ?: $this->fallback;
     }
 
-    /**
+    /*
      * Retrieve a language line out the loaded array.
      *
      * @param  string  $namespace
@@ -248,7 +248,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         }
     }
 
-    /**
+    /*
      * Make the place-holder replacements on a line.
      *
      * @param  string  $line
@@ -274,7 +274,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         return $line;
     }
 
-    /**
+    /*
      * Sort the replacements array.
      *
      * @param  array  $replace
@@ -287,7 +287,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         })->all();
     }
 
-    /**
+    /*
      * Add translation lines to the given locale.
      *
      * @param  array  $lines
@@ -304,7 +304,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         }
     }
 
-    /**
+    /*
      * Load the specified language group.
      *
      * @param  string  $namespace
@@ -326,7 +326,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         $this->loaded[$namespace][$group][$locale] = $lines;
     }
 
-    /**
+    /*
      * Determine if the given group has been loaded.
      *
      * @param  string  $namespace
@@ -339,8 +339,8 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         return isset($this->loaded[$namespace][$group][$locale]);
     }
 
-    /**
-     * Add a new namespace to the loader.
+    /*
+     * 添加一个命名空间到翻译器上
      *
      * @param  string  $namespace
      * @param  string  $hint
@@ -351,7 +351,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         $this->loader->addNamespace($namespace, $hint);
     }
 
-    /**
+    /*
      * Parse a key into namespace, group, and item.
      *
      * @param  string  $key
@@ -368,7 +368,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         return $segments;
     }
 
-    /**
+    /*
      * Get the array of locales to be checked.
      *
      * @param  string|null  $locale
@@ -379,7 +379,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         return array_filter([$locale ?: $this->locale, $this->fallback]);
     }
 
-    /**
+    /*
      * Get the message selector instance.
      *
      * @return \Illuminate\Translation\MessageSelector
@@ -393,7 +393,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         return $this->selector;
     }
 
-    /**
+    /*
      * Set the message selector instance.
      *
      * @param  \Illuminate\Translation\MessageSelector  $selector
@@ -404,7 +404,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         $this->selector = $selector;
     }
 
-    /**
+    /*
      * Get the language line loader implementation.
      *
      * @return \Illuminate\Translation\LoaderInterface
@@ -414,7 +414,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         return $this->loader;
     }
 
-    /**
+    /*
      * Get the default locale being used.
      *
      * @return string
@@ -424,7 +424,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         return $this->getLocale();
     }
 
-    /**
+    /*
      * Get the default locale being used.
      *
      * @return string
@@ -434,7 +434,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         return $this->locale;
     }
 
-    /**
+    /*
      * Set the default locale.
      *
      * @param  string  $locale
@@ -445,7 +445,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         $this->locale = $locale;
     }
 
-    /**
+    /*
      * Get the fallback locale being used.
      *
      * @return string
@@ -455,7 +455,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         return $this->fallback;
     }
 
-    /**
+    /*
      * Set the fallback locale being used.
      *
      * @param  string  $fallback

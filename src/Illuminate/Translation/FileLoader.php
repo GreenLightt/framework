@@ -6,15 +6,15 @@ use Illuminate\Filesystem\Filesystem;
 
 class FileLoader implements LoaderInterface
 {
-    /**
-     * The filesystem instance.
+    /*
+     * 文件系统实例
      *
      * @var \Illuminate\Filesystem\Filesystem
      */
     protected $files;
 
-    /**
-     * The default path for the loader.
+    /*
+     * 语言资源目录的路径
      *
      * @var string
      */
@@ -27,7 +27,7 @@ class FileLoader implements LoaderInterface
      */
     protected $hints = [];
 
-    /**
+    /*
      * Create a new file loader instance.
      *
      * @param  \Illuminate\Filesystem\Filesystem  $files
@@ -40,7 +40,7 @@ class FileLoader implements LoaderInterface
         $this->files = $files;
     }
 
-    /**
+    /*
      * Load the messages for the given locale.
      *
      * @param  string  $locale
@@ -61,7 +61,7 @@ class FileLoader implements LoaderInterface
         return $this->loadNamespaced($locale, $group, $namespace);
     }
 
-    /**
+    /*
      * Load a namespaced translation group.
      *
      * @param  string  $locale
@@ -80,7 +80,7 @@ class FileLoader implements LoaderInterface
         return [];
     }
 
-    /**
+    /*
      * Load a local namespaced translation group for overrides.
      *
      * @param  array  $lines
@@ -100,8 +100,8 @@ class FileLoader implements LoaderInterface
         return $lines;
     }
 
-    /**
-     * Load a locale from a given path.
+    /*
+     * 加载指定路径的文件
      *
      * @param  string  $path
      * @param  string  $locale
@@ -117,7 +117,7 @@ class FileLoader implements LoaderInterface
         return [];
     }
 
-    /**
+    /*
      * Load a locale from the given JSON file path.
      *
      * @param  string  $path
@@ -133,8 +133,8 @@ class FileLoader implements LoaderInterface
         return [];
     }
 
-    /**
-     * Add a new namespace to the loader.
+    /*
+     * 添加一个新的命名空间到翻译器上
      *
      * @param  string  $namespace
      * @param  string  $hint
@@ -145,8 +145,8 @@ class FileLoader implements LoaderInterface
         $this->hints[$namespace] = $hint;
     }
 
-    /**
-     * Get an array of all the registered namespaces.
+    /*
+     * 获取所有注册的命名空间
      *
      * @return array
      */

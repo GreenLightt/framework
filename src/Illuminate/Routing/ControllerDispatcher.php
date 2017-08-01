@@ -8,14 +8,14 @@ class ControllerDispatcher
 {
     use RouteDependencyResolverTrait;
 
-    /**
+    /*
      * The container instance.
      *
      * @var \Illuminate\Container\Container
      */
     protected $container;
 
-    /**
+    /*
      * Create a new controller dispatcher instance.
      *
      * @param  \Illuminate\Container\Container  $container
@@ -26,7 +26,7 @@ class ControllerDispatcher
         $this->container = $container;
     }
 
-    /**
+    /*
      * Dispatch a request to a given controller and method.
      *
      * @param  \Illuminate\Routing\Route  $route
@@ -47,7 +47,7 @@ class ControllerDispatcher
         return $controller->{$method}(...array_values($parameters));
     }
 
-    /**
+    /*
      * Get the middleware for the controller instance.
      *
      * @param  \Illuminate\Routing\Controller  $controller
@@ -65,7 +65,7 @@ class ControllerDispatcher
         })->pluck('middleware')->all();
     }
 
-    /**
+    /*
      * Determine if the given options exclude a particular method.
      *
      * @param  string  $method
