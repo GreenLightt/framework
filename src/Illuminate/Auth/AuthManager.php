@@ -10,7 +10,7 @@ class AuthManager implements FactoryContract
 {
     use CreatesUserProviders;
 
-    /**
+    /*
      * The application instance.
      *
      * @var \Illuminate\Foundation\Application
@@ -40,7 +40,7 @@ class AuthManager implements FactoryContract
      */
     protected $userResolver;
 
-    /**
+    /*
      * Create a new Auth manager instance.
      *
      * @param  \Illuminate\Foundation\Application  $app
@@ -99,7 +99,7 @@ class AuthManager implements FactoryContract
         throw new InvalidArgumentException("Auth guard driver [{$name}] is not defined.");
     }
 
-    /**
+    /*
      * Call a custom driver creator.
      *
      * @param  string  $name
@@ -164,7 +164,7 @@ class AuthManager implements FactoryContract
         return $guard;
     }
 
-    /**
+    /*
      * Get the guard configuration.
      *
      * @param  string  $name

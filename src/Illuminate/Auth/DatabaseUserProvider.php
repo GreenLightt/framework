@@ -10,21 +10,21 @@ use Illuminate\Contracts\Auth\Authenticatable as UserContract;
 
 class DatabaseUserProvider implements UserProvider
 {
-    /**
+    /*
      * The active database connection.
      *
      * @var \Illuminate\Database\ConnectionInterface
      */
     protected $conn;
 
-    /**
+    /*
      * The hasher implementation.
      *
      * @var \Illuminate\Contracts\Hashing\Hasher
      */
     protected $hasher;
 
-    /**
+    /*
      * The table containing the users.
      *
      * @var string
