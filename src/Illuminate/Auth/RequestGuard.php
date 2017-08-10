@@ -9,21 +9,21 @@ class RequestGuard implements Guard
 {
     use GuardHelpers;
 
-    /**
+    /*
      * The guard callback.
      *
      * @var callable
      */
     protected $callback;
 
-    /**
+    /*
      * The request instance.
      *
      * @var \Illuminate\Http\Request
      */
     protected $request;
 
-    /**
+    /*
      * Create a new authentication guard.
      *
      * @param  callable  $callback
@@ -36,7 +36,7 @@ class RequestGuard implements Guard
         $this->callback = $callback;
     }
 
-    /**
+    /*
      * Get the currently authenticated user.
      *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
@@ -55,7 +55,7 @@ class RequestGuard implements Guard
         );
     }
 
-    /**
+    /*
      * Validate a user's credentials.
      *
      * @param  array  $credentials
@@ -68,7 +68,7 @@ class RequestGuard implements Guard
         ))->user());
     }
 
-    /**
+    /*
      * Set the current request instance.
      *
      * @param  \Illuminate\Http\Request  $request

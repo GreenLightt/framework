@@ -18,7 +18,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 {
     use GuardHelpers;
 
-    /**
+    /*
      * The name of the Guard. Typically "session".
      *
      * Corresponds to guard name in authentication configuration.
@@ -41,7 +41,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
      */
     protected $viaRemember = false;
 
-    /**
+    /*
      * The session used by the guard.
      *
      * @var \Illuminate\Contracts\Session\Session
@@ -55,7 +55,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
      */
     protected $cookie;
 
-    /**
+    /*
      * The request instance.
      *
      * @var \Symfony\Component\HttpFoundation\Request
@@ -83,7 +83,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
      */
     protected $recallAttempted = false;
 
-    /**
+    /*
      * Create a new authentication guard.
      *
      * @param  string  $name
@@ -576,7 +576,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         }
     }
 
-    /**
+    /*
      * Fire the authenticated event if the dispatcher is set.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
@@ -589,7 +589,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         }
     }
 
-    /**
+    /*
      * Fire the failed authentication attempt event with the given arguments.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable|null  $user
@@ -603,7 +603,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         }
     }
 
-    /**
+    /*
      * Get the last user we attempted to authenticate.
      *
      * @return \Illuminate\Contracts\Auth\Authenticatable
@@ -643,7 +643,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return $this->viaRemember;
     }
 
-    /**
+    /*
      * Get the cookie creator instance used by the guard.
      *
      * @return \Illuminate\Contracts\Cookie\QueueingFactory
@@ -659,7 +659,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return $this->cookie;
     }
 
-    /**
+    /*
      * Set the cookie creator instance used by the guard.
      *
      * @param  \Illuminate\Contracts\Cookie\QueueingFactory  $cookie
@@ -670,7 +670,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         $this->cookie = $cookie;
     }
 
-    /**
+    /*
      * Get the event dispatcher instance.
      *
      * @return \Illuminate\Contracts\Events\Dispatcher
@@ -680,7 +680,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return $this->events;
     }
 
-    /**
+    /*
      * Set the event dispatcher instance.
      *
      * @param  \Illuminate\Contracts\Events\Dispatcher  $events
@@ -691,7 +691,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         $this->events = $events;
     }
 
-    /**
+    /*
      * Get the session store used by the guard.
      *
      * @return \Illuminate\Session\Store
@@ -701,7 +701,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return $this->session;
     }
 
-    /**
+    /*
      * Get the user provider used by the guard.
      *
      * @return \Illuminate\Contracts\Auth\UserProvider
@@ -711,7 +711,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return $this->provider;
     }
 
-    /**
+    /*
      * Set the user provider used by the guard.
      *
      * @param  \Illuminate\Contracts\Auth\UserProvider  $provider
@@ -722,7 +722,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         $this->provider = $provider;
     }
 
-    /**
+    /*
      * Return the currently cached user.
      *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
@@ -732,7 +732,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return $this->user;
     }
 
-    /**
+    /*
      * Set the current user.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
@@ -749,7 +749,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return $this;
     }
 
-    /**
+    /*
      * Get the current request instance.
      *
      * @return \Symfony\Component\HttpFoundation\Request
@@ -759,7 +759,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return $this->request ?: Request::createFromGlobals();
     }
 
-    /**
+    /*
      * Set the current request instance.
      *
      * @param  \Symfony\Component\HttpFoundation\Request  $request

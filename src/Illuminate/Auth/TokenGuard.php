@@ -10,28 +10,28 @@ class TokenGuard implements Guard
 {
     use GuardHelpers;
 
-    /**
+    /*
      * The request instance.
      *
      * @var \Illuminate\Http\Request
      */
     protected $request;
 
-    /**
+    /*
      * The name of the query string item from the request containing the API token.
      *
      * @var string
      */
     protected $inputKey;
 
-    /**
+    /*
      * The name of the token "column" in persistent storage.
      *
      * @var string
      */
     protected $storageKey;
 
-    /**
+    /*
      * Create a new authentication guard.
      *
      * @param  \Illuminate\Contracts\Auth\UserProvider  $provider
@@ -46,7 +46,7 @@ class TokenGuard implements Guard
         $this->storageKey = 'api_token';
     }
 
-    /**
+    /*
      * Get the currently authenticated user.
      *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
@@ -73,7 +73,7 @@ class TokenGuard implements Guard
         return $this->user = $user;
     }
 
-    /**
+    /*
      * Get the token for the current request.
      *
      * @return string
@@ -118,7 +118,7 @@ class TokenGuard implements Guard
         return false;
     }
 
-    /**
+    /*
      * Set the current request instance.
      *
      * @param  \Illuminate\Http\Request  $request

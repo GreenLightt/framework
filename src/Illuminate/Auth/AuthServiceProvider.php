@@ -25,8 +25,8 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerRequestRebindHandler();
     }
 
-    /**
-     * Register the authenticator services.
+    /*
+     * 注册认证器服务
      *
      * @return void
      */
@@ -46,7 +46,7 @@ class AuthServiceProvider extends ServiceProvider
         });
     }
 
-    /**
+    /*
      * Register a resolver for the authenticated user.
      *
      * @return void

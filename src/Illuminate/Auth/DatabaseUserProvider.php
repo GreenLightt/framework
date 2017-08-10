@@ -31,7 +31,7 @@ class DatabaseUserProvider implements UserProvider
      */
     protected $table;
 
-    /**
+    /*
      * Create a new database user provider.
      *
      * @param  \Illuminate\Database\ConnectionInterface  $conn
@@ -46,7 +46,7 @@ class DatabaseUserProvider implements UserProvider
         $this->hasher = $hasher;
     }
 
-    /**
+    /*
      * Retrieve a user by their unique identifier.
      *
      * @param  mixed  $identifier
@@ -59,7 +59,7 @@ class DatabaseUserProvider implements UserProvider
         return $this->getGenericUser($user);
     }
 
-    /**
+    /*
      * Retrieve a user by their unique identifier and "remember me" token.
      *
      * @param  mixed  $identifier
@@ -76,7 +76,7 @@ class DatabaseUserProvider implements UserProvider
         return $this->getGenericUser($user);
     }
 
-    /**
+    /*
      * Update the "remember me" token for the given user in storage.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
@@ -90,7 +90,7 @@ class DatabaseUserProvider implements UserProvider
                 ->update(['remember_token' => $token]);
     }
 
-    /**
+    /*
      * Retrieve a user by the given credentials.
      *
      * @param  array  $credentials
@@ -117,7 +117,7 @@ class DatabaseUserProvider implements UserProvider
         return $this->getGenericUser($user);
     }
 
-    /**
+    /*
      * Get the generic user.
      *
      * @param  mixed  $user
@@ -130,7 +130,7 @@ class DatabaseUserProvider implements UserProvider
         }
     }
 
-    /**
+    /*
      * Validate a user against the given credentials.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user

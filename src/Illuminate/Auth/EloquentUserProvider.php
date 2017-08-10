@@ -9,21 +9,21 @@ use Illuminate\Contracts\Auth\Authenticatable as UserContract;
 
 class EloquentUserProvider implements UserProvider
 {
-    /**
+    /*
      * The hasher implementation.
      *
      * @var \Illuminate\Contracts\Hashing\Hasher
      */
     protected $hasher;
 
-    /**
+    /*
      * The Eloquent user model.
      *
      * @var string
      */
     protected $model;
 
-    /**
+    /*
      * Create a new database user provider.
      *
      * @param  \Illuminate\Contracts\Hashing\Hasher  $hasher
@@ -36,7 +36,7 @@ class EloquentUserProvider implements UserProvider
         $this->hasher = $hasher;
     }
 
-    /**
+    /*
      * Retrieve a user by their unique identifier.
      *
      * @param  mixed  $identifier
@@ -47,7 +47,7 @@ class EloquentUserProvider implements UserProvider
         return $this->createModel()->newQuery()->find($identifier);
     }
 
-    /**
+    /*
      * Retrieve a user by their unique identifier and "remember me" token.
      *
      * @param  mixed  $identifier
@@ -64,7 +64,7 @@ class EloquentUserProvider implements UserProvider
             ->first();
     }
 
-    /**
+    /*
      * Update the "remember me" token for the given user in storage.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
@@ -84,7 +84,7 @@ class EloquentUserProvider implements UserProvider
         $user->timestamps = $timestamps;
     }
 
-    /**
+    /*
      * Retrieve a user by the given credentials.
      *
      * @param  array  $credentials
@@ -110,7 +110,7 @@ class EloquentUserProvider implements UserProvider
         return $query->first();
     }
 
-    /**
+    /*
      * Validate a user against the given credentials.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
@@ -124,7 +124,7 @@ class EloquentUserProvider implements UserProvider
         return $this->hasher->check($plain, $user->getAuthPassword());
     }
 
-    /**
+    /*
      * Create a new instance of the model.
      *
      * @return \Illuminate\Database\Eloquent\Model
@@ -136,7 +136,7 @@ class EloquentUserProvider implements UserProvider
         return new $class;
     }
 
-    /**
+    /*
      * Gets the hasher implementation.
      *
      * @return \Illuminate\Contracts\Hashing\Hasher
@@ -146,7 +146,7 @@ class EloquentUserProvider implements UserProvider
         return $this->hasher;
     }
 
-    /**
+    /*
      * Sets the hasher implementation.
      *
      * @param  \Illuminate\Contracts\Hashing\Hasher  $hasher
@@ -159,7 +159,7 @@ class EloquentUserProvider implements UserProvider
         return $this;
     }
 
-    /**
+    /*
      * Gets the name of the Eloquent user model.
      *
      * @return string
@@ -169,7 +169,7 @@ class EloquentUserProvider implements UserProvider
         return $this->model;
     }
 
-    /**
+    /*
      * Sets the name of the Eloquent user model.
      *
      * @param  string  $model
