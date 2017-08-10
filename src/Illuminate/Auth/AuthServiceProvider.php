@@ -60,7 +60,7 @@ class AuthServiceProvider extends ServiceProvider
         );
     }
 
-    /**
+    /*
      * Register the access gate service.
      *
      * @return void

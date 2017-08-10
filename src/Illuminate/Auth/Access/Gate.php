@@ -11,49 +11,49 @@ class Gate implements GateContract
 {
     use HandlesAuthorization;
 
-    /**
+    /*
      * The container instance.
      *
      * @var \Illuminate\Contracts\Container\Container
      */
     protected $container;
 
-    /**
+    /*
      * The user resolver callable.
      *
      * @var callable
      */
     protected $userResolver;
 
-    /**
+    /*
      * All of the defined abilities.
      *
      * @var array
      */
     protected $abilities = [];
 
-    /**
+    /*
      * All of the defined policies.
      *
      * @var array
      */
     protected $policies = [];
 
-    /**
+    /*
      * All of the registered before callbacks.
      *
      * @var array
      */
     protected $beforeCallbacks = [];
 
-    /**
+    /*
      * All of the registered after callbacks.
      *
      * @var array
      */
     protected $afterCallbacks = [];
 
-    /**
+    /*
      * Create a new gate instance.
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
@@ -75,7 +75,7 @@ class Gate implements GateContract
         $this->beforeCallbacks = $beforeCallbacks;
     }
 
-    /**
+    /*
      * Determine if a given ability has been defined.
      *
      * @param  string  $ability
