@@ -86,7 +86,7 @@ class Gate implements GateContract
         return isset($this->abilities[$ability]);
     }
 
-    /**
+    /*
      * Define a new ability.
      *
      * @param  string  $ability
@@ -108,7 +108,7 @@ class Gate implements GateContract
         return $this;
     }
 
-    /**
+    /*
      * Create the ability callback for a callback string.
      *
      * @param  string  $callback
@@ -123,7 +123,7 @@ class Gate implements GateContract
         };
     }
 
-    /**
+    /*
      * Define a policy class for a given class type.
      *
      * @param  string  $class
@@ -137,7 +137,7 @@ class Gate implements GateContract
         return $this;
     }
 
-    /**
+    /*
      * Register a callback to run before all Gate checks.
      *
      * @param  callable  $callback
@@ -150,7 +150,7 @@ class Gate implements GateContract
         return $this;
     }
 
-    /**
+    /*
      * Register a callback to run after all Gate checks.
      *
      * @param  callable  $callback
@@ -163,7 +163,7 @@ class Gate implements GateContract
         return $this;
     }
 
-    /**
+    /*
      * Determine if the given ability should be granted for the current user.
      *
      * @param  string  $ability
@@ -175,7 +175,7 @@ class Gate implements GateContract
         return $this->check($ability, $arguments);
     }
 
-    /**
+    /*
      * Determine if the given ability should be denied for the current user.
      *
      * @param  string  $ability
@@ -187,7 +187,7 @@ class Gate implements GateContract
         return ! $this->allows($ability, $arguments);
     }
 
-    /**
+    /*
      * Determine if the given ability should be granted for the current user.
      *
      * @param  string  $ability
@@ -223,7 +223,7 @@ class Gate implements GateContract
         return $result ? $this->allow() : $this->deny();
     }
 
-    /**
+    /*
      * Get the raw result from the authorization callback.
      *
      * @param  string  $ability
@@ -259,7 +259,7 @@ class Gate implements GateContract
         return $result;
     }
 
-    /**
+    /*
      * Resolve and call the appropriate authorization callback.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
@@ -274,7 +274,7 @@ class Gate implements GateContract
         return $callback($user, ...$arguments);
     }
 
-    /**
+    /*
      * Call all of the before callbacks and return if a result is given.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
@@ -293,7 +293,7 @@ class Gate implements GateContract
         }
     }
 
-    /**
+    /*
      * Call all of the after callbacks with check result.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
@@ -311,7 +311,7 @@ class Gate implements GateContract
         }
     }
 
-    /**
+    /*
      * Resolve the callable for the given ability and arguments.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
@@ -336,7 +336,7 @@ class Gate implements GateContract
         }
     }
 
-    /**
+    /*
      * Get a policy instance for a given class.
      *
      * @param  object|string  $class
@@ -363,7 +363,7 @@ class Gate implements GateContract
         }
     }
 
-    /**
+    /*
      * Build a policy class instance of the given type.
      *
      * @param  object|string  $class
@@ -374,7 +374,7 @@ class Gate implements GateContract
         return $this->container->make($class);
     }
 
-    /**
+    /*
      * Resolve the callback for a policy check.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
@@ -415,7 +415,7 @@ class Gate implements GateContract
         };
     }
 
-    /**
+    /*
      * Call the "before" method on the given policy, if applicable.
      *
      * @param  mixed  $policy
@@ -431,7 +431,7 @@ class Gate implements GateContract
         }
     }
 
-    /**
+    /*
      * Format the policy ability into a method name.
      *
      * @param  string  $ability
@@ -442,7 +442,7 @@ class Gate implements GateContract
         return strpos($ability, '-') !== false ? Str::camel($ability) : $ability;
     }
 
-    /**
+    /*
      * Get a gate instance for the given user.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable|mixed  $user
@@ -460,7 +460,7 @@ class Gate implements GateContract
         );
     }
 
-    /**
+    /*
      * Resolve the user from the user resolver.
      *
      * @return mixed

@@ -27,14 +27,14 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
      */
     protected $name;
 
-    /**
+    /*
      * The user we last attempted to retrieve.
      *
      * @var \Illuminate\Contracts\Auth\Authenticatable
      */
     protected $lastAttempted;
 
-    /**
+    /*
      * Indicates if the user was authenticated via a recaller cookie.
      *
      * @var bool
@@ -48,7 +48,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
      */
     protected $session;
 
-    /**
+    /*
      * The Illuminate cookie creator service.
      *
      * @var \Illuminate\Contracts\Cookie\QueueingFactory
@@ -62,14 +62,14 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
      */
     protected $request;
 
-    /**
+    /*
      * The event dispatcher instance.
      *
      * @var \Illuminate\Contracts\Events\Dispatcher
      */
     protected $events;
 
-    /**
+    /*
      * Indicates if the logout method has been called.
      *
      * @var bool
@@ -103,7 +103,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         $this->provider = $provider;
     }
 
-    /**
+    /*
      * Get the currently authenticated user.
      *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
@@ -152,7 +152,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return $this->user = $user;
     }
 
-    /**
+    /*
      * Pull a user from the repository by its "remember me" cookie token.
      *
      * @param  string  $recaller
@@ -176,7 +176,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return $user;
     }
 
-    /**
+    /*
      * Get the decrypted recaller cookie for the request.
      *
      * @return \Illuminate\Auth\Recaller|null
@@ -192,7 +192,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         }
     }
 
-    /**
+    /*
      * Get the ID for the currently authenticated user.
      *
      * @return int|null
@@ -208,7 +208,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
                     : $this->session->get($this->getName());
     }
 
-    /**
+    /*
      * Log a user into the application without sessions or cookies.
      *
      * @param  array  $credentials
@@ -227,7 +227,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return false;
     }
 
-    /**
+    /*
      * Log the given user ID into the application without sessions or cookies.
      *
      * @param  mixed  $id
@@ -244,7 +244,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return false;
     }
 
-    /**
+    /*
      * Validate a user's credentials.
      *
      * @param  array  $credentials
@@ -257,7 +257,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return $this->hasValidCredentials($user, $credentials);
     }
 
-    /**
+    /*
      * Attempt to authenticate using HTTP Basic Auth.
      *
      * @param  string  $field
@@ -280,7 +280,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return $this->failedBasicResponse();
     }
 
-    /**
+    /*
      * Perform a stateless HTTP Basic login attempt.
      *
      * @param  string  $field
@@ -296,7 +296,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         }
     }
 
-    /**
+    /*
      * Attempt to authenticate using basic authentication.
      *
      * @param  \Symfony\Component\HttpFoundation\Request  $request
@@ -315,7 +315,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         ));
     }
 
-    /**
+    /*
      * Get the credential array for a HTTP Basic request.
      *
      * @param  \Symfony\Component\HttpFoundation\Request  $request
@@ -327,7 +327,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return [$field => $request->getUser(), 'password' => $request->getPassword()];
     }
 
-    /**
+    /*
      * Get the response for basic authentication.
      *
      * @return \Symfony\Component\HttpFoundation\Response
@@ -337,7 +337,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return new Response('Invalid credentials.', 401, ['WWW-Authenticate' => 'Basic']);
     }
 
-    /**
+    /*
      * Attempt to authenticate a user using the given credentials.
      *
      * @param  array  $credentials
@@ -367,7 +367,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return false;
     }
 
-    /**
+    /*
      * Determine if the user matches the credentials.
      *
      * @param  mixed  $user
@@ -379,7 +379,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return ! is_null($user) && $this->provider->validateCredentials($user, $credentials);
     }
 
-    /**
+    /*
      * Log the given user ID into the application.
      *
      * @param  mixed  $id
@@ -397,7 +397,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return false;
     }
 
-    /**
+    /*
      * Log a user into the application.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
@@ -425,7 +425,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         $this->setUser($user);
     }
 
-    /**
+    /*
      * Update the session with the given ID.
      *
      * @param  string  $id
@@ -438,7 +438,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         $this->session->migrate(true);
     }
 
-    /**
+    /*
      * Create a new "remember me" token for the user if one doesn't already exist.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
@@ -451,7 +451,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         }
     }
 
-    /**
+    /*
      * Queue the recaller cookie into the cookie jar.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
@@ -464,7 +464,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         ));
     }
 
-    /**
+    /*
      * Create a "remember me" cookie for a given ID.
      *
      * @param  string  $value
@@ -475,7 +475,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return $this->getCookieJar()->forever($this->getRecallerName(), $value);
     }
 
-    /**
+    /*
      * Log the user out of the application.
      *
      * @return void
@@ -505,7 +505,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         $this->loggedOut = true;
     }
 
-    /**
+    /*
      * Remove the user data from the session and cookies.
      *
      * @return void
@@ -520,7 +520,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         }
     }
 
-    /**
+    /*
      * Refresh the "remember me" token for the user.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
@@ -533,7 +533,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         $this->provider->updateRememberToken($user, $token);
     }
 
-    /**
+    /*
      * Register an authentication attempt event listener.
      *
      * @param  mixed  $callback
@@ -546,7 +546,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         }
     }
 
-    /**
+    /*
      * Fire the attempt event with the arguments.
      *
      * @param  array  $credentials
@@ -562,7 +562,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         }
     }
 
-    /**
+    /*
      * Fire the login event if the dispatcher is set.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
@@ -613,7 +613,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return $this->lastAttempted;
     }
 
-    /**
+    /*
      * Get a unique identifier for the auth session value.
      *
      * @return string
@@ -623,7 +623,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return 'login_'.$this->name.'_'.sha1(static::class);
     }
 
-    /**
+    /*
      * Get the name of the cookie used to store the "recaller".
      *
      * @return string
@@ -633,7 +633,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         return 'remember_'.$this->name.'_'.sha1(static::class);
     }
 
-    /**
+    /*
      * Determine if the user was authenticated via "remember me" cookie.
      *
      * @return bool

@@ -13,7 +13,7 @@ class Recaller
      */
     protected $recaller;
 
-    /**
+    /*
      * Create a new recaller instance.
      *
      * @param  string  $recaller
@@ -24,7 +24,7 @@ class Recaller
         $this->recaller = $recaller;
     }
 
-    /**
+    /*
      * Get the user ID from the recaller.
      *
      * @return string
@@ -34,7 +34,7 @@ class Recaller
         return explode('|', $this->recaller, 2)[0];
     }
 
-    /**
+    /*
      * Get the "remember token" token from the recaller.
      *
      * @return string
@@ -44,7 +44,7 @@ class Recaller
         return explode('|', $this->recaller, 2)[1];
     }
 
-    /**
+    /*
      * Determine if the recaller is valid.
      *
      * @return bool
@@ -54,7 +54,7 @@ class Recaller
         return $this->properString() && $this->hasBothSegments();
     }
 
-    /**
+    /*
      * Determine if the recaller is an invalid string.
      *
      * @return bool
@@ -64,7 +64,7 @@ class Recaller
         return is_string($this->recaller) && Str::contains($this->recaller, '|');
     }
 
-    /**
+    /*
      * Determine if the recaller has both segments.
      *
      * @return bool
