@@ -10,14 +10,14 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class PusherBroadcaster extends Broadcaster
 {
-    /**
+    /*
      * The Pusher SDK instance.
      *
      * @var \Pusher
      */
     protected $pusher;
 
-    /**
+    /*
      * Create a new broadcaster instance.
      *
      * @param  \Pusher  $pusher
@@ -28,7 +28,7 @@ class PusherBroadcaster extends Broadcaster
         $this->pusher = $pusher;
     }
 
-    /**
+    /*
      * Authenticate the incoming request for a given channel.
      *
      * @param  \Illuminate\Http\Request  $request

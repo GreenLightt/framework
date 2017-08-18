@@ -13,7 +13,7 @@ use Illuminate\Contracts\Broadcasting\Broadcaster as BroadcasterContract;
 
 abstract class Broadcaster implements BroadcasterContract
 {
-    /**
+    /*
      * The registered channel authenticators.
      *
      * @var array
@@ -27,7 +27,7 @@ abstract class Broadcaster implements BroadcasterContract
      */
     protected $bindingRegistrar;
 
-    /**
+    /*
      * Register a channel authenticator.
      *
      * @param  string  $channel
@@ -84,7 +84,7 @@ abstract class Broadcaster implements BroadcasterContract
         })->values()->all();
     }
 
-    /**
+    /*
      * Extract the channel keys from the incoming channel name.
      *
      * @param  string  $pattern
@@ -171,7 +171,7 @@ abstract class Broadcaster implements BroadcasterContract
                 $parameter->getClass()->isSubclassOf(Model::class);
     }
 
-    /**
+    /*
      * Format the channel array into an array of strings.
      *
      * @param  array  $channels

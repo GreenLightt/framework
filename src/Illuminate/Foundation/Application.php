@@ -851,7 +851,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
         return $this->bootstrapPath().'/cache/config.php';
     }
 
-    /**
+    /*
      * 判断是否存在路由缓存文件
      *
      * @return bool
@@ -861,7 +861,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
         return $this['files']->exists($this->getCachedRoutesPath());
     }
 
-    /**
+    /*
      * 获取路由缓存文件
      *
      * @return string

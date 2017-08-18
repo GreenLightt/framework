@@ -16,7 +16,7 @@ use Illuminate\Contracts\Broadcasting\Factory as FactoryContract;
 
 class BroadcastManager implements FactoryContract
 {
-    /**
+    /*
      * The application instance.
      *
      * @var \Illuminate\Foundation\Application
@@ -37,7 +37,7 @@ class BroadcastManager implements FactoryContract
      */
     protected $customCreators = [];
 
-    /**
+    /*
      * Create a new manager instance.
      *
      * @param  \Illuminate\Foundation\Application  $app
@@ -48,7 +48,7 @@ class BroadcastManager implements FactoryContract
         $this->app = $app;
     }
 
-    /**
+    /*
      * Register the routes for handling broadcast authentication and sockets.
      *
      * @param  array|null  $attributes
@@ -67,7 +67,7 @@ class BroadcastManager implements FactoryContract
         });
     }
 
-    /**
+    /*
      * Get the socket ID for the given request.
      *
      * @param  \Illuminate\Http\Request|null  $request
@@ -124,7 +124,7 @@ class BroadcastManager implements FactoryContract
         );
     }
 
-    /**
+    /*
      * Get a driver instance.
      *
      * @param  string  $driver
@@ -135,7 +135,7 @@ class BroadcastManager implements FactoryContract
         return $this->driver($driver);
     }
 
-    /**
+    /*
      * Get a driver instance.
      *
      * @param  string  $name
@@ -148,7 +148,7 @@ class BroadcastManager implements FactoryContract
         return $this->drivers[$name] = $this->get($name);
     }
 
-    /**
+    /*
      * Attempt to get the connection from the local cache.
      *
      * @param  string  $name
@@ -159,7 +159,7 @@ class BroadcastManager implements FactoryContract
         return isset($this->drivers[$name]) ? $this->drivers[$name] : $this->resolve($name);
     }
 
-    /**
+    /*
      * Resolve the given store.
      *
      * @param  string  $name
@@ -188,7 +188,7 @@ class BroadcastManager implements FactoryContract
         return $this->{$driverMethod}($config);
     }
 
-    /**
+    /*
      * Call a custom driver creator.
      *
      * @param  array  $config
@@ -199,7 +199,7 @@ class BroadcastManager implements FactoryContract
         return $this->customCreators[$config['driver']]($this->app, $config);
     }
 
-    /**
+    /*
      * Create an instance of the driver.
      *
      * @param  array  $config
@@ -213,7 +213,7 @@ class BroadcastManager implements FactoryContract
         );
     }
 
-    /**
+    /*
      * Create an instance of the driver.
      *
      * @param  array  $config
@@ -226,7 +226,7 @@ class BroadcastManager implements FactoryContract
         );
     }
 
-    /**
+    /*
      * Create an instance of the driver.
      *
      * @param  array  $config
@@ -239,7 +239,7 @@ class BroadcastManager implements FactoryContract
         );
     }
 
-    /**
+    /*
      * Create an instance of the driver.
      *
      * @param  array  $config
@@ -250,7 +250,7 @@ class BroadcastManager implements FactoryContract
         return new NullBroadcaster;
     }
 
-    /**
+    /*
      * Get the connection configuration.
      *
      * @param  string  $name
@@ -261,7 +261,7 @@ class BroadcastManager implements FactoryContract
         return $this->app['config']["broadcasting.connections.{$name}"];
     }
 
-    /**
+    /*
      * Get the default driver name.
      *
      * @return string
@@ -271,7 +271,7 @@ class BroadcastManager implements FactoryContract
         return $this->app['config']['broadcasting.default'];
     }
 
-    /**
+    /*
      * Set the default driver name.
      *
      * @param  string  $name
@@ -282,7 +282,7 @@ class BroadcastManager implements FactoryContract
         $this->app['config']['broadcasting.default'] = $name;
     }
 
-    /**
+    /*
      * Register a custom driver creator Closure.
      *
      * @param  string    $driver
@@ -296,7 +296,7 @@ class BroadcastManager implements FactoryContract
         return $this;
     }
 
-    /**
+    /*
      * Dynamically call the default driver instance.
      *
      * @param  string  $method
