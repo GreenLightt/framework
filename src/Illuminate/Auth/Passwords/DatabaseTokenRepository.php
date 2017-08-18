@@ -10,42 +10,42 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 class DatabaseTokenRepository implements TokenRepositoryInterface
 {
-    /**
+    /*
      * The database connection instance.
      *
      * @var \Illuminate\Database\ConnectionInterface
      */
     protected $connection;
 
-    /**
+    /*
      * The Hasher implementation.
      *
      * @var \Illuminate\Contracts\Hashing\Hasher
      */
     protected $hasher;
 
-    /**
+    /*
      * The token database table.
      *
      * @var string
      */
     protected $table;
 
-    /**
+    /*
      * The hashing key.
      *
      * @var string
      */
     protected $hashKey;
 
-    /**
+    /*
      * The number of seconds a token should last.
      *
      * @var int
      */
     protected $expires;
 
-    /**
+    /*
      * Create a new token repository instance.
      *
      * @param  \Illuminate\Database\ConnectionInterface  $connection
@@ -65,7 +65,7 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
         $this->connection = $connection;
     }
 
-    /**
+    /*
      * Create a new token record.
      *
      * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
@@ -87,7 +87,7 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
         return $token;
     }
 
-    /**
+    /*
      * Delete all existing reset tokens from the database.
      *
      * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
@@ -110,7 +110,7 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
         return ['email' => $email, 'token' => $this->hasher->make($token), 'created_at' => new Carbon];
     }
 
-    /**
+    /*
      * Determine if a token record exists and is valid.
      *
      * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
@@ -128,7 +128,7 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
                  $this->hasher->check($token, $record['token']);
     }
 
-    /**
+    /*
      * Determine if the token has expired.
      *
      * @param  string  $createdAt
@@ -150,7 +150,7 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
         $this->deleteExisting($user);
     }
 
-    /**
+    /*
      * Delete expired tokens.
      *
      * @return void
@@ -172,7 +172,7 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
         return hash_hmac('sha256', Str::random(40), $this->hashKey);
     }
 
-    /**
+    /*
      * Get the database connection instance.
      *
      * @return \Illuminate\Database\ConnectionInterface
@@ -182,7 +182,7 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
         return $this->connection;
     }
 
-    /**
+    /*
      * Begin a new database query against the table.
      *
      * @return \Illuminate\Database\Query\Builder
@@ -192,7 +192,7 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
         return $this->connection->table($this->table);
     }
 
-    /**
+    /*
      * Get the hasher instance.
      *
      * @return \Illuminate\Contracts\Hashing\Hasher

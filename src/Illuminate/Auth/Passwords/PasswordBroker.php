@@ -11,14 +11,14 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 class PasswordBroker implements PasswordBrokerContract
 {
-    /**
+    /*
      * The password token repository.
      *
      * @var \Illuminate\Auth\Passwords\TokenRepositoryInterface
      */
     protected $tokens;
 
-    /**
+    /*
      * The user provider implementation.
      *
      * @var \Illuminate\Contracts\Auth\UserProvider
@@ -32,7 +32,7 @@ class PasswordBroker implements PasswordBrokerContract
      */
     protected $passwordValidator;
 
-    /**
+    /*
      * Create a new password broker instance.
      *
      * @param  \Illuminate\Auth\Passwords\TokenRepositoryInterface  $tokens
@@ -46,7 +46,7 @@ class PasswordBroker implements PasswordBrokerContract
         $this->tokens = $tokens;
     }
 
-    /**
+    /*
      * Send a password reset link to a user.
      *
      * @param  array  $credentials
@@ -73,7 +73,7 @@ class PasswordBroker implements PasswordBrokerContract
         return static::RESET_LINK_SENT;
     }
 
-    /**
+    /*
      * Reset the password for the given token.
      *
      * @param  array  $credentials
@@ -103,7 +103,7 @@ class PasswordBroker implements PasswordBrokerContract
         return static::PASSWORD_RESET;
     }
 
-    /**
+    /*
      * Validate a password reset for the given credentials.
      *
      * @param  array  $credentials
@@ -126,7 +126,7 @@ class PasswordBroker implements PasswordBrokerContract
         return $user;
     }
 
-    /**
+    /*
      * Set a custom password validator.
      *
      * @param  \Closure  $callback
@@ -137,7 +137,7 @@ class PasswordBroker implements PasswordBrokerContract
         $this->passwordValidator = $callback;
     }
 
-    /**
+    /*
      * Determine if the passwords match for the request.
      *
      * @param  array  $credentials
@@ -159,7 +159,7 @@ class PasswordBroker implements PasswordBrokerContract
         return $this->validatePasswordWithDefaults($credentials);
     }
 
-    /**
+    /*
      * Determine if the passwords are valid for the request.
      *
      * @param  array  $credentials
@@ -175,7 +175,7 @@ class PasswordBroker implements PasswordBrokerContract
         return $password === $confirm && mb_strlen($password) >= 6;
     }
 
-    /**
+    /*
      * Get the user for the given credentials.
      *
      * @param  array  $credentials
@@ -196,7 +196,7 @@ class PasswordBroker implements PasswordBrokerContract
         return $user;
     }
 
-    /**
+    /*
      * Create a new password reset token for the given user.
      *
      * @param  CanResetPasswordContract $user
@@ -207,7 +207,7 @@ class PasswordBroker implements PasswordBrokerContract
         return $this->tokens->create($user);
     }
 
-    /**
+    /*
      * Delete password reset tokens of the given user.
      *
      * @param  \Illuminate\Contracts\Auth\CanResetPassword $user
@@ -218,7 +218,7 @@ class PasswordBroker implements PasswordBrokerContract
         $this->tokens->delete($user);
     }
 
-    /**
+    /*
      * Validate the given password reset token.
      *
      * @param  CanResetPasswordContract $user
@@ -230,7 +230,7 @@ class PasswordBroker implements PasswordBrokerContract
         return $this->tokens->exists($user, $token);
     }
 
-    /**
+    /*
      * Get the password reset token repository implementation.
      *
      * @return \Illuminate\Auth\Passwords\TokenRepositoryInterface

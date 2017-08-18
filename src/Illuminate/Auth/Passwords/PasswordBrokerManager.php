@@ -15,14 +15,14 @@ class PasswordBrokerManager implements FactoryContract
      */
     protected $app;
 
-    /**
+    /*
      * The array of created "drivers".
      *
      * @var array
      */
     protected $brokers = [];
 
-    /**
+    /*
      * Create a new PasswordBroker manager instance.
      *
      * @param  \Illuminate\Foundation\Application  $app
@@ -33,7 +33,7 @@ class PasswordBrokerManager implements FactoryContract
         $this->app = $app;
     }
 
-    /**
+    /*
      * Attempt to get the broker from the local cache.
      *
      * @param  string  $name
@@ -48,7 +48,7 @@ class PasswordBrokerManager implements FactoryContract
                     : $this->brokers[$name] = $this->resolve($name);
     }
 
-    /**
+    /*
      * Resolve the given broker.
      *
      * @param  string  $name
@@ -73,7 +73,7 @@ class PasswordBrokerManager implements FactoryContract
         );
     }
 
-    /**
+    /*
      * Create a token repository instance based on the given configuration.
      *
      * @param  array  $config
@@ -98,7 +98,7 @@ class PasswordBrokerManager implements FactoryContract
         );
     }
 
-    /**
+    /*
      * Get the password broker configuration.
      *
      * @param  string  $name
@@ -109,7 +109,7 @@ class PasswordBrokerManager implements FactoryContract
         return $this->app['config']["auth.passwords.{$name}"];
     }
 
-    /**
+    /*
      * Get the default password broker name.
      *
      * @return string
@@ -119,7 +119,7 @@ class PasswordBrokerManager implements FactoryContract
         return $this->app['config']['auth.defaults.passwords'];
     }
 
-    /**
+    /*
      * Set the default password broker name.
      *
      * @param  string  $name
@@ -130,7 +130,7 @@ class PasswordBrokerManager implements FactoryContract
         $this->app['config']['auth.defaults.passwords'] = $name;
     }
 
-    /**
+    /*
      * Dynamically call the default driver instance.
      *
      * @param  string  $method
