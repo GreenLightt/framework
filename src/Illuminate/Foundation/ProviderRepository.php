@@ -29,7 +29,7 @@ class ProviderRepository
      */
     protected $manifestPath;
 
-    /**
+    /*
      * Create a new service repository instance.
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
@@ -44,7 +44,7 @@ class ProviderRepository
         $this->manifestPath = $manifestPath;
     }
 
-    /**
+    /*
      * Register the application service providers.
      *
      * @param  array  $providers
@@ -78,7 +78,7 @@ class ProviderRepository
         $this->app->addDeferredServices($manifest['deferred']);
     }
 
-    /**
+    /*
      * Load the service provider manifest JSON file.
      *
      * @return array|null
@@ -97,7 +97,7 @@ class ProviderRepository
         }
     }
 
-    /**
+    /*
      * Determine if the manifest should be compiled.
      *
      * @param  array  $manifest
@@ -109,7 +109,7 @@ class ProviderRepository
         return is_null($manifest) || $manifest['providers'] != $providers;
     }
 
-    /**
+    /*
      * Register the load events for the given provider.
      *
      * @param  string  $provider
@@ -127,7 +127,7 @@ class ProviderRepository
         });
     }
 
-    /**
+    /*
      * Compile the application service manifest file.
      *
      * @param  array  $providers
@@ -165,7 +165,7 @@ class ProviderRepository
         return $this->writeManifest($manifest);
     }
 
-    /**
+    /*
      * Create a fresh service manifest data structure.
      *
      * @param  array  $providers
@@ -176,7 +176,7 @@ class ProviderRepository
         return ['providers' => $providers, 'eager' => [], 'deferred' => []];
     }
 
-    /**
+    /*
      * Write the service manifest file to disk.
      *
      * @param  array  $manifest
@@ -197,7 +197,7 @@ class ProviderRepository
         return array_merge(['when' => []], $manifest);
     }
 
-    /**
+    /*
      * Create a new provider instance.
      *
      * @param  string  $provider

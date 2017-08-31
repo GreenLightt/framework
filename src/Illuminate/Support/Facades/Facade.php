@@ -8,14 +8,14 @@ use Mockery\MockInterface;
 
 abstract class Facade
 {
-    /**
+    /*
      * The application instance being facaded.
      *
      * @var \Illuminate\Contracts\Foundation\Application
      */
     protected static $app;
 
-    /**
+    /*
      * The resolved object instances.
      *
      * @var array
@@ -159,7 +159,7 @@ abstract class Facade
         return static::$resolvedInstance[$name] = static::$app[$name];
     }
 
-    /**
+    /*
      * Clear a resolved facade instance.
      *
      * @param  string  $name
@@ -170,7 +170,7 @@ abstract class Facade
         unset(static::$resolvedInstance[$name]);
     }
 
-    /**
+    /*
      * Clear all of the resolved instances.
      *
      * @return void
@@ -180,7 +180,7 @@ abstract class Facade
         static::$resolvedInstance = [];
     }
 
-    /**
+    /*
      * Get the application instance behind the facade.
      *
      * @return \Illuminate\Contracts\Foundation\Application
@@ -190,7 +190,7 @@ abstract class Facade
         return static::$app;
     }
 
-    /**
+    /*
      * Set the application instance.
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
