@@ -102,7 +102,7 @@ class Kernel implements KernelContract
         }
     }
 
-    /**
+    /*
      * Handle an incoming HTTP request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -111,6 +111,7 @@ class Kernel implements KernelContract
     public function handle($request)
     {
         try {
+            // 开启 Http 方法参数覆盖，即若存在 _method 参数，则使用该值
             $request->enableHttpMethodParameterOverride();
 
             $response = $this->sendRequestThroughRouter($request);
@@ -149,7 +150,7 @@ class Kernel implements KernelContract
                     ->then($this->dispatchToRouter());
     }
 
-    /**
+    /*
      * Bootstrap the application for HTTP requests.
      *
      * @return void
@@ -161,7 +162,7 @@ class Kernel implements KernelContract
         }
     }
 
-    /**
+    /*
      * Get the route dispatcher callback.
      *
      * @return \Closure
@@ -175,7 +176,7 @@ class Kernel implements KernelContract
         };
     }
 
-    /**
+    /*
      * Call the terminate method on any terminable middleware.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -189,7 +190,7 @@ class Kernel implements KernelContract
         $this->app->terminate();
     }
 
-    /**
+    /*
      * Call the terminate method on any terminable middleware.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -218,7 +219,7 @@ class Kernel implements KernelContract
         }
     }
 
-    /**
+    /*
      * Gather the route middleware for the given request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -291,7 +292,7 @@ class Kernel implements KernelContract
         return $this;
     }
 
-    /**
+    /*
      * Get the bootstrap classes for the application.
      *
      * @return array
@@ -301,7 +302,7 @@ class Kernel implements KernelContract
         return $this->bootstrappers;
     }
 
-    /**
+    /*
      * Report the exception to the exception handler.
      *
      * @param  \Exception  $e
@@ -312,7 +313,7 @@ class Kernel implements KernelContract
         $this->app[ExceptionHandler::class]->report($e);
     }
 
-    /**
+    /*
      * Render the exception to a response.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -324,7 +325,7 @@ class Kernel implements KernelContract
         return $this->app[ExceptionHandler::class]->render($request, $e);
     }
 
-    /**
+    /*
      * Get the Laravel application instance.
      *
      * @return \Illuminate\Contracts\Foundation\Application

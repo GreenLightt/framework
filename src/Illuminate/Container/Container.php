@@ -12,7 +12,7 @@ use Illuminate\Contracts\Container\Container as ContainerContract;
 
 class Container implements ArrayAccess, ContainerContract
 {
-    /**
+    /*
      * 服务容器实例
      *
      * @var static
@@ -131,7 +131,7 @@ class Container implements ArrayAccess, ContainerContract
      */
     protected $afterResolvingCallbacks = [];
 
-    /**
+    /*
      * Define a contextual binding.
      *
      * @param  string  $concrete
@@ -142,7 +142,7 @@ class Container implements ArrayAccess, ContainerContract
         return new ContextualBindingBuilder($this, $this->getAlias($concrete));
     }
 
-    /**
+    /*
      * 判断是否指定的抽象类已经被绑定到服务容器中
      *
      * @param  string  $abstract
@@ -155,7 +155,7 @@ class Container implements ArrayAccess, ContainerContract
                $this->isAlias($abstract);
     }
 
-    /**
+    /*
      * Determine if the given abstract type has been resolved.
      *
      * @param  string  $abstract
@@ -171,7 +171,7 @@ class Container implements ArrayAccess, ContainerContract
                isset($this->instances[$abstract]);
     }
 
-    /**
+    /*
      * 判断给定的类，是否是单例
      *
      * @param  string  $abstract
@@ -184,7 +184,7 @@ class Container implements ArrayAccess, ContainerContract
                $this->bindings[$abstract]['shared'] === true);
     }
 
-    /**
+    /*
      * 判断给定的字符串是否是别名
      *
      * @param  string  $name
@@ -195,7 +195,7 @@ class Container implements ArrayAccess, ContainerContract
         return isset($this->aliases[$name]);
     }
 
-    /**
+    /*
      * Register a binding with the container.
      *
      * @param  string|array  $abstract
@@ -231,7 +231,7 @@ class Container implements ArrayAccess, ContainerContract
         }
     }
 
-    /**
+    /*
      * Get the Closure to be used when building a type.
      *
      * @param  string  $abstract
@@ -282,7 +282,7 @@ class Container implements ArrayAccess, ContainerContract
         return call_user_func($this->methodBindings[$method], $instance, $this);
     }
 
-    /**
+    /*
      * Add a contextual binding to the container.
      *
      * @param  string  $concrete
@@ -295,7 +295,7 @@ class Container implements ArrayAccess, ContainerContract
         $this->contextual[$concrete][$this->getAlias($abstract)] = $implementation;
     }
 
-    /**
+    /*
      * 如果服务容器未绑定过指定类，则进行绑定操作
      *
      * @param  string  $abstract
@@ -310,7 +310,7 @@ class Container implements ArrayAccess, ContainerContract
         }
     }
 
-    /**
+    /*
      * 在服务容器中，绑定单例的抽象类
      *
      * @param  string|array  $abstract
@@ -322,7 +322,7 @@ class Container implements ArrayAccess, ContainerContract
         $this->bind($abstract, $concrete, true);
     }
 
-    /**
+    /*
      * "Extend" an abstract type in the container.
      *
      * @param  string    $abstract
@@ -344,7 +344,7 @@ class Container implements ArrayAccess, ContainerContract
         }
     }
 
-    /**
+    /*
      * Register an existing instance as shared in the container.
      *
      * @param  string  $abstract
@@ -367,7 +367,7 @@ class Container implements ArrayAccess, ContainerContract
         }
     }
 
-    /**
+    /*
      * Remove an alias from the contextual binding alias cache.
      *
      * @param  string  $searched
@@ -388,7 +388,7 @@ class Container implements ArrayAccess, ContainerContract
         }
     }
 
-    /**
+    /*
      * 在服务容器中，给指定的抽象类添加标签
      *
      * @param  array|string  $abstracts
@@ -410,7 +410,7 @@ class Container implements ArrayAccess, ContainerContract
         }
     }
 
-    /**
+    /*
      * Resolve all of the bindings for a given tag.
      *
      * @param  string  $tag
@@ -429,7 +429,7 @@ class Container implements ArrayAccess, ContainerContract
         return $results;
     }
 
-    /**
+    /*
      * 在服务容器中，给指定的抽象类起别名
      *
      * @param  string  $abstract
@@ -443,7 +443,7 @@ class Container implements ArrayAccess, ContainerContract
         $this->abstractAliases[$abstract][] = $alias;
     }
 
-    /**
+    /*
      * Bind a new callback to an abstract's rebind event.
      *
      * @param  string    $abstract
@@ -459,7 +459,7 @@ class Container implements ArrayAccess, ContainerContract
         }
     }
 
-    /**
+    /*
      * Refresh an instance on the given target and method.
      *
      * @param  string  $abstract
@@ -474,7 +474,7 @@ class Container implements ArrayAccess, ContainerContract
         });
     }
 
-    /**
+    /*
      * Fire the "rebound" callbacks for the given abstract type.
      *
      * @param  string  $abstract
@@ -489,7 +489,7 @@ class Container implements ArrayAccess, ContainerContract
         }
     }
 
-    /**
+    /*
      * Get the rebound callbacks for a given type.
      *
      * @param  string  $abstract
@@ -504,7 +504,7 @@ class Container implements ArrayAccess, ContainerContract
         return [];
     }
 
-    /**
+    /*
      * Wrap the given closure such that its dependencies will be injected when executed.
      *
      * @param  \Closure  $callback
@@ -531,7 +531,7 @@ class Container implements ArrayAccess, ContainerContract
         return BoundMethod::call($this, $callback, $parameters, $defaultMethod);
     }
 
-    /**
+    /*
      * Get a closure to resolve the given type from the container.
      *
      * @param  string  $abstract
@@ -544,7 +544,7 @@ class Container implements ArrayAccess, ContainerContract
         };
     }
 
-    /**
+    /*
      * Resolve the given type with the given parameter overrides.
      *
      * @param  string  $abstract
@@ -556,7 +556,7 @@ class Container implements ArrayAccess, ContainerContract
         return $this->resolve($abstract, $parameters);
     }
 
-    /**
+    /*
      * Resolve the given type from the container.
      *
      * @param  string  $abstract
@@ -567,7 +567,7 @@ class Container implements ArrayAccess, ContainerContract
         return $this->resolve($abstract);
     }
 
-    /**
+    /*
      * Resolve the given type from the container.
      *
      * @param  string  $abstract
@@ -626,7 +626,7 @@ class Container implements ArrayAccess, ContainerContract
         return $object;
     }
 
-    /**
+    /*
      * Get the concrete type for a given abstract.
      *
      * @param  string  $abstract
@@ -648,7 +648,7 @@ class Container implements ArrayAccess, ContainerContract
         return $abstract;
     }
 
-    /**
+    /*
      * Get the contextual concrete binding for the given abstract.
      *
      * @param  string  $abstract
@@ -674,7 +674,7 @@ class Container implements ArrayAccess, ContainerContract
         }
     }
 
-    /**
+    /*
      * Find the concrete binding for the given abstract in the contextual binding array.
      *
      * @param  string  $abstract
@@ -687,7 +687,7 @@ class Container implements ArrayAccess, ContainerContract
         }
     }
 
-    /**
+    /*
      * Determine if the given concrete is buildable.
      *
      * @param  mixed   $concrete
@@ -699,7 +699,7 @@ class Container implements ArrayAccess, ContainerContract
         return $concrete === $abstract || $concrete instanceof Closure;
     }
 
-    /**
+    /*
      * Instantiate a concrete instance of the given type.
      *
      * @param  string  $concrete
@@ -888,7 +888,7 @@ class Container implements ArrayAccess, ContainerContract
         throw new BindingResolutionException($message);
     }
 
-    /**
+    /*
      * Register a new resolving callback.
      *
      * @param  string    $abstract
@@ -908,7 +908,7 @@ class Container implements ArrayAccess, ContainerContract
         }
     }
 
-    /**
+    /*
      * Register a new after resolving callback for all types.
      *
      * @param  string   $abstract
@@ -928,7 +928,7 @@ class Container implements ArrayAccess, ContainerContract
         }
     }
 
-    /**
+    /*
      * Fire all of the resolving callbacks.
      *
      * @param  string  $abstract
@@ -946,7 +946,7 @@ class Container implements ArrayAccess, ContainerContract
         $this->fireAfterResolvingCallbacks($abstract, $object);
     }
 
-    /**
+    /*
      * Fire all of the after resolving callbacks.
      *
      * @param  string  $abstract
@@ -962,7 +962,7 @@ class Container implements ArrayAccess, ContainerContract
         );
     }
 
-    /**
+    /*
      * Get all callbacks for a given type.
      *
      * @param  string  $abstract
@@ -984,7 +984,7 @@ class Container implements ArrayAccess, ContainerContract
         return $results;
     }
 
-    /**
+    /*
      * Fire an array of callbacks with an object.
      *
      * @param  mixed  $object
@@ -998,7 +998,7 @@ class Container implements ArrayAccess, ContainerContract
         }
     }
 
-    /**
+    /*
      * Get the container's bindings.
      *
      * @return array
@@ -1008,7 +1008,7 @@ class Container implements ArrayAccess, ContainerContract
         return $this->bindings;
     }
 
-    /**
+    /*
      * Get the alias for an abstract if available.
      *
      * @param  string  $abstract
@@ -1029,7 +1029,7 @@ class Container implements ArrayAccess, ContainerContract
         return $this->getAlias($this->aliases[$abstract]);
     }
 
-    /**
+    /*
      * Get the extender callbacks for a given type.
      *
      * @param  string  $abstract
@@ -1046,7 +1046,7 @@ class Container implements ArrayAccess, ContainerContract
         return [];
     }
 
-    /**
+    /*
      * 移除与指定类相关的绑定
      *
      * @param  string  $abstract
@@ -1057,7 +1057,7 @@ class Container implements ArrayAccess, ContainerContract
         unset($this->instances[$abstract], $this->aliases[$abstract]);
     }
 
-    /**
+    /*
      * Remove a resolved instance from the instance cache.
      *
      * @param  string  $abstract
@@ -1068,7 +1068,7 @@ class Container implements ArrayAccess, ContainerContract
         unset($this->instances[$abstract]);
     }
 
-    /**
+    /*
      * Clear all of the instances from the container.
      *
      * @return void
@@ -1078,7 +1078,7 @@ class Container implements ArrayAccess, ContainerContract
         $this->instances = [];
     }
 
-    /**
+    /*
      * 清空服务容器中所有绑定及解析的实例
      *
      * @return void
@@ -1092,7 +1092,7 @@ class Container implements ArrayAccess, ContainerContract
         $this->abstractAliases = [];
     }
 
-    /**
+    /*
      * Set the globally available instance of the container.
      *
      * @return static
@@ -1106,7 +1106,7 @@ class Container implements ArrayAccess, ContainerContract
         return static::$instance;
     }
 
-    /**
+    /*
      * Set the shared instance of the container.
      *
      * @param  \Illuminate\Contracts\Container\Container|null  $container
@@ -1117,7 +1117,7 @@ class Container implements ArrayAccess, ContainerContract
         return static::$instance = $container;
     }
 
-    /**
+    /*
      * Determine if a given offset exists.
      *
      * @param  string  $key
@@ -1128,7 +1128,7 @@ class Container implements ArrayAccess, ContainerContract
         return $this->bound($key);
     }
 
-    /**
+    /*
      * Get the value at a given offset.
      *
      * @param  string  $key
@@ -1139,7 +1139,7 @@ class Container implements ArrayAccess, ContainerContract
         return $this->make($key);
     }
 
-    /**
+    /*
      * Set the value at a given offset.
      *
      * @param  string  $key
@@ -1153,7 +1153,7 @@ class Container implements ArrayAccess, ContainerContract
         });
     }
 
-    /**
+    /*
      * Unset the value at a given offset.
      *
      * @param  string  $key
@@ -1164,7 +1164,7 @@ class Container implements ArrayAccess, ContainerContract
         unset($this->bindings[$key], $this->instances[$key], $this->resolved[$key]);
     }
 
-    /**
+    /*
      * Dynamically access container services.
      *
      * @param  string  $key
@@ -1175,7 +1175,7 @@ class Container implements ArrayAccess, ContainerContract
         return $this[$key];
     }
 
-    /**
+    /*
      * Dynamically set container services.
      *
      * @param  string  $key

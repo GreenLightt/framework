@@ -6,14 +6,14 @@ use Illuminate\Contracts\Container\ContextualBindingBuilder as ContextualBinding
 
 class ContextualBindingBuilder implements ContextualBindingBuilderContract
 {
-    /**
+    /*
      * The underlying container instance.
      *
      * @var \Illuminate\Container\Container
      */
     protected $container;
 
-    /**
+    /*
      * The concrete instance.
      *
      * @var string
@@ -27,7 +27,7 @@ class ContextualBindingBuilder implements ContextualBindingBuilderContract
      */
     protected $needs;
 
-    /**
+    /*
      * Create a new contextual binding builder.
      *
      * @param  \Illuminate\Container\Container  $container
@@ -40,7 +40,7 @@ class ContextualBindingBuilder implements ContextualBindingBuilderContract
         $this->container = $container;
     }
 
-    /**
+    /*
      * Define the abstract target that depends on the context.
      *
      * @param  string  $abstract
@@ -53,7 +53,7 @@ class ContextualBindingBuilder implements ContextualBindingBuilderContract
         return $this;
     }
 
-    /**
+    /*
      * Define the implementation for the contextual binding.
      *
      * @param  \Closure|string  $implementation
