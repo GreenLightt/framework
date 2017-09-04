@@ -53,7 +53,7 @@ class ViewServiceProvider extends ServiceProvider
         });
     }
 
-    /**
+    /*
      * Register the view finder implementation.
      *
      * @return void
@@ -65,7 +65,7 @@ class ViewServiceProvider extends ServiceProvider
         });
     }
 
-    /**
+    /*
      * Register the engine resolver instance.
      *
      * @return void

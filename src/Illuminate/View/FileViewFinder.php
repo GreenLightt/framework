@@ -21,7 +21,7 @@ class FileViewFinder implements ViewFinderInterface
      */
     protected $paths;
 
-    /**
+    /*
      * The array of views that have been located.
      *
      * @var array
@@ -60,7 +60,7 @@ class FileViewFinder implements ViewFinderInterface
         }
     }
 
-    /**
+    /*
      * Get the fully qualified location of the view.
      *
      * @param  string  $name
@@ -79,7 +79,7 @@ class FileViewFinder implements ViewFinderInterface
         return $this->views[$name] = $this->findInPaths($name, $this->paths);
     }
 
-    /**
+    /*
      * Get the path to a template with a named path.
      *
      * @param  string  $name
@@ -92,7 +92,7 @@ class FileViewFinder implements ViewFinderInterface
         return $this->findInPaths($view, $this->hints[$namespace]);
     }
 
-    /**
+    /*
      * Get the segments of a template with a named path.
      *
      * @param  string  $name
@@ -115,7 +115,7 @@ class FileViewFinder implements ViewFinderInterface
         return $segments;
     }
 
-    /**
+    /*
      * Find the given view in the list of paths.
      *
      * @param  string  $name
@@ -137,7 +137,7 @@ class FileViewFinder implements ViewFinderInterface
         throw new InvalidArgumentException("View [$name] not found.");
     }
 
-    /**
+    /*
      * Get an array of possible view files.
      *
      * @param  string  $name
@@ -150,7 +150,7 @@ class FileViewFinder implements ViewFinderInterface
         }, $this->extensions);
     }
 
-    /**
+    /*
      * Add a location to the finder.
      *
      * @param  string  $location
@@ -161,7 +161,7 @@ class FileViewFinder implements ViewFinderInterface
         $this->paths[] = $location;
     }
 
-    /**
+    /*
      * Prepend a location to the finder.
      *
      * @param  string  $location
@@ -220,7 +220,7 @@ class FileViewFinder implements ViewFinderInterface
         $this->hints[$namespace] = (array) $hints;
     }
 
-    /**
+    /*
      * Register an extension with the view finder.
      *
      * @param  string  $extension
@@ -235,7 +235,7 @@ class FileViewFinder implements ViewFinderInterface
         array_unshift($this->extensions, $extension);
     }
 
-    /**
+    /*
      * Returns whether or not the view name has any hint information.
      *
      * @param  string  $name
@@ -246,7 +246,7 @@ class FileViewFinder implements ViewFinderInterface
         return strpos($name, static::HINT_PATH_DELIMITER) > 0;
     }
 
-    /**
+    /*
      * Flush the cache of located views.
      *
      * @return void
@@ -256,7 +256,7 @@ class FileViewFinder implements ViewFinderInterface
         $this->views = [];
     }
 
-    /**
+    /*
      * Get the filesystem instance.
      *
      * @return \Illuminate\Filesystem\Filesystem
@@ -266,7 +266,7 @@ class FileViewFinder implements ViewFinderInterface
         return $this->files;
     }
 
-    /**
+    /*
      * Get the active view paths.
      *
      * @return array
@@ -276,8 +276,8 @@ class FileViewFinder implements ViewFinderInterface
         return $this->paths;
     }
 
-    /**
-     * Get the namespace to file path hints.
+    /*
+     * 获取 命名空间与路径的映射关系
      *
      * @return array
      */
