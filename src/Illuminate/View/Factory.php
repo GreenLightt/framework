@@ -20,42 +20,42 @@ class Factory implements FactoryContract
         Concerns\ManagesStacks,
         Concerns\ManagesTranslations;
 
-    /**
+    /*
      * The engine implementation.
      *
      * @var \Illuminate\View\Engines\EngineResolver
      */
     protected $engines;
 
-    /**
+    /*
      * The view finder implementation.
      *
      * @var \Illuminate\View\ViewFinderInterface
      */
     protected $finder;
 
-    /**
+    /*
      * The event dispatcher instance.
      *
      * @var \Illuminate\Contracts\Events\Dispatcher
      */
     protected $events;
 
-    /**
+    /*
      * The IoC container instance.
      *
      * @var \Illuminate\Contracts\Container\Container
      */
     protected $container;
 
-    /**
+    /*
      * Data that should be available to all templates.
      *
      * @var array
      */
     protected $shared = [];
 
-    /**
+    /*
      * The extension to engine bindings.
      *
      * @var array
@@ -80,7 +80,7 @@ class Factory implements FactoryContract
      */
     protected $renderCount = 0;
 
-    /**
+    /*
      * Create a new view factory instance.
      *
      * @param  \Illuminate\View\Engines\EngineResolver  $engines
@@ -337,7 +337,7 @@ class Factory implements FactoryContract
         $this->finder->addLocation($location);
     }
 
-    /**
+    /*
      * Add a new namespace to the loader.
      *
      * @param  string  $namespace
@@ -425,7 +425,7 @@ class Factory implements FactoryContract
         }
     }
 
-    /**
+    /*
      * Get the extension to engine bindings.
      *
      * @return array
@@ -435,7 +435,7 @@ class Factory implements FactoryContract
         return $this->extensions;
     }
 
-    /**
+    /*
      * Get the engine resolver instance.
      *
      * @return \Illuminate\View\Engines\EngineResolver
@@ -445,7 +445,7 @@ class Factory implements FactoryContract
         return $this->engines;
     }
 
-    /**
+    /*
      * Get the view finder instance.
      *
      * @return \Illuminate\View\ViewFinderInterface
@@ -455,7 +455,7 @@ class Factory implements FactoryContract
         return $this->finder;
     }
 
-    /**
+    /*
      * Set the view finder instance.
      *
      * @param  \Illuminate\View\ViewFinderInterface  $finder
@@ -466,7 +466,7 @@ class Factory implements FactoryContract
         $this->finder = $finder;
     }
 
-    /**
+    /*
      * Flush the cache of views located by the finder.
      *
      * @return void
@@ -476,7 +476,7 @@ class Factory implements FactoryContract
         $this->getFinder()->flush();
     }
 
-    /**
+    /*
      * Get the event dispatcher instance.
      *
      * @return \Illuminate\Contracts\Events\Dispatcher
@@ -486,7 +486,7 @@ class Factory implements FactoryContract
         return $this->events;
     }
 
-    /**
+    /*
      * Set the event dispatcher instance.
      *
      * @param  \Illuminate\Contracts\Events\Dispatcher  $events
@@ -497,7 +497,7 @@ class Factory implements FactoryContract
         $this->events = $events;
     }
 
-    /**
+    /*
      * Get the IoC container instance.
      *
      * @return \Illuminate\Contracts\Container\Container
@@ -507,7 +507,7 @@ class Factory implements FactoryContract
         return $this->container;
     }
 
-    /**
+    /*
      * Set the IoC container instance.
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
@@ -518,7 +518,7 @@ class Factory implements FactoryContract
         $this->container = $container;
     }
 
-    /**
+    /*
      * Get an item from the shared data.
      *
      * @param  string  $key
@@ -530,7 +530,7 @@ class Factory implements FactoryContract
         return Arr::get($this->shared, $key, $default);
     }
 
-    /**
+    /*
      * Get all of the shared data for the environment.
      *
      * @return array

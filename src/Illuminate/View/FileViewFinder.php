@@ -7,14 +7,14 @@ use Illuminate\Filesystem\Filesystem;
 
 class FileViewFinder implements ViewFinderInterface
 {
-    /**
+    /*
      * The filesystem instance.
      *
      * @var \Illuminate\Filesystem\Filesystem
      */
     protected $files;
 
-    /**
+    /*
      * The array of active view paths.
      *
      * @var array
@@ -28,21 +28,21 @@ class FileViewFinder implements ViewFinderInterface
      */
     protected $views = [];
 
-    /**
+    /*
      * The namespace to file path hints.
      *
      * @var array
      */
     protected $hints = [];
 
-    /**
+    /*
      * Register a view extension with the finder.
      *
      * @var array
      */
     protected $extensions = ['blade.php', 'php', 'css'];
 
-    /**
+    /*
      * Create a new file view loader instance.
      *
      * @param  \Illuminate\Filesystem\Filesystem  $files
@@ -172,7 +172,7 @@ class FileViewFinder implements ViewFinderInterface
         array_unshift($this->paths, $location);
     }
 
-    /**
+    /*
      * Add a namespace hint to the finder.
      *
      * @param  string  $namespace
@@ -190,7 +190,7 @@ class FileViewFinder implements ViewFinderInterface
         $this->hints[$namespace] = $hints;
     }
 
-    /**
+    /*
      * Prepend a namespace hint to the finder.
      *
      * @param  string  $namespace
@@ -208,7 +208,7 @@ class FileViewFinder implements ViewFinderInterface
         $this->hints[$namespace] = $hints;
     }
 
-    /**
+    /*
      * Replace the namespace hints for the given namespace.
      *
      * @param  string  $namespace
@@ -286,7 +286,7 @@ class FileViewFinder implements ViewFinderInterface
         return $this->hints;
     }
 
-    /**
+    /*
      * Get registered extensions.
      *
      * @return array
