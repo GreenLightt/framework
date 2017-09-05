@@ -29,6 +29,7 @@ class PhpEngine implements EngineInterface
      */
     protected function evaluatePath($__path, $__data)
     {
+        // 缓冲区块的当前位置
         $obLevel = ob_get_level();
 
         ob_start();
@@ -49,7 +50,7 @@ class PhpEngine implements EngineInterface
         return ltrim(ob_get_clean());
     }
 
-    /**
+    /*
      * Handle a view exception.
      *
      * @param  \Exception  $e

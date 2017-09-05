@@ -16,42 +16,42 @@ use Illuminate\Contracts\View\View as ViewContract;
 
 class View implements ArrayAccess, ViewContract
 {
-    /**
+    /*
      * The view factory instance.
      *
      * @var \Illuminate\View\Factory
      */
     protected $factory;
 
-    /**
+    /*
      * The engine implementation.
      *
      * @var \Illuminate\View\Engines\EngineInterface
      */
     protected $engine;
 
-    /**
+    /*
      * The name of the view.
      *
      * @var string
      */
     protected $view;
 
-    /**
+    /*
      * The array of view data.
      *
      * @var array
      */
     protected $data;
 
-    /**
+    /*
      * The path to the view file.
      *
      * @var string
      */
     protected $path;
 
-    /**
+    /*
      * Create a new view instance.
      *
      * @param  \Illuminate\View\Factory  $factory

@@ -192,7 +192,7 @@ class Factory implements FactoryContract
         return $result;
     }
 
-    /**
+    /*
      * Normalize a view name.
      *
      * @param  string $name
@@ -203,7 +203,7 @@ class Factory implements FactoryContract
         return ViewName::normalize($name);
     }
 
-    /**
+    /*
      * Parse the given data into a raw array.
      *
      * @param  mixed  $data
@@ -214,7 +214,7 @@ class Factory implements FactoryContract
         return $data instanceof Arrayable ? $data->toArray() : $data;
     }
 
-    /**
+    /*
      * Create a new view instance from the given arguments.
      *
      * @param  string  $view
@@ -227,7 +227,7 @@ class Factory implements FactoryContract
         return new View($this, $this->getEngineFromPath($path), $view, $path, $data);
     }
 
-    /**
+    /*
      * Determine if a given view exists.
      *
      * @param  string  $view
@@ -244,7 +244,7 @@ class Factory implements FactoryContract
         return true;
     }
 
-    /**
+    /*
      * Get the appropriate view engine for the given path.
      *
      * @param  string  $path
@@ -263,7 +263,7 @@ class Factory implements FactoryContract
         return $this->engines->resolve($engine);
     }
 
-    /**
+    /*
      * Get the extension used by the view file.
      *
      * @param  string  $path
@@ -278,7 +278,7 @@ class Factory implements FactoryContract
         });
     }
 
-    /**
+    /*
      * Add a piece of shared data to the environment.
      *
      * @param  array|string  $key
@@ -296,7 +296,7 @@ class Factory implements FactoryContract
         return $value;
     }
 
-    /**
+    /*
      * Increment the rendering counter.
      *
      * @return void
@@ -306,7 +306,7 @@ class Factory implements FactoryContract
         $this->renderCount++;
     }
 
-    /**
+    /*
      * Decrement the rendering counter.
      *
      * @return void
@@ -326,7 +326,7 @@ class Factory implements FactoryContract
         return $this->renderCount == 0;
     }
 
-    /**
+    /*
      * Add a location to the array of view locations.
      *
      * @param  string  $location
@@ -351,7 +351,7 @@ class Factory implements FactoryContract
         return $this;
     }
 
-    /**
+    /*
      * Prepend a new namespace to the loader.
      *
      * @param  string  $namespace
@@ -365,7 +365,7 @@ class Factory implements FactoryContract
         return $this;
     }
 
-    /**
+    /*
      * Replace the namespace hints for the given namespace.
      *
      * @param  string  $namespace
