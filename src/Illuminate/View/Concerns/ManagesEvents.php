@@ -168,7 +168,7 @@ trait ManagesEvents
         $this->events->listen($name, $callback);
     }
 
-    /**
+    /*
      * Call the composer for a given view.
      *
      * @param  \Illuminate\Contracts\View\View  $view
@@ -179,7 +179,7 @@ trait ManagesEvents
         $this->events->fire('composing: '.$view->name(), [$view]);
     }
 
-    /**
+    /*
      * Call the creator for a given view.
      *
      * @param  \Illuminate\Contracts\View\View  $view
