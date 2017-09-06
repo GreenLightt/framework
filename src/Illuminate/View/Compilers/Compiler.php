@@ -21,7 +21,7 @@ abstract class Compiler
      */
     protected $cachePath;
 
-    /**
+    /*
      * Create a new compiler instance.
      *
      * @param  \Illuminate\Filesystem\Filesystem  $files
@@ -40,7 +40,7 @@ abstract class Compiler
         $this->cachePath = $cachePath;
     }
 
-    /**
+    /*
      * Get the path to the compiled version of a view.
      *
      * @param  string  $path
@@ -51,7 +51,7 @@ abstract class Compiler
         return $this->cachePath.'/'.sha1($path).'.php';
     }
 
-    /**
+    /*
      * Determine if the view at the given path is expired.
      *
      * @param  string  $path

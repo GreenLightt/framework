@@ -55,14 +55,14 @@ class BladeCompiler extends Compiler implements CompilerInterface
         'Echos',
     ];
 
-    /**
+    /*
      * Array of opening and closing tags for raw echos.
      *
      * @var array
      */
     protected $rawTags = ['{!!', '!!}'];
 
-    /**
+    /*
      * Array of opening and closing tags for regular echos.
      *
      * @var array

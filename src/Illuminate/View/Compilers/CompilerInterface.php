@@ -4,7 +4,7 @@ namespace Illuminate\View\Compilers;
 
 interface CompilerInterface
 {
-    /**
+    /*
      * Get the path to the compiled version of a view.
      *
      * @param  string  $path
@@ -12,7 +12,7 @@ interface CompilerInterface
      */
     public function getCompiledPath($path);
 
-    /**
+    /*
      * Determine if the given view is expired.
      *
      * @param  string  $path
