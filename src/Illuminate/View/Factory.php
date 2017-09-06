@@ -97,7 +97,7 @@ class Factory implements FactoryContract
         $this->share('__env', $this);
     }
 
-    /**
+    /*
      * Get the evaluated view contents for the given view.
      *
      * @param  string  $path
@@ -114,7 +114,7 @@ class Factory implements FactoryContract
         });
     }
 
-    /**
+    /*
      * Get the evaluated view contents for the given view.
      *
      * @param  string  $view
@@ -138,7 +138,7 @@ class Factory implements FactoryContract
         });
     }
 
-    /**
+    /*
      * Get the rendered content of the view based on a given condition.
      *
      * @param  bool  $condition
@@ -156,7 +156,7 @@ class Factory implements FactoryContract
         return $this->make($view, $this->parseData($data), $mergeData)->render();
     }
 
-    /**
+    /*
      * Get the rendered contents of a partial from a loop.
      *
      * @param  string  $view
@@ -316,7 +316,7 @@ class Factory implements FactoryContract
         $this->renderCount--;
     }
 
-    /**
+    /*
      * Check if there are no active render operations.
      *
      * @return bool
@@ -379,7 +379,7 @@ class Factory implements FactoryContract
         return $this;
     }
 
-    /**
+    /*
      * Register a valid view extension and its engine.
      *
      * @param  string    $extension
@@ -413,7 +413,7 @@ class Factory implements FactoryContract
         $this->flushStacks();
     }
 
-    /**
+    /*
      * Flush all of the section contents if done rendering.
      *
      * @return void

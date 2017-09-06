@@ -71,7 +71,7 @@ class View implements ArrayAccess, ViewContract
         $this->data = $data instanceof Arrayable ? $data->toArray() : (array) $data;
     }
 
-    /**
+    /*
      * Get the string contents of the view.
      *
      * @param  callable|null  $callback
@@ -103,7 +103,7 @@ class View implements ArrayAccess, ViewContract
         }
     }
 
-    /**
+    /*
      * Get the contents of the view instance.
      *
      * @return string
@@ -127,7 +127,7 @@ class View implements ArrayAccess, ViewContract
         return $contents;
     }
 
-    /**
+    /*
      * Get the evaluated contents of the view.
      *
      * @return string
@@ -137,7 +137,7 @@ class View implements ArrayAccess, ViewContract
         return $this->engine->get($this->path, $this->gatherData());
     }
 
-    /**
+    /*
      * Get the data bound to the view instance.
      *
      * @return array
@@ -167,8 +167,8 @@ class View implements ArrayAccess, ViewContract
         });
     }
 
-    /**
-     * Add a piece of data to the view.
+    /*
+     * 添加 data 数据
      *
      * @param  string|array  $key
      * @param  mixed   $value
@@ -185,7 +185,7 @@ class View implements ArrayAccess, ViewContract
         return $this;
     }
 
-    /**
+    /*
      * Add a view instance to the view data.
      *
      * @param  string  $key
@@ -198,7 +198,7 @@ class View implements ArrayAccess, ViewContract
         return $this->with($key, $this->factory->make($view, $data));
     }
 
-    /**
+    /*
      * Add validation errors to the view.
      *
      * @param  \Illuminate\Contracts\Support\MessageProvider|array  $provider
@@ -211,7 +211,7 @@ class View implements ArrayAccess, ViewContract
         return $this;
     }
 
-    /**
+    /*
      * Format the given message provider into a MessageBag.
      *
      * @param  \Illuminate\Contracts\Support\MessageProvider|array  $provider
@@ -223,8 +223,8 @@ class View implements ArrayAccess, ViewContract
                         ? $provider->getMessageBag() : new MessageBag((array) $provider);
     }
 
-    /**
-     * Get the name of the view.
+    /*
+     * 获取视图名
      *
      * @return string
      */
@@ -233,8 +233,8 @@ class View implements ArrayAccess, ViewContract
         return $this->getName();
     }
 
-    /**
-     * Get the name of the view.
+    /*
+     * 获取视图名
      *
      * @return string
      */
@@ -243,8 +243,8 @@ class View implements ArrayAccess, ViewContract
         return $this->view;
     }
 
-    /**
-     * Get the array of view data.
+    /*
+     * 获取视图所需要的数据
      *
      * @return array
      */
@@ -253,8 +253,8 @@ class View implements ArrayAccess, ViewContract
         return $this->data;
     }
 
-    /**
-     * Get the path to the view file.
+    /*
+     * 获取视图文件的路径
      *
      * @return string
      */
@@ -263,8 +263,8 @@ class View implements ArrayAccess, ViewContract
         return $this->path;
     }
 
-    /**
-     * Set the path to the view.
+    /*
+     * 设置视图文件的路径
      *
      * @param  string  $path
      * @return void
@@ -274,8 +274,8 @@ class View implements ArrayAccess, ViewContract
         $this->path = $path;
     }
 
-    /**
-     * Get the view factory instance.
+    /*
+     * 获取 视图管理类(view factory) 实例
      *
      * @return \Illuminate\View\Factory
      */
@@ -284,8 +284,8 @@ class View implements ArrayAccess, ViewContract
         return $this->factory;
     }
 
-    /**
-     * Get the view's rendering engine.
+    /*
+     * 获取视图对应的引擎解析器
      *
      * @return \Illuminate\View\Engines\EngineInterface
      */
@@ -294,7 +294,7 @@ class View implements ArrayAccess, ViewContract
         return $this->engine;
     }
 
-    /**
+    /*
      * Determine if a piece of data is bound.
      *
      * @param  string  $key
@@ -305,7 +305,7 @@ class View implements ArrayAccess, ViewContract
         return array_key_exists($key, $this->data);
     }
 
-    /**
+    /*
      * Get a piece of bound data to the view.
      *
      * @param  string  $key
@@ -316,7 +316,7 @@ class View implements ArrayAccess, ViewContract
         return $this->data[$key];
     }
 
-    /**
+    /*
      * Set a piece of data on the view.
      *
      * @param  string  $key
@@ -328,7 +328,7 @@ class View implements ArrayAccess, ViewContract
         $this->with($key, $value);
     }
 
-    /**
+    /*
      * Unset a piece of data from the view.
      *
      * @param  string  $key
@@ -339,7 +339,7 @@ class View implements ArrayAccess, ViewContract
         unset($this->data[$key]);
     }
 
-    /**
+    /*
      * Get a piece of data from the view.
      *
      * @param  string  $key
@@ -350,7 +350,7 @@ class View implements ArrayAccess, ViewContract
         return $this->data[$key];
     }
 
-    /**
+    /*
      * Set a piece of data on the view.
      *
      * @param  string  $key
@@ -362,7 +362,7 @@ class View implements ArrayAccess, ViewContract
         $this->with($key, $value);
     }
 
-    /**
+    /*
      * Check if a piece of data is bound to the view.
      *
      * @param  string  $key
@@ -373,7 +373,7 @@ class View implements ArrayAccess, ViewContract
         return isset($this->data[$key]);
     }
 
-    /**
+    /*
      * Remove a piece of bound data from the view.
      *
      * @param  string  $key
@@ -384,8 +384,8 @@ class View implements ArrayAccess, ViewContract
         unset($this->data[$key]);
     }
 
-    /**
-     * Dynamically bind parameters to the view.
+    /*
+     * 动态绑定数据
      *
      * @param  string  $method
      * @param  array   $parameters
@@ -402,7 +402,7 @@ class View implements ArrayAccess, ViewContract
         return $this->with(Str::snake(substr($method, 4)), $parameters[0]);
     }
 
-    /**
+    /*
      * Get the string contents of the view.
      *
      * @return string
