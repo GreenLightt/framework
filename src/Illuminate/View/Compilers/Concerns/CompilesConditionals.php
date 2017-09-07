@@ -15,7 +15,7 @@ trait CompilesConditionals
         return "<?php if (! empty(trim(\$__env->yieldContent{$expression}))): ?>";
     }
 
-    /**
+    /*
      * Compile the if statements into valid PHP.
      *
      * @param  string  $expression
@@ -26,7 +26,7 @@ trait CompilesConditionals
         return "<?php if{$expression}: ?>";
     }
 
-    /**
+    /*
      * Compile the unless statements into valid PHP.
      *
      * @param  string  $expression
@@ -37,7 +37,7 @@ trait CompilesConditionals
         return "<?php if (! {$expression}): ?>";
     }
 
-    /**
+    /*
      * Compile the else-if statements into valid PHP.
      *
      * @param  string  $expression
@@ -48,7 +48,7 @@ trait CompilesConditionals
         return "<?php elseif{$expression}: ?>";
     }
 
-    /**
+    /*
      * Compile the else statements into valid PHP.
      *
      * @return string
@@ -58,7 +58,7 @@ trait CompilesConditionals
         return '<?php else: ?>';
     }
 
-    /**
+    /*
      * Compile the end-if statements into valid PHP.
      *
      * @return string
@@ -68,7 +68,7 @@ trait CompilesConditionals
         return '<?php endif; ?>';
     }
 
-    /**
+    /*
      * Compile the end-unless statements into valid PHP.
      *
      * @return string
@@ -78,7 +78,7 @@ trait CompilesConditionals
         return '<?php endif; ?>';
     }
 
-    /**
+    /*
      * Compile the if-isset statements into valid PHP.
      *
      * @param  string  $expression
@@ -89,7 +89,7 @@ trait CompilesConditionals
         return "<?php if(isset{$expression}): ?>";
     }
 
-    /**
+    /*
      * Compile the end-isset statements into valid PHP.
      *
      * @return string

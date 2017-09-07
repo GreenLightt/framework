@@ -11,7 +11,7 @@ trait CompilesLoops
      */
     protected $forElseCounter = 0;
 
-    /**
+    /*
      * Compile the for-else statements into valid PHP.
      *
      * @param  string  $expression
@@ -34,7 +34,7 @@ trait CompilesLoops
         return "<?php {$empty} = true; {$initLoop} foreach(\$__currentLoopData as {$iteration}): {$iterateLoop} {$empty} = false; ?>";
     }
 
-    /**
+    /*
      * Compile the for-else-empty and empty statements into valid PHP.
      *
      * @param  string  $expression
@@ -71,7 +71,7 @@ trait CompilesLoops
         return '<?php endif; ?>';
     }
 
-    /**
+    /*
      * Compile the for statements into valid PHP.
      *
      * @param  string  $expression
@@ -82,7 +82,7 @@ trait CompilesLoops
         return "<?php for{$expression}: ?>";
     }
 
-    /**
+    /*
      * Compile the for-each statements into valid PHP.
      *
      * @param  string  $expression
@@ -103,7 +103,7 @@ trait CompilesLoops
         return "<?php {$initLoop} foreach(\$__currentLoopData as {$iteration}): {$iterateLoop} ?>";
     }
 
-    /**
+    /*
      * Compile the break statements into valid PHP.
      *
      * @param  string  $expression
@@ -120,7 +120,7 @@ trait CompilesLoops
         return '<?php break; ?>';
     }
 
-    /**
+    /*
      * Compile the continue statements into valid PHP.
      *
      * @param  string  $expression
@@ -137,7 +137,7 @@ trait CompilesLoops
         return '<?php continue; ?>';
     }
 
-    /**
+    /*
      * Compile the end-for statements into valid PHP.
      *
      * @return string
@@ -147,7 +147,7 @@ trait CompilesLoops
         return '<?php endfor; ?>';
     }
 
-    /**
+    /*
      * Compile the end-for-each statements into valid PHP.
      *
      * @return string
@@ -157,7 +157,7 @@ trait CompilesLoops
         return '<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>';
     }
 
-    /**
+    /*
      * Compile the while statements into valid PHP.
      *
      * @param  string  $expression
@@ -168,7 +168,7 @@ trait CompilesLoops
         return "<?php while{$expression}: ?>";
     }
 
-    /**
+    /*
      * Compile the end-while statements into valid PHP.
      *
      * @return string

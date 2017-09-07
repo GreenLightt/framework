@@ -4,7 +4,7 @@ namespace Illuminate\View\Compilers\Concerns;
 
 trait CompilesIncludes
 {
-    /**
+    /*
      * Compile the each statements into valid PHP.
      *
      * @param  string  $expression

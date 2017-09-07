@@ -4,7 +4,7 @@ namespace Illuminate\View\Compilers\Concerns;
 
 trait CompilesEchos
 {
-    /**
+    /*
      * Compile Blade echos into valid PHP.
      *
      * @param  string  $value
@@ -19,7 +19,7 @@ trait CompilesEchos
         return $value;
     }
 
-    /**
+    /*
      * Get the echo methods in the proper order for compilation.
      *
      * @return array
@@ -27,13 +27,13 @@ trait CompilesEchos
     protected function getEchoMethods()
     {
         return [
-            'compileRawEchos',
-            'compileEscapedEchos',
-            'compileRegularEchos',
+            'compileRawEchos', // {!! !!}
+            'compileEscapedEchos', // {{{ }}}
+            'compileRegularEchos', // {{ }}
         ];
     }
 
-    /**
+    /*
      * Compile the "raw" echo statements.
      *
      * @param  string  $value
@@ -52,8 +52,9 @@ trait CompilesEchos
         return preg_replace_callback($pattern, $callback, $value);
     }
 
-    /**
+    /*
      * Compile the "regular" echo statements.
+     * 正则替换 {{ }}
      *
      * @param  string  $value
      * @return string
@@ -73,8 +74,9 @@ trait CompilesEchos
         return preg_replace_callback($pattern, $callback, $value);
     }
 
-    /**
+    /*
      * Compile the escaped echo statements.
+     * 正则替换 {{{ }}}
      *
      * @param  string  $value
      * @return string
@@ -92,8 +94,9 @@ trait CompilesEchos
         return preg_replace_callback($pattern, $callback, $value);
     }
 
-    /**
+    /*
      * Compile the default values for the echo statement.
+     * 三目运算符替换
      *
      * @param  string  $value
      * @return string

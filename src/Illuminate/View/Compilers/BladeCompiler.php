@@ -7,11 +7,11 @@ use Illuminate\Support\Str;
 
 class BladeCompiler extends Compiler implements CompilerInterface
 {
-    use Concerns\CompilesAuthorizations,
+    use Concerns\CompilesAuthorizations,  // 权限检查
         Concerns\CompilesComments,
         Concerns\CompilesComponents,
         Concerns\CompilesConditionals,
-        Concerns\CompilesEchos,
+        Concerns\CompilesEchos,           // 输出编译
         Concerns\CompilesIncludes,
         Concerns\CompilesInjections,
         Concerns\CompilesLayouts,
@@ -49,10 +49,10 @@ class BladeCompiler extends Compiler implements CompilerInterface
      * @var array
      */
     protected $compilers = [
-        'Comments',
-        'Extensions',
-        'Statements',
-        'Echos',
+        'Comments',   // 注释部分
+        'Extensions', // 扩展部分
+        'Statements', // 语句块 （@ 开头的指令）
+        'Echos',      // 输出
     ];
 
     /*
@@ -69,14 +69,15 @@ class BladeCompiler extends Compiler implements CompilerInterface
      */
     protected $contentTags = ['{{', '}}'];
 
-    /**
+    /*
      * Array of opening and closing tags for escaped echos.
+     * 内部是三元表达式的简写
      *
      * @var array
      */
     protected $escapedTags = ['{{{', '}}}'];
 
-    /**
+    /*
      * The "regular" / legacy echo string format.
      *
      * @var string
@@ -104,7 +105,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
      */
     protected $verbatimBlocks = [];
 
-    /**
+    /*
      * Compile the view at the given path.
      *
      * @param  string  $path
@@ -123,7 +124,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         }
     }
 
-    /**
+    /*
      * Get the path currently being compiled.
      *
      * @return string
@@ -133,7 +134,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         return $this->path;
     }
 
-    /**
+    /*
      * Set the path currently being compiled.
      *
      * @param  string  $path
@@ -225,7 +226,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
                 .PHP_EOL.implode(PHP_EOL, array_reverse($this->footer));
     }
 
-    /**
+    /*
      * Parse the tokens from the template.
      *
      * @param  array  $token
@@ -324,7 +325,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         return $expression;
     }
 
-    /**
+    /*
      * Register a custom Blade compiler.
      *
      * @param  callable  $compiler
@@ -335,7 +336,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         $this->extensions[] = $compiler;
     }
 
-    /**
+    /*
      * Get the extensions used by the compiler.
      *
      * @return array
@@ -367,7 +368,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         return $this->customDirectives;
     }
 
-    /**
+    /*
      * Set the echo format to be used by the compiler.
      *
      * @param  string  $format

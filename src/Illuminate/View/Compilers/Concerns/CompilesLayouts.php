@@ -30,7 +30,7 @@ trait CompilesLayouts
         return '';
     }
 
-    /**
+    /*
      * Compile the section statements into valid PHP.
      *
      * @param  string  $expression
@@ -53,7 +53,7 @@ trait CompilesLayouts
         return ViewFactory::parentPlaceholder($this->lastSection ?: '');
     }
 
-    /**
+    /*
      * Compile the yield statements into valid PHP.
      *
      * @param  string  $expression
@@ -64,7 +64,7 @@ trait CompilesLayouts
         return "<?php echo \$__env->yieldContent{$expression}; ?>";
     }
 
-    /**
+    /*
      * Compile the show statements into valid PHP.
      *
      * @return string
@@ -74,7 +74,7 @@ trait CompilesLayouts
         return '<?php echo $__env->yieldSection(); ?>';
     }
 
-    /**
+    /*
      * Compile the append statements into valid PHP.
      *
      * @return string
