@@ -4,7 +4,7 @@ namespace Illuminate\View\Compilers\Concerns;
 
 trait CompilesTranslations
 {
-    /**
+    /*
      * Compile the lang statements into valid PHP.
      *
      * @param  string  $expression
@@ -21,7 +21,7 @@ trait CompilesTranslations
         }
     }
 
-    /**
+    /*
      * Compile the end-lang statements into valid PHP.
      *
      * @return string
@@ -31,7 +31,7 @@ trait CompilesTranslations
         return '<?php echo $__env->renderTranslation(); ?>';
     }
 
-    /**
+    /*
      * Compile the choice statements into valid PHP.
      *
      * @param  string  $expression

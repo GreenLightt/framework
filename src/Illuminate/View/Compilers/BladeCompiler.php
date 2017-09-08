@@ -8,17 +8,17 @@ use Illuminate\Support\Str;
 class BladeCompiler extends Compiler implements CompilerInterface
 {
     use Concerns\CompilesAuthorizations,  // 权限检查
-        Concerns\CompilesComments,
+        Concerns\CompilesComments,        // 注释编译
         Concerns\CompilesComponents,
-        Concerns\CompilesConditionals,
+        Concerns\CompilesConditionals,    // 与判断语句相关
         Concerns\CompilesEchos,           // 输出编译
         Concerns\CompilesIncludes,
         Concerns\CompilesInjections,
         Concerns\CompilesLayouts,
-        Concerns\CompilesLoops,
-        Concerns\CompilesRawPhp,
+        Concerns\CompilesLoops,           // 与循环相关
+        Concerns\CompilesRawPhp,          // 与原生PHP语句相关
         Concerns\CompilesStacks,
-        Concerns\CompilesTranslations;
+        Concerns\CompilesTranslations;    // 与本地化翻译相关
 
     /**
      * All of the registered extensions.
@@ -182,7 +182,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         return $result;
     }
 
-    /**
+    /*
      * Store the verbatim blocks and replace them with a temporary placeholder.
      *
      * @param  string  $value
@@ -245,7 +245,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         return $content;
     }
 
-    /**
+    /*
      * Execute the user defined extensions.
      *
      * @param  string  $value
@@ -260,7 +260,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         return $value;
     }
 
-    /**
+    /*
      * Compile Blade statements that start with "@".
      *
      * @param  string  $value
@@ -275,7 +275,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         );
     }
 
-    /**
+    /*
      * Compile a single Blade @ statement.
      *
      * @param  array  $match
@@ -294,7 +294,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         return isset($match[3]) ? $match[0] : $match[0].$match[2];
     }
 
-    /**
+    /*
      * Call the given directive with the given value.
      *
      * @param  string  $name
@@ -310,7 +310,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         return call_user_func($this->customDirectives[$name], trim($value));
     }
 
-    /**
+    /*
      * Strip the parentheses from the given expression.
      *
      * @param  string  $expression
@@ -346,7 +346,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         return $this->extensions;
     }
 
-    /**
+    /*
      * Register a handler for custom directives.
      *
      * @param  string  $name
@@ -358,7 +358,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         $this->customDirectives[$name] = $handler;
     }
 
-    /**
+    /*
      * Get the list of custom directives.
      *
      * @return array
