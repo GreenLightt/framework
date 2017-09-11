@@ -12,12 +12,12 @@ class BladeCompiler extends Compiler implements CompilerInterface
         Concerns\CompilesComponents,
         Concerns\CompilesConditionals,    // 与判断语句相关
         Concerns\CompilesEchos,           // 输出编译
-        Concerns\CompilesIncludes,
-        Concerns\CompilesInjections,
-        Concerns\CompilesLayouts,
+        Concerns\CompilesIncludes,        // 嵌入文件
+        Concerns\CompilesInjections,      // 服务注入
+        Concerns\CompilesLayouts,         // 和布局相关
         Concerns\CompilesLoops,           // 与循环相关
         Concerns\CompilesRawPhp,          // 与原生PHP语句相关
-        Concerns\CompilesStacks,
+        Concerns\CompilesStacks,          // 和堆栈相关
         Concerns\CompilesTranslations;    // 与本地化翻译相关
 
     /**
