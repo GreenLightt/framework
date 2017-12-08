@@ -116,7 +116,7 @@ trait ManagesComponents
                     [$currentSlot] = new HtmlString(trim(ob_get_clean()));
     }
 
-    /**
+    /*
      * Get the index for the current component.
      *
      * @return int

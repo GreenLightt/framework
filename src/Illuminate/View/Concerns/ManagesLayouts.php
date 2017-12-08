@@ -27,7 +27,7 @@ trait ManagesLayouts
      */
     protected static $parentPlaceholder = [];
 
-    /**
+    /*
      * Start injecting content into a section.
      *
      * @param  string  $section
@@ -45,7 +45,7 @@ trait ManagesLayouts
         }
     }
 
-    /**
+    /*
      * Inject inline content into a section.
      *
      * @param  string  $section
@@ -71,7 +71,7 @@ trait ManagesLayouts
         return $this->yieldContent($this->stopSection());
     }
 
-    /**
+    /*
      * Stop injecting content into a section.
      *
      * @param  bool  $overwrite
@@ -156,7 +156,7 @@ trait ManagesLayouts
         );
     }
 
-    /**
+    /*
      * Get the parent placeholder for the current request.
      *
      * @param  string  $section
